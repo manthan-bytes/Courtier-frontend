@@ -1,6 +1,6 @@
 import React from 'react';
 import './config/axios.config';
-import './App.css';
+import './styles/App.scss';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouting from './routing/AppRouting';
 import Header from './common/header';

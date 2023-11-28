@@ -1,0 +1,67 @@
+// Color Variables
+$black: #000000;
+$white: #ffffff;
+$Accent: #8a6fab;
+$Font_Primary: #181f2a;
+$Secondary_Text: #616773;
+$gray_extra_light: #f4f4f4;
+$Border: #e2e4e8;
+$Error: #e22a34;
+$Blue_Primary: #e45017;
+$Placeholder_Text: #8b93a1;
+$Light_Accent: #fef6f3;
+$Light_Text_BG: #f8f9fa;
+$Dark_BG: #4D4E4E;
+$In_progress: #ED8A00;
+$Secondary_light: #FBF9FF;
+$Light_Progress: #FFFAE5;
+$Light_Success: #E9FDF2;
+$Light_Blue: #DFE0DF;
+$Light_Error: #FDEEEF;
+$Pending: #FBA320;
+$Approved:#2AAD6C;
+$Rejected: #E43131;
+$white_light: #FAFAFA;
+$Blue_dark: #714FF6;
+$Blue_light: #F3EFFB;
+$Type_20percentage:rgb(24 31 42 / 20%);
+
+// Custom Scrollbar Mixins
+@mixin scrollbar($thumb, $track) {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $thumb $track;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $Light_Blue;
+    border-radius: 6px;
+    border: 0px solid $track;
+  }
+}
+
+// SCREEN SIZES AND BREAKPOINTS
+$screen-xs-min: 480px !default; // Extra-small screen / phone
+$screen-sm-min: 768px !default; // Small screen / tablet
+$screen-md-min: 1025px !default; // Medium screen / desktop
+$screen-lg-min: 1366px !default; // Large screen / wide desktop
+$screen-xl-min: 1600px !default; // Large screen devices
+$screen-xxl-min: 1800px !default; // Large screen devices
+
+// Provide a maximum so media queries do not overlap when required
+$screen-xxs-max: ($screen-xs-min - 1) !default; // Below from 479px
+$screen-xs-max: ($screen-sm-min - 1) !default; // Below from 767px
+$screen-sm-max: ($screen-md-min - 1) !default; // Below from 1024px
+$screen-991: (991px) !default; // Below from 991px
+$screen-md-max: ($screen-lg-min - 1) !default; // Below from 1365px
+$screen-1199: (1199px) !default; // Below from 1199px
+$screen-lg-max: ($screen-xl-min - 1) !default; // Below from 1599px
+$screen-xl-max: 1800px !default; // Below from 1799px
