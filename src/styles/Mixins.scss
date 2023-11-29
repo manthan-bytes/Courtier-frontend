@@ -1,0 +1,118 @@
+@mixin font-weight($font-weight:400) {
+    font-weight: $font-weight;
+}
+
+@mixin heading-1() {
+    @include font-weight(700);
+    font-size: 3.75vw;
+    font-style: normal;
+    line-height: 143%;
+    @media (max-width: $screen-xs-max) {
+        font-size:30px;
+    }
+}
+
+@mixin heading-2() {
+    @include font-weight(700);
+    font-size: 2.5vw;
+    font-style: normal;
+    line-height: 150%;
+    @media (max-width: $screen-xs-max) {
+        font-size:25px;
+    }
+}
+
+@mixin heading-3() {
+    @include font-weight(700);
+    font-size: 24px;
+    font-style: normal;
+    line-height: 150%;
+    @media (max-width:$screen-xs-max) {
+        font-size: 20px;
+    }
+}
+
+@mixin theme_btn {
+    position: relative;
+    font-size: 18px;
+    line-height: 150%;
+    font-style: normal;
+    @include font-weight(700);
+    color: $black;
+    border:solid 1px $Border;
+    padding: 17px 57px;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.6s;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 0 24px;
+    outline: none;
+    z-index: 1;
+    letter-spacing: 1.08px;
+    background-size: 300% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    @media (max-width: $screen-1199) {
+        margin: 0 12px;
+    }
+    @media (max-width: $screen-xs-max) {
+        font-size: 16px;
+        padding: 12px 40px;
+        letter-spacing: 1px;
+        margin: 0 8px;
+    }
+    &:hover {
+        color: $white;
+        background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1); 
+        background-position: 100% 0;
+    }
+    &.blue_btn {
+        background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1);
+        border: none;
+        color: $white;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        background-size: 300% 100%;
+        &:hover {
+            background-position: 100% 0;
+        }
+    }
+}
+
+@mixin form_control {
+    border-radius: 8px;
+    border: 1px solid $Border_light;
+    background:$white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: $Font_Primary;
+    height: 72px;
+    box-shadow: none;
+    outline: none;
+    padding: 20px 24px;
+    @media (max-width: $screen-xs-max) {
+        padding: 10px 15px;
+        height: 50px;
+    }
+    &::-webkit-input-placeholder {
+        color: $Font_Primary;
+    }
+    &::-ms-input-placeholder {
+        color: $Font_Primary;
+    }
+    &::placeholder {
+        color: $Font_Primary;
+    }
+    &:focus {
+        border-color:$Border_light_focus;
+    }
+
+}
+/* Placeholder */
