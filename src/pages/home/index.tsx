@@ -5,6 +5,7 @@ import './index.scss'
 import volumeoff from '../../assets/images/volumeoff-icon.svg';
 import volumeon from '../../assets/images/volumeon-icon.svg';
 import btnloader from '../../assets/images/btn-loader.svg';
+import { TEXT } from '../../core/constants/headingText';
 
 const Home = () => {
   return (
@@ -15,16 +16,16 @@ const Home = () => {
       <div className="container">
         <div className="custom-row">
           <div className="banner-content-block">
-            <span>Simplified Real Estate </span>
-            <h1>A digital way to <br/>buying and selling property</h1>
-            <Link to="/login" className='theme_btn blue_btn'>I’m Ready</Link>
+            <span>{TEXT.SIMPLIFIED_REAL_ESTATE} </span>
+            <h1>{TEXT.HOME1} <br/>{TEXT.HOME2}</h1>
+            <Link to="/login" className='theme_btn blue_btn'>{TEXT.I_AM_READY}</Link>
             <div className='volume-btn'>
               <img className='volumeoff' src={volumeoff} alt="volume-off-icon" width="58" height="58" />
               <img className='volumeon' src={volumeoff} alt="volume-off-icon" width="58" height="58" />
               </div>
             <div className='get-started-btn'>
               <img src={btnloader} alt="btn-animation.svg" width="196" height="196" /> 
-              <Link to="#">Get Started</Link>
+              <Link to="#">{TEXT.GET_STARTED}</Link>
               </div>
           </div>
         </div>
