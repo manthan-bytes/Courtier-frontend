@@ -1,4 +1,4 @@
-@mixin font-weight($font-weight:400) {
+@mixin font-weight($font-weight: 400) {
     font-weight: $font-weight;
 }
 
@@ -7,8 +7,9 @@
     font-size: 3.75vw;
     font-style: normal;
     line-height: 143%;
+
     @media (max-width: $screen-xs-max) {
-        font-size:30px;
+        font-size: 30px;
     }
 }
 
@@ -17,8 +18,14 @@
     font-size: 2.5vw;
     font-style: normal;
     line-height: 150%;
+    margin-bottom: 24px;
+
+    @media (max-width:$screen-991) {
+        font-size: 34px;
+    }
+
     @media (max-width: $screen-xs-max) {
-        font-size:25px;
+        font-size: 26px;
     }
 }
 
@@ -27,6 +34,7 @@
     font-size: 24px;
     font-style: normal;
     line-height: 150%;
+
     @media (max-width:$screen-xs-max) {
         font-size: 20px;
     }
@@ -39,11 +47,10 @@
     font-style: normal;
     @include font-weight(700);
     color: $black;
-    border:solid 1px $Border;
+    border: solid 1px $Border;
     padding: 17px 57px;
     display: inline-block;
     text-align: center;
-    transition: all 0.6s;
     cursor: pointer;
     border-radius: 8px;
     margin: 0 24px;
@@ -51,24 +58,29 @@
     z-index: 1;
     letter-spacing: 1.08px;
     background-size: 300% 100%;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+    moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
     @media (max-width: $screen-1199) {
         margin: 0 12px;
     }
+
     @media (max-width: $screen-xs-max) {
         font-size: 16px;
         padding: 12px 40px;
         letter-spacing: 1px;
         margin: 0 8px;
     }
+
     &:hover {
         color: $White;
-        background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1); 
+        background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
         background-position: 100% 0;
+        border-color: $btn_thame1;
     }
+
     &.blue_btn {
         background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1);
         border-color: $btn_thame1;
@@ -78,6 +90,7 @@
         -webkit-transition: all .4s ease-in-out;
         transition: all .4s ease-in-out;
         background-size: 300% 100%;
+
         &:hover {
             background-position: 100% 0;
         }
@@ -87,7 +100,7 @@
 @mixin form_control {
     border-radius: 8px;
     border: 1px solid $Border_light;
-    background:$White;
+    background: $White;
     font-size: 16px;
     font-style: normal;
     line-height: 150%;
@@ -97,32 +110,41 @@
     box-shadow: none;
     outline: none;
     padding: 20px 24px;
+
     @media (max-width: $screen-xs-max) {
         padding: 10px 15px;
         height: 50px;
     }
+
     &::-webkit-input-placeholder {
         color: $Font_Primary;
     }
+
     &::-ms-input-placeholder {
         color: $Font_Primary;
     }
+
     &::placeholder {
         color: $Font_Primary;
     }
+
     &:focus {
-        border-color:$Border_light_focus;
+        border-color: $Border_light_focus;
     }
 
 }
+
 /* Placeholder */
 
 
 // select box
 @mixin custom-select {
-    > input {
-      display: none;
+    >input {
+        display: none;
     }
+
+    display: contents;
+
     .custom-lable {
         border-radius: 8px;
         border: 1px solid $Border_light;
@@ -134,7 +156,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        gap: 24px;
+        flex-wrap: wrap;
         padding: 20px;
         font-size: 20px;
         font-style: normal;
@@ -146,29 +168,59 @@
         -o-transition: all .4s ease-in-out;
         -webkit-transition: all .4s ease-in-out;
         transition: all .4s ease-in-out;
-        &.btn-hover{
+
+        @media screen and (max-width: $screen-xs-max) {
+            height: 175px;
+            font-size: 18px;
+        }
+
+        .svg-icon {
+            width: 100%;
+            display: block;
+
+            svg {
+
+                @media screen and (max-width: $screen-xs-max) {
+                    height: 80px;
+                }
+            }
+        }
+
+        &.btn-hover {
             &:hover {
-                 background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
+                background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
                 color: $White;
                 background-position: 100% 0;
                 border: $btn_thame1;
             }
         }
-       
+
     }
-    > input:checked + .custom-lable {
+
+    >input:checked+.custom-lable {
         background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
         color: $White;
         background-position: 100% 0;
         border: $btn_thame1;
+
+        svg {
+            path {
+                fill: $White;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                height: 80px;
+            }
+        }
     }
-   
+
 }
 
 @mixin custom-checkbox {
-    > input {
-      display: none;
+    >input {
+        display: none;
     }
+
     .checkbox-lable {
         border-radius: 4px;
         border: 1px solid $Border_light;
@@ -187,16 +239,18 @@
         letter-spacing: 0.4px;
         background-size: 300% 100%;
         background: $White;
-        moz-transition: all .4s ease-in-out;
-        -o-transition: all .4s ease-in-out;
-        -webkit-transition: all .4s ease-in-out;
-        transition: all .4s ease-in-out;
+        moz-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
     }
-    > input:checked + .checkbox-lable {
+
+    >input:checked+.checkbox-lable {
         background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2);
         color: $White;
         background-position: 100% 0;
         border: $btn_thame1;
+
         &::before {
             background: $White;
             content: "";
@@ -215,14 +269,17 @@
     width: 58px;
     height: 58px;
     border-radius: 50%;
+    border: $Border solid 1px;
     cursor: pointer;
-    @media screen and (max-width:767px) {
+
+    @media screen and (max-width: $screen-xs-max) {
         bottom: 15px;
         left: 15px;
         width: 40px;
         height: 40px;
     }
-    img {
+
+    .volume {
         border-radius: 50%;
         position: absolute;
         left: 0;
@@ -230,15 +287,22 @@
         bottom: 0;
         opacity: 0;
         transition: all 0.5s;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .volumeoff{
+
+    .volumeoff {
         opacity: 1;
     }
+
     &.active {
-        .volumeoff{
+        .volumeoff {
             opacity: 0;
         }
-        .volumeon{
+
+        .volumeon {
             opacity: 1;
         }
     }
