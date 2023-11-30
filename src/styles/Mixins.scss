@@ -65,14 +65,14 @@
         margin: 0 8px;
     }
     &:hover {
-        color: $white;
+        color: $White;
         background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1); 
         background-position: 100% 0;
     }
     &.blue_btn {
         background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1);
         border-color: $btn_thame1;
-        color: $white;
+        color: $White;
         moz-transition: all .4s ease-in-out;
         -o-transition: all .4s ease-in-out;
         -webkit-transition: all .4s ease-in-out;
@@ -87,7 +87,7 @@
 @mixin form_control {
     border-radius: 8px;
     border: 1px solid $Border_light;
-    background:$white;
+    background:$White;
     font-size: 16px;
     font-style: normal;
     line-height: 150%;
@@ -126,7 +126,7 @@
     .custom-lable {
         border-radius: 8px;
         border: 1px solid $Border_light;
-        background: $white;
+        background: $White;
         width: 100%;
         max-width: 262px;
         height: 197px;
@@ -149,7 +149,7 @@
         &.btn-hover{
             &:hover {
                  background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
-                color: $white;
+                color: $White;
                 background-position: 100% 0;
                 border: $btn_thame1;
             }
@@ -158,7 +158,7 @@
     }
     > input:checked + .custom-lable {
         background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
-        color: $white;
+        color: $White;
         background-position: 100% 0;
         border: $btn_thame1;
     }
@@ -172,7 +172,7 @@
     .checkbox-lable {
         border-radius: 4px;
         border: 1px solid $Border_light;
-        background: $white;
+        background: $White;
         width: 100%;
         max-width: 24px;
         height: 24px;
@@ -186,7 +186,7 @@
         line-height: 150%;
         letter-spacing: 0.4px;
         background-size: 300% 100%;
-        background: $white;
+        background: $White;
         moz-transition: all .4s ease-in-out;
         -o-transition: all .4s ease-in-out;
         -webkit-transition: all .4s ease-in-out;
@@ -194,11 +194,11 @@
     }
     > input:checked + .checkbox-lable {
         background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2);
-        color: $white;
+        color: $White;
         background-position: 100% 0;
         border: $btn_thame1;
         &::before {
-            background: $white;
+            background: $White;
             content: "";
             width: 100%;
             max-width: 18px;

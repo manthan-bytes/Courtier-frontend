@@ -3,5 +3,6 @@ export const TEXT = {
    HOME1: 'A digital way to',
    HOME2: 'buying and selling property',
    I_AM_READY: 'I’m Ready',
-   GET_STARTED: 'Get Started'
+   GET_STARTED: 'Get Started',
+   typed_animated: 'You are just a few steps away to completing your journey!'
 }

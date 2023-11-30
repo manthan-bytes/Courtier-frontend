@@ -1,7 +1,9 @@
+@import "../../styles/Variable.scss";
+
 .main-banner-sec {
     height:100vh;
     position: relative;
-    .banner-img {
+    .banner-bg {
         object-fit: cover;
         height: 100vh;
         position: absolute;
@@ -10,15 +12,19 @@
         left: 0;
         top: 0;
         bottom: 0;
+       
     }
-    .banner-typed {
-        text-align: center;
-        padding: 200px 0;
-        .banner-typed-content {
-            max-width: 900px;
-            width: 100%;
-            text-align: center;
-            margin: 0 auto;
-        }
+    .banner-overlay::before {
+        opacity: 0.74;
+        background: #FFF;
+        content: "";
+        height: 100vh;
+        // position: absolute;
+        width: 100%;
+        z-index: 99;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
 }

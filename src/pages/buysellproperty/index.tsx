@@ -1,21 +1,25 @@
 // create dashboard page component
-import { Link } from 'react-router-dom';
-import './index.scss'
-import banner1 from '../../assets/images/banner1.jpg';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./index.scss";
+import bg_main from "../../assets/images/bg-main.jpg";
+import { TEXT } from "../../core/constants/headingText";
+
 
 const BuySellProperty = () => {
   return (
-   <section className='main-banner-sec'>
-    <img className='banner-img' src={banner1} alt="banner img" width="1920" height="1080" />
-      <div className='banner-typed'>
-        <div className="container">
-            <div className="banner-typed-content">
-              <h1>Buy Sell Property</h1>
-              <Link to="/seller/contactinfo">Go To Contact Info</Link>
-            </div>
-        </div> 
-      </div>
-   </section>
+    <section className="main-banner-sec">
+     <div className="banner-overlay"></div>
+      <img
+          className="banner-bg"
+          src={bg_main}
+          alt="banner img"
+          width="1920"
+          height="1080"
+        />
+          <h1>Buy Sell Property</h1>
+      <Link to="/seller/contactinfo">Go To Contact Info</Link>
+    </section>
   );
 };
 
