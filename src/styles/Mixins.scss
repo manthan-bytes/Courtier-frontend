@@ -71,7 +71,7 @@
     }
     &.blue_btn {
         background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1);
-        border: none;
+        border-color: $btn_thame1;
         color: $white;
         moz-transition: all .4s ease-in-out;
         -o-transition: all .4s ease-in-out;
@@ -90,9 +90,9 @@
     background:$white;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
     line-height: 150%;
     color: $Font_Primary;
+    @include font-weight(400);
     height: 72px;
     box-shadow: none;
     outline: none;
@@ -116,3 +116,130 @@
 
 }
 /* Placeholder */
+
+
+// select box
+@mixin custom-select {
+    > input {
+      display: none;
+    }
+    .custom-lable {
+        border-radius: 8px;
+        border: 1px solid $Border_light;
+        background: $white;
+        width: 100%;
+        max-width: 262px;
+        height: 197px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        gap: 24px;
+        padding: 20px;
+        font-size: 20px;
+        font-style: normal;
+        @include font-weight(700);
+        line-height: 150%;
+        letter-spacing: 0.4px;
+        background-size: 300% 100%;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        &.btn-hover{
+            &:hover {
+                 background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
+                color: $white;
+                background-position: 100% 0;
+                border: $btn_thame1;
+            }
+        }
+       
+    }
+    > input:checked + .custom-lable {
+        background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
+        color: $white;
+        background-position: 100% 0;
+        border: $btn_thame1;
+    }
+   
+}
+
+@mixin custom-checkbox {
+    > input {
+      display: none;
+    }
+    .checkbox-lable {
+        border-radius: 4px;
+        border: 1px solid $Border_light;
+        background: $white;
+        width: 100%;
+        max-width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 20px;
+        font-style: normal;
+        @include font-weight(700);
+        line-height: 150%;
+        letter-spacing: 0.4px;
+        background-size: 300% 100%;
+        background: $white;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+    > input:checked + .checkbox-lable {
+        background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2);
+        color: $white;
+        background-position: 100% 0;
+        border: $btn_thame1;
+        &::before {
+            background: $white;
+            content: "";
+            width: 100%;
+            max-width: 18px;
+            height: 18px;
+            border-radius: 4px;
+        }
+    }
+}
+
+@mixin volume-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    cursor: pointer;
+    @media screen and (max-width:767px) {
+        bottom: 15px;
+        left: 15px;
+        width: 40px;
+        height: 40px;
+    }
+    img {
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: all 0.5s;
+    }
+    .volumeoff{
+        opacity: 1;
+    }
+    &.active {
+        .volumeoff{
+            opacity: 0;
+        }
+        .volumeon{
+            opacity: 1;
+        }
+    }
+}

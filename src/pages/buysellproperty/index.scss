@@ -1,0 +1,24 @@
+.main-banner-sec {
+    height:100vh;
+    position: relative;
+    .banner-img {
+        object-fit: cover;
+        height: 100vh;
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+    .banner-typed {
+        text-align: center;
+        padding: 200px 0;
+        .banner-typed-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}

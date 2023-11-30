@@ -26,7 +26,7 @@ const Home = () => {
             <div className='get-started-btn'>
               <img src={btnloader} alt="btn-animation.svg" width="196" height="196" /> 
               <Link to="#">{TEXT.GET_STARTED}</Link>
-              </div>
+            </div>
           </div>
         </div>
       </div>
