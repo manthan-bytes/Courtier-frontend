@@ -1,7 +1,20 @@
 @import "../../styles/Variable.scss";
 
 .main-banner-sec {
-    .banner-cantent-block {
- 
+    &.buysellproperty-sec {
+        .form-step-contect {
+            .blue_btn {
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+    &.property-sec {
+        .form-step-contect {
+            .form-inner-block {
+                flex-wrap: wrap;
+            }
+        }
     }
 }

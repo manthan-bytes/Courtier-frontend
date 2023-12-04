@@ -12,7 +12,7 @@
     }
 
     @media screen and (max-width:767px) {
-        padding: 20px 0;
+        padding: 15px 0;
         position: fixed;
     }
 
@@ -31,13 +31,14 @@
             a {
                 display: block;
                 max-width: 322px;
-
+                
                 @media screen and (max-width:1199px) {
                     max-width: 250px;
                 }
 
                 img {
                     width: 100%;
+                    display: block;
                 }
             }
         }

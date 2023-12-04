@@ -97,6 +97,15 @@ img {
 .main-banner-sec {
   height: 100vh;
   position: relative;
+  padding: 150px 0 130px 0;
+  @media screen and (max-width:$screen-xs-max) {
+    height: 100%;
+    min-height: 100vh;
+    padding: 70px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .banner-bg {
     object-fit: cover;
@@ -107,6 +116,9 @@ img {
     left: 0;
     top: 0;
     bottom: 0;
+    @media screen and (max-width:$screen-xs-max) {
+      height: 100%;
+    }
 
   }
 
@@ -123,6 +135,9 @@ img {
       right: 0;
       top: 0;
       bottom: 0;
+      @media screen and (max-width:$screen-xs-max) {
+        height: 100%;
+      }
 
     }
   }
@@ -132,8 +147,13 @@ img {
     z-index: 99;
     display: flex;
     align-items: center;
-    height: 100vh;
     flex-wrap: wrap;
+    height: calc(100vh - 280px );
+    overflow-y: auto;
+    @include scrollbar;
+      @media screen and (max-width: $screen-xs-max) {
+        height: 100%;
+     }
   }
 }
 
@@ -153,11 +173,11 @@ img {
 
     @media screen and (max-width:$screen-1199) {
       padding: 15px 0;
-      gap: 15px;
+      gap: 30px;
     }
 
     @media screen and (max-width:$screen-xs-max) {
-      padding: 0px 0;
+      padding:0px 0 25px 0;
       gap: 15px;
     }
   }
@@ -180,6 +200,12 @@ img {
       -webkit-text-fill-color: transparent;
     }
   }
+}
+
+.error-msg {
+  color: $Error;
+  font-size: 12px;
+  line-height: 125%;
 }
 
 

@@ -24,22 +24,24 @@ $font_family_jost: 'Jost', sans-serif;
 $font_size_base: 22px;
 
 // Custom Scrollbar Mixins
-@mixin scrollbar($thumb, $track) {
+@mixin scrollbar {
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: $thumb $track;
+  scrollbar-color:$btn_thame2;
 
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
     height: 4px;
+    border-radius: 6px;
   }
 
   &::-webkit-scrollbar-track {
-    background: #fff;
+    background:$black4;
+    border-radius: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color:#fff;
+    background-color:$Border;
     border-radius: 6px;
     border: 0px solid #fff;
   }

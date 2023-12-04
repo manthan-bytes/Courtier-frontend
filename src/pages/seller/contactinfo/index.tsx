@@ -3,15 +3,12 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../contactinfo/contactinfo.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
-import {
-  VolumeMute,
-  VolumeOn,
-} from "../../../core/icons";
+import { VolumeMute, VolumeOn } from "../../../core/icons";
 
 const ContactInfo = () => {
   useEffect(() => {
-    console.log('test')
-  })
+    console.log("test");
+  });
   return (
     <section className="main-banner-sec">
       <div className="banner-overlay"></div>
@@ -49,6 +46,9 @@ const ContactInfo = () => {
                         placeholder="Enter Your Contact No"
                         name="Contact No"
                       />
+                      <span className="error-msg">
+                        Special Characters are not allowed
+                      </span>
                     </div>
                     <div className="form-group">
                       <input
