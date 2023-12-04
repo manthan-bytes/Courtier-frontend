@@ -1,4 +1,3 @@
-import React from 'react';
 import './config/axios.config';
 import './styles/App.scss';
 import { BrowserRouter } from 'react-router-dom';

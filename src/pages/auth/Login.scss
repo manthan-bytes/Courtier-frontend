@@ -1,0 +1,114 @@
+@import "../../styles/Variable.scss";
+
+.main-banner-sec {
+
+
+
+    .login-block {
+        padding: 40px;
+        border-radius: 16px;
+        background: $White;
+        max-width: 543px;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+
+        @media (max-width: $screen-xs-max) {
+            padding: 20px;
+        }
+
+        .h2 {
+            margin-bottom: 48px;
+
+            @media (max-width: $screen-xs-max) {
+                margin-bottom: 24px;
+            }
+        }
+
+        .theme_btn {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            border-color: $Border_light;
+
+            &:hover {
+                border-color: $White;
+            }
+        }
+    }
+
+    .banner-typed {
+        text-align: center;
+        padding: 90px 0;
+        z-index: 99999;
+        object-fit: cover;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+
+        .banner-img {
+            object-fit: cover;
+            height: 100vh;
+            position: absolute;
+            z-index: -1;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .banner-typed-content {
+            max-width: 60.4167vw;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+
+            @media (max-width: $screen-991) {
+                max-width: 73.4167vw;
+            }
+
+            @media (max-width: $screen-xs-max) {
+                max-width: 100%;
+            }
+
+            .animated-typed {
+                .h1 {
+                    font-size: 4.1667vw;
+                    letter-spacing: 0.0833vw;
+
+                    @media (max-width: $screen-991) {
+                        font-size: 40px;
+                    }
+
+                    @media (max-width: $screen-xxs-max) {
+                        font-size: 34px;
+                    }
+                }
+
+                span {
+                    display: inline-block;
+                }
+
+                .letter {
+                    opacity: 0;
+                    width: auto;
+                    min-width: 1.3021vw;
+                    height: 25px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    display: inline-block;
+
+                    &:empty {
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -55,12 +55,12 @@
             display: block;
             color: $White;
 
-            @media screen and (max-width:1199px) {
+            @media screen and (max-width:$screen-1199) {
                 font-size: 20px;
                 letter-spacing: 8px;
             }
 
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:$screen-xs-max) {
                 font-size: 18px;
                 letter-spacing: 3px;
                 margin-bottom: 10px;
@@ -71,8 +71,14 @@
             margin-bottom: 32px;
             color: $White;
 
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:$screen-xs-max) {
                 margin-bottom: 20px;
+            }
+        }
+        .theme_btn {
+           
+            @media screen and (max-width:$screen-xs-max) {
+                max-width:206px;
             }
         }
 
@@ -104,7 +110,7 @@
                 height: 110px;
             }
 
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:$screen-xs-max) {
                 transform: scale(0.6);
                 height: 80px;
             }
