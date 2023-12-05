@@ -1,0 +1,42 @@
+@import "../../../styles/Variable.scss";
+
+.main-banner-sec {
+    &.uploadimage-sec {
+        .form-step-contect {
+            .h2 {
+                width: 46.6146vw;
+                margin: 0 auto;
+                margin-bottom: 24px;
+
+                @media (max-width: $screen-991) {
+                    width: 100%;
+                    max-width: 700px;
+                }
+            }
+
+            .form-inner-block {
+
+                .choose-file-block {
+                    padding: 40px 20px;
+                    border: 2px dashed var(--color-foundation-black-black-12, #141414);
+                    background: $White;
+                    max-width: 1282px;
+                    width: 100%;
+                    border-radius: 2px;
+                    text-align: center;
+
+                    @media (max-width:$screen-sm-max) {
+                        padding: 20px 15px;
+                    }
+                }
+            }
+
+            .theme_btn {
+                @media (max-width:$screen-sm-max) {
+                    margin-top: 5px;
+                }
+
+            }
+        }
+    }
+}

@@ -1,3 +1,5 @@
+@import "../../styles/Variable.scss";
+
 .header-sec {
     padding: 40px 0;
     position: absolute;
@@ -7,11 +9,11 @@
     top: 0;
     z-index: 999;
 
-    @media screen and (max-width:1199px) {
+    @media screen and (max-width:$screen-1199) {
         padding: 30px 0;
     }
 
-    @media screen and (max-width:767px) {
+    @media screen and (max-width:$screen-sm-max) {
         padding: 15px 0;
         position: fixed;
     }
@@ -20,36 +22,40 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
 
-        .logo-block-left {
-            width: 40%;
+    .logo-block-left {
+        width: 40%;
 
-            @media screen and (max-width:767px) {
-                width: 50%;
+        @media screen and (max-width:$screen-sm-max) {
+            width: 50%;
+        }
+
+        a {
+            display: block;
+            max-width: 322px;
+
+            @media screen and (max-width:$screen-1199) {
+                max-width: 250px;
             }
 
-            a {
+            img {
+                width: 100%;
                 display: block;
-                max-width: 322px;
-                
-                @media screen and (max-width:1199px) {
-                    max-width: 250px;
-                }
 
-                img {
-                    width: 100%;
-                    display: block;
+                &.blacklogo {
+                    display: none;
                 }
             }
         }
+    }
 
-        .menu-block-right {
-            width: 60%;
+    .menu-block-right {
+        width: 60%;
 
-            @media screen and (max-width:767px) {
-                width: 50%;
-                ;
-            }
+        @media screen and (max-width:$screen-sm-max) {
+            width: 50%;
+            ;
         }
     }
 
@@ -59,10 +65,10 @@
         margin: auto;
         margin-right: 0;
         border-radius: 60px;
-        border: 1px solid rgba(255, 255, 255, 0.66);
+        border: 1px solid $Menu-borader;
         background: linear-gradient(95deg, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0.22) 100%);
 
-        @media screen and (max-width:767px) {
+        @media screen and (max-width:$screen-sm-max) {
             width: 120px;
         }
 
@@ -72,7 +78,7 @@
             justify-content: center;
             height: 54px;
 
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:$screen-sm-max) {
                 height: 36px;
             }
         }
@@ -85,9 +91,9 @@
             letter-spacing: 2.34px;
             margin-right: 14px;
             margin-top: 2px;
-            color: #ffffff;
+            color: $White;
 
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:$screen-sm-max) {
                 font-size: 14px;
                 margin-right: 8px;
             }
@@ -96,7 +102,7 @@
         .homeburger-line {
             width: 44px;
 
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:$screen-sm-max) {
                 width: 30px;
             }
         }
@@ -112,14 +118,14 @@
             transition: all 0.5s ease-in-out;
             margin-right: 0;
 
-            @media screen and (max-width:767px) {
+            @media screen and (max-width:$screen-sm-max) {
                 width: 30px;
             }
 
             &:nth-child(2) {
                 width: 26px;
 
-                @media screen and (max-width:767px) {
+                @media screen and (max-width:$screen-sm-max) {
                     width: 15px;
                 }
             }
@@ -130,7 +136,7 @@
                 &:nth-child(2) {
                     width: 44px;
 
-                    @media screen and (max-width:767px) {
+                    @media screen and (max-width:$screen-sm-max) {
                         width: 30px;
                     }
                 }
@@ -138,10 +144,39 @@
                 &:nth-child(1) {
                     width: 26px;
 
-                    @media screen and (max-width:767px) {
+                    @media screen and (max-width:$screen-sm-max) {
                         width: 15px;
                     }
                 }
+            }
+        }
+    }
+
+    &.header-bk {
+        .logo-block-left {
+            a {
+                img {
+                    &.whitelogo {
+                        display: none;
+                    }
+
+                    &.blacklogo {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .home-burger-menu {
+            border: 1px solid $Menu-borader;
+            background: linear-gradient(95deg, $Menu-bg0 0%, $Menu-bg1 100%);
+
+            .homeburger-title {
+                color: $Black;
+            }
+
+            .line {
+                background-color: $Black;
             }
         }
     }

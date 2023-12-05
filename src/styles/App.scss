@@ -89,6 +89,9 @@ img {
   @include custom-checkbox;
 }
 
+.custom-checkbox-btn {
+  @include custom-checkbox-btn;
+}
 
 .volume-btn {
   @include volume-btn;
@@ -98,10 +101,11 @@ img {
   height: 100vh;
   position: relative;
   padding: 150px 0 130px 0;
+
   @media screen and (max-width:$screen-xs-max) {
     height: 100%;
     min-height: 100vh;
-    padding: 70px 0;
+    padding: 80px 0 70px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,6 +120,7 @@ img {
     left: 0;
     top: 0;
     bottom: 0;
+
     @media screen and (max-width:$screen-xs-max) {
       height: 100%;
     }
@@ -135,6 +140,7 @@ img {
       right: 0;
       top: 0;
       bottom: 0;
+
       @media screen and (max-width:$screen-xs-max) {
         height: 100%;
       }
@@ -148,12 +154,14 @@ img {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    height: calc(100vh - 280px );
+    height: calc(100vh - 280px);
     overflow-y: auto;
     @include scrollbar;
-      @media screen and (max-width: $screen-xs-max) {
-        height: 100%;
-     }
+    width: 100%;
+
+    @media screen and (max-width: $screen-xs-max) {
+      height: 100%;
+    }
   }
 }
 
@@ -167,7 +175,7 @@ img {
     padding: 24px 0;
 
     @media screen and (max-width: $screen-lg-max) {
-      padding: 0;
+      padding: 15px 0;
       gap: 35px;
     }
 
@@ -177,12 +185,12 @@ img {
     }
 
     @media screen and (max-width:$screen-xs-max) {
-      padding:0px 0 25px 0;
+      padding: 0px 0 25px 0;
       gap: 15px;
     }
   }
 
-  .blue_btn {
+  .grdnt_btn {
     margin-top: 24px;
   }
 
@@ -194,11 +202,31 @@ img {
     margin-bottom: 24px;
 
     span {
-      background: linear-gradient(90deg, $btn_thame1 0%, $btn_thame2 100%);
+      background: linear-gradient(90deg, $Btn_thame1 0%, $Btn_thame2 100%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+  }
+}
+
+.property-select {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-bottom: 24px;
+
+  @media screen and (max-width:$screen-1199) {
+    gap: 20px;
+  }
+
+  @media screen and (max-width:$screen-xs-max) {
+    gap: 15px;
+  }
+
+  li {
+    display: inline;
   }
 }
 

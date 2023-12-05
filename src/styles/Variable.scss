@@ -1,23 +1,23 @@
 @import"Mixins.scss";
 
 // Color Variables
-$black: #000000;
+$Black: #000000;
 $White: #ffffff;
 $Font_Primary: #141414;
 $Placeholder_Text: #141414;
 $Blue_Primary: #e45017;
 $Accent: #D9D9D9;
-$btn_thame1: #FF512F;
-$btn_thame2: #DD2476;
+$Btn_thame1: #FF512F;
+$Btn_thame2: #DD2476;
 $Border_black: #000000;
 $Border: #141414;
 $Border_light: #BFBFBF;
 $Border_light_focus: #8C8C8C;
-$menu-borader:rgba(255, 255, 255, 0.66);
-$menu-bg0:rgba(255, 182, 182, 0.41);
-$menu-bg1:rgba(228, 216, 216, 0.22);
+$Menu-borader:rgba(255, 255, 255, 0.66);
+$Menu-bg0:rgba(255, 182, 182, 0.41);
+$Menu-bg1:rgba(228, 216, 216, 0.22);
 $Error: #F03D50;
-$black4:#F0F0F0;
+$Black4:#F0F0F0;
 
 // Font stacks
 $font_family_jost: 'Jost', sans-serif;
@@ -27,7 +27,7 @@ $font_size_base: 22px;
 @mixin scrollbar {
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color:$btn_thame2;
+  scrollbar-color:$Btn_thame2;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -36,14 +36,14 @@ $font_size_base: 22px;
   }
 
   &::-webkit-scrollbar-track {
-    background:$black4;
+    background:$Black4;
     border-radius: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color:$Border;
     border-radius: 6px;
-    border: 0px solid #fff;
+    border: 0px solid $White;
   }
 }
 

@@ -1,9 +1,9 @@
 @import "../../../styles/Variable.scss";
 
 .main-banner-sec {
-    &.callfromagent-sec {
+    &.conformation-sec {
         .form-step-contect {
-            max-width: 813px;
+            max-width: 1330px;
             width: 100%;
             margin: 0 auto;
 
@@ -11,6 +11,7 @@
                 width: 100%;
                 max-width: 181px;
                 height: 181px;
+                margin-bottom: 24px;
 
                 @media (max-width: $screen-xs-max) {
                     max-width: 120px;
@@ -18,10 +19,6 @@
                 }
             }
 
-            .h2 {
-                margin-bottom: 0;
-                margin-top: 24px;
-            }
         }
     }
 }

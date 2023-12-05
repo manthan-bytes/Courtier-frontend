@@ -3,17 +3,10 @@
 .main-banner-sec {
     &.buysellproperty-sec {
         .form-step-contect {
-            .blue_btn {
+            .grdnt_btn {
                 @media screen and (max-width: $screen-xs-max) {
                     margin-top: 0px;
                 }
-            }
-        }
-    }
-    &.property-sec {
-        .form-step-contect {
-            .form-inner-block {
-                flex-wrap: wrap;
             }
         }
     }

@@ -9,7 +9,7 @@ const ContactInfo = () => {
     console.log("test");
   });
   return (
-    <section className="main-banner-sec">
+    <section className="main-banner-sec contactinfo-sec">
       <div className="banner-overlay"></div>
       <img
         className="banner-bg"
@@ -62,7 +62,7 @@ const ContactInfo = () => {
                 <Link to="/" className="theme_btn">
                   Back
                 </Link>
-                <Link to="/" className="theme_btn blue_btn">
+                <Link to="/seller/location" className="theme_btn grdnt_btn">
                   Next Question
                 </Link>
               </form>

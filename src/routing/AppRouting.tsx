@@ -15,6 +15,9 @@ import SellerInquiryOption from "../pages/seller/sellerinquiryoption";
 import SellerUploadImage from "../pages/seller/selleruploadimage";
 import SellerCallFromAgent from "../pages/seller/sellercallfromagent";
 import SellerSingleFamily from "../pages/seller/sellersinglefamily";
+import SellerPropertySold from "../pages/seller/sellerpropertysold";
+import SellerPropertyConformation from "../pages/seller/sellerpropertyconformation";
+import SellerPropertyThankyou from "../pages/seller/sellerpropertythankyou";
 
 const AppRouting = () => {
   return (
@@ -35,17 +38,14 @@ const AppRouting = () => {
         <Route path={ROUTES.SELLER}>
           <Route path={SELLER.CONTACT_INFO} index element={<SellerContactInfo />} />
           <Route path={SELLER.LOCATION} index element={<SellerLocation />} />
-
           <Route path={SELLER.PROPERTY_TYPE} index element={<SellerPropertyType />} />
-
           <Route path={SELLER.INQUIRY_OPTION} index element={<SellerInquiryOption />} />
-
           <Route path={SELLER.CALL_AGENT} index element={<SellerCallFromAgent />} />
-
           <Route path={SELLER.UPLOAD_IMAGE} index element={<SellerUploadImage />} />
-
           <Route path={SELLER.SINGLE_FAMILY} index element={<SellerSingleFamily />} />
-
+          <Route path={SELLER.PROPERTY_SOLD} index element={<SellerPropertySold/>} />
+          <Route path={SELLER.PROPERTY_CONFORMATION} index element={<SellerPropertyConformation />} />
+          <Route path={SELLER.PROPERTY_THANKYOU} index element={<SellerPropertyThankyou />} />
         </Route>
       </Route>
       {/* <Route path="/home"> */}

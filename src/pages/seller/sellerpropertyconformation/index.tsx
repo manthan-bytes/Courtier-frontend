@@ -1,16 +1,17 @@
 // create dashboard page component
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../sellerinquiryoption/sellerinquiryoption.scss";
+import "./sellerpropertyconformation.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
+import greaticon from "../../../assets/images/greaticon.svg";
 
-const SellerInquiryOption = () => {
+const SellerPropertyConformation = () => {
   useEffect(() => {
     console.log("test");
   });
   return (
     <>
-      <section className="main-banner-sec inquiryoption-sec">
+      <section className="main-banner-sec conformation-sec">
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -23,19 +24,30 @@ const SellerInquiryOption = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
+                <img
+                  className="greaticon"
+                  src={greaticon}
+                  alt="greaticon"
+                  width="181"
+                  height="181"
+                />
                 <h2 className="h2">
-                  Would you like to dfsds with a free digital home evaluation,
-                  or wait for a Call from a real-estate agent?
+                  You will receive your free property evaluation within 24hrs by
+                  email and an agent will call you shortly!
                 </h2>
+                <h3 className="h2">
+                  Would you like to add another property type that you may be
+                  selling?
+                </h3>
                 <form>
-                  <Link to="/seller/propertytype" className="theme_btn">
-                    GET CALL FROM AGENT
+                  <Link to="/seller/propertysold" className="theme_btn">
+                    NO, THANKS
                   </Link>
                   <Link
-                    to="/seller/callfromagent"
+                    to="/seller/propertythankyou"
                     className="theme_btn grdnt_btn"
                   >
-                    Go With Digital Evaluation
+                    YES I WANT TO ADD
                   </Link>
                 </form>
               </div>
@@ -47,4 +59,4 @@ const SellerInquiryOption = () => {
   );
 };
 
-export default SellerInquiryOption;
+export default SellerPropertyConformation;

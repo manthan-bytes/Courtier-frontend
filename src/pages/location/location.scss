@@ -1,7 +1,7 @@
 @import "../../styles/Variable.scss";
 
 .main-banner-sec {
-    .banner-cantent-block {
+    &.location-sec {
         .form-step-contect {
             .form-group-main {
                 width: 100%;
@@ -24,43 +24,19 @@
                     .error-msg {
                         position: absolute;
                         right: 14px;
-                        bottom: -65px;
+                        bottom: 39px;
                         z-index: 9;
 
                         @media screen and (max-width: $screen-lg-max) {
-                            bottom: -55px;
+                            bottom: 29px;
                         }
 
                         @media (max-width: $screen-xs-max) {
                             bottom: 5px;
                             right: 0px;
                         }
-
                     }
                 }
-            }
-        }
-
-        .bottom-content-footer {
-            width: 100%;
-            max-width: 1176px;
-            margin: 0 auto;
-            position: fixed;
-            bottom: 53px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding: 0 20px;
-
-            @media screen and (max-width: $screen-lg-max) {
-                bottom: 20px;
-                font-size: 14px;
-            }
-
-            @media screen and (max-width: $screen-xs-max) {
-                position: inherit;
-                bottom: 0;
-                padding-top: 30px;
             }
         }
     }

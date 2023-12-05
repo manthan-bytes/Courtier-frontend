@@ -1,16 +1,16 @@
 // create dashboard page component
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../sellersinglefamily/sellersinglefamily.scss";
+import "./sellerpropertythankyou.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 
-const SellerSingleFamily = () => {
+const SellerPropertyThankyou = () => {
   useEffect(() => {
     console.log("test");
   });
   return (
     <>
-      <section className="main-banner-sec singlefamily-sec">
+      <section className="main-banner-sec propertythankyou-sec">
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -24,16 +24,17 @@ const SellerSingleFamily = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  Great 💫
-                  <br />
-                  We would like to know more about your Property!
+                  Alright, this was quick and easy, see you again soon!
                 </h2>
                 <form>
+                  <Link to="/seller/propertytype" className="theme_btn">
+                    Take Me to Home
+                  </Link>
                   <Link
                     to="/seller/callfromagent"
                     className="theme_btn grdnt_btn"
                   >
-                    LET’S CONTINUE
+                    I need help TO BUY a property
                   </Link>
                 </form>
               </div>
@@ -45,4 +46,4 @@ const SellerSingleFamily = () => {
   );
 };
 
-export default SellerSingleFamily;
+export default SellerPropertyThankyou;

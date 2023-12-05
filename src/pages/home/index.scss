@@ -76,7 +76,7 @@
             }
         }
         .theme_btn {
-           
+            text-transform: capitalize;
             @media screen and (max-width:$screen-xs-max) {
                 max-width:206px;
             }

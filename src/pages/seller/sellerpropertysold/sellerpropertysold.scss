@@ -1,0 +1,21 @@
+@import "../../../styles/Variable.scss";
+
+.main-banner-sec {
+    &.propertysold-sec {
+        .form-step-contect {
+            max-width: 1330px;
+            width: 100%;
+            margin: 0 auto;
+
+            .property-select {
+                justify-content: center;
+                padding-top: 24px;
+
+                @media (max-width: $screen-xs-max) {
+                    padding-top: 0;
+                }
+
+            }
+        }
+    }
+}

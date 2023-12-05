@@ -46,7 +46,7 @@
     line-height: 150%;
     font-style: normal;
     @include font-weight(700);
-    color: $black;
+    color: $Black;
     border: solid 1px $Border;
     padding: 17px 57px;
     display: inline-block;
@@ -56,9 +56,10 @@
     margin: 0 24px;
     outline: none;
     z-index: 1;
-    letter-spacing: 1.08px;
+    letter-spacing: 0.0563vw;
     background-size: 300% 100%;
     transition: all .3s ease-in-out;
+    text-transform: uppercase;
 
     @media (max-width: $screen-1199) {
         margin: 0 12px;
@@ -66,22 +67,21 @@
 
     @media (max-width: $screen-xs-max) {
         font-size: 16px;
-        padding: 12px 40px;
-        letter-spacing: 1px;
+        padding: 12px 30px;
         margin: 0px;
         width: 100%;
     }
 
     &:hover {
         color: $White;
-        background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
+        background-image: linear-gradient(90deg, $Btn_thame2, $Btn_thame1, $Btn_thame1, $Btn_thame2);
         background-position: 100% 0;
-        border-color: $btn_thame1;
+        border-color: $Btn_thame1;
     }
 
-    &.blue_btn {
-        background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2, $btn_thame2, $btn_thame1);
-        border-color: $btn_thame1;
+    &.grdnt_btn {
+        background-image: linear-gradient(90deg, $Btn_thame1, $Btn_thame2, $Btn_thame2, $Btn_thame1);
+        border-color: $Btn_thame1;
         color: $White;
         transition: all .4s ease-in-out;
         background-size: 300% 100%;
@@ -186,20 +186,20 @@
 
         &.btn-hover {
             &:hover {
-                background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
+                background-image: linear-gradient(90deg, $Btn_thame2, $Btn_thame1, $Btn_thame1, $Btn_thame2);
                 color: $White;
                 background-position: 100% 0;
-                border: $btn_thame1;
+                border: $Btn_thame1;
             }
         }
 
     }
 
     >input:checked+.custom-lable {
-        background-image: linear-gradient(90deg, $btn_thame2, $btn_thame1, $btn_thame1, $btn_thame2);
+        background-image: linear-gradient(90deg, $Btn_thame2, $Btn_thame1, $Btn_thame1, $Btn_thame2);
         color: $White;
         background-position: 100% 0;
-        border: $btn_thame1;
+        border: $Btn_thame1;
 
         svg {
             path {
@@ -236,15 +236,14 @@
         line-height: 150%;
         letter-spacing: 0.4px;
         background-size: 300% 100%;
-        background: $White;
         transition: all .3s ease-in-out;
     }
 
     >input:checked+.checkbox-lable {
-        background-image: linear-gradient(90deg, $btn_thame1, $btn_thame2);
+        background-image: linear-gradient(90deg, $Btn_thame1, $Btn_thame2);
         color: $White;
         background-position: 100% 0;
-        border: $btn_thame1;
+        border: $Btn_thame1;
 
         &::before {
             background: $White;
@@ -256,6 +255,36 @@
         }
     }
 }
+
+
+@mixin custom-checkbox-btn {
+    >input {
+        display: none;
+    }
+
+    .checkbox-lables {
+        border-radius: 16px;
+        border: 1px solid $Black;
+        background: transparent;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 150%;
+        @include font-weight(400);
+        letter-spacing: 0.4px;
+        background-size: 300% 100%;
+        transition: all .3s ease-in-out;
+        padding: 11px 23px;
+    }
+
+    >input:checked+.checkbox-lables {
+        background-image: linear-gradient(90deg, $Btn_thame1, $Btn_thame2);
+        background-image: linear-gradient(90deg, $Btn_thame2, $Btn_thame1, $Btn_thame1, $Btn_thame2);
+        color: $White;
+        background-position: 100% 10px;
+        border: 1px solid $Btn_thame1;
+    }
+}
+
 
 @mixin volume-btn {
     position: fixed;

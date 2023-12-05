@@ -1,7 +1,7 @@
 @import "../../styles/Variable.scss";
 
 .main-banner-sec {
-    .banner-cantent-block {
+    &.contactinfo-sec {
         .form-step-contect {
             .form-group-main {
                 width: 100%;
@@ -24,11 +24,11 @@
                     .error-msg {
                         position: absolute;
                         right: 14px;
-                        bottom: -65px;
+                        bottom: 39px;
                         z-index: 9;
 
                         @media screen and (max-width: $screen-lg-max) {
-                            bottom: -55px;
+                            bottom: 29px;
                         }
 
                         @media (max-width: $screen-xs-max) {
