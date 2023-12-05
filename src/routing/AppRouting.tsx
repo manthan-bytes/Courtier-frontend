@@ -7,8 +7,14 @@ import PublicLayout from "./layout/PublicLayout";
 import Login from "../pages/auth/Login";
 import Home from "../pages/home";
 import BuySellProperty from "../pages/buysellproperty";
-import ContactInfo from "../pages/seller/contactinfo";
 import { ROUTES, SELLER } from "../core/constants/routes";
+import SellerContactInfo from "../pages/seller/sellercontactinfo";
+import SellerLocation from "../pages/seller/sellerlocation";
+import SellerPropertyType from "../pages/seller/sellerpropertytype";
+import SellerInquiryOption from "../pages/seller/sellerinquiryoption";
+import SellerUploadImage from "../pages/seller/selleruploadimage";
+import SellerCallFromAgent from "../pages/seller/sellercallfromagent";
+import SellerSingleFamily from "../pages/seller/sellersinglefamily";
 
 const AppRouting = () => {
   return (
@@ -27,7 +33,19 @@ const AppRouting = () => {
       <Route path="/" element={<PrivateLayout />}>
         <Route path={ROUTES.BUYSELLPROPERTY} index element={<BuySellProperty />} />
         <Route path={ROUTES.SELLER}>
-          <Route path={SELLER.CONTACT_INFO} index element={<ContactInfo />} />
+          <Route path={SELLER.CONTACT_INFO} index element={<SellerContactInfo />} />
+          <Route path={SELLER.LOCATION} index element={<SellerLocation />} />
+
+          <Route path={SELLER.PROPERTY_TYPE} index element={<SellerPropertyType />} />
+
+          <Route path={SELLER.INQUIRY_OPTION} index element={<SellerInquiryOption />} />
+
+          <Route path={SELLER.CALL_AGENT} index element={<SellerCallFromAgent />} />
+
+          <Route path={SELLER.UPLOAD_IMAGE} index element={<SellerUploadImage />} />
+
+          <Route path={SELLER.SINGLE_FAMILY} index element={<SellerSingleFamily />} />
+
         </Route>
       </Route>
       {/* <Route path="/home"> */}

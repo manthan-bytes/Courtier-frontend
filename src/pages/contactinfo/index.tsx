@@ -2,8 +2,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../contactinfo/contactinfo.scss";
-import bg_main from "../../../assets/images/bg-main.jpg";
-import { VolumeMute, VolumeOn } from "../../../core/icons";
+import bg_main from "../../assets/images/bg-main.jpg";
 
 const ContactInfo = () => {
   useEffect(() => {
@@ -68,14 +67,14 @@ const ContactInfo = () => {
                 </Link>
               </form>
             </div>
-            <div className="volume-btn">
+            {/* <div className="volume-btn">
               <div className="volume volumeoff">
                 <VolumeMute />
               </div>
               <div className="volume volumeon">
                 <VolumeOn />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="bottom-content-footer">

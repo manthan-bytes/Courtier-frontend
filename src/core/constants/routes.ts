@@ -6,5 +6,11 @@ export const ROUTES = {
 }
 
 export const SELLER = {
-    CONTACT_INFO : "/seller/contactinfo"
+    CONTACT_INFO : "/seller/contactinfo",
+    LOCATION : "/seller/location",
+    PROPERTY_TYPE : "/seller/propertytype",
+    INQUIRY_OPTION : "/seller/inquiryoption",
+    CALL_AGENT : "/seller/callfromagent",
+    UPLOAD_IMAGE : "/seller/uploadimage",
+    SINGLE_FAMILY : "/seller/singlefamily",
 }
