@@ -57,7 +57,10 @@ const SellerPropertySold = () => {
                       </label>
                     </li>
                   </ul>
-                  <Link to="/" className="theme_btn">
+                  <Link
+                    to="/seller/singlefamilyhomestyle"
+                    className="theme_btn"
+                  >
                     BACK
                   </Link>
                   <Link

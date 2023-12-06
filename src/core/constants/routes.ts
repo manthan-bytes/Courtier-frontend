@@ -16,4 +16,9 @@ export const SELLER = {
   PROPERTY_SOLD: "/seller/propertysold",
   PROPERTY_CONFORMATION: "/seller/propertyconformation",
   PROPERTY_THANKYOU: "/seller/propertythankyou",
+  SINGLE_FAMILY_HOME_STYLE: "/seller/singlefamilyhomestyle",
+  CONDO_PROPERTY: "/seller/condoproperty",
+  ABOUT_LAND_FIELD: "/seller/aboutlandfield",
+  REVENUE_PROPERTY: "/seller/revenueproperty",
+  COMMERCIAL_INDUSTRIAL: "/seller/commercialindustrial",
 };

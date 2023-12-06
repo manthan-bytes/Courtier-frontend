@@ -18,6 +18,11 @@ import SellerSingleFamily from "../pages/seller/sellersinglefamily";
 import SellerPropertySold from "../pages/seller/sellerpropertysold";
 import SellerPropertyConformation from "../pages/seller/sellerpropertyconformation";
 import SellerPropertyThankyou from "../pages/seller/sellerpropertythankyou";
+import SellerSingleFamilyHomestyle from "../pages/seller/sellersinglefamilyhomestyle";
+import SellerCondoProperty from "../pages/seller/sellercondoproperty";
+import SellerAboutLandField from "../pages/seller/selleraboutlandfield";
+import SellerRevenueProperty from "../pages/seller/sellerrevenueproperty";
+import SellerCommercialIndustrial from "../pages/seller/sellercommercialindustrial";
 
 const AppRouting = () => {
   return (
@@ -46,6 +51,11 @@ const AppRouting = () => {
           <Route path={SELLER.PROPERTY_SOLD} index element={<SellerPropertySold/>} />
           <Route path={SELLER.PROPERTY_CONFORMATION} index element={<SellerPropertyConformation />} />
           <Route path={SELLER.PROPERTY_THANKYOU} index element={<SellerPropertyThankyou />} />
+          <Route path={SELLER.SINGLE_FAMILY_HOME_STYLE} index element={<SellerSingleFamilyHomestyle />} />
+          <Route path={SELLER.CONDO_PROPERTY} index element={<SellerCondoProperty />} />
+          <Route path={SELLER.ABOUT_LAND_FIELD} index element={<SellerAboutLandField />} />
+          <Route path={SELLER.REVENUE_PROPERTY} index element={<SellerRevenueProperty/>} />
+          <Route path={SELLER.COMMERCIAL_INDUSTRIAL} index element={<SellerCommercialIndustrial/>} />
         </Route>
       </Route>
       {/* <Route path="/home"> */}

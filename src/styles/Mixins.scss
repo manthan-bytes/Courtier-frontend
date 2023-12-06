@@ -35,7 +35,7 @@
     font-style: normal;
     line-height: 150%;
 
-    @media (max-width:$screen-xs-max) {
+    @media (max-width:$screen-1199) {
         font-size: 20px;
     }
 }
@@ -63,6 +63,7 @@
 
     @media (max-width: $screen-1199) {
         margin: 0 12px;
+        padding: 14px 40px;
     }
 
     @media (max-width: $screen-xs-max) {
@@ -218,29 +219,41 @@
     >input {
         display: none;
     }
-
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-style: normal;
+    @include font-weight(600);
+    line-height: 150%;
+    letter-spacing: 0.4px;
     .checkbox-lable {
         border-radius: 4px;
         border: 1px solid $Border_light;
         background: $White;
-        width: 100%;
-        max-width: 24px;
+        width: 24px;
         height: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-        font-size: 20px;
-        font-style: normal;
-        @include font-weight(700);
-        line-height: 150%;
-        letter-spacing: 0.4px;
         background-size: 300% 100%;
         transition: all .3s ease-in-out;
+        position: relative;
+        svg {
+            position: absolute;
+            z-index: 9;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            opacity: 0;
+        }
     }
 
     >input:checked+.checkbox-lable {
-        background-image: linear-gradient(90deg, $Btn_thame1, $Btn_thame2);
+        background-image: linear-gradient(90deg, $Btn_thame2, $Btn_thame1, $Btn_thame1, $Btn_thame2);
         color: $White;
         background-position: 100% 0;
         border: $Btn_thame1;
@@ -252,6 +265,9 @@
             max-width: 18px;
             height: 18px;
             border-radius: 4px;
+        }
+        svg {
+            opacity: 1;
         }
     }
 }
@@ -274,6 +290,10 @@
         background-size: 300% 100%;
         transition: all .3s ease-in-out;
         padding: 11px 23px;
+
+        @media screen and (max-width:$screen-1199) {
+            padding: 8px 20px;
+        }
     }
 
     >input:checked+.checkbox-lables {

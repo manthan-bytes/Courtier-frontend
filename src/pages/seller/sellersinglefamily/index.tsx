@@ -30,7 +30,7 @@ const SellerSingleFamily = () => {
                 </h2>
                 <form>
                   <Link
-                    to="/seller/callfromagent"
+                    to="/seller/singlefamilyhomestyle"
                     className="theme_btn grdnt_btn"
                   >
                     LET’S CONTINUE

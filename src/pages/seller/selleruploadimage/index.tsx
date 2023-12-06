@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../selleruploadimage/selleruploadimage.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
-import { VolumeMute, VolumeOn } from "../../../core/icons";
+import { ChooseIcon } from "../../../core/icons";
 
 const SellerUploadImage = () => {
   useEffect(() => {
@@ -30,13 +30,33 @@ const SellerUploadImage = () => {
                 </h2>
                 <form>
                   <div className="form-inner-block">
-                    <div className="choose-file-block">Back</div>
+                    <div className="file-upload-wrap">
+                    <label>
+                      <div className="">
+                        <ChooseIcon />
+                        <p className="label">Drag & Drop your files here or <span>Choose files</span></p>
+                        <p className="label-note">
+                        Max you can upload 10 files. 2 MB each image
+                        </p>
+                      </div>
+
+                      <input
+                        id="file"
+                        type="file"
+                        name="file"
+                        accept="image/jpg, image/png, image/jpeg"
+                      />
+                      <span className="error-msg">
+                        Please choose file
+                      </span>
+                    </label>
+                  </div>
                   </div>
                   <Link
                     to="/seller/inquiryoption"
                     className="theme_btn grdnt_btn"
                   >
-                   Next Question
+                 Continue
                   </Link>
                 </form>
               </div>

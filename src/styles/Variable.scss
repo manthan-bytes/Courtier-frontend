@@ -36,12 +36,12 @@ $font_size_base: 22px;
   }
 
   &::-webkit-scrollbar-track {
-    background:$Black4;
+    background:$Accent;
     border-radius: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color:$Border;
+    background-color:$Error;
     border-radius: 6px;
     border: 0px solid $White;
   }

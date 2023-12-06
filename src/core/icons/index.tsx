@@ -9,6 +9,10 @@ import { Familyicon } from "./collection/Familyicon";
 import { Landfieldicon } from "./collection/Landfieldicon";
 import { Industrialicon } from "./collection/Industrialicon";
 import { Closeicon } from "./collection/Closeicon";
+import { RightIcon } from "./collection/RightIcon";
+import { ChooseIcon } from "./collection/ChooseIcon";
+
+
 
 export {
   VolumeMute as VolumeMute,
@@ -22,4 +26,7 @@ export {
   Landfieldicon as Landfieldicon,
   Industrialicon as Industrialicon,
   Closeicon as Closeicon,
+  RightIcon as RightIcon,
+  ChooseIcon as ChooseIcon,
+  
 };

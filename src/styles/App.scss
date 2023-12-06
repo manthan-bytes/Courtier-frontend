@@ -73,6 +73,10 @@ img {
   @include heading-2()
 }
 
+.h3 {
+  @include heading-3()
+}
+
 .form-control {
   @include form_control
 }
@@ -218,11 +222,8 @@ img {
   padding-bottom: 24px;
 
   @media screen and (max-width:$screen-1199) {
-    gap: 20px;
-  }
-
-  @media screen and (max-width:$screen-xs-max) {
     gap: 15px;
+    padding-bottom: 20px;
   }
 
   li {
