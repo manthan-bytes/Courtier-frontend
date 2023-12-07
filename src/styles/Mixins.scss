@@ -116,6 +116,21 @@
         padding: 10px 15px;
         height: 50px;
     }
+    &.error-m {
+        color: $Error;
+        border-color: $Error;
+        &::-webkit-input-placeholder {
+           color: $Error;
+        }
+    
+        &::-ms-input-placeholder {
+           color: $Error;
+        }
+    
+        &::placeholder {
+           color: $Error;
+        }
+    }
 
     &::-webkit-input-placeholder {
         color: $Font_Primary;

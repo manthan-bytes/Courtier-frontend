@@ -8,7 +8,7 @@ import landfield from "../../../assets/images/landfield.jpg";
 const SellerAboutLandField = () => {
   return (
     <>
-      <section className="main-banner-sec aboutlandfield-sec">
+      <section className="main-banner-sec commane-main aboutlandfield-sec">
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

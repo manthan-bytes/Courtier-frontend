@@ -11,7 +11,7 @@ import { Industrialicon } from "./collection/Industrialicon";
 import { Closeicon } from "./collection/Closeicon";
 import { RightIcon } from "./collection/RightIcon";
 import { ChooseIcon } from "./collection/ChooseIcon";
-
+import { CloseIconv1 } from "./collection/CloseIconv1";
 
 
 export {
@@ -28,5 +28,6 @@ export {
   Closeicon as Closeicon,
   RightIcon as RightIcon,
   ChooseIcon as ChooseIcon,
+  CloseIconv1 as CloseIconv1,
   
 };

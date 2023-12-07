@@ -31,7 +31,7 @@ const SellerPropertyThankyou = () => {
                     Take Me to Home
                   </Link>
                   <Link
-                    to="/seller/callfromagent"
+                    to="/seller/propertytype"
                     className="theme_btn grdnt_btn"
                   >
                     I need help TO BUY a property

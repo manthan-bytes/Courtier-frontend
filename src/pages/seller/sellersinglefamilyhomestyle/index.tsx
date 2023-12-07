@@ -12,7 +12,7 @@ const SellerSingleFamilyHomestyle = () => {
   });
   return (
     <>
-      <section className="main-banner-sec singlefamilyhomestyle-sec">
+      <section className="main-banner-sec commane-main singlefamilyhomestyle-sec">
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

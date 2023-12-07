@@ -2,6 +2,16 @@
 
 .main-banner-sec {
     &.contactinfo-sec {
+        padding: 150px 0 130px 0;
+        @media screen and (max-width:$screen-991) {
+            padding: 90px 0 70px 0;
+        }
+        .banner-cantent-block {
+            height: calc(100vh - 280px);
+            @media screen and (max-width: $screen-991) {
+              height: 100%;
+            }
+          }
         .form-step-contect {
             .form-group-main {
                 width: 100%;
@@ -57,7 +67,7 @@
                 font-size: 14px;
             }
 
-            @media screen and (max-width: $screen-xs-max) {
+            @media screen and (max-width:$screen-991) {
                 position: inherit;
                 bottom: 0;
                 padding-top: 30px;

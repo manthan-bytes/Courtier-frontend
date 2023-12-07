@@ -13,6 +13,7 @@ const SellerContactInfo = () => {
   return (
    <>
    <ContactInfo></ContactInfo>
+   
    </>
   );
 };

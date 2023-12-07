@@ -1,15 +1,21 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../contactinfo/contactinfo.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 
 const ContactInfo = () => {
+
+
+  const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    console.log("test");
-  });
+    setNewClass(true);
+  }, []);
+
   return (
-    <section className="main-banner-sec contactinfo-sec">
+    <section className={`main-banner-sec contactinfo-sec ${
+      newClass ? "next-class" : ""
+    }`}>
       <div className="banner-overlay"></div>
       <img
         className="banner-bg"
@@ -40,7 +46,7 @@ const ContactInfo = () => {
                     </div>
                     <div className="form-group">
                       <input
-                        className="form-control"
+                        className="form-control error-m"
                         type="tel"
                         placeholder="Enter Your Contact No"
                         name="Contact No"
@@ -59,7 +65,7 @@ const ContactInfo = () => {
                     </div>
                   </div>
                 </div>
-                <Link to="/" className="theme_btn">
+                <Link to="/buysellproperty" className="theme_btn">
                   Back
                 </Link>
                 <Link to="/seller/location" className="theme_btn grdnt_btn">

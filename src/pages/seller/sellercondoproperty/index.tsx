@@ -10,7 +10,7 @@ const SellerCondoProperty = () => {
 
   return (
     <>
-      <section className="main-banner-sec condoproperty-sec">
+      <section className="main-banner-sec commane-main condoproperty-sec">
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

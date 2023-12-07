@@ -65,6 +65,10 @@ img {
   }
 }
 
+#root {
+  overflow-x: hidden;
+}
+
 .h1 {
   @include heading-1()
 }
@@ -104,12 +108,13 @@ img {
 .main-banner-sec {
   height: 100vh;
   position: relative;
-  padding: 150px 0 130px 0;
+  padding: 90px 0 70px 0;
+  // transform: translateX(100%);
+  // transition: all 1.5s;
 
-  @media screen and (max-width:$screen-xs-max) {
+  @media screen and (max-width:$screen-991) {
     height: 100%;
     min-height: 100vh;
-    padding: 80px 0 70px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,7 +130,7 @@ img {
     top: 0;
     bottom: 0;
 
-    @media screen and (max-width:$screen-xs-max) {
+    @media screen and (max-width:$screen-991) {
       height: 100%;
     }
 
@@ -145,7 +150,7 @@ img {
       top: 0;
       bottom: 0;
 
-      @media screen and (max-width:$screen-xs-max) {
+      @media screen and (max-width:$screen-991) {
         height: 100%;
       }
 
@@ -158,12 +163,12 @@ img {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    height: calc(100vh - 280px);
+    height: calc(100vh - 160px);
     overflow-y: auto;
     @include scrollbar;
     width: 100%;
 
-    @media screen and (max-width: $screen-xs-max) {
+    @media screen and (max-width: $screen-991) {
       height: 100%;
     }
   }

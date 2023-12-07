@@ -8,7 +8,7 @@ import commercialindustrial from "../../../assets/images/industrial.jpg";
 const SellerCommercialIndustrial = () => {
   return (
     <>
-      <section className="main-banner-sec industrial-sec">
+      <section className="main-banner-sec commane-main industrial-sec">
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

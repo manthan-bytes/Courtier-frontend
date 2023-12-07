@@ -1,5 +1,5 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../propertytype/propertytype.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
@@ -12,12 +12,17 @@ import {
 } from "../../core/icons";
 
 const PropertyType = () => {
+
+  const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    console.log("test");
-  });
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec property-sec">
+      <section
+        className={`main-banner-sec property-sec ${ newClass ? "next-class" : "" }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -90,7 +95,7 @@ const PropertyType = () => {
                   </Link>
                   <Link
                     to="/seller/inquiryoption"
-                    className="theme_btn grdnt_btn"
+                    className="theme_btn grdnt_btn" 
                   >
                     Next Question
                   </Link>

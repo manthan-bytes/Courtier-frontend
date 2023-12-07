@@ -1,17 +1,20 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import bg_main from "../../assets/images/bg-main.jpg";
 import { VolumeMute, VolumeOn, Buyericon, Sellericon } from "../../core/icons";
 import "./buysellproperty.scss";
 
 const BuySellProperty = () => {
+
+  const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    console.log("test");
-  });
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec buysellproperty-sec property-sec">
+      <section className={`main-banner-sec buysellproperty-sec ${newClass ? "next-class" : ""}`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

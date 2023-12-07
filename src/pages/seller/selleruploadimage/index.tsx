@@ -53,7 +53,7 @@ const SellerUploadImage = () => {
                   </div>
                   </div>
                   <Link
-                    to="/seller/inquiryoption"
+                    to="/seller/singlefamily"
                     className="theme_btn grdnt_btn"
                   >
                  Continue
