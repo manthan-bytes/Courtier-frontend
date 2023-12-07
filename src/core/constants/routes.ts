@@ -3,6 +3,7 @@ export const ROUTES = {
   LOGIN: "/login",
   BUYSELLPROPERTY: "/buysellproperty",
   SELLER: "/seller",
+  BUYER: "/buyer",
 };
 
 export const SELLER = {
@@ -21,4 +22,16 @@ export const SELLER = {
   ABOUT_LAND_FIELD: "/seller/aboutlandfield",
   REVENUE_PROPERTY: "/seller/revenueproperty",
   COMMERCIAL_INDUSTRIAL: "/seller/commercialindustrial",
+};
+
+export const BUYER = {
+  INQUIRY_OPTION: "/buyer/inquiryoption",
+  SINGLE_FAMILY: "/buyer/singlefamily",
+  CONDO_PROPERTY: "/buyer/condoproperty",
+  REVENUE_PROPERTY: "/buyer/revenueproperty",
+  COMMERCIAL_INDUSTRIAL: "/buyer/commercialindustrial",
+  ABOUT_LAND_FIELD: "/buyer/aboutlandfield",
+  SEARCH_PROPERTY: "/buyer/searchproperty", 
+  TIME_LINE: "/buyer/timeline",
+  AGENT: "/buyer/agent",
 };
