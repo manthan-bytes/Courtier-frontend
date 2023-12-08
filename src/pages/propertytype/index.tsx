@@ -12,7 +12,7 @@ import {
 } from "../../core/icons";
 
 const PropertyType = () => {
-
+  // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
     setNewClass(true);
@@ -21,7 +21,9 @@ const PropertyType = () => {
   return (
     <>
       <section
-        className={`main-banner-sec property-sec ${ newClass ? "next-class" : "" }`}
+        className={`main-banner-sec property-sec ${
+          newClass ? "next-class" : ""
+        }`}
       >
         <div className="banner-overlay"></div>
         <img
@@ -95,7 +97,7 @@ const PropertyType = () => {
                   </Link>
                   <Link
                     to="/seller/inquiryoption"
-                    className="theme_btn grdnt_btn" 
+                    className="theme_btn grdnt_btn"
                   >
                     Next Question
                   </Link>

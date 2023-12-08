@@ -1,12 +1,11 @@
 // create dashboard page component
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../sellercontactinfo/sellercontactinfo.scss";
+import "./buyercontactinfo.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
-import { VolumeMute, VolumeOn } from "../../../core/icons";
 import ContactInfo from "../../contactinfo";
 
-const SellerContactInfo = () => {
+const BuyerContactInfo = () => {
 
   return (
    <>
@@ -16,4 +15,4 @@ const SellerContactInfo = () => {
   );
 };
 
-export default SellerContactInfo;
+export default BuyerContactInfo;

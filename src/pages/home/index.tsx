@@ -1,14 +1,16 @@
 // create dashboard page component
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
-import volumeoff from "../../assets/images/volumeoff-icon.svg";
-import volumeon from "../../assets/images/volumeon-icon.svg";
 import btnloader from "../../assets/images/btn-loader.svg";
 import { TEXT } from "../../core/constants/headingText";
 import { VolumeMute, VolumeOn } from "../../core/icons";
 
 const Home = () => {
+  const [newClass, setNewClass] = useState(false);
+  useEffect(() => {
+    setNewClass(true);
+  }, []);
   return (
     <section className="main-banner">
       <div className="homepage-banner-video-overlay"></div>

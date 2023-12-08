@@ -1,14 +1,20 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./buyeragent.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 
 const BuyerAgent = () => {
 
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
+  useEffect(() => {
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec propertythankyou-sec">
+      <section className={`main-banner-sec propertythankyou-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -26,11 +32,11 @@ const BuyerAgent = () => {
                 </h2>
                 <p className="sub-tilte">if you found this journey cool - make sure to share and talk about it with your friends!</p>
                 <form>
-                  <Link to="/buysellproperty" className="theme_btn">
+                  <Link to="/home" className="theme_btn">
                     NO, THANKS
                   </Link>
                   <Link
-                    to="/buyer/timeline"
+                    to="/buysellproperty"
                     className="theme_btn grdnt_btn"
                   >
                     YES I WANT TO ADD

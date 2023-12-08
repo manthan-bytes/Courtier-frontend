@@ -6,7 +6,8 @@ import { VolumeMute, VolumeOn, Buyericon, Sellericon } from "../../core/icons";
 import "./buysellproperty.scss";
 
 const BuySellProperty = () => {
-
+  
+  // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
     setNewClass(true);
@@ -14,7 +15,11 @@ const BuySellProperty = () => {
 
   return (
     <>
-      <section className={`main-banner-sec buysellproperty-sec ${newClass ? "next-class" : ""}`}>
+      <section
+        className={`main-banner-sec buysellproperty-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -54,7 +59,10 @@ const BuySellProperty = () => {
                       </div>
                     </label>
                   </div>
-                  <Link to="/seller/contactinfo" className="theme_btn grdnt_btn">
+                  <Link
+                    to="/seller/contactinfo"
+                    className="theme_btn grdnt_btn"
+                  >
                     Go To Contact Info
                   </Link>
                 </form>

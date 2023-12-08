@@ -1,14 +1,20 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./buyertimeline.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 
 const BuyerTimeLine = () => {
 
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
+  useEffect(() => {
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec propertysold-sec">
+      <section className={`main-banner-sec propertysold-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

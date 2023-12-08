@@ -33,6 +33,7 @@ const Location = () => {
     { value: "Batiscan", label: "Batiscan" },
   ];
 
+  // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
     setNewClass(true);
@@ -43,7 +44,7 @@ const Location = () => {
       <section
         className={`main-banner-sec location-sec ${
           newClass ? "next-class" : ""
-        }`}
+        } `}
       >
         <div className="banner-overlay"></div>
         <img
@@ -64,12 +65,18 @@ const Location = () => {
                   <div className="form-inner-block">
                     <Select className="select-main-wrap" options={options} />
                     <Select className="select-main-wrap" options={options} />
-                    <div className="addclose-icon" ><span className="text-add">+ADD</span></div>
+                    <div className="addclose-icon">
+                      <span className="text-add">+ADD</span>
+                    </div>
                   </div>
                   <div className="form-inner-block">
                     <Select className="select-main-wrap" options={options} />
                     <Select className="select-main-wrap" options={options} />
-                    <div className="addclose-icon"><span><CloseIconv1/></span></div>
+                    <div className="addclose-icon">
+                      <span>
+                        <CloseIconv1 />
+                      </span>
+                    </div>
                   </div>
                   <div className="frm-wrap">
                     <span className="error-msg">

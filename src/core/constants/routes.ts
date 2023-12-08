@@ -25,6 +25,9 @@ export const SELLER = {
 };
 
 export const BUYER = {
+  CONTACT_INFO: "/buyer/contactinfo",
+  LOCATION: "/buyer/location",
+  PROPERTY_TYPE: "/buyer/propertytype",
   INQUIRY_OPTION: "/buyer/inquiryoption",
   SINGLE_FAMILY: "/buyer/singlefamily",
   CONDO_PROPERTY: "/buyer/condoproperty",

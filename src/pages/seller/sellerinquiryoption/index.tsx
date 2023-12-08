@@ -1,16 +1,20 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../sellerinquiryoption/sellerinquiryoption.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 
 const SellerInquiryOption = () => {
-  useEffect(() => {
-    console.log("test");
-  });
+
+    // banner slide animation js
+    const [newClass, setNewClass] = useState(false);
+    useEffect(() => {
+      setNewClass(true);
+    }, []);
+
   return (
     <>
-      <section className="main-banner-sec inquiryoption-sec">
+      <section className={`main-banner-sec inquiryoption-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -28,11 +32,11 @@ const SellerInquiryOption = () => {
                   or wait for a Call from a real-estate agent?
                 </h2>
                 <form>
-                  <Link to="/seller/propertytype" className="theme_btn">
+                  <Link to="/seller/callfromagent" className="theme_btn">
                     GET CALL FROM AGENT
                   </Link>
                   <Link
-                    to="/seller/callfromagent"
+                    to="/seller/uploadimage"
                     className="theme_btn grdnt_btn"
                   >
                     Go With Digital Evaluation

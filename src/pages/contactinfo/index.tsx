@@ -5,17 +5,18 @@ import "../contactinfo/contactinfo.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 
 const ContactInfo = () => {
-
-
+  // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
     setNewClass(true);
   }, []);
 
   return (
-    <section className={`main-banner-sec contactinfo-sec ${
-      newClass ? "next-class" : ""
-    }`}>
+    <section
+      className={`main-banner-sec contactinfo-sec ${
+        newClass ? "next-class" : ""
+      }`}
+    >
       <div className="banner-overlay"></div>
       <img
         className="banner-bg"

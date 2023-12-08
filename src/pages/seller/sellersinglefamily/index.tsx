@@ -1,16 +1,21 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../sellersinglefamily/sellersinglefamily.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 
 const SellerSingleFamily = () => {
+
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    console.log("test");
-  });
+    setNewClass(true);
+  }, []);
+      
+
   return (
     <>
-      <section className="main-banner-sec singlefamily-sec">
+      <section className={`main-banner-sec singlefamily-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

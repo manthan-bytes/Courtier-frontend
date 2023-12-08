@@ -1,12 +1,12 @@
 // create dashboard page component
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../sellerpropertytype/sellerpropertytype.scss";
+import "./buyerpropertytype.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 import PropertyType from "../../propertytype";
 
 
-const SellerPropertyType = () => {
+const BuyerPropertyType = () => {
   
   return (
    <>
@@ -15,4 +15,4 @@ const SellerPropertyType = () => {
   );
 };
 
-export default SellerPropertyType;
+export default BuyerPropertyType;
