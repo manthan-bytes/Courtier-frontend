@@ -1,17 +1,21 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./sellerpropertyconformation.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import greaticon from "../../../assets/images/greaticon.svg";
 
 const SellerPropertyConformation = () => {
+
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    console.log("test");
-  });
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec conformation-sec">
+      <section className={`main-banner-sec conformation-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -40,11 +44,11 @@ const SellerPropertyConformation = () => {
                   selling?
                 </h3>
                 <form>
-                  <Link to="/seller/propertysold" className="theme_btn">
+                  <Link to="/seller/propertythankyou" className="theme_btn">
                     NO, THANKS
                   </Link>
                   <Link
-                    to="/seller/propertythankyou"
+                    to="/seller/location"
                     className="theme_btn grdnt_btn"
                   >
                     YES I WANT TO ADD

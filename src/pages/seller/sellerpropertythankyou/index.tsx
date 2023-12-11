@@ -1,16 +1,20 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./sellerpropertythankyou.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 
 const SellerPropertyThankyou = () => {
+
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    console.log("test");
-  });
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec propertythankyou-sec">
+      <section className={`main-banner-sec propertythankyou-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -27,11 +31,11 @@ const SellerPropertyThankyou = () => {
                   Alright, this was quick and easy, see you again soon!
                 </h2>
                 <form>
-                  <Link to="/seller/propertytype" className="theme_btn">
+                  <Link to="" className="theme_btn">
                     Take Me to Home
                   </Link>
                   <Link
-                    to="/seller/callfromagent"
+                    to=""
                     className="theme_btn grdnt_btn"
                   >
                     I need help TO BUY a property

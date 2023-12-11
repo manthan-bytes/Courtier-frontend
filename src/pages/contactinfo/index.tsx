@@ -9,7 +9,8 @@ import { ROUTES, SELLER } from "../../core/constants/routes";
 
 const ContactInfo = () => {
   const navigate = useNavigate();
-
+// banner slide animation js
+const [newClass, setNewClass] = useState(false);
   const email = localStorage.getItem('email');
   const [userData, setUserData] = useState<any>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
@@ -35,6 +36,7 @@ const ContactInfo = () => {
   }
 
   useEffect(() => {
+    setNewClass(true);
     console.log("test");
     getUserDetail()
 
@@ -42,7 +44,11 @@ const ContactInfo = () => {
   }, []);
   return (
   
-    <section className="main-banner-sec contactinfo-sec">
+    <section
+      className={`main-banner-sec contactinfo-sec ${
+        newClass ? "next-class" : ""
+      }`}
+    >
       <div className="banner-overlay"></div>
       <img
         className="banner-bg"
@@ -78,7 +84,7 @@ const ContactInfo = () => {
                     </div>
                     <div className="form-group">
                       <input
-                        className="form-control"
+                        className="form-control error-m"
                         type="number"
                         placeholder="Enter Your Contact No"
                         name="Contact No"

@@ -10,7 +10,8 @@ const BuySellProperty = () => {
   const navigate = useNavigate();
   const [leadObj, setLeadObj] = useState<any>();
   const [getType, setType] = useState<string>();
-
+// banner slide animation js
+const [newClass, setNewClass] = useState(false);
   const handleSubmitClick = async () => {
     const leadObj = {
       leadType: getType,
@@ -34,6 +35,7 @@ const BuySellProperty = () => {
     }
   };
   useEffect(() => {
+    setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
     if (getLeadObj) {
       setLeadObj(JSON.parse(getLeadObj));
@@ -42,7 +44,11 @@ const BuySellProperty = () => {
   }, []);
   return (
     <>
-      <section className="main-banner-sec buysellproperty-sec property-sec">
+      <section
+        className={`main-banner-sec buysellproperty-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

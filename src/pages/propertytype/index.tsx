@@ -15,7 +15,8 @@ const PropertyType = () => {
   const navigate = useNavigate();
   const [leadObj, setLeadObj] = useState<any>();
   const [getPropertyType, setPropertyType] = useState<string>();
-
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
   const handleSubmitClick = async () => {
     // to="/seller/inquiryoption"
     navigate("/seller/inquiryoption")
@@ -51,6 +52,7 @@ const PropertyType = () => {
   };
 
   useEffect(() => {
+    setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
     console.log(
       "🚀 ~ file: index.tsx:45 ~ useEffect ~ getLeadObj:",
@@ -63,7 +65,11 @@ const PropertyType = () => {
   }, []);
   return (
     <>
-      <section className="main-banner-sec property-sec">
+      <section
+        className={`main-banner-sec property-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

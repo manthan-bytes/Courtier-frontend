@@ -1,17 +1,21 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../sellercallfromagent/sellercallfromagent.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import greaticon from "../../../assets/images/greaticon.svg";
 
 const SellerCallFromAgent = () => {
-  useEffect(() => {
-    console.log("test");
-  });
+
+    // banner slide animation js
+    const [newClass, setNewClass] = useState(false);
+    useEffect(() => {
+      setNewClass(true);
+    }, []);
+
   return (
     <>
-      <section className="main-banner-sec callfromagent-sec">
+      <section className={`main-banner-sec callfromagent-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

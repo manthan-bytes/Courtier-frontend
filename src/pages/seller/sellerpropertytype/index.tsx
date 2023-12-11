@@ -7,9 +7,7 @@ import PropertyType from "../../propertytype";
 
 
 const SellerPropertyType = () => {
-  useEffect(() => {
-    console.log("test");
-  });
+  
   return (
    <>
    <PropertyType></PropertyType>

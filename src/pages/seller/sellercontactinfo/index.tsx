@@ -7,12 +7,11 @@ import { VolumeMute, VolumeOn } from "../../../core/icons";
 import ContactInfo from "../../contactinfo";
 
 const SellerContactInfo = () => {
-  useEffect(() => {
-    console.log("test");
-  });
+
   return (
    <>
    <ContactInfo></ContactInfo>
+   
    </>
   );
 };

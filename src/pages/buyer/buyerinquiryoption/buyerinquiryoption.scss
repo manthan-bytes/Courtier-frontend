@@ -1,0 +1,10 @@
+@import "../../../styles/Variable.scss";
+.main-banner-sec {
+    &.inquiryoption-sec {
+        .form-step-contect {
+           max-width: 1330px;
+           width: 100%;
+           margin: 0 auto;
+        }
+    }
+}

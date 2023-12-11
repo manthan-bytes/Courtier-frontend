@@ -6,9 +6,7 @@ import bg_main from "../../assets/images/bg-main.jpg";
 import Location from "../../location";
 
 const SellerLocation = () => {
-  useEffect(() => {
-    console.log("test");
-  });
+
   return (
     <>
       <Location />

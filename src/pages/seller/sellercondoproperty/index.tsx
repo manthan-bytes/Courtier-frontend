@@ -1,5 +1,5 @@
 // create dashboard page component
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../sellercondoproperty/sellercondoproperty.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
@@ -8,9 +8,15 @@ import { RightIcon } from "../../../core/icons";
 
 const SellerCondoProperty = () => {
 
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
+  useEffect(() => {
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec condoproperty-sec">
+      <section className={`main-banner-sec commane-main condoproperty-sec ${ newClass ? "next-class" : "" }`}>
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"

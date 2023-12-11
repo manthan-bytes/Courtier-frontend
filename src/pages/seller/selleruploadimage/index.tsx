@@ -1,17 +1,25 @@
 // create dashboard page component
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../selleruploadimage/selleruploadimage.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { ChooseIcon } from "../../../core/icons";
 
 const SellerUploadImage = () => {
+  
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    console.log("test");
-  });
+    setNewClass(true);
+  }, []);
+
   return (
     <>
-      <section className="main-banner-sec uploadimage-sec">
+      <section
+        className={`main-banner-sec uploadimage-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -31,32 +39,33 @@ const SellerUploadImage = () => {
                 <form>
                   <div className="form-inner-block">
                     <div className="file-upload-wrap">
-                    <label>
-                      <div className="">
-                        <ChooseIcon />
-                        <p className="label">Drag & Drop your files here or <span>Choose files</span></p>
-                        <p className="label-note">
-                        Max you can upload 10 files. 2 MB each image
-                        </p>
-                      </div>
+                      <label>
+                        <div className="">
+                          <ChooseIcon />
+                          <p className="label">
+                            Drag & Drop your files here or{" "}
+                            <span>Choose files</span>
+                          </p>
+                          <p className="label-note">
+                            Max you can upload 10 files. 2 MB each image
+                          </p>
+                        </div>
 
-                      <input
-                        id="file"
-                        type="file"
-                        name="file"
-                        accept="image/jpg, image/png, image/jpeg"
-                      />
-                      <span className="error-msg">
-                        Please choose file
-                      </span>
-                    </label>
-                  </div>
+                        <input
+                          id="file"
+                          type="file"
+                          name="file"
+                          accept="image/jpg, image/png, image/jpeg"
+                        />
+                        <span className="error-msg">Please choose file</span>
+                      </label>
+                    </div>
                   </div>
                   <Link
-                    to="/seller/inquiryoption"
+                    to="/seller/singlefamily"
                     className="theme_btn grdnt_btn"
                   >
-                 Continue
+                    Continue
                   </Link>
                 </form>
               </div>

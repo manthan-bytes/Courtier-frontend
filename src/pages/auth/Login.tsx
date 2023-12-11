@@ -61,7 +61,6 @@ const Login = () => {
     anime({
       targets: ".ml6 .letter",
       translateY: "30px",
-      // scale: [.75, .9],
       opacity: 1,
       delay: function (el, index) {
         return index * 80;
@@ -79,6 +78,12 @@ const Login = () => {
       setShowDiv(false);
     }, 7500);
     return () => clearTimeout(timeoutId);
+  }, []);
+
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
+  useEffect(() => {
+    setNewClass(true);
   }, []);
 
   return (
@@ -102,7 +107,7 @@ const Login = () => {
     //   </div>
     // </div>
 
-    <section className="main-banner-sec">
+    <section className={`main-banner-sec login-sec ${ newClass ? "next-class" : "" }`}>
       <div className="banner-overlay"></div>
       <img
         className="banner-bg"

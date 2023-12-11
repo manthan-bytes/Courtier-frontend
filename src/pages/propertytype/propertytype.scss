@@ -1,10 +1,16 @@
 @import "../../styles/Variable.scss";
 
 .main-banner-sec {
+    &.next-class {
+        transform: translateX(0%);
+    }
+
     &.property-sec {
         .form-step-contect {
             .form-inner-block {
-                flex-wrap: wrap;
+                @media screen and (max-width: $screen-sm-max) {
+                    flex-wrap: wrap;
+                }
             }
         }
     }
