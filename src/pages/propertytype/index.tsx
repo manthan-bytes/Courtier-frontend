@@ -1,6 +1,6 @@
 // create dashboard page component
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../propertytype/propertytype.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 import {
@@ -12,9 +12,55 @@ import {
 } from "../../core/icons";
 
 const PropertyType = () => {
+  const navigate = useNavigate();
+  const [leadObj, setLeadObj] = useState<any>();
+  const [getPropertyType, setPropertyType] = useState<string>();
+
+  const handleSubmitClick = async () => {
+    // to="/seller/inquiryoption"
+    navigate("/seller/inquiryoption")
+    console.log('handle',leadObj)
+    // const getLeadObj = localStorage.getItem("leadObj");
+    // if (getLeadObj) {
+    //   console.log(
+    //     "🚀 ~ file: index.tsx:21 ~ handleSubmitClick ~ getLeadObj:",
+    //     JSON.parse(getLeadObj)
+    //   );
+    // }
+    // const leadObj = {
+
+    //   propertyType: getPropertyType,
+    // };
+    localStorage.setItem("leadObj", JSON.stringify(leadObj));
+    // navigate(SELLER.CONTACT_INFO);
+  };
+
+  const handleOnChange = async (propertyType: string) => {
+    setPropertyType(propertyType);
+    const getLeadObj = localStorage.getItem("leadObj");
+   
+    if (getLeadObj) {
+      leadObj["propertyType"] = propertyType;
+      setLeadObj(leadObj);
+    } else {
+      const leadObj = {
+        propertyType: getPropertyType,
+      };
+      setLeadObj(leadObj);
+    }
+  };
+
   useEffect(() => {
-    console.log("test");
-  });
+    const getLeadObj = localStorage.getItem("leadObj");
+    console.log(
+      "🚀 ~ file: index.tsx:45 ~ useEffect ~ getLeadObj:",
+      getLeadObj
+    );
+    if (getLeadObj) {
+      setLeadObj(JSON.parse(getLeadObj));
+      setPropertyType(JSON.parse(getLeadObj)?.propertyType);
+    }
+  }, []);
   return (
     <>
       <section className="main-banner-sec property-sec">
@@ -36,7 +82,12 @@ const PropertyType = () => {
                 <form>
                   <div className="form-inner-block">
                     <label className="custom-select">
-                      <input type="radio" name="layout" value="L" />
+                      <input
+                        type="radio"
+                        name="layout"
+                        checked={leadObj?.propertyType === "single_family"}
+                        onChange={(e) => handleOnChange("single_family")}
+                      />
 
                       <div className="custom-lable">
                         <span className="svg-icon">
@@ -46,7 +97,12 @@ const PropertyType = () => {
                       </div>
                     </label>
                     <label className="custom-select">
-                      <input type="radio" name="layout" value="L" />
+                      <input
+                        type="radio"
+                        name="layout"
+                        checked={leadObj?.propertyType === "condo"}
+                        onChange={(e) => handleOnChange("condo")}
+                      />
 
                       <div className="custom-lable">
                         <span className="svg-icon">
@@ -56,7 +112,12 @@ const PropertyType = () => {
                       </div>
                     </label>
                     <label className="custom-select">
-                      <input type="radio" name="layout" value="L" />
+                      <input
+                        type="radio"
+                        name="layout"
+                        checked={leadObj?.propertyType === "revenue_property"}
+                        onChange={(e) => handleOnChange("revenue_property")}
+                      />
 
                       <div className="custom-lable">
                         <span className="svg-icon">
@@ -66,7 +127,16 @@ const PropertyType = () => {
                       </div>
                     </label>
                     <label className="custom-select">
-                      <input type="radio" name="layout" value="L" />
+                      <input
+                        type="radio"
+                        name="layout"
+                        checked={
+                          leadObj?.propertyType === "commercial_or_industry"
+                        }
+                        onChange={(e) =>
+                          handleOnChange("commercial_or_industry")
+                        }
+                      />
 
                       <div className="custom-lable">
                         <span className="svg-icon">
@@ -76,7 +146,12 @@ const PropertyType = () => {
                       </div>
                     </label>
                     <label className="custom-select">
-                      <input type="radio" name="layout" value="L" />
+                      <input
+                        type="radio"
+                        name="layout"
+                        checked={leadObj?.propertyType === "land"}
+                        onChange={(e) => handleOnChange("land")}
+                      />
                       <div className="custom-lable">
                         <span className="svg-icon">
                           <Landfieldicon />
@@ -88,12 +163,13 @@ const PropertyType = () => {
                   <Link to="/" className="theme_btn">
                     Back
                   </Link>
-                  <Link
-                    to="/seller/inquiryoption"
+                  <div
+                  onClick={handleSubmitClick}
+                    
                     className="theme_btn grdnt_btn"
                   >
                     Next Question
-                  </Link>
+                  </div>
                 </form>
               </div>
             </div>

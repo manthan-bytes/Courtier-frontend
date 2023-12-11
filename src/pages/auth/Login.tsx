@@ -1,37 +1,60 @@
 // create login page component
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../store/features/AuthSlice";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../store/store";
 import "./Login.scss";
-import ButtonSubmit from "../../components/Button/ButtonSubmit";
 import bg_main from "../../assets/images/bg-main.jpg";
 import banner1 from "../../assets/images/banner1.jpg";
 import { TEXT } from "../../core/constants/headingText";
 import anime from "animejs/lib/anime.es.js";
 
 import { VolumeMute, VolumeOn, Googleicon } from "../../core/icons";
+import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { createUser } from "../../service/login.service";
 
 const Login = () => {
   // state for email and password
-  const [username, setUsername] = useState<string>("kminchelle");
-  const [password, setPassword] = useState<string>("0lelplR");
+  const [profile, setProfile] = useState([]);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse:any) => {
+      axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${codeResponse.access_token}`, {
+        headers: {
+          Authorization: `Bearer ${codeResponse.access_token}`,
+          Accept: 'application/json'
+        }
+      })
+      .then(async (res) => {
+        setProfile(res.data);
+        const userObj = {
+          name: res.data.name,
+          email: res.data.email,
+        }
+        await saveUser(userObj, codeResponse.access_token);
+       
+      })
+      .catch((err) => console.log(err));
+    },
+    onError: (error) => {console.log('Login Failed:', error)}
+  });
+
+
   // submit handler
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    localStorage.setItem("token", "1234");
-    navigate("/buysellproperty");
-    // e.preventDefault();
-    // dispatch(login({ username: username, password: password })).then((response: any) => {
-    //   localStorage.setItem('token', response.payload.token);
-    //   navigate('/buysellproperty');
-    // }).catch((err: any) => {
-    //   console.log('Login submit err', err);
-    // });
+  const submitHandler = async () => {
+  await login();
   };
+
+  const saveUser = async (userObj:any, token: string) => {
+    await createUser(userObj);
+    localStorage.setItem('token', token)
+    localStorage.setItem('email', userObj.email)
+    navigate("/buysellproperty");
+  }
 
   // typeing js title
   useEffect(() => {
@@ -93,13 +116,13 @@ const Login = () => {
           <div className="custom-row">
             <div className="login-block">
               <h2 className="h2">Login to Continue</h2>
-              <form onSubmit={submitHandler}>
+              <form>
               <label className="custom-select">
-                <Link to="/register" className="theme_btn">
+                <div onClick={submitHandler} className="theme_btn">
                   <Googleicon />
                   Continue with Goolge
-                </Link>
-                <ButtonSubmit title="Login" disabled={false} />
+                </div>
+                {/* <ButtonSubmit title="Login" disabled={false} /> */}
               </label>
               </form>
             </div>
