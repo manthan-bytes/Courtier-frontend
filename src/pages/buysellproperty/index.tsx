@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import bg_main from "../../assets/images/bg-main.jpg";
 import { VolumeMute, VolumeOn, Buyericon, Sellericon } from "../../core/icons";
 import "./buysellproperty.scss";
-import { ROUTES, SELLER } from "../../core/constants/routes";
+import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
 
 const BuySellProperty = () => {
   const navigate = useNavigate();
@@ -17,7 +17,14 @@ const [newClass, setNewClass] = useState(false);
       leadType: getType,
     };
     localStorage.setItem("leadObj", JSON.stringify(leadObj));
-    navigate(SELLER.CONTACT_INFO);
+    if (getType === 'seller') {
+      navigate(SELLER.CONTACT_INFO);
+
+    } 
+    if (getType === 'buyer') {
+      navigate(BUYER.CONTACT_INFO);
+
+    }
   };
 
   const handleOnChange = async (leadType: string) => {

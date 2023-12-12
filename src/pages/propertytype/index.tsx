@@ -10,6 +10,9 @@ import {
   Industrialicon,
   Landfieldicon,
 } from "../../core/icons";
+import { BUYER, SELLER } from "../../core/constants/routes";
+import { getUser } from "../../service/login.service";
+import { createLead } from "../../service/lead.service";
 
 const PropertyType = () => {
   const navigate = useNavigate();
@@ -19,8 +22,8 @@ const PropertyType = () => {
   const [newClass, setNewClass] = useState(false);
   const handleSubmitClick = async () => {
     // to="/seller/inquiryoption"
-    navigate("/seller/inquiryoption")
-    console.log('handle',leadObj)
+    // navigate("/seller/inquiryoption")
+    // console.log('handle',leadObj)
     // const getLeadObj = localStorage.getItem("leadObj");
     // if (getLeadObj) {
     //   console.log(
@@ -32,9 +35,46 @@ const PropertyType = () => {
 
     //   propertyType: getPropertyType,
     // };
-    localStorage.setItem("leadObj", JSON.stringify(leadObj));
+
+    if (leadObj.leadType === 'seller') {
+      localStorage.setItem("leadObj", JSON.stringify(leadObj));
+
+      navigate(SELLER.INQUIRY_OPTION);
+
+    } 
+    if (leadObj.leadType === 'buyer') {
+      const userEmail = localStorage.getItem("email");
+  
+      const userDetails = await getUser(userEmail);
+  
+      if (leadObj && userDetails) {
+        const dataObj = leadObj;
+        dataObj["userId"] = userDetails.data.id;
+        const lead = await createLead(dataObj);
+        if (lead.statusCode === 201) {
+          dataObj["id"] = lead.data.id;
+          const leadObjData = JSON.stringify(dataObj)
+          localStorage.setItem("leadObj", leadObjData);
+          navigate(BUYER.INQUIRY_OPTION);
+        }
+      } else {
+        //TODO: Something went wrong
+      }
+    }
     // navigate(SELLER.CONTACT_INFO);
   };
+
+  const handleBackClick = () => {
+    if (leadObj.leadType === 'seller') {
+      navigate(SELLER.LOCATION);
+
+    } 
+    if (leadObj.leadType === 'buyer') {
+      navigate(BUYER.LOCATION);
+
+    }
+  }
+
 
   const handleOnChange = async (propertyType: string) => {
     setPropertyType(propertyType);
@@ -166,9 +206,9 @@ const PropertyType = () => {
                       </div>
                     </label>
                   </div>
-                  <Link to="/" className="theme_btn">
+                  <div onClick={handleBackClick} className="theme_btn">
                     Back
-                  </Link>
+                  </div>
                   <div
                   onClick={handleSubmitClick}
                     

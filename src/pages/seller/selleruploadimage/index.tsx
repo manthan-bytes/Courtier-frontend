@@ -1,12 +1,35 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../selleruploadimage/selleruploadimage.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { ChooseIcon } from "../../../core/icons";
+import { createLead } from "../../../service/lead.service";
+import { getUser } from "../../../service/login.service";
+import { SELLER } from "../../../core/constants/routes";
 
 const SellerUploadImage = () => {
-  
+  const navigate = useNavigate();
+  const handleSubmitEvent = async () => {
+    const leadObj = localStorage.getItem("leadObj");
+    const userEmail = localStorage.getItem("email");
+
+    const userDetails = await getUser(userEmail);
+
+    if (leadObj && userDetails) {
+      const dataObj = JSON.parse(leadObj);
+      dataObj["userId"] = userDetails.data.id;
+      const lead = await createLead(dataObj);
+      if (lead.statusCode === 201) {
+        dataObj["id"] = lead.data.id;
+        localStorage.setItem("leadObj", JSON.stringify(dataObj));
+        navigate(SELLER.SINGLE_FAMILY);
+      }
+    } else {
+      //TODO: Something went wrong
+    }
+  };
+
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
@@ -61,12 +84,12 @@ const SellerUploadImage = () => {
                       </label>
                     </div>
                   </div>
-                  <Link
-                    to="/seller/singlefamily"
+                  <div
+                    onClick={handleSubmitEvent}
                     className="theme_btn grdnt_btn"
                   >
                     Continue
-                  </Link>
+                  </div>
                 </form>
               </div>
             </div>

@@ -1,13 +1,14 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../location/location.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 import Select from "react-select";
 import { CloseIconv1 } from "../../core/icons";
+import { BUYER, SELLER } from "../../core/constants/routes";
 
 const Location = () => {
-  const options = [
+  const options: any = [
     { value: "Quebec", label: "Quebec" },
     { value: "Saguenay", label: "Saguenay" },
     { value: "Saint-Sauveur", label: "Saint-Sauveur" },
@@ -33,10 +34,92 @@ const Location = () => {
     { value: "Batiscan", label: "Batiscan" },
   ];
 
+  const navigate = useNavigate();
+  const [getLocation, setLocation] = useState<any>();
+  const [getBoroughs, setBoroughs] = useState<any>();
+  const [options1, setOptions] = useState<any>({  label: "Quebec" });
+
+
+  const [leadObj, setLeadObj] = useState<any>();
+  const [locationOptions, setLocationOption] = useState<any>([]);
+
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
+  const handleAddDropdown = () => {
+    setLocationOption([...locationOptions, { city: "", boroughs: "" }]);
+  };
+
+  const handleDeleteDropdown = () => {
+    if (locationOptions.length > 0) {
+      const newDropdowns = [...locationOptions];
+      newDropdowns.pop();
+      setLocationOption(newDropdowns);
+    }
+  };
+
+  const handleBackClick = () => {
+    if (leadObj.leadType === 'seller') {
+      navigate(SELLER.CONTACT_INFO);
+
+    } 
+    if (leadObj.leadType === 'buyer') {
+      navigate(BUYER.CONTACT_INFO);
+
+    }
+  }
+
+  const handleSubmitClick = async () => {
+    console.log("🚀 ~ file: index.tsx:77 ~ handleOnChange ~ locationOptions:", locationOptions)
+    const getLeadObj = localStorage.getItem("leadObj");
+   
+    if (getLeadObj) {
+      leadObj["location"] = locationOptions;
+      setLeadObj(leadObj);
+    } else {
+      const leadObj = {
+        location: locationOptions,
+      };
+      setLeadObj(leadObj);
+    }
+    localStorage.setItem("leadObj", JSON.stringify(leadObj));
+    
+    if (leadObj.leadType === 'seller') {
+      navigate(SELLER.PROPERTY_TYPE);
+
+    } 
+    if (leadObj.leadType === 'buyer') {
+      navigate(BUYER.PROPERTY_TYPE);
+
+    }
+  };
+
+  const handleOnChangeLocation = async (selectedValue: any, index: number) => {
+  const data = [...locationOptions]
+  data[index].city = selectedValue.value;
+  setLocationOption(data)
+  };
+
+  const handleOnChangeBoroughs = async (selectedValue: any, index: number) => {
+      const data = [...locationOptions]
+      data[index].boroughs = selectedValue.value;
+      setLocationOption(data)
+    };
+
   useEffect(() => {
     setNewClass(true);
+    const getLeadObj = localStorage.getItem("leadObj");
+    console.log("🚀 ~ file: index.tsx:129 ~ useEffect ~ getLeadObj:", getLeadObj)
+    if (getLeadObj) {
+      const leadObj = JSON.parse(getLeadObj);
+      setLeadObj(leadObj);
+
+      if (leadObj.location) {
+        setLocationOption(leadObj.location);
+      } else {
+        setLocationOption([...locationOptions, { city: "", boroughs: "" }]);
+      }
+    }
+
   }, []);
 
   return (
@@ -62,14 +145,34 @@ const Location = () => {
                   📍What location is your property located in?
                 </h2>
                 <form>
-                  <div className="form-inner-block">
-                    <Select className="select-main-wrap" options={options} />
-                    <Select className="select-main-wrap" options={options} />
-                    <div className="addclose-icon">
-                      <span className="text-add">+ADD</span>
+                  {locationOptions && locationOptions.length > 0 && locationOptions.map((location: any, index: number) => (
+                    <div className="form-inner-block">
+                     
+
+                      <Select className="select-main-wrap" name="location" value={{label: location.city}} options={options} onChange={(e) => handleOnChangeLocation(e, index)}/>
+                      <Select className="select-main-wrap" name="boroughs" value={{label: location.boroughs}} options={options} onChange={(e) => handleOnChangeBoroughs(e, index)}/>
+                      {locationOptions.length - 1 === index && (
+                        <div
+                          onClick={handleAddDropdown}
+                          className="addclose-icon"
+                        >
+                          <span className="text-add">+ADD</span>
+                        </div>
+                      )}
+                      {locationOptions.length > 1 && (
+                        <div
+                          onClick={handleDeleteDropdown}
+                          className="addclose-icon"
+                        >
+                          <span>
+                            <CloseIconv1 />
+                          </span>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                  <div className="form-inner-block">
+                  ))}
+
+                  {/* <div className="form-inner-block">
                     <Select className="select-main-wrap" options={options} />
                     <Select className="select-main-wrap" options={options} />
                     <div className="addclose-icon">
@@ -77,21 +180,21 @@ const Location = () => {
                         <CloseIconv1 />
                       </span>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="frm-wrap">
                     <span className="error-msg">
                       Special Characters are not allowed
                     </span>
                   </div>
-                  <Link to="/" className="theme_btn">
+                  <div onClick={handleBackClick} className="theme_btn">
                     Back
-                  </Link>
-                  <Link
-                    to="/seller/propertytype"
+                  </div>
+                  <div onClick={handleSubmitClick}
+                    
                     className="theme_btn grdnt_btn"
                   >
                     Next Question
-                  </Link>
+                  </div>
                 </form>
               </div>
             </div>

@@ -5,7 +5,7 @@ import "../contactinfo/contactinfo.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 import { getUser, updateUser } from "../../service/login.service";
 import { log } from "console";
-import { ROUTES, SELLER } from "../../core/constants/routes";
+import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
 
 const ContactInfo = () => {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const [newClass, setNewClass] = useState(false);
   const email = localStorage.getItem('email');
   const [userData, setUserData] = useState<any>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [leadObj, setLeadObj] = useState<any>();
 
   // let isSubmitted = false;
   const getUserDetail = async() => {
@@ -26,9 +27,15 @@ const [newClass, setNewClass] = useState(false);
     setIsSubmitted(true)
     const user = await updateUser(userData.id, userData);
     if (user.statusCode === 200) {
-      navigate(SELLER.PROPERTY_TYPE);
+      if (leadObj.leadType === 'seller') {
+        navigate(SELLER.LOCATION);
+  
+      } 
+      if (leadObj.leadType === 'buyer') {
+        navigate(BUYER.LOCATION);
+  
+      }
     }
-    console.log("🚀 ~ file: index.tsx:26 ~ handleSubmitEvent ~ user:", user)
   }
 
   const handleBackEvent = async() => {
@@ -37,10 +44,11 @@ const [newClass, setNewClass] = useState(false);
 
   useEffect(() => {
     setNewClass(true);
-    console.log("test");
     getUserDetail()
-
-    console.log('userData',userData)
+    const getLeadObj = localStorage.getItem("leadObj");
+    if (getLeadObj) {
+      setLeadObj(JSON.parse(getLeadObj));
+    }
   }, []);
   return (
   

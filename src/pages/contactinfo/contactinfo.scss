@@ -8,6 +8,9 @@
         }
         .banner-cantent-block {
             height: calc(100vh - 280px);
+            @media screen and (max-width:$screen-lg-max) {
+                height: calc(100vh - 240px);
+            }
             @media screen and (max-width: $screen-991) {
               height: 100%;
             }

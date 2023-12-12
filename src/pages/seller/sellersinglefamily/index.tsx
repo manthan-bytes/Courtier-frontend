@@ -1,15 +1,44 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../sellersinglefamily/sellersinglefamily.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
+import { SELLER } from "../../../core/constants/routes";
 
 const SellerSingleFamily = () => {
+  const navigate = useNavigate();
+  const [leadObj, setLeadObj] = useState<any>();
 
+  const handleSubmitEvent = () => {
+
+    switch(leadObj.propertyType) {
+      case 'single_family':
+        navigate(SELLER.SINGLE_FAMILY_HOME_STYLE)
+        break
+      case 'condo':
+        navigate(SELLER.CONDO_PROPERTY)
+        break;
+      case 'revenue_property':
+        navigate(SELLER.REVENUE_PROPERTY)
+        break;
+      case 'commercial_or_industry':
+        navigate(SELLER.COMMERCIAL_INDUSTRIAL)
+        break;
+      case 'land':
+        navigate(SELLER.ABOUT_LAND_FIELD)
+        break;
+    }
+
+  }
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
     setNewClass(true);
+    const getLeadObj = localStorage.getItem("leadObj");
+    if (getLeadObj) {
+      const leadObj = JSON.parse(getLeadObj);
+      setLeadObj(leadObj);
+    }
   }, []);
       
 
@@ -34,12 +63,11 @@ const SellerSingleFamily = () => {
                   We would like to know more about your Property!
                 </h2>
                 <form>
-                  <Link
-                    to="/seller/singlefamilyhomestyle"
+                  <div onClick={handleSubmitEvent}
                     className="theme_btn grdnt_btn"
                   >
                     LET’S CONTINUE
-                  </Link>
+                  </div>
                 </form>
               </div>
             </div>

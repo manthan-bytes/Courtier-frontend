@@ -1,16 +1,33 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./sellerpropertyconformation.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import greaticon from "../../../assets/images/greaticon.svg";
+import { SELLER } from "../../../core/constants/routes";
 
 const SellerPropertyConformation = () => {
+  const navigate = useNavigate();
+  const [leadObj, setLeadObj] = useState<any>();
 
+
+  const handleSubmitClick = async (e: any) => {
+    const leadDataObj = leadObj;
+    const newLeadObj = {
+      leadType : leadDataObj.leadType,
+    }
+    localStorage.setItem('leadObj', JSON.stringify(newLeadObj));
+      navigate(SELLER.LOCATION)
+  }
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
     setNewClass(true);
+    const getLeadObj = localStorage.getItem("leadObj");
+    if (getLeadObj) {
+      const leadObj = JSON.parse(getLeadObj);
+      setLeadObj(leadObj);
+    }
   }, []);
 
   return (
@@ -47,12 +64,11 @@ const SellerPropertyConformation = () => {
                   <Link to="/seller/propertythankyou" className="theme_btn">
                     NO, THANKS
                   </Link>
-                  <Link
-                    to="/seller/location"
+                  <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
                     YES I WANT TO ADD
-                  </Link>
+                  </div>
                 </form>
               </div>
             </div>

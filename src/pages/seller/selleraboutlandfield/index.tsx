@@ -1,16 +1,64 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../selleraboutlandfield/selleraboutlandfield.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import landfield from "../../../assets/images/landfield.jpg";
+import { updateLead } from "../../../service/lead.service";
+import { SELLER } from "../../../core/constants/routes";
 
 const SellerAboutLandField = () => {
+  const navigate = useNavigate();
 
+  const [leadObj, setLeadObj] = useState<any>();
+  const [getpreferences, setpreferences] = useState<any>();
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
+
+  const handleonChangeIsLandField = async (e:any) => {
+    const selectedDataObj = {...getpreferences};
+    selectedDataObj['isLandField'] = e.target.value
+    setpreferences(selectedDataObj);
+
+  }
+
+  const handleonChangeCityZonage = async (e:any) => {
+    const selectedDataObj = {...getpreferences};
+    selectedDataObj['cityZonage'] = e.target.value
+    setpreferences(selectedDataObj);
+
+  }
+
+  const handleonChangeSurfaceArea = async (e:any) => {
+    const selectedDataObj = {...getpreferences};
+    selectedDataObj['surfaceArea'] = e.target.value
+    setpreferences(selectedDataObj);
+
+  }
+  const handleSubmitClick = async (e: any) => {
+    const leadDataObj = leadObj;
+    const leadId = leadDataObj.id;
+    leadDataObj['preferences'] = getpreferences;
+    localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
+    const leadUpdate = await updateLead(leadId, leadDataObj);
+    if (leadUpdate.statusCode === 200) {
+      navigate(SELLER.PROPERTY_SOLD)
+    }
+  }
   useEffect(() => {
     setNewClass(true);
+    const getLeadObj = localStorage.getItem("leadObj");
+    if (getLeadObj) {
+      const leadObj = JSON.parse(getLeadObj);
+      setLeadObj(leadObj);
+      const preferences = leadObj.preferences;
+      if (preferences) {
+        console.log("🚀 ~ file: index.tsx:97 ~ useEffect ~ preferences:", preferences)
+        setpreferences(preferences)
+      } else {
+        setpreferences({})
+      }
+    }
   }, []);
 
   return (
@@ -30,12 +78,11 @@ const SellerAboutLandField = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">Share info about Land/Field</h2>
-                  <Link
-                    to="/seller/propertysold"
+                  <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
                     Submit
-                  </Link>
+                  </div>
                 </div>
 
                 <form>
@@ -45,28 +92,29 @@ const SellerAboutLandField = () => {
                         Is it Land with city services available or a Field with
                         no city services? (Electrical, Sewers, roads)
                       </h3>
-                      <ul className="property-select">
+                      <ul className="property-select" onChange={(e) => handleonChangeIsLandField(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="LandField" value="LandField" />
+                            <input type="radio" name="Land" value="Land" checked={getpreferences?.isLandField === "Land"}/>
                             <div className="checkbox-lables">Land</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="LandField" value="LandField" />
+                            <input type="radio" name="Field" value="Field" checked={getpreferences?.isLandField === "Field"}/>
                             <div className="checkbox-lables">Field</div>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">What is the city zonage you have?</h3>
-                      <ul className="property-select">
+                      <ul className="property-select" onChange={(e) => handleonChangeCityZonage(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="city"
-                              value="city"
+                              name="Residential"
+                              value="Residential"
+                              checked={getpreferences?.cityZonage === "Residential"}
                             />
                             <div className="checkbox-lables">Residential</div>
                           </label>
@@ -75,8 +123,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="city"
-                              value="city"
+                              name="Commercial"
+                              value="Commercial"
+                              checked={getpreferences?.cityZonage === "Commercial"}
                             />
                             <div className="checkbox-lables">Commercial</div>
                           </label>
@@ -85,8 +134,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="city"
-                              value="city"
+                              name="Industrial"
+                              value="Industrial"
+                              checked={getpreferences?.cityZonage === "Industrial"}
                             />
                             <div className="checkbox-lables">Industrial</div>
                           </label>
@@ -95,8 +145,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="city"
-                              value="city"
+                              name="Agriculture"
+                              value="Agriculture"
+                              checked={getpreferences?.cityZonage === "Agriculture"}
                             />
                             <div className="checkbox-lables">Agriculture</div>
                           </label>
@@ -105,8 +156,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="city"
-                              value="city"
+                              name="Forestry"
+                              value="Forestry"
+                              checked={getpreferences?.cityZonage === "Forestry"}
                             />
                             <div className="checkbox-lables">Forestry</div>
                           </label>
@@ -115,8 +167,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="city"
-                              value="city"
+                              name="Other"
+                              value="Other"
+                              checked={getpreferences?.cityZonage === "Other"}
                             />
                             <div className="checkbox-lables">Other</div>
                           </label>
@@ -124,13 +177,14 @@ const SellerAboutLandField = () => {
                       </ul>
 
                       <h3 className="h3">What's the Surface area?</h3>
-                      <ul className="property-select">
+                      <ul className="property-select" onChange={(e) => handleonChangeSurfaceArea(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="area"
-                              value="area"
+                              name="0 - 2000 sq ft."
+                              value="0 - 2000 sq ft."
+                              checked={getpreferences?.surfaceArea === "0 - 2000 sq ft."}
                             />
                             <div className="checkbox-lables">
                               0 - 2000 sq ft.
@@ -141,8 +195,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="area"
-                              value="area"
+                              name="2000 - 5000 sq ft."
+                              value="2000 - 5000 sq ft."
+                              checked={getpreferences?.surfaceArea === "2000 - 5000 sq ft."}
                             />
                             <div className="checkbox-lables">
                               2000 - 5000 sq ft.
@@ -153,8 +208,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="area"
-                              value="area"
+                              name="5000 - 10000 sq ft."
+                              value="5000 - 10000 sq ft."
+                              checked={getpreferences?.surfaceArea === "5000 - 10000 sq ft."}
                             />
                             <div className="checkbox-lables">
                               5000 - 10000 sq ft.
@@ -165,8 +221,9 @@ const SellerAboutLandField = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="area"
-                              value="area"
+                              name="10000+ sq ft."
+                              value="10000+ sq ft."
+                              checked={getpreferences?.surfaceArea === "10000+ sq ft."}
                             />
                             <div className="checkbox-lables">
                               10000+ sq ft.{" "}
