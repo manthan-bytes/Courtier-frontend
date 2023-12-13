@@ -129,6 +129,7 @@ const Login = () => {
                 </div>
                 {/* <ButtonSubmit title="Login" disabled={false} /> */}
               </label>
+              <span className="error-msgv error-msg ">Oops! not correct mobile number</span>
               </form>
             </div>
             <div className="volume-btn">
