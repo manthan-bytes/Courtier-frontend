@@ -6,33 +6,16 @@ import bg_main from "../../assets/images/bg-main.jpg";
 import Select from "react-select";
 import { CloseIconv1 } from "../../core/icons";
 import { BUYER, SELLER } from "../../core/constants/routes";
+import { BOROUGHS } from "../../core/constants/boroughs";
+import { CITIES } from "../../core/constants/cities";
+import { ToastContainer, toast } from 'react-toastify';
+import { LOCATION } from "../../core/constants/toast-message";
 
 const Location = () => {
-  const options: any = [
-    { value: "Quebec", label: "Quebec" },
-    { value: "Saguenay", label: "Saguenay" },
-    { value: "Saint-Sauveur", label: "Saint-Sauveur" },
-    { value: "Bonaventure", label: "Bonaventure" },
-    { value: "Bois-des-Filion", label: "Bois-des-Filion" },
-    { value: "Saint-Basile-le-Grand", label: "Saint-Basile-le-Grand" },
-    { value: "Dollard-des-Ormeaux", label: "Dollard-des-Ormeaux" },
-    {
-      value: "Notre-Dame-de-l'Île-Perrot",
-      label: "Notre-Dame-de-l'Île-Perrot",
-    },
-    {
-      value: "Notre-Dame-de-l'Île-Perrot",
-      label: "Notre-Dame-de-l'Île-Perrot",
-    },
-    { value: "Val-Morin", label: "Val-Morin" },
-    { value: "Albanel", label: "Albanel" },
-    { value: "Berthierville", label: "Berthierville" },
-    { value: "Coteau-du-Lac", label: "Coteau-du-Lac" },
-    { value: "Victoriaville", label: "Victoriaville" },
-    { value: "Varennes", label: "Varennes" },
-    { value: "Saint-Lin-Laurentides", label: "Saint-Lin-Laurentides" },
-    { value: "Batiscan", label: "Batiscan" },
-  ];
+
+  const boroughs: any = BOROUGHS;
+
+  const options: any = CITIES;
 
   const navigate = useNavigate();
   const [getLocation, setLocation] = useState<any>();
@@ -69,28 +52,33 @@ const Location = () => {
   }
 
   const handleSubmitClick = async () => {
-    console.log("🚀 ~ file: index.tsx:77 ~ handleOnChange ~ locationOptions:", locationOptions)
     const getLeadObj = localStorage.getItem("leadObj");
-   
-    if (getLeadObj) {
-      leadObj["location"] = locationOptions;
-      setLeadObj(leadObj);
+  
+    if (locationOptions.length > 0) {
+      if (getLeadObj) {
+        leadObj["location"] = locationOptions;
+        setLeadObj(leadObj);
+      } else {
+        const leadObj = {
+          location: locationOptions,
+        };
+        setLeadObj(leadObj);
+      }
+      localStorage.setItem("leadObj", JSON.stringify(leadObj));
+      
+      if (leadObj.leadType === 'seller') {
+        navigate(SELLER.PROPERTY_TYPE);
+  
+      } 
+      if (leadObj.leadType === 'buyer') {
+        navigate(BUYER.PROPERTY_TYPE);
+      }
     } else {
-      const leadObj = {
-        location: locationOptions,
-      };
-      setLeadObj(leadObj);
+      toast.error(LOCATION, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
-    localStorage.setItem("leadObj", JSON.stringify(leadObj));
-    
-    if (leadObj.leadType === 'seller') {
-      navigate(SELLER.PROPERTY_TYPE);
-
-    } 
-    if (leadObj.leadType === 'buyer') {
-      navigate(BUYER.PROPERTY_TYPE);
-
-    }
+   
   };
 
   const handleOnChangeLocation = async (selectedValue: any, index: number) => {
@@ -150,7 +138,7 @@ const Location = () => {
                      
 
                       <Select className="select-main-wrap" name="location" value={{label: location.city}} options={options} onChange={(e) => handleOnChangeLocation(e, index)}/>
-                      <Select className="select-main-wrap" name="boroughs" value={{label: location.boroughs}} options={options} onChange={(e) => handleOnChangeBoroughs(e, index)}/>
+                      <Select className="select-main-wrap" name="boroughs" value={{label: location.boroughs}} options={boroughs} onChange={(e) => handleOnChangeBoroughs(e, index)}/>
                       {locationOptions.length - 1 === index && (
                         <div
                           onClick={handleAddDropdown}

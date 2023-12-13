@@ -7,6 +7,7 @@ import condoproperty from "../../../assets/images/condoproperty.jpg";
 import { RightIcon } from "../../../core/icons";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
+import { toast } from "react-toastify";
 
 const SellerCondoProperty = () => {
   const navigate = useNavigate();
@@ -64,7 +65,14 @@ const SellerCondoProperty = () => {
     localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
     const leadUpdate = await updateLead(leadId, leadDataObj);
     if (leadUpdate.statusCode === 200) {
+      toast.success(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       navigate(SELLER.PROPERTY_SOLD)
+    } else {
+      toast.error(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   }
 

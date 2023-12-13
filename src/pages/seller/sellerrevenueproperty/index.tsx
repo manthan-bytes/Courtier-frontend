@@ -6,6 +6,7 @@ import bg_main from "../../../assets/images/bg-main.jpg";
 import revenueproperty from "../../../assets/images/revenueproperty.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
+import { toast } from "react-toastify";
 
 const SellerRevenueProperty = () => {
   const navigate = useNavigate();
@@ -59,7 +60,14 @@ const SellerRevenueProperty = () => {
     localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
     const leadUpdate = await updateLead(leadId, leadDataObj);
     if (leadUpdate.statusCode === 200) {
+      toast.success(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       navigate(SELLER.PROPERTY_SOLD)
+    } else {
+      toast.error(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   }
   useEffect(() => {

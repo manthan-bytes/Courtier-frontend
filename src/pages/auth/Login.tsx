@@ -12,7 +12,8 @@ import { VolumeMute, VolumeOn, Googleicon } from "../../core/icons";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { createUser } from "../../service/login.service";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   // state for email and password
   const [profile, setProfile] = useState([]);
@@ -50,10 +51,34 @@ const Login = () => {
   };
 
   const saveUser = async (userObj:any, token: string) => {
-    await createUser(userObj);
-    localStorage.setItem('token', token)
-    localStorage.setItem('email', userObj.email)
-    navigate("/buysellproperty");
+    const user = await createUser(userObj);
+
+    if (user.statusCode === 400) {
+      toast.info(user.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      localStorage.setItem('token', token)
+      localStorage.setItem('email', userObj.email)
+      setTimeout(() => {
+        navigate("/buysellproperty");
+
+      },500)
+    }
+    else if (user.statusCode === 201) {
+      toast.success(user.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      localStorage.setItem('token', token)
+      localStorage.setItem('email', userObj.email)
+      setTimeout(() => {
+        navigate("/buysellproperty");
+      },500)
+    } else {
+
+    }
+ 
+   
+    // navigate("/buysellproperty");
   }
 
   // typeing js title
@@ -129,7 +154,7 @@ const Login = () => {
                 </div>
                 {/* <ButtonSubmit title="Login" disabled={false} /> */}
               </label>
-              <span className="error-msgv error-msg ">Oops! not correct mobile number</span>
+              {/* <span className="error-msgv error-msg ">Oops! not correct mobile number</span> */}
               </form>
             </div>
             <div className="volume-btn">

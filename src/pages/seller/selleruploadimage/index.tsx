@@ -11,23 +11,24 @@ import { SELLER } from "../../../core/constants/routes";
 const SellerUploadImage = () => {
   const navigate = useNavigate();
   const handleSubmitEvent = async () => {
-    const leadObj = localStorage.getItem("leadObj");
-    const userEmail = localStorage.getItem("email");
+    navigate(SELLER.SINGLE_FAMILY);
+    // const leadObj = localStorage.getItem("leadObj");
+    // const userEmail = localStorage.getItem("email");
 
-    const userDetails = await getUser(userEmail);
+    // const userDetails = await getUser(userEmail);
 
-    if (leadObj && userDetails) {
-      const dataObj = JSON.parse(leadObj);
-      dataObj["userId"] = userDetails.data.id;
-      const lead = await createLead(dataObj);
-      if (lead.statusCode === 201) {
-        dataObj["id"] = lead.data.id;
-        localStorage.setItem("leadObj", JSON.stringify(dataObj));
-        navigate(SELLER.SINGLE_FAMILY);
-      }
-    } else {
-      //TODO: Something went wrong
-    }
+    // if (leadObj && userDetails) {
+    //   const dataObj = JSON.parse(leadObj);
+    //   dataObj["userId"] = userDetails.data.id;
+    //   const lead = await createLead(dataObj);
+    //   if (lead.statusCode === 201) {
+    //     dataObj["id"] = lead.data.id;
+    //     localStorage.setItem("leadObj", JSON.stringify(dataObj));
+    //     navigate(SELLER.SINGLE_FAMILY);
+    //   }
+    // } else {
+    //   //TODO: Something went wrong
+    // }
   };
 
   // banner slide animation js

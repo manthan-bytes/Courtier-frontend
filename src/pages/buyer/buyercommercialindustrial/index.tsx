@@ -6,6 +6,7 @@ import bg_main from "../../../assets/images/bg-main.jpg";
 import commercialindustrial from "../../../assets/images/industrial.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { BUYER } from "../../../core/constants/routes";
+import { toast } from "react-toastify";
 
 const BuyerCommercialIndustrial = () => {
   const navigate = useNavigate();
@@ -49,7 +50,14 @@ const BuyerCommercialIndustrial = () => {
     localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
     const leadUpdate = await updateLead(leadId, leadDataObj);
     if (leadUpdate.statusCode === 200) {
+      toast.success(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       navigate(BUYER.TIME_LINE)
+    } else {
+      toast.error(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   }
   useEffect(() => {

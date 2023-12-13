@@ -5,25 +5,31 @@ import bg_main from "../../assets/images/bg-main.jpg";
 import { VolumeMute, VolumeOn, Buyericon, Sellericon } from "../../core/icons";
 import "./buysellproperty.scss";
 import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
+import { toast } from "react-toastify";
+import { INVALID_DATA } from "../../core/constants/toast-message";
 
 const BuySellProperty = () => {
   const navigate = useNavigate();
   const [leadObj, setLeadObj] = useState<any>();
   const [getType, setType] = useState<string>();
-// banner slide animation js
-const [newClass, setNewClass] = useState(false);
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
   const handleSubmitClick = async () => {
-    const leadObj = {
-      leadType: getType,
-    };
-    localStorage.setItem("leadObj", JSON.stringify(leadObj));
-    if (getType === 'seller') {
-      navigate(SELLER.CONTACT_INFO);
-
-    } 
-    if (getType === 'buyer') {
-      navigate(BUYER.CONTACT_INFO);
-
+    if (getType) {
+      const leadObj = {
+        leadType: getType,
+      };
+      localStorage.setItem("leadObj", JSON.stringify(leadObj));
+      if (getType === "seller") {
+        navigate(SELLER.CONTACT_INFO);
+      }
+      if (getType === "buyer") {
+        navigate(BUYER.CONTACT_INFO);
+      }
+    } else {
+      toast.error(INVALID_DATA, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
 
@@ -46,7 +52,7 @@ const [newClass, setNewClass] = useState(false);
     const getLeadObj = localStorage.getItem("leadObj");
     if (getLeadObj) {
       setLeadObj(JSON.parse(getLeadObj));
-      setType(JSON.parse(getLeadObj).leadType)
+      setType(JSON.parse(getLeadObj).leadType);
     }
   }, []);
   return (

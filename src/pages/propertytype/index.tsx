@@ -13,6 +13,8 @@ import {
 import { BUYER, SELLER } from "../../core/constants/routes";
 import { getUser } from "../../service/login.service";
 import { createLead } from "../../service/lead.service";
+import { toast } from "react-toastify";
+import { INVALID_DATA } from "../../core/constants/toast-message";
 
 const PropertyType = () => {
   const navigate = useNavigate();
@@ -36,50 +38,107 @@ const PropertyType = () => {
     //   propertyType: getPropertyType,
     // };
 
-    if (leadObj.leadType === 'seller') {
-      localStorage.setItem("leadObj", JSON.stringify(leadObj));
+    if (getPropertyType) {
+      if (leadObj.leadType === "seller") {
+        const userEmail = localStorage.getItem("email");
+        const userDetails = await getUser(userEmail);
 
-      navigate(SELLER.INQUIRY_OPTION);
+        if (leadObj && userDetails) {
+          const dataObj = leadObj;
+          dataObj["userId"] = userDetails.data.id;
+          const lead = await createLead(dataObj);
+          if (lead.statusCode === 201) {
+            dataObj["id"] = lead.data.id;
+            const leadObjData = JSON.stringify(dataObj);
+            localStorage.setItem("leadObj", leadObjData);
+            toast.success(lead.message, {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+            navigate(SELLER.INQUIRY_OPTION);
+          } else {
+            toast.error(lead.message, {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        } else {
+          toast.error(INVALID_DATA, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+      }
 
-    } 
-    if (leadObj.leadType === 'buyer') {
-      const userEmail = localStorage.getItem("email");
-  
-      const userDetails = await getUser(userEmail);
-  
-      if (leadObj && userDetails) {
-        const dataObj = leadObj;
-        dataObj["userId"] = userDetails.data.id;
-        const lead = await createLead(dataObj);
-        if (lead.statusCode === 201) {
-          dataObj["id"] = lead.data.id;
-          const leadObjData = JSON.stringify(dataObj)
-          localStorage.setItem("leadObj", leadObjData);
-          navigate(BUYER.INQUIRY_OPTION);
+      if (leadObj.leadType === "buyer") {
+        const userEmail = localStorage.getItem("email");
+
+        const userDetails = await getUser(userEmail);
+
+        if (leadObj && userDetails) {
+          const dataObj = leadObj;
+          dataObj["userId"] = userDetails.data.id;
+          const lead = await createLead(dataObj);
+          if (lead.statusCode === 201) {
+            dataObj["id"] = lead.data.id;
+            const leadObjData = JSON.stringify(dataObj);
+            localStorage.setItem("leadObj", leadObjData);
+            toast.success(lead.message, {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+            navigate(BUYER.INQUIRY_OPTION);
+          } else {
+            toast.error(lead.message, {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        } else {
+          toast.error(INVALID_DATA, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
         }
       } else {
-        //TODO: Something went wrong
+        toast.error(INVALID_DATA, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
+    } else {
+      toast.error(INVALID_DATA, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
+    // if (leadObj.leadType === "buyer") {
+    //   const userEmail = localStorage.getItem("email");
+
+    //   const userDetails = await getUser(userEmail);
+
+    //   if (leadObj && userDetails) {
+    //     const dataObj = leadObj;
+    //     dataObj["userId"] = userDetails.data.id;
+    //     const lead = await createLead(dataObj);
+    //     if (lead.statusCode === 201) {
+    //       dataObj["id"] = lead.data.id;
+    //       const leadObjData = JSON.stringify(dataObj);
+    //       localStorage.setItem("leadObj", leadObjData);
+    //       navigate(BUYER.INQUIRY_OPTION);
+    //     }
+    //   } else {
+    //     //TODO: Something went wrong
+    //   }
+    // }
     // navigate(SELLER.CONTACT_INFO);
   };
 
   const handleBackClick = () => {
-    if (leadObj.leadType === 'seller') {
+    if (leadObj.leadType === "seller") {
       navigate(SELLER.LOCATION);
-
-    } 
-    if (leadObj.leadType === 'buyer') {
-      navigate(BUYER.LOCATION);
-
     }
-  }
-
+    if (leadObj.leadType === "buyer") {
+      navigate(BUYER.LOCATION);
+    }
+  };
 
   const handleOnChange = async (propertyType: string) => {
     setPropertyType(propertyType);
     const getLeadObj = localStorage.getItem("leadObj");
-   
+
     if (getLeadObj) {
       leadObj["propertyType"] = propertyType;
       setLeadObj(leadObj);
@@ -210,8 +269,7 @@ const PropertyType = () => {
                     Back
                   </div>
                   <div
-                  onClick={handleSubmitClick}
-                    
+                    onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
                     Next Question

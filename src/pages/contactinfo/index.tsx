@@ -6,6 +6,8 @@ import bg_main from "../../assets/images/bg-main.jpg";
 import { getUser, updateUser } from "../../service/login.service";
 import { log } from "console";
 import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
+import { ToastContainer, toast } from 'react-toastify';
+import { INVALID_DATA } from "../../core/constants/toast-message";
 
 const ContactInfo = () => {
   const navigate = useNavigate();
@@ -25,17 +27,31 @@ const [newClass, setNewClass] = useState(false);
 
   const handleSubmitEvent = async() => {
     setIsSubmitted(true)
-    const user = await updateUser(userData.id, userData);
-    if (user.statusCode === 200) {
-      if (leadObj.leadType === 'seller') {
-        navigate(SELLER.LOCATION);
-  
-      } 
-      if (leadObj.leadType === 'buyer') {
-        navigate(BUYER.LOCATION);
-  
+    if( userData?.name && userData?.phone &&   userData?.phone.length > 0) {
+      const user = await updateUser(userData.id, userData);
+      if (user.statusCode === 200) {
+        toast.success(user.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        if (leadObj.leadType === 'seller') {
+          navigate(SELLER.LOCATION);
+    
+        } 
+        if (leadObj.leadType === 'buyer') {
+          navigate(BUYER.LOCATION);
+    
+        }
+      } else {
+        //TODO
       }
+    } else {
+      toast.error(INVALID_DATA, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return false;
     }
+
+    
   }
 
   const handleBackEvent = async() => {
@@ -92,7 +108,7 @@ const [newClass, setNewClass] = useState(false);
                     </div>
                     <div className="form-group">
                       <input
-                        className="form-control error-m"
+                        className="form-control"
                         type="number"
                         placeholder="Enter Your Contact No"
                         name="Contact No"

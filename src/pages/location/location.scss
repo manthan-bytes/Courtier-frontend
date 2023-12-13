@@ -79,7 +79,7 @@
                     padding: 8px 12px 8px 24px;
                     width: 100%;
                     text-align: left;
-                cursor: pointer;
+                    cursor: pointer;
                     @media screen and (max-width: $screen-lg-max) {
                         height: 62px;
                     }
@@ -161,7 +161,7 @@
                             transition: all .3s ease-in-out;
                             padding: 7px 15px;
                             color: $Black !important;
-                            display:inline;
+                            display:inline-block;
                             width: auto;
                             background-size: 300% 100%;
                             // @media screen and (max-width:$screen-1199) {

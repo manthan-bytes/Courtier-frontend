@@ -6,6 +6,7 @@ import bg_main from "../../../assets/images/bg-main.jpg";
 import aboutlandfield from "../../../assets/images/aboutlandfield.jpg";
 import { BUYER } from "../../../core/constants/routes";
 import { updateLead } from "../../../service/lead.service";
+import { toast } from "react-toastify";
 
 const BuyerAboutLandField = () => {
   const navigate = useNavigate();
@@ -48,7 +49,14 @@ const BuyerAboutLandField = () => {
     localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
     const leadUpdate = await updateLead(leadId, leadDataObj);
     if (leadUpdate.statusCode === 200) {
+      toast.success(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       navigate(BUYER.TIME_LINE)
+    } else {
+      toast.error(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   }
   useEffect(() => {

@@ -7,6 +7,7 @@ import singlefamily from "../../../assets/images/single-family.jpg";
 import { RightIcon } from "../../../core/icons";
 import { updateLead } from "../../../service/lead.service";
 import { BUYER, SELLER } from "../../../core/constants/routes";
+import { toast } from "react-toastify";
 
 const BuyerSingleFamily = () => {
   const navigate = useNavigate();
@@ -70,7 +71,14 @@ const BuyerSingleFamily = () => {
       localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
       const leadUpdate = await updateLead(leadId, leadDataObj);
       if (leadUpdate.statusCode === 200) {
+        toast.success(leadUpdate.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
         navigate(BUYER.TIME_LINE)
+      } else {
+        toast.error(leadUpdate.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
     }
     useEffect(() => {
