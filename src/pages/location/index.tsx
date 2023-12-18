@@ -10,10 +10,12 @@ import { BOROUGHS } from "../../core/constants/boroughs";
 import { CITIES } from "../../core/constants/cities";
 import { ToastContainer, toast } from 'react-toastify';
 import { LOCATION } from "../../core/constants/toast-message";
+import { NEWCITIES } from "../../core/constants/listOfCities";
+import { TEXT } from "../../core/constants/headingText";
 
 const Location = () => {
 
-  const boroughs: any = BOROUGHS;
+  const boroughs: any = [];
 
   const options: any = CITIES;
 
@@ -21,7 +23,6 @@ const Location = () => {
   const [getLocation, setLocation] = useState<any>();
   const [getBoroughs, setBoroughs] = useState<any>();
   const [options1, setOptions] = useState<any>({  label: "Quebec" });
-
 
   const [leadObj, setLeadObj] = useState<any>();
   const [locationOptions, setLocationOption] = useState<any>([]);
@@ -84,6 +85,8 @@ const Location = () => {
   const handleOnChangeLocation = async (selectedValue: any, index: number) => {
   const data = [...locationOptions]
   data[index].city = selectedValue.value;
+  const selectedCityDate:any = NEWCITIES.find((o:any) => o.city.value === selectedValue.value);
+  setBoroughs(selectedCityDate.boroughs);
   setLocationOption(data)
   };
 
@@ -130,7 +133,7 @@ const Location = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  📍What location is your property located in?
+                  📍{TEXT.property_location}
                 </h2>
                 <form>
                   {locationOptions && locationOptions.length > 0 && locationOptions.map((location: any, index: number) => (
@@ -138,13 +141,13 @@ const Location = () => {
                      
 
                       <Select className="select-main-wrap" name="location" value={{label: location.city}} options={options} onChange={(e) => handleOnChangeLocation(e, index)}/>
-                      <Select className="select-main-wrap" name="boroughs" value={{label: location.boroughs}} options={boroughs} onChange={(e) => handleOnChangeBoroughs(e, index)}/>
+                      <Select className="select-main-wrap" name="boroughs" value={{label: location.boroughs}} options={getBoroughs} onChange={(e) => handleOnChangeBoroughs(e, index)}/>
                       {locationOptions.length - 1 === index && (
                         <div
                           onClick={handleAddDropdown}
                           className="addclose-icon"
                         >
-                          <span className="text-add">+ADD</span>
+                          <span className="text-add">{TEXT.add}</span>
                         </div>
                       )}
                       {locationOptions.length > 1 && (
@@ -175,13 +178,13 @@ const Location = () => {
                     </span>
                   </div>
                   <div onClick={handleBackClick} className="theme_btn">
-                    Back
+                    {TEXT.back}
                   </div>
                   <div onClick={handleSubmitClick}
                     
                     className="theme_btn grdnt_btn"
                   >
-                    Next Question
+                    {TEXT.next_question}
                   </div>
                 </form>
               </div>

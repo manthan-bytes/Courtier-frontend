@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../sellercallfromagent/sellercallfromagent.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import greaticon from "../../../assets/images/greaticon.svg";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerCallFromAgent = () => {
 
@@ -30,7 +31,7 @@ const SellerCallFromAgent = () => {
               <div className="form-step-contect">
                 <img className="greaticon" src={greaticon} alt="greaticon" width="181" height="181" />
                 <h2 className="h2">
-                  Great! An agent will call you shortly, see you soon!🙋‍♂️
+                  {TEXT.agent_call}🙋‍♂️
                 </h2>
               </div>
             </div>

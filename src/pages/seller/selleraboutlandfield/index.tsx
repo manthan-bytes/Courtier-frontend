@@ -7,6 +7,7 @@ import landfield from "../../../assets/images/landfield.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerAboutLandField = () => {
   const navigate = useNavigate();
@@ -85,11 +86,11 @@ const SellerAboutLandField = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">Share info about Land/Field</h2>
+                  <h2 className="h2">{TEXT.share_info_about_land_field}</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
-                    Submit
+                    {TEXT.submit}
                   </div>
                 </div>
 
@@ -114,7 +115,7 @@ const SellerAboutLandField = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">What is the city zonage you have?</h3>
+                      <h3 className="h3">{TEXT.city_zonage}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeCityZonage(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
@@ -184,7 +185,7 @@ const SellerAboutLandField = () => {
                         </li>
                       </ul>
 
-                      <h3 className="h3">What's the Surface area?</h3>
+                      <h3 className="h3">{TEXT.surface_area}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeSurfaceArea(e)}>
                         <li>
                           <label className="custom-checkbox-btn">

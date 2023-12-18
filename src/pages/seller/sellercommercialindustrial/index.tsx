@@ -7,6 +7,7 @@ import commercialindustrial from "../../../assets/images/industrial.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerCommercialIndustrial = () => {
   const navigate = useNavigate();
@@ -93,12 +94,12 @@ const SellerCommercialIndustrial = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">
-                    Share info about Commercial/Industrial Property
+                    {TEXT.share_info_about_commercial_industry_property}
                   </h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
-                    Submit
+                    {TEXT.submit}
                   </div>
                 </div>
 

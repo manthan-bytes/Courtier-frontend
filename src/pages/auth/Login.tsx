@@ -145,7 +145,7 @@ const Login = () => {
         <div className="container">
           <div className="custom-row">
             <div className="login-block">
-              <h2 className="h2">Login to Continue</h2>
+              <h2 className="h2">{TEXT.login_to_continue}</h2>
               <form>
               <label className="custom-select">
                 <div onClick={submitHandler} className="theme_btn">

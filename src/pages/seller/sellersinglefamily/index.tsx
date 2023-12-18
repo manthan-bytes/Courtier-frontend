@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../sellersinglefamily/sellersinglefamily.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { SELLER } from "../../../core/constants/routes";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerSingleFamily = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const SellerSingleFamily = () => {
                   <div onClick={handleSubmitEvent}
                     className="theme_btn grdnt_btn"
                   >
-                    LET’S CONTINUE
+                   {TEXT.lets_continue}
                   </div>
                 </form>
               </div>

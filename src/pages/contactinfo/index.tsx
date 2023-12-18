@@ -8,6 +8,7 @@ import { log } from "console";
 import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
 import { ToastContainer, toast } from 'react-toastify';
 import { INVALID_DATA } from "../../core/constants/toast-message";
+import { TEXT } from "../../core/constants/headingText";
 
 const ContactInfo = () => {
   const navigate = useNavigate();
@@ -85,7 +86,7 @@ const [newClass, setNewClass] = useState(false);
         <div className="container">
           <div className="custom-row">
             <div className="form-step-contect">
-              <h2 className="h2">Please provide your contact information.</h2>
+              <h2 className="h2">{TEXT.provide_contact_info}</h2>
               <p className="sub-tilte">
                 Log-in to receive a <span>free home evalutation</span> within
                 24hrs of completing your journey
@@ -136,10 +137,10 @@ const [newClass, setNewClass] = useState(false);
                   </div>
                 </div>
                 <div onClick={handleBackEvent} className="theme_btn">
-                  Back
+                  {TEXT.back}
                 </div>
                 <div onClick={handleSubmitEvent} className="theme_btn grdnt_btn">
-                  Next Question
+                  {TEXT.next_question}
                 </div>
               </form>
             </div>
@@ -155,14 +156,7 @@ const [newClass, setNewClass] = useState(false);
         </div>
         <div className="bottom-content-footer">
           <p>
-            By entering your contact information, you are providing express
-            written consent for Myte Group to contact you at the email and
-            number you provided via telephone, mobile device, automated means
-            like autodialing, text SMS/MMS and pre-recorded messages, even if
-            you are registered on a corporate, state,or federal Do Not Call
-            list. You are also acknowledging and agreeing to our terms of
-            service and privacy policy. Consent is not required to use our
-            services.
+           {TEXT.login_description_text}
           </p>
         </div>
       </div>

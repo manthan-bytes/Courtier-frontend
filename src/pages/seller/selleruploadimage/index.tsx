@@ -7,6 +7,7 @@ import { ChooseIcon } from "../../../core/icons";
 import { createLead } from "../../../service/lead.service";
 import { getUser } from "../../../service/login.service";
 import { SELLER } from "../../../core/constants/routes";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerUploadImage = () => {
   const navigate = useNavigate();
@@ -57,8 +58,7 @@ const SellerUploadImage = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  The more pictures you upload, the more precise our free
-                  evaluation will be!
+                  {TEXT.sell_upload_tital}
                 </h2>
                 <form>
                   <div className="form-inner-block">
@@ -68,10 +68,10 @@ const SellerUploadImage = () => {
                           <ChooseIcon />
                           <p className="label">
                             Drag & Drop your files here or{" "}
-                            <span>Choose files</span>
+                            <span>{TEXT.choose_file}</span>
                           </p>
                           <p className="label-note">
-                            Max you can upload 10 files. 2 MB each image
+                            {TEXT.image_file_validation}
                           </p>
                         </div>
 
@@ -81,7 +81,7 @@ const SellerUploadImage = () => {
                           name="file"
                           accept="image/jpg, image/png, image/jpeg"
                         />
-                        <span className="error-msg">Please choose file</span>
+                        <span className="error-msg">{TEXT.please_choose_file}</span>
                       </label>
                     </div>
                   </div>
@@ -89,7 +89,7 @@ const SellerUploadImage = () => {
                     onClick={handleSubmitEvent}
                     className="theme_btn grdnt_btn"
                   >
-                    Continue
+                    {TEXT.continue}
                   </div>
                 </form>
               </div>

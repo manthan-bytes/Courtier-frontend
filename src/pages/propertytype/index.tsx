@@ -15,6 +15,7 @@ import { getUser } from "../../service/login.service";
 import { createLead } from "../../service/lead.service";
 import { toast } from "react-toastify";
 import { INVALID_DATA } from "../../core/constants/toast-message";
+import { TEXT } from "../../core/constants/headingText";
 
 const PropertyType = () => {
   const navigate = useNavigate();
@@ -182,7 +183,7 @@ const PropertyType = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  What type of property are you wishing to sell?
+                 {TEXT.property_type}
                 </h2>
                 <form>
                   <div className="form-inner-block">
@@ -213,7 +214,7 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Condoicon />
                         </span>
-                        Condo
+                        {TEXT.condo}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -228,7 +229,7 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Propertyicon />
                         </span>
-                        Revenue Property
+                        {TEXT.revenue_property}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -247,7 +248,7 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Industrialicon />
                         </span>
-                        Commercial or Industrial
+                        {TEXT.commercial_or_industrial}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -261,18 +262,18 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Landfieldicon />
                         </span>
-                        Land / Field
+                        {TEXT.land_field}
                       </div>
                     </label>
                   </div>
                   <div onClick={handleBackClick} className="theme_btn">
-                    Back
+                    {TEXT.back}
                   </div>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
-                    Next Question
+                   {TEXT.next_question}
                   </div>
                 </form>
               </div>

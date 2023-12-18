@@ -7,6 +7,7 @@ import "./buysellproperty.scss";
 import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
 import { toast } from "react-toastify";
 import { INVALID_DATA } from "../../core/constants/toast-message";
+import { TEXT } from "../../core/constants/headingText";
 
 const BuySellProperty = () => {
   const navigate = useNavigate();
@@ -75,9 +76,9 @@ const BuySellProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  Great 💫
+                  {TEXT.great} 💫
                   <br />
-                  Are you looking to buy or sell property?
+                  {TEXT.buy_sell_property}
                 </h2>
                 <form>
                   <div className="form-inner-block">

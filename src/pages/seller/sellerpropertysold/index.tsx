@@ -6,6 +6,7 @@ import bg_main from "../../../assets/images/bg-main.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerPropertySold = () => {
   const navigate = useNavigate();
@@ -105,13 +106,13 @@ const SellerPropertySold = () => {
                   <div onClick={handleBackClick}
                     className="theme_btn"
                   >
-                    BACK
+                    {TEXT.back}
                   </div>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
-                    NEXT QUESTION
+                   {TEXT.next_question}
                   </div>
                 </form>
               </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../sellerinquiryoption/sellerinquiryoption.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerInquiryOption = () => {
 
@@ -28,18 +29,17 @@ const SellerInquiryOption = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  Would you like to dfsds with a free digital home evaluation,
-                  or wait for a Call from a real-estate agent?
+                  {TEXT.sell_inquiry_options}
                 </h2>
                 <form>
                   <Link to="/seller/callfromagent" className="theme_btn">
-                    GET CALL FROM AGENT
+                    {TEXT.call_from_agent}
                   </Link>
                   <Link
                     to="/seller/uploadimage"
                     className="theme_btn grdnt_btn"
                   >
-                    Go With Digital Evaluation
+                    {TEXT.digital_evaluation}
                   </Link>
                 </form>
               </div>
