@@ -97,6 +97,10 @@ const Location = () => {
     };
 
   useEffect(() => {
+    const element:any = document.getElementById("header");
+    if (element) {
+      element.classList.add('header-bk')
+    }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
     console.log("🚀 ~ file: index.tsx:129 ~ useEffect ~ getLeadObj:", getLeadObj)
