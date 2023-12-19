@@ -41,6 +41,8 @@ const BuyerRevenueProperty = () => {
   const handleonChangeDownPayment = async (e:any) => {
     const selectedDataObj = {...getpreferences};
     selectedDataObj['downPayment'] = e.target.value
+    console.log("🚀 ~ file: index.tsx:35 ~ handleonChangeInvestment ~ selectedDataObj:", selectedDataObj)
+
     setpreferences(selectedDataObj);
 
   }
@@ -300,6 +302,7 @@ const BuyerRevenueProperty = () => {
                               <div className="checkbox-lables">1.2mil+</div>
                             </label>
                           </li>
+                          
                         </ul>
                       <h3 className="h3">
                         What percentage do you plan on putting as a down
@@ -311,9 +314,9 @@ const BuyerRevenueProperty = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="Prefer not to say"
-                              value="Prefer not to say"
-                              checked={getpreferences?.downPayment === "Prefer not to say"}
+                              name="Prefer not to say for invetments"
+                              value="Prefer not to say1"
+                              checked={getpreferences?.downPayment === "Prefer not to say1"}
                             />
                             <div className="checkbox-lables">
                               Prefer not to say

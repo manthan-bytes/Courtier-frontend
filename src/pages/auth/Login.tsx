@@ -94,7 +94,10 @@ const Login = () => {
       loop: false,
     });
   }, [anime]);
-
+  const element:any = document.getElementById("header");
+    if (element) {
+      element.classList.add('header-bk')
+    }
   // Banner typed js hide
   const [showDiv, setShowDiv] = useState(true);
   useEffect(() => {

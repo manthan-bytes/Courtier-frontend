@@ -86,7 +86,7 @@ const BuySellProperty = () => {
                       <input
                         type="radio"
                         name="layout"
-                        checked={leadObj?.leadType === "buyer"}
+                        checked={getType === "buyer"}
                         onChange={(e) => handleOnChange("buyer")}
                       />
 
@@ -101,7 +101,7 @@ const BuySellProperty = () => {
                       <input
                         type="radio"
                         name="layout"
-                        checked={leadObj?.leadType === "seller"}
+                        checked={getType === "seller"}
                         onChange={(e) => handleOnChange("seller")}
                       />
                       <div className="custom-lable">

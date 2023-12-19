@@ -9,6 +9,10 @@ import { VolumeMute, VolumeOn } from "../../core/icons";
 const Home = () => {
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
+    const element:any = document.getElementById("header");
+    if (element) {
+      element.classList.remove('header-bk')
+    }
     setNewClass(true);
   }, []);
   return (

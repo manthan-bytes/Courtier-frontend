@@ -142,7 +142,7 @@ const Location = () => {
 
                       <Select className="select-main-wrap" name="location" value={{label: location.city}} options={options} onChange={(e) => handleOnChangeLocation(e, index)}/>
                       <Select className="select-main-wrap" name="boroughs" value={{label: location.boroughs}} options={getBoroughs} onChange={(e) => handleOnChangeBoroughs(e, index)}/>
-                      {locationOptions.length - 1 === index && (
+                      {locationOptions.length - 1 === index && leadObj.leadType !== "seller" && (
                         <div
                           onClick={handleAddDropdown}
                           className="addclose-icon"

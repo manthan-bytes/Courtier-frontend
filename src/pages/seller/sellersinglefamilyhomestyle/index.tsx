@@ -239,7 +239,7 @@ const SellerSingleFamilyHomestyle = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="homeyear"
+                              name="Before 1960"
                               value="Before 1960"
                               checked={getpreferences?.builtInYear === "Before 1960"}
 
@@ -251,7 +251,7 @@ const SellerSingleFamilyHomestyle = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="homeyear"
+                              name="1960-2000"
                               value="1960-2000"
                               checked={getpreferences?.builtInYear === "1960-2000"}
 
@@ -263,7 +263,7 @@ const SellerSingleFamilyHomestyle = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="homeyear"
+                              name="2000-now"
                               value="2000-now"
                               checked={getpreferences?.builtInYear === "2000-now"}
 

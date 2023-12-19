@@ -113,19 +113,19 @@ const SellerCommercialIndustrial = () => {
                       <ul className="property-select" onChange={(e) => handleonChangeProjectType(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Commercial" value="Commercial" checked={getpreferences?.projectType === "Commercial"}/>
+                            <input type="radio" name="Commercial business" value="Commercial" checked={getpreferences?.projectType === "Commercial"}/>
                             <div className="checkbox-lables">Commercial</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Industrial" value="Industrial" checked={getpreferences?.projectType === "Industrial"}/>
+                            <input type="radio" name="Industrial business" value="Industrial" checked={getpreferences?.projectType === "Industrial"}/>
                             <div className="checkbox-lables">Industrial</div>
-                          </label>
+                            </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Business" value="Business" checked={getpreferences?.projectType === "Business"}/>
+                            <input type="radio" name="Business business" value="Business" checked={getpreferences?.projectType === "Business"}/>
                             <div className="checkbox-lables">Business</div>
                           </label>
                         </li>

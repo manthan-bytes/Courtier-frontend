@@ -7,6 +7,7 @@ import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { sendEmail } from "../../../service/login.service";
 
 const SellerPropertySold = () => {
   const navigate = useNavigate();
@@ -29,6 +30,19 @@ const SellerPropertySold = () => {
         toast.success(leadUpdate.message, {
           position: toast.POSITION.TOP_RIGHT,
         });
+        const email = localStorage.getItem('email');
+        const emailObj = 
+          {
+            email: email,
+            type: leadDataObj.leadType,
+            leadId: leadDataObj.id
+          }
+        const sendEmailResponse = await sendEmail(emailObj);
+        if (sendEmailResponse.statusCode === 200) {
+          toast.success(sendEmailResponse.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
         navigate(SELLER.PROPERTY_CONFORMATION)
       } else {
         toast.error(leadUpdate.message, {
@@ -37,7 +51,24 @@ const SellerPropertySold = () => {
       }
     }
     const handleBackClick = async () => {
-      navigate(SELLER.SINGLE_FAMILY_HOME_STYLE)
+      // navigate(SELLER.SINGLE_FAMILY_HOME_STYLE)
+      switch(leadObj.propertyType) {
+        case 'single_family':
+          navigate(SELLER.SINGLE_FAMILY_HOME_STYLE);
+          break;
+        case 'condo':
+          navigate(SELLER.CONDO_PROPERTY);
+          break;
+        case 'revenue_property':
+          navigate(SELLER.REVENUE_PROPERTY);
+          break;
+        case 'commercial_or_industry':
+          navigate(SELLER.COMMERCIAL_INDUSTRIAL);
+          break;
+        case 'land':
+          navigate(SELLER.ABOUT_LAND_FIELD)
+          break;
+      }
     }
     useEffect(() => {
       setNewClass(true);

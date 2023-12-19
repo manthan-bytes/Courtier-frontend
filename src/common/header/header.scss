@@ -61,6 +61,7 @@
 
     .menu-block-right {
         width: 60%;
+        position: relative;
 
         @media screen and (max-width:$screen-sm-max) {
             width: 50%;
@@ -161,6 +162,40 @@
                 }
             }
         }
+    }
+    .munu-block {
+        width: 100%;
+        max-width: 170px;
+        position: absolute;
+        background: linear-gradient(95deg, rgba(255, 182, 182, 0.41) 0%, rgb(248 224 224 / 52%) 100%);
+        right: 0;
+        border-radius: 5px;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-15px);
+        transition: all 0.5s;
+    
+         ul {
+            padding: 10px 20px;
+            li {
+                display: inline-block;
+                .menu-link {
+                    color: $Font_Primary;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                    &:hover {
+                        color: $Btn_thame1;
+                    }
+                }
+            }
+         }
+         &.active {
+            overflow: visible;
+            opacity: 1;
+            height: auto;
+            transform: translateY(0px);
+         }
     }
 
 

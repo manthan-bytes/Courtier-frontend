@@ -95,10 +95,6 @@ const PropertyType = () => {
             position: toast.POSITION.TOP_RIGHT,
           });
         }
-      } else {
-        toast.error(INVALID_DATA, {
-          position: toast.POSITION.TOP_RIGHT,
-        });
       }
     } else {
       toast.error(INVALID_DATA, {

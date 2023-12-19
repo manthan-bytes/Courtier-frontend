@@ -8,9 +8,11 @@ import { createLead } from "../../../service/lead.service";
 import { getUser } from "../../../service/login.service";
 import { SELLER } from "../../../core/constants/routes";
 import { TEXT } from "../../../core/constants/headingText";
-
 const SellerUploadImage = () => {
   const navigate = useNavigate();
+  const [leadObj, setLeadObj] = useState<any>();
+  const [getFiles, setFiles] = useState<[]>();
+
   const handleSubmitEvent = async () => {
     navigate(SELLER.SINGLE_FAMILY);
     // const leadObj = localStorage.getItem("leadObj");
@@ -31,6 +33,22 @@ const SellerUploadImage = () => {
     //   //TODO: Something went wrong
     // }
   };
+
+  const handleOnChange = async (e:any) => {
+    console.log("🚀 ~ file: index.tsx:38 ~ handleOnChange ~ image:", e.target.files[0])
+
+    // const files:any = getFiles;
+    const selectedImages:any = [];
+    // e.target.files.forEach((image:any) => {
+      selectedImages.push(e.target.files[0])
+    // })
+    console.log("🚀 ~ file: index.tsx:41 ~ handleOnChange ~ files:", selectedImages)
+
+    setFiles(selectedImages);
+  };
+  const handleSubmit = async (e:any) => { 
+    
+  }
 
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
@@ -80,6 +98,7 @@ const SellerUploadImage = () => {
                           type="file"
                           name="file"
                           accept="image/jpg, image/png, image/jpeg"
+                          onChange={(e) => handleOnChange(e)}
                         />
                         <span className="error-msg">{TEXT.please_choose_file}</span>
                       </label>

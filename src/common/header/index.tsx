@@ -1,17 +1,28 @@
 // create dashboard page component
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.scss";
 import logowhite from "../../assets/images/logo-white.svg";
 import logoblack from "../../assets/images/logo-black.svg";
+import { ROUTES } from "../../core/constants/routes";
 
 const Header = () => {
+  const navigate = useNavigate();
   // Home burger menu
   const [isActive, setIsActive] = useState(false);
   const toggleClass = () => {
     setIsActive(!isActive);
   };
   const [scrolling, setScrolling] = useState(false);
+
+  const handleLogoutClick = async () => {
+    localStorage.removeItem('leadObj');
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    setIsActive(!isActive);
+    navigate(ROUTES.HOME)
+    
+  }
   useEffect(() => {
     const handleScroll = () => {
       // Check the scroll position
@@ -32,7 +43,7 @@ const Header = () => {
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
   return (
-    <header
+    <header id='header'
       className={`header-sec header-bk ${scrolling ? "onscroll" : "scroll"}`}
     >
       <div className="container">
@@ -67,6 +78,14 @@ const Header = () => {
                   <span className="line"></span>
                 </div>
               </div>
+            </div>
+            <div
+            className={isActive ? "active munu-block" : "munu-block"}>
+              <ul>
+                <li>
+                  <div className="menu-link" onClick={handleLogoutClick}>Logout</div>
+                </li>
+              </ul>
             </div>
           
           </div>

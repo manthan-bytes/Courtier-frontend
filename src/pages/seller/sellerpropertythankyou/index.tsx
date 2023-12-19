@@ -31,7 +31,7 @@ const SellerPropertyThankyou = () => {
                   Alright, this was quick and easy, see you again soon!
                 </h2>
                 <form>
-                  <Link to="" className="theme_btn">
+                  <Link to="/home" className="theme_btn">
                     Take Me to Home
                   </Link>
                   <Link

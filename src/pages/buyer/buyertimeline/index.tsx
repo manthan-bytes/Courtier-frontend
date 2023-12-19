@@ -35,7 +35,23 @@ const BuyerTimeLine = () => {
     }
   }
   const handleBackClick = async () => {
-    navigate(BUYER.SINGLE_FAMILY)
+    switch(leadObj.propertyType) {
+      case 'single_family':
+        navigate(BUYER.SINGLE_FAMILY);
+        break;
+      case 'condo':
+        navigate(BUYER.CONDO_PROPERTY);
+        break;
+      case 'revenue_property':
+        navigate(BUYER.REVENUE_PROPERTY);
+        break;
+      case 'commercial_or_industry':
+        navigate(BUYER.COMMERCIAL_INDUSTRIAL);
+        break;
+      case 'land':
+        navigate(BUYER.ABOUT_LAND_FIELD)
+        break;
+    }
   }
 
   useEffect(() => {

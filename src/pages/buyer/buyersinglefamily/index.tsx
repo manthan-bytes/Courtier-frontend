@@ -133,7 +133,7 @@ const BuyerSingleFamily = () => {
                       <ul className="property-select" onChange={(e) => handleonChangeHomeStyle(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Don't Care" value="Don't Care" checked={getpreferences?.homeStyle === "Don't Care"}/>
+                            <input type="radio" name="Don't Care home type" value="Don't Care" checked={getpreferences?.homeStyle === "Don't Care"}/>
                             <div className="checkbox-lables">Don't Care</div>
                           </label>
                         </li>
