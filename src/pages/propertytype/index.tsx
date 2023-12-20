@@ -154,10 +154,6 @@ const PropertyType = () => {
     }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
-    console.log(
-      "🚀 ~ file: index.tsx:45 ~ useEffect ~ getLeadObj:",
-      getLeadObj
-    );
     if (getLeadObj) {
       setLeadObj(JSON.parse(getLeadObj));
       setPropertyType(JSON.parse(getLeadObj)?.propertyType);

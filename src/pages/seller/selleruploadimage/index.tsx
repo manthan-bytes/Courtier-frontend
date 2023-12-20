@@ -4,15 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import "../selleruploadimage/selleruploadimage.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { ChooseIcon } from "../../../core/icons";
-import { createLead } from "../../../service/lead.service";
+import { createLead, updateImage, updateLead } from "../../../service/lead.service";
 import { getUser } from "../../../service/login.service";
 import { SELLER } from "../../../core/constants/routes";
 import { TEXT } from "../../../core/constants/headingText";
+import { toast } from "react-toastify";
 const SellerUploadImage = () => {
   const navigate = useNavigate();
   const [leadObj, setLeadObj] = useState<any>();
-  const [getFiles, setFiles] = useState<[]>();
-
+  const [getFiles, setFiles] = useState<any>();
+  const [getImagePath, setImagePath] = useState<any>();
+  const [getpropertyImage, setpropertyImage] = useState<any>();
   const handleSubmitEvent = async () => {
     navigate(SELLER.SINGLE_FAMILY);
     // const leadObj = localStorage.getItem("leadObj");
@@ -34,30 +36,61 @@ const SellerUploadImage = () => {
     // }
   };
 
-  const handleOnChange = async (e:any) => {
-    console.log("🚀 ~ file: index.tsx:38 ~ handleOnChange ~ image:", e.target.files[0])
+  const handleOnChange = (e: any) => {
+    let selectedImages: any = [];
+    let selectedImagePath: any = [];
+    if (getFiles && getFiles.length > 0) {
+      selectedImages = [...getFiles];
+    }
 
-    // const files:any = getFiles;
-    const selectedImages:any = [];
-    // e.target.files.forEach((image:any) => {
-      selectedImages.push(e.target.files[0])
-    // })
-    console.log("🚀 ~ file: index.tsx:41 ~ handleOnChange ~ files:", selectedImages)
+    if (getImagePath && getImagePath.length > 0) {
+      selectedImagePath = [...getImagePath];
+    }
 
+    if (e.target.files && e.target.files[0]) {
+      selectedImages.push(e.target.files[0]);
+      selectedImagePath.push(URL.createObjectURL(e.target.files[0]));
+    }
+
+    setImagePath(selectedImagePath);
     setFiles(selectedImages);
   };
-  const handleSubmit = async (e:any) => { 
-    
-  }
+  const handleSubmit = async (e: any) => {
+    const leadDataObj = leadObj;
+    const leadId = leadDataObj.id;
+    let formData = new FormData();
+    for (let i = 0; i < getFiles.length; i++) {
+      formData.append("files", getFiles[i]);
+
+    }// localStorage.setItem('leadObj', JSON.stringify(data));
+
+    const leadUpdate = await updateImage(leadId, formData);
+    if (leadUpdate.statusCode === 200) {
+      toast.success(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      navigate(SELLER.SINGLE_FAMILY);
+    } else {
+      toast.error(leadUpdate.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
 
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
+    const getLeadObj = localStorage.getItem("leadObj");
+    if (getLeadObj) {
+      setLeadObj(JSON.parse(getLeadObj));
+      setpropertyImage(JSON.parse(getLeadObj)?.propertyImage);
+    }
     setNewClass(true);
   }, []);
 
   return (
     <>
+      <div></div>
       <section
         className={`main-banner-sec uploadimage-sec ${
           newClass ? "next-class" : ""
@@ -75,22 +108,44 @@ const SellerUploadImage = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
-                <h2 className="h2">
-                  {TEXT.sell_upload_tital}
-                </h2>
+                <h2 className="h2">{TEXT.sell_upload_tital}</h2>
                 <form>
                   <div className="form-inner-block">
                     <div className="file-upload-wrap">
                       <label>
                         <div className="">
-                          <ChooseIcon />
-                          <p className="label">
+                          {getImagePath &&
+                            getImagePath.length > 0 &&
+                            getImagePath.map(
+                              (imagePath: any, index: number) => {
+                                return (
+                                  <img
+                                    key={index}
+                                    alt="preview image"
+                                    width={100}
+                                    height={100}
+                                    src={imagePath}
+                                  />
+                                );
+                              }
+                            )}
+                          {!getImagePath && (
+                            <>
+                              <ChooseIcon />
+                              <p className="label">
+                                Drag & Drop your files here or{" "}
+                                <span>{TEXT.choose_file}</span>
+                              </p>
+                            </>
+                          )}
+
+                          {/* <p className="label">
                             Drag & Drop your files here or{" "}
                             <span>{TEXT.choose_file}</span>
                           </p>
                           <p className="label-note">
                             {TEXT.image_file_validation}
-                          </p>
+                          </p> */}
                         </div>
 
                         <input
@@ -100,12 +155,14 @@ const SellerUploadImage = () => {
                           accept="image/jpg, image/png, image/jpeg"
                           onChange={(e) => handleOnChange(e)}
                         />
-                        <span className="error-msg">{TEXT.please_choose_file}</span>
+                        <span className="error-msg">
+                          {TEXT.please_choose_file}
+                        </span>
                       </label>
                     </div>
                   </div>
                   <div
-                    onClick={handleSubmitEvent}
+                    onClick={handleSubmit}
                     className="theme_btn grdnt_btn"
                   >
                     {TEXT.continue}

@@ -38,14 +38,14 @@ const Home = () => {
               <Link to="/login" className="theme_btn grdnt_btn">
                 {TEXT.I_AM_READY}
               </Link>
-              <div className="volume-btn">
+              {/* <div className="volume-btn">
                 <div className="volume volumeoff">
                   <VolumeMute />
                 </div>
                 <div className="volume volumeon">
                   <VolumeOn />
                 </div>
-              </div>
+              </div> */}
               <div className="get-started-btn">
                 <img
                   src={btnloader}

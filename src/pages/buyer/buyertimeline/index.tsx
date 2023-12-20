@@ -6,6 +6,7 @@ import bg_main from "../../../assets/images/bg-main.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { BUYER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
+import { sendEmail } from "../../../service/login.service";
 
 const BuyerTimeLine = () => {
   const navigate = useNavigate();
@@ -27,6 +28,19 @@ const BuyerTimeLine = () => {
       toast.success(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      const email = localStorage.getItem('email');
+        const emailObj = 
+          {
+            email: email,
+            type: leadDataObj.leadType,
+            leadId: leadDataObj.id
+          }
+        const sendEmailResponse = await sendEmail(emailObj);
+        if (sendEmailResponse.statusCode === 200) {
+          toast.success(sendEmailResponse.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
       navigate(BUYER.AGENT)
     } else {
       toast.error(leadUpdate.message, {

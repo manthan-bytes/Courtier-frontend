@@ -57,7 +57,7 @@ const Location = () => {
   
     if (locationOptions.length > 0) {
       if (getLeadObj) {
-        leadObj["location"] = locationOptions;
+        leadObj["location"] = JSON.stringify(locationOptions);
         setLeadObj(leadObj);
       } else {
         const leadObj = {
@@ -103,13 +103,12 @@ const Location = () => {
     }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
-    console.log("🚀 ~ file: index.tsx:129 ~ useEffect ~ getLeadObj:", getLeadObj)
     if (getLeadObj) {
       const leadObj = JSON.parse(getLeadObj);
       setLeadObj(leadObj);
 
       if (leadObj.location) {
-        setLocationOption(leadObj.location);
+        setLocationOption(JSON.parse(leadObj.location));
       } else {
         setLocationOption([...locationOptions, { city: "", boroughs: "" }]);
       }

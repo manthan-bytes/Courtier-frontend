@@ -2,11 +2,30 @@
 
 .main-banner-sec {
     &.location-sec {
+        padding: 125px 0 110px 0;
+        @media screen and (max-width:$screen-991) {
+            padding: 90px 0 70px 0;
+        }
+        .banner-cantent-block {
+            height: calc(100vh - 235px);
+            @media screen and (max-width:$screen-lg-max) {
+                height: calc(100vh - 200px);
+            }
+            @media screen and (max-width: $screen-991) {
+              height: 100%;
+            }
+          }
         .form-step-contect {
             .form-inner-block {
                 position: relative;
-                padding-bottom: 0;
+                padding-bottom: 20px;
                 align-items: center;
+                &:last-child {
+                    padding-bottom: 24px;
+                    // @media screen and (max-width: $screen-lg-max) {
+                    //     padding-bottom: 22px;
+                    // }
+                }
                 @media (max-width: $screen-xs-max) {
                    flex-wrap: wrap;
                    padding-bottom: 38px;
@@ -40,17 +59,7 @@
             .select-main-wrap {
                 width: 100%;
                 max-width: 662px;
-                padding-bottom: 24px;
                 position: relative;
-               
-                
-                &:last-child {
-                    padding-bottom: 0;
-                }
-
-                @media screen and (max-width: $screen-lg-max) {
-                    padding-bottom: 22px;
-                }
                 @media (max-width: $screen-xs-max) {
                     max-width: 100%;
                     padding: 0;
@@ -127,6 +136,7 @@
                     }
                     > div {
                         display: flex;
+                        align-items: flex-start;
                         gap: 16px;
                         padding: 20px;
                         flex-wrap: wrap;
