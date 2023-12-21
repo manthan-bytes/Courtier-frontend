@@ -59,11 +59,12 @@ const SellerUploadImage = () => {
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
     let formData = new FormData();
+    if (getFiles) {
     for (let i = 0; i < getFiles.length; i++) {
       formData.append("files", getFiles[i]);
 
     }// localStorage.setItem('leadObj', JSON.stringify(data));
-
+  }
     const leadUpdate = await updateImage(leadId, formData);
     if (leadUpdate.statusCode === 200) {
       toast.success(leadUpdate.message, {

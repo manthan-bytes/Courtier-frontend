@@ -114,38 +114,38 @@ const BuyerRevenueProperty = () => {
                       <ul className="property-select" onChange={(e) => handleonChangeTenantsType(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Any Type" value="Any Type" checked={getpreferences?.tenantsType === "Any Type"}/>
+                            <input type="radio" name="Any Type For tenants" value="Any Type" checked={getpreferences?.tenantsType === "Any Type"}/>
                             <div className="checkbox-lables">Any Type</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Residential" value="Residential" checked={getpreferences?.tenantsType === "Residential"}/>
+                            <input type="radio" name="Residential  For tenants" value="Residential" checked={getpreferences?.tenantsType === "Residential"}/>
                             <div className="checkbox-lables">Residential</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Commercial" value="Commercial" checked={getpreferences?.tenantsType === "Commercial"}/>
+                            <input type="radio" name="Commercial  For tenants" value="Commercial" checked={getpreferences?.tenantsType === "Commercial"}/>
                             <div className="checkbox-lables">Commercial</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Bureaux" value="Bureaux" checked={getpreferences?.tenantsType === "Bureaux"}/>
+                            <input type="radio" name="Bureaux  For tenants" value="Bureaux" checked={getpreferences?.tenantsType === "Bureaux"}/>
                             <div className="checkbox-lables">Bureaux</div>
                           </label>
                         </li>
 
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Entrepot" value="Entrepot" checked={getpreferences?.tenantsType === "Entrepot"}/>
+                            <input type="radio" name="Entrepot  For tenants" value="Entrepot" checked={getpreferences?.tenantsType === "Entrepot"}/>
                             <div className="checkbox-lables">Entrepot</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Industrial" value="Industrial" checked={getpreferences?.tenantsType === "Industrial"}/>
+                            <input type="radio" name="Industrial  For tenants" value="Industrial" checked={getpreferences?.tenantsType === "Industrial"}/>
                             <div className="checkbox-lables">Industrial</div>
                           </label>
                         </li>
@@ -248,7 +248,7 @@ const BuyerRevenueProperty = () => {
                             <label className="custom-checkbox-btn">
                               <input
                                 type="radio"
-                                name="Prefer not to say"
+                                name="Prefer not to say for investment"
                                 value="Prefer not to say"
                                 checked={getpreferences?.investment === "Prefer not to say"}
                               />
@@ -262,7 +262,7 @@ const BuyerRevenueProperty = () => {
                             <label className="custom-checkbox-btn">
                               <input
                                 type="radio"
-                                name="0-400k"
+                                name="0-400k for investment"
                                 value="0-400k"
                                 checked={getpreferences?.investment === "0-400k"}
                               />
@@ -273,7 +273,7 @@ const BuyerRevenueProperty = () => {
                             <label className="custom-checkbox-btn">
                               <input
                                 type="radio"
-                                name="400k-800k"
+                                name="400k-800k for investment"
                                 value="400k-800k"
                                 checked={getpreferences?.investment === "400k-800k"}
                               />
@@ -284,7 +284,7 @@ const BuyerRevenueProperty = () => {
                             <label className="custom-checkbox-btn">
                               <input
                                 type="radio"
-                                name="800k-1.2mil"
+                                name="800k-1.2mil for investment"
                                 value="800k-1.2mil"
                                 checked={getpreferences?.investment === "800k-1.2mil"}
                               />
@@ -295,7 +295,7 @@ const BuyerRevenueProperty = () => {
                             <label className="custom-checkbox-btn">
                               <input
                                 type="radio"
-                                name="1.2mil+"
+                                name="1.2mil+ for investment"
                                 value="1.2mil+"
                                 checked={getpreferences?.investment === "1.2mil+"}
                               />

@@ -53,6 +53,10 @@ const SellerRevenueProperty = () => {
 
   }
 
+  const calculateUnit = async (residential: number, Commercial: number) => {
+    return residential + Commercial
+  }
+
   const handleSubmitClick = async (e: any) => {
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
@@ -262,7 +266,7 @@ const SellerRevenueProperty = () => {
                           />
                         </div>
                         <div className="total-units">
-                          <strong>{getpreferences?.residentialUnit} + {getpreferences?.commercialUnit}</strong>
+                          <strong></strong>
                           <h4>Total Number Of Units</h4>
                         </div>
                       </div>
