@@ -6,73 +6,79 @@ import bg_main from "../../assets/images/bg-main.jpg";
 import { getUser, updateUser } from "../../service/login.service";
 import { log } from "console";
 import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { INVALID_DATA } from "../../core/constants/toast-message";
 import { TEXT } from "../../core/constants/headingText";
 
 const ContactInfo = () => {
   const navigate = useNavigate();
-// banner slide animation js
-const [newClass, setNewClass] = useState(false);
-  const email = localStorage.getItem('email');
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
+  const email = localStorage.getItem("email");
   const [userData, setUserData] = useState<any>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [leadObj, setLeadObj] = useState<any>();
 
   // let isSubmitted = false;
-  const getUserDetail = async() => {
-    const userDetails =await getUser(email);
+  const getUserDetail = async () => {
+    const userDetails = await getUser(email);
     setUserData(userDetails.data);
-    
-  }
+  };
 
-  const handleSubmitEvent = async() => {
-    setIsSubmitted(true)
-    if( userData?.name && userData?.phone &&   userData?.phone.length > 0) {
+  const handleSubmitEvent = async () => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
+    setIsSubmitted(true);
+    if (userData?.name && userData?.phone && userData?.phone.length > 0) {
       const user = await updateUser(userData.id, userData);
       if (user.statusCode === 200) {
         toast.success(user.message, {
           position: toast.POSITION.TOP_RIGHT,
         });
-        if (leadObj.leadType === 'seller') {
+        element.classList.remove("loader-btn");
+        if (leadObj.leadType === "seller") {
           navigate(SELLER.LOCATION);
-    
-        } 
-        if (leadObj.leadType === 'buyer') {
+        }
+
+        if (leadObj.leadType === "buyer") {
           navigate(BUYER.LOCATION);
-    
         }
       } else {
+        toast.error(user.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        element.classList.remove("loader-btn");
         //TODO
       }
     } else {
       toast.error(INVALID_DATA, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
+
       return false;
     }
+  };
 
-    
-  }
-
-  const handleBackEvent = async() => {
+  const handleBackEvent = async () => {
     navigate(ROUTES.BUYSELLPROPERTY);
-  }
+  };
 
   useEffect(() => {
-    const element:any = document.getElementById("header");
+    const element: any = document.getElementById("header");
     if (element) {
-      element.classList.add('header-bk')
+      element.classList.add("header-bk");
     }
     setNewClass(true);
-    getUserDetail()
+    getUserDetail();
     const getLeadObj = localStorage.getItem("leadObj");
     if (getLeadObj) {
       setLeadObj(JSON.parse(getLeadObj));
     }
   }, []);
   return (
-  
     <section
       className={`main-banner-sec contactinfo-sec ${
         newClass ? "next-class" : ""
@@ -105,11 +111,13 @@ const [newClass, setNewClass] = useState(false);
                         placeholder="Type Your Name"
                         name="Your Name"
                         value={userData?.name}
-                        onChange={(e) => setUserData({...userData , name: e.target.value})}
+                        onChange={(e) =>
+                          setUserData({ ...userData, name: e.target.value })
+                        }
                       />
-                       {!userData?.name && isSubmitted && ( <span className="error-msg">
-                        Name is required
-                      </span>)}
+                      {!userData?.name && isSubmitted && (
+                        <span className="error-msg">Name is required</span>
+                      )}
                     </div>
                     <div className="form-group">
                       <input
@@ -118,14 +126,22 @@ const [newClass, setNewClass] = useState(false);
                         placeholder="Enter Your Contact No"
                         name="Contact No"
                         value={userData?.phone}
-                        onChange={(e) => setUserData({...userData , phone: e.target.value})}
+                        onChange={(e) =>
+                          setUserData({ ...userData, phone: e.target.value })
+                        }
                       />
-                      {!userData?.phone && isSubmitted && ( <span className="error-msg">
-                        Contact Number is required
-                      </span>)}
-                      {userData?.phone && userData?.phone?.length != 10 && isSubmitted && ( <span className="error-msg">
-                        Please enter valid contact no
-                      </span>)}
+                      {!userData?.phone && isSubmitted && (
+                        <span className="error-msg">
+                          Contact Number is required
+                        </span>
+                      )}
+                      {userData?.phone &&
+                        userData?.phone?.length != 10 &&
+                        isSubmitted && (
+                          <span className="error-msg">
+                            Please enter valid contact no
+                          </span>
+                        )}
                     </div>
                     <div className="form-group">
                       <input
@@ -135,7 +151,9 @@ const [newClass, setNewClass] = useState(false);
                         name="Email"
                         disabled={true}
                         value={userData?.email}
-                        onChange={(e) => setUserData({...userData , email: e.target.value})}
+                        onChange={(e) =>
+                          setUserData({ ...userData, email: e.target.value })
+                        }
                       />
                     </div>
                   </div>
@@ -143,8 +161,14 @@ const [newClass, setNewClass] = useState(false);
                 <div onClick={handleBackEvent} className="theme_btn">
                   {TEXT.back}
                 </div>
-                <div onClick={handleSubmitEvent} className="theme_btn grdnt_btn">
+                <div
+                  onClick={handleSubmitEvent}
+                  className="theme_btn grdnt_btn"
+                  id="submit"
+                >
+                  <span>
                   {TEXT.next_question}
+                  </span>
                 </div>
               </form>
             </div>
@@ -159,9 +183,7 @@ const [newClass, setNewClass] = useState(false);
           </div>
         </div>
         <div className="bottom-content-footer">
-          <p>
-           {TEXT.login_description_text}
-          </p>
+          <p>{TEXT.login_description_text}</p>
         </div>
       </div>
     </section>

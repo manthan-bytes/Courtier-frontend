@@ -7,6 +7,7 @@ import aboutlandfield from "../../../assets/images/aboutlandfield.jpg";
 import { BUYER } from "../../../core/constants/routes";
 import { updateLead } from "../../../service/lead.service";
 import { toast } from "react-toastify";
+import { TEXT } from "../../../core/constants/headingText";
 
 const BuyerAboutLandField = () => {
   const navigate = useNavigate();
@@ -43,6 +44,10 @@ const BuyerAboutLandField = () => {
 
   }
   const handleSubmitClick = async (e: any) => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
     leadDataObj['preferences'] = getpreferences;
@@ -52,11 +57,13 @@ const BuyerAboutLandField = () => {
       toast.success(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
       navigate(BUYER.TIME_LINE)
     } else {
       toast.error(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
   }
   useEffect(() => {
@@ -93,8 +100,11 @@ const BuyerAboutLandField = () => {
                   <h2 className="h2">Share info about Land/field</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
-                    Submit
+                    <span>
+                      {TEXT.submit}
+                    </span>
                   </div>
                 </div>
 

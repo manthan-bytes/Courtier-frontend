@@ -38,7 +38,10 @@ const PropertyType = () => {
 
     //   propertyType: getPropertyType,
     // };
-
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     if (getPropertyType) {
       if (leadObj.leadType === "seller") {
         const userEmail = localStorage.getItem("email");
@@ -55,16 +58,19 @@ const PropertyType = () => {
             toast.success(lead.message, {
               position: toast.POSITION.TOP_RIGHT,
             });
+            element.classList.remove("loader-btn");
             navigate(SELLER.INQUIRY_OPTION);
           } else {
             toast.error(lead.message, {
               position: toast.POSITION.TOP_RIGHT,
             });
+            element.classList.remove("loader-btn");
           }
         } else {
           toast.error(INVALID_DATA, {
             position: toast.POSITION.TOP_RIGHT,
           });
+          element.classList.remove("loader-btn");
         }
       }
 
@@ -84,22 +90,26 @@ const PropertyType = () => {
             toast.success(lead.message, {
               position: toast.POSITION.TOP_RIGHT,
             });
+            element.classList.remove("loader-btn");
             navigate(BUYER.INQUIRY_OPTION);
           } else {
             toast.error(lead.message, {
               position: toast.POSITION.TOP_RIGHT,
             });
+            element.classList.remove("loader-btn");
           }
         } else {
           toast.error(INVALID_DATA, {
             position: toast.POSITION.TOP_RIGHT,
           });
+          element.classList.remove("loader-btn");
         }
       }
     } else {
       toast.error(INVALID_DATA, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
     // if (leadObj.leadType === "buyer") {
     //   const userEmail = localStorage.getItem("email");
@@ -268,8 +278,11 @@ const PropertyType = () => {
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
+                    <span>
                    {TEXT.next_question}
+                   </span>
                   </div>
                 </form>
               </div>

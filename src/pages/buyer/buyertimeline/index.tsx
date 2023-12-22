@@ -7,6 +7,7 @@ import { updateLead } from "../../../service/lead.service";
 import { BUYER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { sendEmail } from "../../../service/login.service";
+import { TEXT } from "../../../core/constants/headingText";
 
 const BuyerTimeLine = () => {
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ const BuyerTimeLine = () => {
   }
 
   const handleSubmitClick = async (e: any) => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
     leadDataObj['propertyPurchaseTime'] = getpropertyPurchaseTime;
@@ -40,12 +45,19 @@ const BuyerTimeLine = () => {
           toast.success(sendEmailResponse.message, {
             position: toast.POSITION.TOP_RIGHT,
           });
+          element.classList.remove("loader-btn");
+        } else {
+          toast.error(sendEmailResponse.message, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          element.classList.remove("loader-btn");
         }
       navigate(BUYER.AGENT)
     } else {
       toast.error(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
   }
   const handleBackClick = async () => {
@@ -135,12 +147,15 @@ const BuyerTimeLine = () => {
                   <div onClick={handleBackClick}
                     className="theme_btn"
                   > 
-                    BACK
+                    {TEXT.back}
                   </div>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
-                   NEXT QUESTION
+                   <span>
+                    {TEXT.next_question}
+                   </span>
                   </div>
                 </form>
               </div>

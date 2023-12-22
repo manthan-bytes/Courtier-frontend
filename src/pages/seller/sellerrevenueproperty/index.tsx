@@ -7,6 +7,7 @@ import revenueproperty from "../../../assets/images/revenueproperty.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerRevenueProperty = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const SellerRevenueProperty = () => {
   const [getpreferences, setpreferences] = useState<any>();
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
+  const [getTotalNumber, setTotalNumber] = useState<any>();
 
   const handleonChangePropertyMeant = async (e:any) => {
     const selectedDataObj = {...getpreferences};
@@ -53,11 +55,18 @@ const SellerRevenueProperty = () => {
 
   }
 
-  const calculateUnit = async (residential: number, Commercial: number) => {
-    return residential + Commercial
+  const calculateUnit = () => {
+    if (getpreferences?.residentialUnit && getpreferences?.commercialUnit) {
+   
+    return Number(getpreferences.residentialUnit) + Number(getpreferences.commercialUnit);
+    }
   }
 
   const handleSubmitClick = async (e: any) => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
     leadDataObj['preferences'] = getpreferences;
@@ -67,14 +76,20 @@ const SellerRevenueProperty = () => {
       toast.success(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
       navigate(SELLER.PROPERTY_SOLD)
     } else {
       toast.error(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
   }
   useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
     if (getLeadObj) {
@@ -110,8 +125,11 @@ const SellerRevenueProperty = () => {
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
-                    Submit
+                    <span>
+                      {TEXT.submit}
+                    </span>
                   </div>
                 </div>
 
@@ -266,8 +284,9 @@ const SellerRevenueProperty = () => {
                           />
                         </div>
                         <div className="total-units">
-                          <strong></strong>
+                          <strong>{calculateUnit()}</strong>
                           <h4>Total Number Of Units</h4>
+                          {/* <h4>Total Number Of Units {calculateUnit()}</h4> */}
                         </div>
                       </div>
                       <h3 className="h3">

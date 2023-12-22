@@ -88,7 +88,7 @@ const Login = () => {
       translateY: "30px",
       opacity: 1,
       delay: function (el, index) {
-        return index * 80;
+        return index * 40;
       },
       direction: "normal",
       loop: false,
@@ -104,7 +104,7 @@ const Login = () => {
     const timeoutId = setTimeout(() => {
       // Hide the div after 5000 milliseconds (5 seconds)
       setShowDiv(false);
-    }, 7500);
+    }, 3000);
     return () => clearTimeout(timeoutId);
   }, []);
 
@@ -153,7 +153,7 @@ const Login = () => {
               <label className="custom-select">
                 <div onClick={submitHandler} className="theme_btn">
                   <Googleicon />
-                  Continue with Goolge
+                  {TEXT.continue_with_google}
                 </div>
                 {/* <ButtonSubmit title="Login" disabled={false} /> */}
               </label>
@@ -198,12 +198,12 @@ const Login = () => {
                 </span>
               </div>
               <div className="volume-btn">
-                <div className="volume volumeoff">
+                {/* <div className="volume volumeoff">
                   <VolumeMute />
                 </div>
                 <div className="volume volumeon">
                   <VolumeOn />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

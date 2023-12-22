@@ -33,5 +33,8 @@ export const TEXT = {
    image_file_validation: 'Max you can upload 10 files. 2 MB each image',
    please_choose_file: 'Please choose file',
    continue:'Continue',
-   lets_continue: 'LET`S CONTINUE'
+   lets_continue: 'LET`S CONTINUE',
+   i_am_buyer: 'I`m a Buyer',
+   i_am_seller: 'I`m a Seller',
+   continue_with_google: 'Continue with Google'
 }

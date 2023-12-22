@@ -8,6 +8,7 @@ import { RightIcon } from "../../../core/icons";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
+import { TEXT } from "../../../core/constants/headingText";
 
 const SellerCondoProperty = () => {
   const navigate = useNavigate();
@@ -59,6 +60,10 @@ const SellerCondoProperty = () => {
   }
 
   const handleSubmitClick = async (e: any) => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
     leadDataObj['preferences'] = getpreferences;
@@ -68,15 +73,21 @@ const SellerCondoProperty = () => {
       toast.success(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
       navigate(SELLER.PROPERTY_SOLD)
     } else {
       toast.error(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
   }
 
   useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
       if (getLeadObj) {
@@ -111,8 +122,11 @@ const SellerCondoProperty = () => {
                   <h2 className="h2">Share info about Condo Property</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
-                    Submit
+                    <span>
+                      {TEXT.submit}
+                    </span>
                   </div>
                 </div>
 

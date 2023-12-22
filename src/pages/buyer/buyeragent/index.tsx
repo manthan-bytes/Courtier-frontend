@@ -18,12 +18,12 @@ const BuyerAgent = () => {
       navigate(BUYER.LOCATION)
   }
   const handleSubmitHomeClick = async () => {
-    const leadDataObj = leadObj;
-    const newLeadObj = {
+    // const leadDataObj = leadObj;
+    // const newLeadObj = {
      
-    }
-    localStorage.setItem('leadObj', JSON.stringify(newLeadObj));
-      navigate(ROUTES.HOME)
+    // }
+    // localStorage.setItem('leadObj', JSON.stringify(newLeadObj));
+      navigate(BUYER.PROPERTY_THANKYOU)
   }
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);

@@ -1,11 +1,11 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./sellerpropertythankyou.scss";
+import "./buyerpropertythankyou.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
-import { BUYER, ROUTES } from "../../../core/constants/routes";
+import { ROUTES, SELLER } from "../../../core/constants/routes";
 
-const SellerPropertyThankyou = () => {
+const BuyerPropertyThankyou = () => {
   const navigate = useNavigate();
 
   const handleTakeMeHome = async (e: any) => {
@@ -16,13 +16,12 @@ const SellerPropertyThankyou = () => {
       navigate(ROUTES.HOME)
   }
 
-
-  const handleBuyProperty = async (e: any) => {
+  const handleSellProperty = async (e: any) => {
     const newLeadObj = {
-        leadType: 'buyer',
+        leadType: 'seller',
     }
     localStorage.setItem('leadObj', JSON.stringify(newLeadObj));
-      navigate(BUYER.LOCATION)
+      navigate(SELLER.LOCATION)
   }
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
@@ -53,10 +52,10 @@ const SellerPropertyThankyou = () => {
                     Take Me to Home
                   </div>
                   <div
-                    onClick={handleBuyProperty}
+                    onClick={handleSellProperty}
                     className="theme_btn grdnt_btn"
                   >
-                    I need help TO BUY a property
+                    I need help TO SELL a property
                   </div>
                 </form>
               </div>
@@ -68,4 +67,4 @@ const SellerPropertyThankyou = () => {
   );
 };
 
-export default SellerPropertyThankyou;
+export default BuyerPropertyThankyou;

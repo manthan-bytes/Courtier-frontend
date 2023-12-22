@@ -36,6 +36,9 @@ import BuyerAgent from "../pages/buyer/buyeragent";
 import BuyerContactInfo from "../pages/buyer/buyercontactinfo";
 import BuyerLocation from "../pages/buyer/buyerlocation";
 import BuyerPropertyType from "../pages/buyer/buyerpropertytype";
+import CallFromAgent from "../pages/callfromagent";
+import BuyerCallFromAgent from "../pages/buyer/buyercallfromagent";
+import BuyerPropertyThankyou from "../pages/buyer/buyerpropertythankyou";
 
 
 
@@ -88,6 +91,9 @@ const AppRouting = () => {
           <Route path={BUYER.SEARCH_PROPERTY} index element={<BuyerSearchProperty />} />
           <Route path={BUYER.TIME_LINE} index element={<BuyerTimeLine/>} />
           <Route path={BUYER.AGENT} index element={<BuyerAgent/>} />
+          <Route path={BUYER.CALL_AGENT} index element={<BuyerCallFromAgent />} />
+          <Route path={BUYER.PROPERTY_THANKYOU} index element={<BuyerPropertyThankyou />} />
+
         </Route>
         
       </Route>

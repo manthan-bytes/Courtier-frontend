@@ -8,13 +8,12 @@ import { CloseIconv1 } from "../../core/icons";
 import { BUYER, SELLER } from "../../core/constants/routes";
 import { BOROUGHS } from "../../core/constants/boroughs";
 import { CITIES } from "../../core/constants/cities";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import { LOCATION } from "../../core/constants/toast-message";
 import { NEWCITIES } from "../../core/constants/listOfCities";
 import { TEXT } from "../../core/constants/headingText";
 
 const Location = () => {
-
   const boroughs: any = [];
 
   const options: any = CITIES;
@@ -22,7 +21,7 @@ const Location = () => {
   const navigate = useNavigate();
   const [getLocation, setLocation] = useState<any>();
   const [getBoroughs, setBoroughs] = useState<any>();
-  const [options1, setOptions] = useState<any>({  label: "Quebec" });
+  const [options1, setOptions] = useState<any>({ label: "Quebec" });
 
   const [leadObj, setLeadObj] = useState<any>();
   const [locationOptions, setLocationOption] = useState<any>([]);
@@ -42,20 +41,32 @@ const Location = () => {
   };
 
   const handleBackClick = () => {
-    if (leadObj.leadType === 'seller') {
+    if (leadObj.leadType === "seller") {
       navigate(SELLER.CONTACT_INFO);
-
-    } 
-    if (leadObj.leadType === 'buyer') {
-      navigate(BUYER.CONTACT_INFO);
-
     }
-  }
+    if (leadObj.leadType === "buyer") {
+      navigate(BUYER.CONTACT_INFO);
+    }
+  };
 
   const handleSubmitClick = async () => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     const getLeadObj = localStorage.getItem("leadObj");
-  
+    console.log("locationOptions", locationOptions);
+
     if (locationOptions.length > 0) {
+      if (locationOptions.length === 1) {
+        if (!locationOptions[0].city && !locationOptions[0].boroughs) {
+          toast.error(LOCATION, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          element.classList.remove("loader-btn");
+          return;
+        }
+      }
       if (getLeadObj) {
         leadObj["location"] = JSON.stringify(locationOptions);
         setLeadObj(leadObj);
@@ -66,40 +77,41 @@ const Location = () => {
         setLeadObj(leadObj);
       }
       localStorage.setItem("leadObj", JSON.stringify(leadObj));
-      
-      if (leadObj.leadType === 'seller') {
+      element.classList.remove("loader-btn");
+      if (leadObj.leadType === "seller") {
         navigate(SELLER.PROPERTY_TYPE);
-  
-      } 
-      if (leadObj.leadType === 'buyer') {
+      }
+      if (leadObj.leadType === "buyer") {
         navigate(BUYER.PROPERTY_TYPE);
       }
     } else {
       toast.error(LOCATION, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
-   
   };
 
   const handleOnChangeLocation = async (selectedValue: any, index: number) => {
-  const data = [...locationOptions]
-  data[index].city = selectedValue.value;
-  const selectedCityDate:any = NEWCITIES.find((o:any) => o.city.value === selectedValue.value);
-  setBoroughs(selectedCityDate.boroughs);
-  setLocationOption(data)
+    const data = [...locationOptions];
+    data[index].city = selectedValue.value;
+    const selectedCityDate: any = NEWCITIES.find(
+      (o: any) => o.city.value === selectedValue.value
+    );
+    setBoroughs(selectedCityDate.boroughs);
+    setLocationOption(data);
   };
 
   const handleOnChangeBoroughs = async (selectedValue: any, index: number) => {
-      const data = [...locationOptions]
-      data[index].boroughs = selectedValue.value;
-      setLocationOption(data)
-    };
+    const data = [...locationOptions];
+    data[index].boroughs = selectedValue.value;
+    setLocationOption(data);
+  };
 
   useEffect(() => {
-    const element:any = document.getElementById("header");
+    const element: any = document.getElementById("header");
     if (element) {
-      element.classList.add('header-bk')
+      element.classList.add("header-bk");
     }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
@@ -113,7 +125,6 @@ const Location = () => {
         setLocationOption([...locationOptions, { city: "", boroughs: "" }]);
       }
     }
-
   }, []);
 
   return (
@@ -135,36 +146,47 @@ const Location = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
-                <h2 className="h2">
-                  📍{TEXT.property_location}
-                </h2>
+                <h2 className="h2">📍{TEXT.property_location}</h2>
                 <form>
-                  {locationOptions && locationOptions.length > 0 && locationOptions.map((location: any, index: number) => (
-                    <div className="form-inner-block">
-                     
-
-                      <Select className="select-main-wrap" name="location" value={{label: location.city}} options={options} onChange={(e) => handleOnChangeLocation(e, index)}/>
-                      <Select className="select-main-wrap" name="boroughs" value={{label: location.boroughs}} options={getBoroughs} onChange={(e) => handleOnChangeBoroughs(e, index)}/>
-                      {locationOptions.length - 1 === index && leadObj.leadType !== "seller" && (
-                        <div
-                          onClick={handleAddDropdown}
-                          className="addclose-icon"
-                        >
-                          <span className="text-add">{TEXT.add}</span>
-                        </div>
-                      )}
-                      {locationOptions.length > 1 && (
-                        <div
-                          onClick={handleDeleteDropdown}
-                          className="addclose-icon"
-                        >
-                          <span>
-                            <CloseIconv1 />
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                  {locationOptions &&
+                    locationOptions.length > 0 &&
+                    locationOptions.map((location: any, index: number) => (
+                      <div className="form-inner-block">
+                        <Select
+                          className="select-main-wrap"
+                          name="location"
+                          value={{ label: location.city }}
+                          options={options}
+                          onChange={(e) => handleOnChangeLocation(e, index)}
+                        />
+                        <Select
+                          className="select-main-wrap"
+                          name="boroughs"
+                          value={{ label: location.boroughs}}
+                          options={getBoroughs}
+                          onChange={(e) => handleOnChangeBoroughs(e, index)}
+                        />
+                        {locationOptions.length - 1 === index &&
+                          leadObj.leadType !== "seller" && (
+                            <div
+                              onClick={handleAddDropdown}
+                              className="addclose-icon"
+                            >
+                              <span className="text-add">{TEXT.add}</span>
+                            </div>
+                          )}
+                        {locationOptions.length > 1 && (
+                          <div
+                            onClick={handleDeleteDropdown}
+                            className="addclose-icon"
+                          >
+                            <span>
+                              <CloseIconv1 />
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
 
                   {/* <div className="form-inner-block">
                     <Select className="select-main-wrap" options={options} />
@@ -183,11 +205,14 @@ const Location = () => {
                   <div onClick={handleBackClick} className="theme_btn">
                     {TEXT.back}
                   </div>
-                  <div onClick={handleSubmitClick}
-                    
+                  <div
+                    onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
+                    <span>
                     {TEXT.next_question}
+                    </span>
                   </div>
                 </form>
               </div>

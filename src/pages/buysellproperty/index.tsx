@@ -16,21 +16,28 @@ const BuySellProperty = () => {
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   const handleSubmitClick = async () => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     if (getType) {
       const leadObj = {
         leadType: getType,
       };
       localStorage.setItem("leadObj", JSON.stringify(leadObj));
       if (getType === "seller") {
+        element.classList.remove("loader-btn");
         navigate(SELLER.CONTACT_INFO);
       }
       if (getType === "buyer") {
+        element.classList.remove("loader-btn");
         navigate(BUYER.CONTACT_INFO);
       }
     } else {
       toast.error(INVALID_DATA, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
   };
 
@@ -49,9 +56,9 @@ const BuySellProperty = () => {
     }
   };
   useEffect(() => {
-    const element:any = document.getElementById("header");
+    const element: any = document.getElementById("header");
     if (element) {
-      element.classList.add('header-bk')
+      element.classList.add("header-bk");
     }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
@@ -98,7 +105,7 @@ const BuySellProperty = () => {
                         <span className="svg-icon">
                           <Buyericon />
                         </span>
-                        I’m Buyer
+                        {TEXT.i_am_buyer}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -112,15 +119,16 @@ const BuySellProperty = () => {
                         <span className="svg-icon">
                           <Sellericon />
                         </span>
-                        I’m Seller
+                        {TEXT.i_am_seller}
                       </div>
                     </label>
                   </div>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
-                    Go To Contact Info
+                    <span>Go To Contact Info</span>
                   </div>
                 </form>
               </div>

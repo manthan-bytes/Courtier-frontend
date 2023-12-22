@@ -38,6 +38,10 @@ const SellerAboutLandField = () => {
 
   }
   const handleSubmitClick = async (e: any) => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
+    }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
     leadDataObj['preferences'] = getpreferences;
@@ -47,14 +51,20 @@ const SellerAboutLandField = () => {
       toast.success(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
       navigate(SELLER.PROPERTY_SOLD)
     } else {
       toast.error(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
+      element.classList.remove("loader-btn");
     }
   }
   useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
     setNewClass(true);
     const getLeadObj = localStorage.getItem("leadObj");
     if (getLeadObj) {
@@ -89,8 +99,11 @@ const SellerAboutLandField = () => {
                   <h2 className="h2">{TEXT.share_info_about_land_field}</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
+                    id="submit"
                   >
+                    <span>
                     {TEXT.submit}
+                    </span>
                   </div>
                 </div>
 

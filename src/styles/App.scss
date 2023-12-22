@@ -109,7 +109,7 @@ img {
 .main-banner-sec {
   height: 100vh;
   position: relative;
-  padding: 90px 0 70px 0;
+  padding: 120px 0 90px 0;
   transform: translateX(100%);
   transition: all 1.5s;
 
@@ -164,7 +164,7 @@ img {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 200px);
     overflow-y: auto;
     @include scrollbar;
     width: 100%;

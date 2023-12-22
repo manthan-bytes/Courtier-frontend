@@ -46,6 +46,7 @@
                         line-height: 150%;
                         letter-spacing: 1.08px;
                         margin-bottom: 24px;
+                        width: 100%;
                         @media (max-width:$screen-xs-max) {
                             font-size: 16px;
                             margin-bottom: 10px;
@@ -56,6 +57,32 @@
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
                         }
+                    }
+                    .file-upload-img {
+                        display: flex;
+                        gap: 8px;
+                        align-items: flex-start;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        .close_icon_main {
+                            position: relative;
+                            .close_icon {
+                                position: absolute;
+                                right: -4px;
+                                top: -8px;
+                                background: $White;
+                                border-radius: 50%;
+                                display: flex;
+                                svg {
+                                    margin: 0px;
+                                    path {
+                                        fill: $Blue_Primary;
+                                    }
+                                }
+                            
+                            }
+                        }
+                    
                     }
 
                     .label-note {

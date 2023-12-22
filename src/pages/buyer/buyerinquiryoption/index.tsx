@@ -64,7 +64,7 @@ const BuyerInquiryOption = () => {
                   real-life by a real-estate agent.
                 </h2>
                 <form>
-                  <Link to="/buysellproperty" className="theme_btn">
+                  <Link to="/buyer/callfromagent" className="theme_btn">
                     GET CALL FROM AGENT
                   </Link>
                   <div

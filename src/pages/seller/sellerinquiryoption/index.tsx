@@ -10,6 +10,10 @@ const SellerInquiryOption = () => {
     // banner slide animation js
     const [newClass, setNewClass] = useState(false);
     useEffect(() => {
+      const element: any = document.getElementById("header");
+      if (element) {
+        element.classList.add("header-bk");
+      }
       setNewClass(true);
     }, []);
 

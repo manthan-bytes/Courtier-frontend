@@ -37,4 +37,6 @@ export const BUYER = {
   SEARCH_PROPERTY: "/buyer/searchproperty", 
   TIME_LINE: "/buyer/timeline",
   AGENT: "/buyer/agent",
+  CALL_AGENT: "/buyer/callfromagent",
+  PROPERTY_THANKYOU: "/buyer/propertythankyou"
 };

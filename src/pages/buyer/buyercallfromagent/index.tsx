@@ -1,20 +1,16 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../sellercallfromagent/sellercallfromagent.scss";
+import "./buyercallfromagent.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import greaticon from "../../../assets/images/greaticon.svg";
 import { TEXT } from "../../../core/constants/headingText";
 
-const SellerCallFromAgent = () => {
+const BuyerCallFromAgent = () => {
 
     // banner slide animation js
     const [newClass, setNewClass] = useState(false);
     useEffect(() => {
-      const element: any = document.getElementById("header");
-      if (element) {
-        element.classList.add("header-bk");
-      }
       setNewClass(true);
     }, []);
 
@@ -46,4 +42,4 @@ const SellerCallFromAgent = () => {
   );
 };
 
-export default SellerCallFromAgent;
+export default BuyerCallFromAgent;
