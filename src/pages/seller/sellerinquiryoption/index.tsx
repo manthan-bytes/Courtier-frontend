@@ -1,11 +1,34 @@
 // create dashboard page component
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../sellerinquiryoption/sellerinquiryoption.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { TEXT } from "../../../core/constants/headingText";
-
+import { toast } from "react-toastify";
+import { sendEmail } from "../../../service/login.service";
+import { SELLER } from "../../../core/constants/routes";
 const SellerInquiryOption = () => {
+  const navigate = useNavigate();
+  const [leadObj, setLeadObj] = useState<any>();
+  const callFromAgent = async () => {
+    const email = localStorage.getItem("email");
+    const emailObj = {
+      email: email,
+      type: leadObj.leadType,
+      leadId: leadObj.id,
+    };
+    const sendEmailResponse = await sendEmail(emailObj);
+    if (sendEmailResponse.statusCode === 200) {
+      toast.success(sendEmailResponse.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } else {
+      toast.error(sendEmailResponse.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+    navigate(SELLER.CALL_AGENT)
+  }
 
     // banner slide animation js
     const [newClass, setNewClass] = useState(false);
@@ -14,6 +37,11 @@ const SellerInquiryOption = () => {
       if (element) {
         element.classList.add("header-bk");
       }
+      const getLeadObj = localStorage.getItem("leadObj");
+    if (getLeadObj) {
+      const leadObj = JSON.parse(getLeadObj);
+      setLeadObj(leadObj);
+    }
       setNewClass(true);
     }, []);
 
@@ -36,9 +64,9 @@ const SellerInquiryOption = () => {
                   {TEXT.sell_inquiry_options}
                 </h2>
                 <form>
-                  <Link to="/seller/callfromagent" className="theme_btn">
+                  <div onClick={callFromAgent} className="theme_btn">
                     {TEXT.call_from_agent}
-                  </Link>
+                  </div>
                   <Link
                     to="/seller/uploadimage"
                     className="theme_btn grdnt_btn"

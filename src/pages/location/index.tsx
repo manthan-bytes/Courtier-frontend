@@ -155,14 +155,14 @@ const Location = () => {
                         <Select
                           className="select-main-wrap"
                           name="location"
-                          value={{ label: location.city }}
+                          placeholder="Select a citi"
                           options={options}
                           onChange={(e) => handleOnChangeLocation(e, index)}
                         />
                         <Select
                           className="select-main-wrap"
                           name="boroughs"
-                          value={{ label: location.boroughs}}
+                          placeholder="Select a borough"
                           options={getBoroughs}
                           onChange={(e) => handleOnChangeBoroughs(e, index)}
                         />
@@ -210,9 +210,7 @@ const Location = () => {
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                    <span>
-                    {TEXT.next_question}
-                    </span>
+                    <span>{TEXT.next_question}</span>
                   </div>
                 </form>
               </div>

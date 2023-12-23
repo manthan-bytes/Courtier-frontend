@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "../buyerinquiryoption/buyerinquiryoption.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { BUYER } from "../../../core/constants/routes";
+import { sendEmail } from "../../../service/login.service";
+import { toast } from "react-toastify";
 
 const BuyerInquiryOption = () => {
   const navigate = useNavigate();
@@ -28,6 +30,26 @@ const BuyerInquiryOption = () => {
         break;
     }
   };
+
+  const callFromAgent = async () => {
+    const email = localStorage.getItem("email");
+    const emailObj = {
+      email: email,
+      type: leadObj.leadType,
+      leadId: leadObj.id,
+    };
+    const sendEmailResponse = await sendEmail(emailObj);
+    if (sendEmailResponse.statusCode === 200) {
+      toast.success(sendEmailResponse.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } else {
+      toast.error(sendEmailResponse.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+    navigate(BUYER.CALL_AGENT)
+  }
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
@@ -64,9 +86,9 @@ const BuyerInquiryOption = () => {
                   real-life by a real-estate agent.
                 </h2>
                 <form>
-                  <Link to="/buyer/callfromagent" className="theme_btn">
+                  <div onClick={callFromAgent} className="theme_btn">
                     GET CALL FROM AGENT
-                  </Link>
+                  </div>
                   <div
                     onClick={handleSubmitEvent}
                     className="theme_btn grdnt_btn"

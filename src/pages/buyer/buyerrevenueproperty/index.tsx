@@ -142,15 +142,15 @@ const BuyerRevenueProperty = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Bureaux  For tenants" value="Bureaux" checked={getpreferences?.tenantsType === "Bureaux"}/>
-                            <div className="checkbox-lables">Bureaux</div>
+                            <input type="radio" name="Office  For tenants" value="Office" checked={getpreferences?.tenantsType === "Office"}/>
+                            <div className="checkbox-lables">Office</div>
                           </label>
                         </li>
 
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Entrepot  For tenants" value="Entrepot" checked={getpreferences?.tenantsType === "Entrepot"}/>
-                            <div className="checkbox-lables">Entrepot</div>
+                            <input type="radio" name="Warehouse  For tenants" value="Warehouse" checked={getpreferences?.tenantsType === "Warehouse"}/>
+                            <div className="checkbox-lables">Warehouse</div>
                           </label>
                         </li>
                         <li>
@@ -161,9 +161,9 @@ const BuyerRevenueProperty = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Commercial & Bureau" value="Commercial & Bureau" checked={getpreferences?.tenantsType === "Commercial & Bureau"}/>
+                            <input type="radio" name="Commercial & Office" value="Commercial & Office" checked={getpreferences?.tenantsType === "Commercial & Office"}/>
                             <div className="checkbox-lables">
-                              Commercial & Bureau
+                              Commercial & Office
                             </div>
                           </label>
                         </li>
@@ -241,11 +241,11 @@ const BuyerRevenueProperty = () => {
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
-                              name="Autre"
-                              value="Autre"
-                              checked={getpreferences?.buildingType === "Autre"}
+                              name="Other"
+                              value="Other"
+                              checked={getpreferences?.buildingType === "Other"}
                             />
-                            <div className="checkbox-lables">Autre</div>
+                            <div className="checkbox-lables">Other</div>
                           </label>
                         </li>
                         </ul>

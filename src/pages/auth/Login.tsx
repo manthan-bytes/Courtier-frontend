@@ -197,14 +197,14 @@ const Login = () => {
                   })}
                 </span>
               </div>
-              <div className="volume-btn">
+              {/* <div className="volume-btn"> */}
                 {/* <div className="volume volumeoff">
                   <VolumeMute />
                 </div>
                 <div className="volume volumeon">
                   <VolumeOn />
                 </div> */}
-              </div>
+              {/* </div> */}
             </div>
           </div>
         </div>

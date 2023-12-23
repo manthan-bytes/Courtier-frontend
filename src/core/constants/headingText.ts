@@ -25,7 +25,7 @@ export const TEXT = {
    city_zonage: 'What is the city zonage you have?',
    surface_area: 'What`s the Surface area?',
    agent_call: 'Great! An agent will call you shortly, see you soon!',
-   sell_inquiry_options : 'Would you like to dfsds with a free digital home evaluation, or wait for a Call from a real-estate agent?',
+   sell_inquiry_options : 'Would you like to continue with a free digital home evaluation, or wait for a Call from a real-estate agent?',
    call_from_agent: 'GET CALL FROM AGENT',
    digital_evaluation :'Go With Digital Evaluation',
    sell_upload_tital: 'The more pictures you upload, the more precise our free evaluation will be!',
