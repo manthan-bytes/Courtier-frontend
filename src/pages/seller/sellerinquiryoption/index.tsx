@@ -61,7 +61,8 @@ const SellerInquiryOption = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  {TEXT.sell_inquiry_options}
+                  {/* {TEXT.sell_inquiry_options} */}
+                  Would you like to continue to provide information digitally to receive a <span style={{color:'red'}}>free digital property evaluation</span> in 24 hours, or continue with a real-estate agent?
                 </h2>
                 <form>
                   <div onClick={callFromAgent} className="theme_btn">
