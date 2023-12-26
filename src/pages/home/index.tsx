@@ -5,8 +5,21 @@ import "./index.scss";
 import btnloader from "../../assets/images/btn-loader.svg";
 import { TEXT } from "../../core/constants/headingText";
 import { VolumeMute, VolumeOn } from "../../core/icons";
+import ChatBot from 'react-simple-chatbot';
 
 const Home = () => {
+  const steps = [
+    {
+      id: '0',
+      message: 'Welcome to react chatbot!',
+      trigger: '1',
+    },
+    {
+      id: '1',
+      message: 'Bye!',
+      end: true,
+    },
+  ];
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
     const element:any = document.getElementById("header");
@@ -59,6 +72,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ChatBot steps={steps} />
     </section>
   );
 };

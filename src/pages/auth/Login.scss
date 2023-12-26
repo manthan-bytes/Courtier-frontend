@@ -33,7 +33,10 @@
             justify-content: center;
             gap: 16px;
             border-color: $Border_light;
+            @media (max-width: $screen-xxs-max) {
+                padding: 12px 10px;
 
+            }
             &:hover {
                 border-color: $White;
             }

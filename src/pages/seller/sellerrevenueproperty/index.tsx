@@ -121,7 +121,7 @@ const SellerRevenueProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">Share info about Revenue Property</h2>
+                  <h2 className="h2">What are some characteristics of the Revenue property you're looking to sell? </h2>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"

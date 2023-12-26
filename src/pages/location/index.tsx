@@ -146,7 +146,17 @@ const Location = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
-                <h2 className="h2">📍{TEXT.property_location}</h2>
+                
+              {
+                leadObj && leadObj.leadType === "seller" &&
+                  <h2 className="h2">📍{TEXT.property_location_seller}</h2>    
+              }
+
+{
+                leadObj && leadObj.leadType === "buyer" &&
+                  <h2 className="h2">📍{TEXT.property_location_buyer}</h2>    
+              }
+                
                 <form>
                   {locationOptions &&
                     locationOptions.length > 0 &&
@@ -155,14 +165,14 @@ const Location = () => {
                         <Select
                           className="select-main-wrap"
                           name="location"
-                          placeholder="Select a citi"
+                          placeholder="Select a City"
                           options={options}
                           onChange={(e) => handleOnChangeLocation(e, index)}
                         />
                         <Select
                           className="select-main-wrap"
                           name="boroughs"
-                          placeholder="Select a borough"
+                          placeholder="Select a Borrough"
                           options={getBoroughs}
                           onChange={(e) => handleOnChangeBoroughs(e, index)}
                         />

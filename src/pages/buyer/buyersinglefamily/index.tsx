@@ -121,7 +121,7 @@ const BuyerSingleFamily = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">
-                    Share info about Single Family property
+                    {TEXT.share_info_about_single_family}
                   </h2>
                   <div
                     onClick={handleSubmitClick}

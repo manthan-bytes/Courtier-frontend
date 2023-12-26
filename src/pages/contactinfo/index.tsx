@@ -98,8 +98,8 @@ const ContactInfo = () => {
             <div className="form-step-contect">
               <h2 className="h2">{TEXT.provide_contact_info}</h2>
               <p className="sub-tilte">
-                Log-in to receive a <span>free home evalutation</span> within
-                24hrs of completing your journey
+                Log-in to receive a <span>curated list of Porperties </span>
+                24hrs after completing your journey
               </p>
               <form>
                 <div className="form-inner-block">

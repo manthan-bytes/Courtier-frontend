@@ -189,8 +189,17 @@ const PropertyType = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                 {TEXT.property_type}
+                 {/* {TEXT.property_type} */}
                 </h2>
+                {
+                leadObj && leadObj.leadType === "seller" &&
+                  <h2 className="h2">{TEXT.property_type_seller}</h2>    
+              }
+
+{
+                leadObj && leadObj.leadType === "buyer" &&
+                  <h2 className="h2">{TEXT.property_type_buyer}</h2>    
+              }
                 <form>
                   <div className="form-inner-block">
                     <label className="custom-select">

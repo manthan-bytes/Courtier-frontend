@@ -51,10 +51,13 @@ const BuyerAgent = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
+              <h2 className="h2">
+                  You will receive your curated list of properties within 24hrs and an Agent will call you shortly!                </h2>
                 <h2 className="h2">
-                  Would you like to add another type of property to your search?
+                Would you like to add another property type that you may be
+                  purchase?
                 </h2>
-                <p className="sub-tilte">if you found this journey cool - make sure to share and talk about it with your friends!</p>
+                {/* <p className="sub-tilte">if you found this journey cool - make sure to share and talk about it with your friends!</p> */}
                 <form>
                   <div onClick={handleSubmitHomeClick} className="theme_btn">
                     NO, THANKS

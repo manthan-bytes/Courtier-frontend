@@ -48,7 +48,7 @@ const SellerCondoProperty = () => {
 
   const handleonChangeGarage = async (e:any) => {
     const selectedDataObj = {...getpreferences};
-    selectedDataObj['isGarage'] = e.target.value
+    selectedDataObj['isParking'] = e.target.value
     setpreferences(selectedDataObj);
 
   }
@@ -119,7 +119,7 @@ const SellerCondoProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">Share info about Condo Property</h2>
+                  <h2 className="h2">What are some characteristics of the Condo property you're looking to sell? </h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
@@ -340,11 +340,11 @@ const SellerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">Do you have a Garage?</h3>
+                      <h3 className="h3">Do you have a dedicated Parking Space?</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeGarage(e)}>
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="garage" value="yes" checked={getpreferences?.isGarage === "yes"} />
+                            <input type="radio" name="parking" value="yes" checked={getpreferences?.isParking === "yes"} />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -353,7 +353,7 @@ const SellerCondoProperty = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="garage" value="no" checked={getpreferences?.isGarage === "no"}/>
+                            <input type="radio" name="parking" value="no" checked={getpreferences?.isParking === "no"}/>
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>

@@ -48,7 +48,7 @@ const BuyerCondoProperty = () => {
 
   const handleonChangeGarage = async (e:any) => {
     const selectedDataObj = {...getpreferences};
-    selectedDataObj['isGarage'] = e.target.value
+    selectedDataObj['isParking'] = e.target.value
     setpreferences(selectedDataObj);
 
   }
@@ -120,7 +120,7 @@ const BuyerCondoProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">Share info about Condo property</h2>
+                  <h2 className="h2">What are your preferences regarding the condo you're looking for?</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
@@ -172,12 +172,12 @@ const BuyerCondoProperty = () => {
                             </div>
                           </label>
                         </li>
-                        <li>
+                        {/* <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Mobile House" value="Mobile House" checked={getpreferences?.condoStyle === "Mobile House"}/>
                             <div className="checkbox-lables">Mobile House</div>
                           </label>
-                        </li>
+                        </li> */}
                       </ul>
                       <h3 className="h3">
                         How much livable space would you prefer?
@@ -360,11 +360,11 @@ const BuyerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">Do you want a garage?</h3>
+                      <h3 className="h3">Do you want a parking space?</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeGarage(e)}>
                       <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="garage" value="yes" checked={getpreferences?.isGarage === "yes"} />
+                            <input type="radio" name="parking" value="yes" checked={getpreferences?.isParking === "yes"} />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -373,7 +373,7 @@ const BuyerCondoProperty = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="garage" value="no" checked={getpreferences?.isGarage === "no"}/>
+                            <input type="radio" name="parking" value="no" checked={getpreferences?.isParking === "no"}/>
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -403,8 +403,7 @@ const BuyerCondoProperty = () => {
                         </li>
                       </ul>
                       <h3 className="h3">
-                        What is your budget for the family home - this will help
-                        refine our search for you.
+                      What's your budget for the condo? This will help refine our search for your curated list.
                       </h3>
 
                       <ul className="property-select" onChange={(e) => handleonChangeBudget(e)}>

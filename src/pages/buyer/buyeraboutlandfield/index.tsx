@@ -97,7 +97,7 @@ const BuyerAboutLandField = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">Share info about Land/field</h2>
+                  <h2 className="h2">What are you search preferences regarding the land or field property you're looking for? </h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"

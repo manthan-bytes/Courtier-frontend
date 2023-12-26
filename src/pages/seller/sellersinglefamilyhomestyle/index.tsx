@@ -139,7 +139,7 @@ const SellerSingleFamilyHomestyle = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">
-                    Share info about Single Family property
+                  What are some characteristics of the Home property you're looking to sell? 
                   </h2>
                   <div
                     onClick={handleSubmitClick}

@@ -100,7 +100,7 @@ const BuyerCommercialIndustrial = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">
-                    Share info about Commercial/Industrial property
+                  What are your preferences regarding the Commercial or Industrial property you're looking for?
                   </h2>
                   <div
                     onClick={handleSubmitClick}

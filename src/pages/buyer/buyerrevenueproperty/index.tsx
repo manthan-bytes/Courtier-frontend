@@ -103,7 +103,7 @@ const BuyerRevenueProperty = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">
-                    Share info about Revenue Property property
+                  What are your preferences regarding the revenue property you're looking for?
                   </h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
@@ -119,7 +119,7 @@ const BuyerRevenueProperty = () => {
                   <div className="form-inner-block">
                     <div className="form-left-content">
                       <h3 className="h3">
-                        Ok great! What type of tenants would you prefer?
+                      What type of revenue property are you looking for?
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeTenantsType(e)}>
                         <li>
