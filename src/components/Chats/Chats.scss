@@ -1,0 +1,111 @@
+$standard-padding: 0.5em;
+$bubble-border-radius: 17px;
+
+@mixin bot {
+  background: #f5f5f5;
+  color: #000000;
+  align-self: flex-start;
+}
+
+@mixin user {
+  background: #e5dfdf;
+  color: #393e46;
+  align-self: flex-end;
+}
+
+// Custom Scrollbar Mixins
+@mixin scrollbar($thumb, $track) {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $thumb $track;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dfe0df;
+    border-radius: 6px;
+    border: 0px solid $track;
+  }
+}
+
+.message-container {
+  margin-bottom: 16px;
+  height: 100%;
+  @include scrollbar(#8b93a1, #f4f4f4);
+  overflow-y: auto;
+  padding-right: 5px;
+
+  >div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message {
+    max-width: 400px;
+    padding: $standard-padding;
+    border-radius: $bubble-border-radius;
+    overflow-wrap: break-word;
+  }
+
+  .user {
+    @include user;
+  }
+
+  .bot {
+    @include bot;
+  }
+
+  .options {
+    background: white;
+    display: flex;
+    align-items: center;
+
+    >div:first-child {
+      font-size: 1.3em;
+      margin: 0.7em 0.7em 0.9em 0.3em;
+      transform: rotate(90deg);
+
+      i {
+        color: #393e46;
+        animation: arrow-move 1.2s infinite;
+
+        @keyframes arrow-move {
+          0% {
+            transform: translateY(4px);
+          }
+
+          50% {
+            transform: translateY(0);
+          }
+
+          100% {
+            transform: translateY(4px);
+          }
+        }
+      }
+    }
+
+    p {
+      padding: $standard-padding;
+      margin-right: 0.8em;
+      @include bot;
+      border-radius: $bubble-border-radius;
+
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .dummy-div {
+    padding: 0.5em 0;
+  }
+}

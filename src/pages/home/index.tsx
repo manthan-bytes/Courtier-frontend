@@ -1,28 +1,17 @@
 // create dashboard page component
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 import btnloader from "../../assets/images/btn-loader.svg";
 import { TEXT } from "../../core/constants/headingText";
 import { VolumeMute, VolumeOn } from "../../core/icons";
-import ChatBot from 'react-simple-chatbot';
+import Chatbot from "../../components/Chatbot/Chatbot";
 
 const Home = () => {
-  const steps = [
-    {
-      id: '0',
-      message: 'Welcome to react chatbot!',
-      trigger: '1',
-    },
-    {
-      id: '1',
-      message: 'Bye!',
-      end: true,
-    },
-  ];
+
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
-    const element:any = document.getElementById("header");
+    const element: any = document.getElementById("header");
     if (element) {
       element.classList.remove('header-bk')
     }
@@ -72,7 +61,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <ChatBot steps={steps} />
+
+      <div className="user-chatbot">
+        <Chatbot />
+      </div>       
+
     </section>
   );
 };
