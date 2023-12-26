@@ -5,7 +5,7 @@ import "./index.scss";
 import btnloader from "../../assets/images/btn-loader.svg";
 import { TEXT } from "../../core/constants/headingText";
 import { VolumeMute, VolumeOn } from "../../core/icons";
-import ChatBot from 'react-simple-chatbot';
+
 
 const Home = () => {
   const steps = [
@@ -72,7 +72,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <ChatBot steps={steps} />
     </section>
   );
 };

@@ -81,9 +81,7 @@ const BuyerInquiryOption = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  Would you like to proceed with providing your search
-                  requirements digitally? You can also choose to be contacted in
-                  real-life by a real-estate agent.
+                Would you like to continue to provide information digitally to receive a <span style={{color:'red'}}>free curated list of properties </span> in 24 hours, or continue with a real-estate agent?
                 </h2>
                 <form>
                   <div onClick={callFromAgent} className="theme_btn">
