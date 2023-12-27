@@ -34,7 +34,7 @@ const Chats: React.FC<Props> = (props) => {
         {
           purpose: "introduction",
           message:
-            "Hi there. If you're here, that means you're looking for a job. Tell me, what's your name?",
+            "Hey there! 👋 got questions about Quebec real-estate or CourtierXpert? Ask away!! ",
           sender: "bot",
         },
       ]);
