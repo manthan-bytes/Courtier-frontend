@@ -1,5 +1,11 @@
 @import "../../styles/Variable.scss";
 
+.user-chatbot {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
 .main-banner {
     height: 100vh;
     position: relative;

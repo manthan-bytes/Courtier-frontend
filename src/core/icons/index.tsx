@@ -12,6 +12,7 @@ import { Closeicon } from "./collection/Closeicon";
 import { RightIcon } from "./collection/RightIcon";
 import { ChooseIcon } from "./collection/ChooseIcon";
 import { CloseIconv1 } from "./collection/CloseIconv1";
+import { ChatbotIcon} from "./collection/ChatbotIcon"
 
 
 export {
@@ -29,5 +30,6 @@ export {
   RightIcon as RightIcon,
   ChooseIcon as ChooseIcon,
   CloseIconv1 as CloseIconv1,
+  ChatbotIcon as ChatbotIcon,
   
 };

@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 import "./index.scss";
 import btnloader from "../../assets/images/btn-loader.svg";
 import { TEXT } from "../../core/constants/headingText";
-import { VolumeMute, VolumeOn } from "../../core/icons";
+import { ChatbotIcon } from "../../core/icons";
 import Chatbot from "../../components/Chatbot/Chatbot";
 
 const Home = () => {
 
   const [newClass, setNewClass] = useState(false);
+  // const [activeClass, setActiveClass]=useState('');
+  const [chatbotClass, setChatbotClass] = useState<boolean>(false);
+
+  const handleChatBotButton = () => {
+    setChatbotClass(true);
+    
+  }
   useEffect(() => {
     const element: any = document.getElementById("header");
     if (element) {
@@ -40,14 +47,11 @@ const Home = () => {
               <Link to="/login" className="theme_btn grdnt_btn">
                 {TEXT.I_AM_READY}
               </Link>
-              {/* <div className="volume-btn">
-                <div className="volume volumeoff">
-                  <VolumeMute />
+              <div className="volume-btn" onClick={handleChatBotButton}>
+                <div className="volume">
+                  <ChatbotIcon />
                 </div>
-                <div className="volume volumeon">
-                  <VolumeOn />
-                </div>
-              </div> */}
+              </div>
               <div className="get-started-btn">
                 <img
                   src={btnloader}
@@ -62,10 +66,11 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="user-chatbot">
-        <Chatbot />
+      <div id="chatbot"  className={`user-chatbot ${
+          chatbotClass ? 'active' : ''
+        }`}>
+        <Chatbot chatbotClass={chatbotClass} setChatbotClass={setChatbotClass} />
       </div>       
-
     </section>
   );
 };

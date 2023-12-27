@@ -61,3 +61,18 @@ export async function createUser(payload:any) {
       throw e;
     }
   }
+
+  export async function chatbot(payload:any) {
+    try {
+      const response = await axios.post(`user/chatbot`, payload);
+      if (response && response.status === 201) {
+        return response.data;
+      } else {
+        throw response;
+      }
+    } catch (e) {
+    console.log("🚀 ~ file: login.service.tsx:74 ~ chatbot ~ e:", e)
+    //   console.log(e?.response?.data?.error || "Something went wrong!");
+      throw e;
+    }
+  }

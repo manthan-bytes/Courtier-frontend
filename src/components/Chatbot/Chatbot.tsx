@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Chats from "../Chats/Chats";
 import { analyzeNextSteps } from "../HelperFunctions/analyzeNextSteps";
 import "./Chatbot.scss";
-
+import { chatbot, updateUser } from "../../service/login.service";
+import saveImg from "../../assets/images/send.png";
+import { Closeicon } from "../../core/icons";
 interface ResponseBotObject {
   purpose: string;
   message: string;
@@ -10,22 +12,28 @@ interface ResponseBotObject {
   sender: string;
 }
 
-const Chatbot: React.FC = () => {
+const Chatbot = ({ chatbotClass, setChatbotClass }: any) => {
   const [userResponse, setUserResponse] = useState<string>("");
-  const [step, setStep] = useState<number>(0);
+  // const [step, setStep] = useState<number>(0);
   const [botResponse, setBotResponse] = useState<ResponseBotObject>({
     purpose: "",
     message: "",
-    sender: "bot"
+    sender: "bot",
   });
   const [sendUserResponse, setSendUserResponse] = useState<string>("");
 
   // setting next step when there's response and option click
-  const setNextStep = (response: string) => {
-    setStep(prevState => prevState + 1);
+  const setNextStep = async (response: string) => {
+    // const chatbotObj ={
+    //   "question": response
+    // }
+    // const chatBotResponse = await chatbot(chatbotObj);
     setSendUserResponse(response);
-    let res = analyzeNextSteps(step, response);
-    setBotResponse({ ...res, sender: "bot" });
+    let res = {
+      // purpose: "",
+      // message: chatBotResponse,
+    };
+    // setBotResponse({ ...res, sender: "bot" });
     setUserResponse("");
   };
 
@@ -46,21 +54,36 @@ const Chatbot: React.FC = () => {
     setNextStep(userResponse);
   };
 
+  const handleCloseChatbotEvent = () => {
+    const element: any = document.getElementById("chatbot");
+    if (element) {
+      element.classList.remove("active");
+    }
+    setChatbotClass(false);
+  };
+
   return (
     <div className="chat-container">
+      <div className="header-top">
+        CourtierXpert
+        <div className="closeicon" onClick={handleCloseChatbotEvent}>
+          <Closeicon />
+        </div>
+      </div>
+
       <Chats
         userResponse={userResponse}
-        botResponse={botResponse}
+        // botResponse={botResponse}
         sendUserResponse={sendUserResponse}
         optionClick={optionClick}
       />
-      <form onSubmit={e => handleSubmit(e)} className="form-container">
+      <form onSubmit={(e) => handleSubmit(e)} className="form-container">
         <input
-          onChange={e => handleInputChange(e)}
+          onChange={(e) => handleInputChange(e)}
           value={userResponse}
         ></input>
         <button>
-          <i className="far fa-paper-plane"></i>
+          <img src={saveImg} alt="" />
         </button>
       </form>
     </div>
