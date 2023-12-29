@@ -4,7 +4,7 @@ export const TEXT = {
    HOME2: 'buying and selling property',
    I_AM_READY: 'I’m Ready',
    GET_STARTED: 'Get Started',
-   typed_animated: 'You are just a few steps away to completing your journey!',
+   typed_animated: 'You are just a few clicks away from completing your journey!',
    login_to_continue:'Login to Continue',
    buy_sell_property: 'Are you looking to buy or sell property?',
    great: 'Great',

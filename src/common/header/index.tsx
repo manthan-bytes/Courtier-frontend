@@ -5,6 +5,7 @@ import "./header.scss";
 import logowhite from "../../assets/images/logo-white.svg";
 import logoblack from "../../assets/images/logo-black.svg";
 import { ROUTES } from "../../core/constants/routes";
+import { debug } from "console";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -25,21 +26,35 @@ const Header = () => {
     
   }
 
+
   const handleInstallClick = () => {
-    // Show the installation prompt when the button is clicked
     if (deferredPrompt) {
       deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult:any) => {
-        // Reset the deferredPrompt after user interaction
+      deferredPrompt.userChoice.then((choiceResult: any) => {
         if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt');
+          console.log('User accepted the A2HS prompt');
         } else {
-          console.log('User dismissed the install prompt');
+          console.log('User dismissed the A2HS prompt');
         }
         setDeferredPrompt(null);
       });
     }
   };
+
+  useEffect(() => {
+    console.log('tesm')
+    const handleBeforeInstallPrompt = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
 
 
   useEffect(() => {
@@ -53,20 +68,29 @@ const Header = () => {
       // Update the state based on the scroll position
       setScrolling(scrollY > addClassThreshold);
     };
-    const handleBeforeInstallPrompt = (e:any) => {
-      // Prevent the default prompt
-      e.preventDefault();
-      // Store the event for later use
-      setDeferredPrompt(e);
-    };
+
+    // const handleBeforeInstallPrompt = (e: any) => {
+    //   console.log("🚀 ~ file: index.tsx:62 ~ handleBeforeInstallPrompt ~ e:", e)
+    //   e.preventDefault();
+    //   setDeferredPrompt(e);
+    // };
+
+    // window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+    // return () => {
+    //   window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    // };
+
+
     // Attach the event listener when the component mounts
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      // window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
+
+    
 
     // const handleBeforeInstallPrompt = (e:any) => {
     //   // Prevent the default prompt
@@ -128,9 +152,9 @@ const Header = () => {
                 <li>
                   <div className="menu-link" onClick={handleLogoutClick}>Logout</div>
                 </li>
-                <li>
-                  <div className="menu-link" onClick={handleInstallClick}>App</div>
-                </li>
+                {/* <li>
+                  <div className="menu-link" onClick={handleInstallClick} >App</div>
+                </li> */}
               </ul>
             </div>
           

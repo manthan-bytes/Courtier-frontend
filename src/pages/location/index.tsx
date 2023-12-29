@@ -25,6 +25,7 @@ const Location = () => {
 
   const [leadObj, setLeadObj] = useState<any>();
   const [locationOptions, setLocationOption] = useState<any>([]);
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
 
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
@@ -92,6 +93,28 @@ const Location = () => {
     }
   };
 
+  // const handleOnChangeLocation = async (selectedValue: any, index: number) => {
+  //   const data = [...locationOptions];
+  //   data[index].city = selectedValue.value;
+  //   const selectedCityDate: any = NEWCITIES.find(
+  //     (o: any) => o.city.value === selectedValue.value
+  //   );
+  //   setBoroughs(selectedCityDate.boroughs);
+  //   console.log("🚀 ~ file: index.tsx:103 ~ handleOnChangeLocation ~ selectedValue.value:", selectedValue.value)
+  //   if (selectedValue.value === data[index].city) {
+  //     data[index].city = "";
+  //   }
+
+  //   setLocationOption(data);
+  // };
+  const handleMenuOpen = () => {
+    setIsSelectOpen(true);
+  };
+
+  const handleMenuClose = () => {
+    setIsSelectOpen(false);
+  };
+
   const handleOnChangeLocation = async (selectedValue: any, index: number) => {
     const data = [...locationOptions];
     data[index].city = selectedValue.value;
@@ -99,7 +122,15 @@ const Location = () => {
       (o: any) => o.city.value === selectedValue.value
     );
     setBoroughs(selectedCityDate.boroughs);
-    setLocationOption(data);
+  
+    // Reset the city value only when the select box is open
+    // Using setTimeout to ensure the state is updated before checking the condition
+    setTimeout(() => {
+      if (isSelectOpen && selectedValue.value === data[index].city) {
+        data[index].city = "";
+        setLocationOption([...data]); // Force update to trigger re-render
+      }
+    }, 0);
   };
 
   const handleOnChangeBoroughs = async (selectedValue: any, index: number) => {
@@ -146,17 +177,14 @@ const Location = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
-                
-              {
-                leadObj && leadObj.leadType === "seller" &&
-                  <h2 className="h2">📍{TEXT.property_location_seller}</h2>    
-              }
+                {leadObj && leadObj.leadType === "seller" && (
+                  <h2 className="h2">📍{TEXT.property_location_seller}</h2>
+                )}
 
-{
-                leadObj && leadObj.leadType === "buyer" &&
-                  <h2 className="h2">📍{TEXT.property_location_buyer}</h2>    
-              }
-                
+                {leadObj && leadObj.leadType === "buyer" && (
+                  <h2 className="h2">📍{TEXT.property_location_buyer}</h2>
+                )}
+
                 <form>
                   {locationOptions &&
                     locationOptions.length > 0 &&
@@ -168,6 +196,8 @@ const Location = () => {
                           placeholder="Select a City"
                           options={options}
                           onChange={(e) => handleOnChangeLocation(e, index)}
+                          onMenuOpen={handleMenuOpen}
+                          onMenuClose={handleMenuClose}
                         />
                         <Select
                           className="select-main-wrap"

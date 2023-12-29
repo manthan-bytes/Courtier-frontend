@@ -97,7 +97,7 @@ const BuyerAboutLandField = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">What are you search preferences regarding the land or field property you're looking for? </h2>
+                  <h2 className="h2">What are your search preferences regarding the land or field property you're looking for? </h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
@@ -203,11 +203,16 @@ const BuyerAboutLandField = () => {
                      
                       <div className="form-group mtbottom property-select">
                         <input
-                          className="form-control"
+                          className={`form-control placeholder-pink`}
                           type="text"
                           placeholder="Surface Area"
                           value={getpreferences?.surfaceArea}
                           onChange={(e) => handleonChangeSurfaceArea(e)}
+                          style={{
+                            color: 'gray',
+                            filter: 'grayscale(100%)',
+                            
+                          }}
                         />
                       </div>
                       <h3 className="h3">
