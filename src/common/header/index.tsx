@@ -5,7 +5,7 @@ import "./header.scss";
 import logowhite from "../../assets/images/logo-white.svg";
 import logoblack from "../../assets/images/logo-black.svg";
 import { ROUTES } from "../../core/constants/routes";
-import { debug } from "console";
+import { ToastContainer, toast } from "react-toastify";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -28,6 +28,8 @@ const Header = () => {
 
 
   const handleInstallClick = () => {
+    console.log(deferredPrompt);
+    
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult: any) => {
@@ -38,6 +40,11 @@ const Header = () => {
         }
         setDeferredPrompt(null);
       });
+    }
+    else{
+      toast.error('Application is already installed', {
+        position: toast.POSITION.TOP_RIGHT,
+      })
     }
   };
 
@@ -152,9 +159,9 @@ const Header = () => {
                 <li>
                   <div className="menu-link" onClick={handleLogoutClick}>Logout</div>
                 </li>
-                {/* <li>
-                  <div className="menu-link" onClick={handleInstallClick} >App</div>
-                </li> */}
+                <li>
+                  <div className="menu-link" onClick={handleInstallClick} >Install App</div>
+                </li>
               </ul>
             </div>
           
