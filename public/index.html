@@ -42,4 +42,13 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+
+    if(navigator.userAgent.includes("Instagram") || navigator.userAgent.match("/FBAN|FBAV/i") || navigator.userAgent.includes("LinkedIn") || navigator.userAgent.includes("Twitter")){
+      // window.location.href = 'https://app.courtierxpert.com';
+      // window.open('https://app.courtierxpert.com', '_system');
+      window.location.href = 'googlechrome://courtierxpert.com/'
+      // window.open('https://www.courtierxpert.com/', '_blank');
+    }
+ </script>
 </html>

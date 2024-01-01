@@ -88,7 +88,7 @@ const Login = () => {
       translateY: "30px",
       opacity: 1,
       delay: function (el, index) {
-        return index * 40;
+        return index * 50;
       },
       direction: "normal",
       loop: false,
@@ -104,7 +104,7 @@ const Login = () => {
     const timeoutId = setTimeout(() => {
       // Hide the div after 5000 milliseconds (5 seconds)
       setShowDiv(false);
-    }, 3000);
+    }, 5000);
     return () => clearTimeout(timeoutId);
   }, []);
 
@@ -175,7 +175,7 @@ const Login = () => {
         <div
           className="banner-typed"
           id="hidetyped"
-          style={{ transition: "opacity 1.5s", opacity: showDiv ? 1 : 0 }}
+          style={{ transition: "opacity 5s", opacity: showDiv ? 1 : 0 }}
         >
           <img
             className="banner-img"

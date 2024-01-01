@@ -128,7 +128,7 @@ const BuySellProperty = () => {
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                    <span>Go To Contact Info</span>
+                    <span>{TEXT.next}</span>
                   </div>
                 </form>
               </div>

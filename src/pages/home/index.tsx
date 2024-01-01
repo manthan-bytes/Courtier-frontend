@@ -33,7 +33,7 @@ const Home = () => {
         muted
         autoPlay
         loop
-        playsInline
+        playsInline 
       ></video>
       <div className="banner-content-main">
         <div className="container">
@@ -44,14 +44,6 @@ const Home = () => {
                 {TEXT.HOME1} <br />
                 {TEXT.HOME2}
               </h1>
-              <Link to="/login" className="theme_btn grdnt_btn">
-                {TEXT.I_AM_READY}
-              </Link>
-              <div className="volume-btn" onClick={handleChatBotButton}>
-                <div className="volume">
-                  <ChatbotIcon />
-                </div>
-              </div>
               <div className="get-started-btn">
                 <img
                   src={btnloader}
@@ -59,8 +51,26 @@ const Home = () => {
                   width="196"
                   height="196"
                 />
-                <Link to="#">{TEXT.GET_STARTED}</Link>
+                <Link to="/login" className="theme_btn grdnt_btn">
+                {TEXT.I_AM_READY}
+              </Link>
               </div>
+              <div className="volume-btn" onClick={handleChatBotButton}>
+                <div className="volume">
+                  <ChatbotIcon />
+                </div>
+              </div>
+              {/* <div className="get-started-btn">
+                <img
+                  src={btnloader}
+                  alt="btn-animation.svg"
+                  width="196"
+                  height="196"
+                />
+                <Link to="/login" className="theme_btn grdnt_btn">
+                {TEXT.I_AM_READY}
+              </Link>
+              </div> */}
             </div>
           </div>
         </div>

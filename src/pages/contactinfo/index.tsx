@@ -97,10 +97,20 @@ const ContactInfo = () => {
           <div className="custom-row">
             <div className="form-step-contect">
               <h2 className="h2">{TEXT.provide_contact_info}</h2>
-              <p className="sub-tilte">
-              Login to receive your <span>FREE home evaluation </span>
-              24hrs after completing your journey
-              </p>
+              {leadObj && leadObj.leadType === "seller" && (
+                <p className="sub-tilte">
+                  Login to receive your <span>FREE home evaluation </span>
+                  24hrs after completing your journey
+                </p>
+              )}
+
+              {leadObj && leadObj.leadType === "buyer" && (
+                <p className="sub-tilte">
+                  Login to receive your <span>CURATED list of properties </span>
+                  24hrs after completing your journey
+                </p>
+              )}
+
               <form>
                 <div className="form-inner-block">
                   <div className="form-group-main">
@@ -123,7 +133,7 @@ const ContactInfo = () => {
                       <input
                         className="form-control"
                         type="number"
-                        placeholder="Enter Your Contact No"
+                        placeholder="Enter Your Contact Number"
                         name="Contact No"
                         value={userData?.phone}
                         onChange={(e) =>
@@ -139,7 +149,7 @@ const ContactInfo = () => {
                         userData?.phone?.length != 10 &&
                         isSubmitted && (
                           <span className="error-msg">
-                            Please enter valid contact no
+                            Please enter valid contact number
                           </span>
                         )}
                     </div>
@@ -166,9 +176,7 @@ const ContactInfo = () => {
                   className="theme_btn grdnt_btn"
                   id="submit"
                 >
-                  <span>
-                  {TEXT.next_question}
-                  </span>
+                  <span>{TEXT.next_question}</span>
                 </div>
               </form>
             </div>

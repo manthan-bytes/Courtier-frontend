@@ -67,30 +67,36 @@
         }
 
         .banner-typed-content {
-            max-width: 60.4167vw;
-            width: 100%;
+            max-width: 900px;
             text-align: center;
             margin: 0 auto;
 
             @media (max-width: $screen-991) {
-                max-width: 73.4167vw;
+                max-width: 585px;
             }
 
             @media (max-width: $screen-xs-max) {
-                max-width: 100%;
+                max-width: 268px;
             }
 
             .animated-typed {
                 .h1 {
-                    font-size: 4.1667vw;
-                    letter-spacing: 0.0833vw;
+                    font-size: 57px;
+                    letter-spacing: 1.2px;
 
                     @media (max-width: $screen-991) {
-                        font-size: 40px;
+                        font-size: 30px;
+                        .letter{
+                            min-width: 18px;
+                        }
                     }
 
-                    @media (max-width: $screen-xxs-max) {
-                        font-size: 34px;
+                    @media (max-width: $screen-xs-max) {
+                        font-size: 26px;
+                        letter-spacing: 0.2px;
+                        .letter{
+                            min-width: 14px;
+                        }
                     }
                 }
 
@@ -101,7 +107,7 @@
                 .letter {
                     opacity: 0;
                     width: auto;
-                    min-width: 1.3021vw;
+                    min-width: 22px;
                     height: 25px;
                     margin-top: auto;
                     margin-bottom: auto;
