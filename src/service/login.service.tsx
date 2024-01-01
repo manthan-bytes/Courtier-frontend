@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_URL, API_URL_STAGE } from "../core/constants/constants";
-axios.defaults.baseURL = API_URL
+axios.defaults.baseURL = API_URL_STAGE
 export async function createUser(payload:any) {
     try {
       const response = await axios.post(`user/create`, payload);

@@ -12,6 +12,7 @@ const Header = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>();
   // Home burger menu
   const [isActive, setIsActive] = useState(false);
+  const [getToken, setToken]= useState<any>();
   const toggleClass = () => {
     setIsActive(!isActive);
   };
@@ -54,15 +55,21 @@ const Header = () => {
       e.preventDefault();
       setDeferredPrompt(e);
     };
-
+    // setToken(localStorage.getItem('token'))
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
+
+    
   }, []);
 
+  useEffect(() => {
 
+    setToken(localStorage.getItem('token'))
+
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,20 +82,6 @@ const Header = () => {
       // Update the state based on the scroll position
       setScrolling(scrollY > addClassThreshold);
     };
-
-    // const handleBeforeInstallPrompt = (e: any) => {
-    //   console.log("🚀 ~ file: index.tsx:62 ~ handleBeforeInstallPrompt ~ e:", e)
-    //   e.preventDefault();
-    //   setDeferredPrompt(e);
-    // };
-
-    // window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
-    // return () => {
-    //   window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    // };
-
-
     // Attach the event listener when the component mounts
     window.addEventListener("scroll", handleScroll);
     // Clean up the event listener when the component unmounts
@@ -96,23 +89,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
       // window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
-
-    
-
-    // const handleBeforeInstallPrompt = (e:any) => {
-    //   // Prevent the default prompt
-    //   e.preventDefault();
-    //   // Store the event for later use
-    //   setDeferredPrompt(e);
-    // };
-
-    // // Add the event listener
-    // window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
-    // // Clean up the event listener when the component is unmounted
-    // return () => {
-    //   window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    // };
 
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
@@ -156,9 +132,10 @@ const Header = () => {
             <div
             className={isActive ? "active munu-block" : "munu-block"}>
               <ul>
-                <li>
+                {getToken &&   <li>
                   <div className="menu-link" onClick={handleLogoutClick}>Logout</div>
-                </li>
+                </li>}
+              
                 <li>
                   <div className="menu-link" onClick={handleInstallClick} >Install App</div>
                 </li>

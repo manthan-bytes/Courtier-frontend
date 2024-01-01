@@ -179,6 +179,9 @@
          ul {
             padding: 10px 20px;
             li {
+                + li {
+                    margin-top: 6px;
+                }
                 display:block;
                 .menu-link {
                     color: $Font_Primary;
