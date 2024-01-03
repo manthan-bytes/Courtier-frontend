@@ -39,6 +39,9 @@ import BuyerPropertyType from "../pages/buyer/buyerpropertytype";
 import CallFromAgent from "../pages/callfromagent";
 import BuyerCallFromAgent from "../pages/buyer/buyercallfromagent";
 import BuyerPropertyThankyou from "../pages/buyer/buyerpropertythankyou";
+import FAQ from "../pages/FAQ";
+import TeamsConditions from "../pages/terms&conditions";
+import About from "../pages/aboutpage";
 
 
 
@@ -49,7 +52,9 @@ const AppRouting = () => {
       {/* Private route start */}
       <Route path="/">
         <Route path={ROUTES.HOME} index element={<Home />} />
-
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/aboutus" element={<About />} />
+        <Route path="/terms&conditions" element={<TeamsConditions />} />
         <Route path="/" element={<Navigate to="/home" />} />
       </Route>
 

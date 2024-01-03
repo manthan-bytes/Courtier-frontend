@@ -4,6 +4,9 @@ export const ROUTES = {
   BUYSELLPROPERTY: "/buysellproperty",
   SELLER: "/seller",
   BUYER: "/buyer",
+  FAQ:"/FAQ",
+  ABOUTUS:"/aboutus",
+  TERMS_CONDITIONS:"/terms&conditions"
 };
 
 export const SELLER = {

@@ -114,6 +114,11 @@ const Login = () => {
     setNewClass(true);
   }, []);
 
+  function loginAsGuest(): void {
+    localStorage.setItem('loginasGuest', 'true');
+    navigate("/buysellproperty");
+  }
+
   return (
     // <div className="container">
     //   <div className="row">
@@ -154,6 +159,12 @@ const Login = () => {
                 <div onClick={submitHandler} className="theme_btn">
                   <Googleicon />
                   {TEXT.continue_with_google}
+                </div>
+                {/* <ButtonSubmit title="Login" disabled={false} /> */}
+              </label>
+              <label className="custom-select">
+                <div onClick={()=>loginAsGuest()} className="theme_btn">
+                  {TEXT.continue_as_guest}
                 </div>
                 {/* <ButtonSubmit title="Login" disabled={false} /> */}
               </label>

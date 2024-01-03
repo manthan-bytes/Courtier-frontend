@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../contactinfo/contactinfo.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
-import { getUser, updateUser } from "../../service/login.service";
+import { createUser, getUser, updateUser } from "../../service/login.service";
 import { log } from "console";
 import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
 import { ToastContainer, toast } from "react-toastify";
-import { INVALID_DATA } from "../../core/constants/toast-message";
+import { INVALID_DATA, TERMS_CONDITIONS } from "../../core/constants/toast-message";
 import { TEXT } from "../../core/constants/headingText";
 
 const ContactInfo = () => {
@@ -25,15 +25,16 @@ const ContactInfo = () => {
     setUserData(userDetails.data);
   };
 
-  const handleSubmitEvent = async () => {
+  const handleSubmitEvent = async () => {        
     const element: any = document.getElementById("submit");
     if (element) {
       element.classList.add("loader-btn");
     }
     setIsSubmitted(true);
-    if (userData?.name && userData?.phone && userData?.phone.length > 0) {
-      const user = await updateUser(userData.id, userData);
-      if (user.statusCode === 200) {
+    if (userData?.name && userData?.phone && userData?.phone.length > 0 && userData?.isUserAgree) {
+      const user = localStorage.getItem('loginasGuest')? await createUser(userData) : await updateUser(userData.id, userData);
+      if (user.statusCode === 200 || user.statusCode === 201 || user.statusCode === 400) {
+        localStorage.setItem('email', userData.email)
         toast.success(user.message, {
           position: toast.POSITION.TOP_RIGHT,
         });
@@ -52,7 +53,14 @@ const ContactInfo = () => {
         element.classList.remove("loader-btn");
         //TODO
       }
-    } else {
+    }
+    else if(!userData?.isUserAgree){
+      toast.error(TERMS_CONDITIONS, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      element.classList.remove("loader-btn");
+    }
+     else {
       toast.error(INVALID_DATA, {
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -157,14 +165,34 @@ const ContactInfo = () => {
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="My Email Id is"
+                        placeholder="Enter Your Email"
                         name="Email"
-                        disabled={true}
+                        disabled={localStorage.getItem("loginasGuest") ? false : true}
                         value={userData?.email}
                         onChange={(e) =>
                           setUserData({ ...userData, email: e.target.value })
                         }
                       />
+                      {!userData?.email && isSubmitted && (
+                        <span className="error-msg">
+                          Email is required
+                        </span>
+                      )}
+                    </div>
+                    <div style={{ display: "flex" }} className="form-group">
+                      <input
+                        className="form-control-checkbox"
+                        type="checkbox"
+                        name="Terms and Conditions"
+                        value={userData?.isUserAgree}
+                        onChange={(e) =>
+                          setUserData({ ...userData, isUserAgree: e.target.checked })
+                        }
+                      />
+                      <span>
+                      By submitting your demande , you agree to our
+                      <Link to={{ pathname: ROUTES.TERMS_CONDITIONS}}> Terms and Conditions</Link>
+                      </span>
                     </div>
                   </div>
                 </div>

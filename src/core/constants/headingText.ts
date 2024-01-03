@@ -41,6 +41,7 @@ export const TEXT = {
    i_am_buyer: 'I`m a Buyer',
    i_am_seller: 'I`m a Seller',
    continue_with_google: 'Continue with Google',
+   continue_as_guest: 'Continue as Guest',
    city: 'City',
    borrough: 'Borrough'
 }
