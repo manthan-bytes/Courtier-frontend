@@ -42,6 +42,7 @@ import BuyerPropertyThankyou from "../pages/buyer/buyerpropertythankyou";
 import FAQ from "../pages/FAQ";
 import TeamsConditions from "../pages/terms&conditions";
 import About from "../pages/aboutpage";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 
 
 
@@ -55,6 +56,7 @@ const AppRouting = () => {
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/terms&conditions" element={<TeamsConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/" element={<Navigate to="/home" />} />
       </Route>
 

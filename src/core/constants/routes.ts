@@ -6,7 +6,8 @@ export const ROUTES = {
   BUYER: "/buyer",
   FAQ:"/FAQ",
   ABOUTUS:"/aboutus",
-  TERMS_CONDITIONS:"/terms&conditions"
+  TERMS_CONDITIONS:"/terms&conditions",
+  PRIVATE_POLICY:"/privacy-policy"
 };
 
 export const SELLER = {

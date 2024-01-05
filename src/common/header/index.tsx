@@ -57,6 +57,9 @@ const Header = () => {
       case ROUTES.TERMS_CONDITIONS:
         navigate(ROUTES.TERMS_CONDITIONS);
         break;
+      case ROUTES.PRIVATE_POLICY:
+        navigate(ROUTES.PRIVATE_POLICY);
+        break;
     }
   };
 
@@ -151,7 +154,7 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.FAQ)}
                   >
-                    FAQ
+                    FAQ - CourtierXpert.com
                   </div>
                 </li>
                 <li>
@@ -170,6 +173,12 @@ const Header = () => {
                     Terms & Conditions
                   </div>
                 </li>
+                {/* <li>
+                <div className="menu-link"
+                   onClick={() => handleRoutes(ROUTES.PRIVATE_POLICY)} >
+                    Privacy Policy
+                  </div>
+                </li> */}
                 {getToken && (
                   <li>
                     <hr></hr>

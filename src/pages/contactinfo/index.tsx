@@ -191,7 +191,9 @@ const ContactInfo = () => {
                       />
                       <span>
                       By submitting your demande , you agree to our
-                      <Link to={{ pathname: ROUTES.TERMS_CONDITIONS}}> Terms and Conditions</Link>
+                      <Link to={{ pathname: ROUTES.TERMS_CONDITIONS}}> Terms and Conditions </Link>
+                       and
+                      <Link to={{ pathname: ROUTES.PRIVATE_POLICY}}> Privacy Policy</Link>
                       </span>
                     </div>
                   </div>
@@ -217,9 +219,6 @@ const ContactInfo = () => {
               </div>
             </div> */}
           </div>
-        </div>
-        <div className="bottom-content-footer">
-          <p>{TEXT.login_description_text}</p>
         </div>
       </div>
     </section>
