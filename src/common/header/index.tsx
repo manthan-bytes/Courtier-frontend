@@ -47,6 +47,7 @@ const Header = () => {
     }
   };
   const handleRoutes = (route: string) => {
+    setIsActive(!isActive);
     switch (route) {
       case ROUTES.FAQ:
         navigate(ROUTES.FAQ);

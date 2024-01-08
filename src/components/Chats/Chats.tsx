@@ -29,6 +29,8 @@ const Chats: React.FC<Props> = (props) => {
   const bodyRef = useRef<HTMLDivElement>(null);
 
   const onLoad = async () => {
+    console.log("messages", messages.length);
+    
     if (messages.length === 0) {
       setMessages([
         {
@@ -38,7 +40,7 @@ const Chats: React.FC<Props> = (props) => {
           sender: "bot",
         },
       ]);
-    } else {
+    } else if(messages.length < 2 || localStorage.getItem("token")) {
       let tempArray = [...messages];
       tempArray.push({ message: props.sendUserResponse, sender: "user" });
       setMessages(tempArray);
@@ -63,6 +65,19 @@ const Chats: React.FC<Props> = (props) => {
         });
         setMessages(temp2);
       }, 1000);
+    }
+    else{
+      let tempArray = [...messages];
+      tempArray.push({ message: props.sendUserResponse, sender: "user" });
+      setMessages(tempArray);
+      setTimeout(() => {
+        let temp2 = [...tempArray];
+        temp2.push({
+          message: "Please login to continue",
+          sender: "bot",
+        });
+        setMessages(temp2);
+      }, 500);
     }
   };
 
