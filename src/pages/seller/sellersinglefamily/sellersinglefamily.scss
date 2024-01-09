@@ -1,0 +1,16 @@
+@import "../../../styles/Variable.scss";
+.main-banner-sec {
+    &.singlefamily-sec {
+        .form-step-contect {
+           max-width: 1330px;
+           width: 100%;
+           margin: 0 auto;
+
+           .grdnt_btn {
+            @media (max-width: $screen-xs-max) {
+                margin-top: 0;
+            }
+           }
+        }
+    }
+}

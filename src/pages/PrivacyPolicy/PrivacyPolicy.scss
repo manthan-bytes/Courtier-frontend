@@ -1,0 +1,50 @@
+// PrivacyPolicy.scss
+
+.privacy-policy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8rem 0px;
+  
+    header {
+      text-align: center;
+  
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        color: #666;
+      }
+    }
+  
+    section {
+      margin-bottom: 20px;
+  
+      h2 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        color: #666;
+        line-height: 1.5;
+      }
+  
+      ul {
+        list-style: disc;
+        margin-left: 20px;
+        margin-bottom: 10px;
+      }
+  
+      a {
+        color: #007bff;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  

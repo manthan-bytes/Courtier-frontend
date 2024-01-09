@@ -1,0 +1,80 @@
+@import "../../styles/Variable.scss";
+
+.main-banner-sec {
+    &.contactinfo-sec {
+        padding: 150px 0 130px 0;
+        @media screen and (max-width:$screen-991) {
+            padding: 90px 0 70px 0;
+        }
+        .banner-cantent-block {
+            height: calc(100vh - 280px);
+            @media screen and (max-width:$screen-lg-max) {
+                height: calc(100vh - 240px);
+            }
+            @media screen and (max-width: $screen-991) {
+              height: 100%;
+            }
+          }
+        .form-step-contect {
+            .form-group-main {
+                width: 100%;
+
+                .form-group {
+                    width: 100%;
+                    max-width: 661px;
+                    margin: 0 auto;
+                    padding-bottom: 32px;
+                    position: relative;
+
+                    &:last-child {
+                        padding-bottom: 0;
+                    }
+
+                    @media screen and (max-width: $screen-lg-max) {
+                        padding-bottom: 22px;
+                    }
+
+                    .error-msg {
+                        position: absolute;
+                        right: 14px;
+                        bottom: 39px;
+                        z-index: 9;
+
+                        @media screen and (max-width: $screen-lg-max) {
+                            bottom: 29px;
+                        }
+
+                        @media (max-width: $screen-xs-max) {
+                            bottom: 5px;
+                            right: 0px;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .bottom-content-footer {
+            width: 100%;
+            max-width: 1176px;
+            margin: 0 auto;
+            position: fixed;
+            bottom: 53px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0 20px;
+
+            @media screen and (max-width: $screen-lg-max) {
+                bottom: 20px;
+                font-size: 14px;
+            }
+
+            @media screen and (max-width:$screen-991) {
+                position: inherit;
+                bottom: 0;
+                padding-top: 30px;
+            }
+        }
+    }
+}

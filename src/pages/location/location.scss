@@ -1,0 +1,215 @@
+@import "../../styles/Variable.scss";
+
+.main-banner-sec {
+    &.location-sec {
+        padding: 125px 0 110px 0;
+        @media screen and (max-width:$screen-991) {
+            padding: 90px 0 70px 0;
+        }
+        .banner-cantent-block {
+            height: calc(100vh - 235px);
+            @media screen and (max-width:$screen-lg-max) {
+                height: calc(100vh - 200px);
+            }
+            @media screen and (max-width: $screen-991) {
+              height: 100%;
+            }
+          }
+        .form-step-contect {
+            .form-inner-block {
+                position: relative;
+                padding-bottom: 20px;
+                align-items: center;
+                &:last-child {
+                    padding-bottom: 24px;
+                    // @media screen and (max-width: $screen-lg-max) {
+                    //     padding-bottom: 22px;
+                    // }
+                }
+                @media (max-width: $screen-xs-max) {
+                   flex-wrap: wrap;
+                   padding-bottom: 38px;
+                }
+                .addclose-icon {
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%; /* 27px */
+                    letter-spacing: 1.08px;
+                    text-align: left;
+                    flex: 0 0 56px;
+                    display: flex;
+                    @media (max-width: $screen-xs-max) {
+                        position: absolute;
+                        bottom: 0px;
+                        right: 0;
+                    }
+                    span {
+                        cursor: pointer;
+                        &.text-add{
+                            @media (max-width: $screen-xs-max) {
+                                display: block;
+                                margin-bottom: 9px;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+            .select-main-wrap {
+                width: 100%;
+                max-width: 662px;
+                position: relative;
+                @media (max-width: $screen-xs-max) {
+                    max-width: 100%;
+                    padding: 0;
+                }
+                .css-1u9des2-indicatorSeparator {
+                    display: none;
+                }
+                .css-tj5bde-Svg {
+                    color: $Placeholder_Text;
+                }
+                .css-1fdsijx-ValueContainer {
+                    padding: 0;
+                }
+                .css-13cymwt-control {
+                    border-radius: 8px;
+                    border: 1px solid $Border_light;
+                    background: $White;
+                    font-size: 16px;
+                    font-style: normal;
+                    line-height: 150%;
+                    color: $Font_Primary;
+                    @include font-weight(400);
+                    height: 72px;
+                    box-shadow: none;
+                    outline: none;
+                    padding: 8px 12px 8px 24px;
+                    width: 100%;
+                    text-align: left;
+                    cursor: pointer;
+                    @media screen and (max-width: $screen-lg-max) {
+                        height: 62px;
+                    }
+                
+                    @media (max-width: $screen-xs-max) {
+                        padding:8px 5px 8px 15px ;
+                        height: 50px;
+                    }
+                }
+                .css-t3ipsp-control {
+                    border-radius: 8px;
+                    border: 1px solid $Border_light;
+                    background: $White;
+                    font-size: 16px;
+                    font-style: normal;
+                    line-height: 150%;
+                    color: $Font_Primary;
+                    @include font-weight(400);
+                    height: 72px;
+                    box-shadow: none;
+                    outline: none;
+                    padding: 8px 12px 8px 24px;
+                    width: 100%;
+                    text-align: left;
+                    cursor: pointer;
+                    @media screen and (max-width: $screen-lg-max) {
+                        height: 62px;
+                    }
+                
+                    @media (max-width: $screen-xs-max) {
+                        padding:8px 5px 8px 15px ;
+                        height: 50px;
+                    }
+                }
+                .css-1nmdiq5-menu {
+                    top: 81px;
+                    z-index: 9;
+                    position: absolute;
+                    @media screen and (max-width: $screen-lg-max) {
+                        top: 71px;
+                    }
+                
+                    @media (max-width: $screen-xs-max) {
+                        top: 51px;
+                    }
+                    > div {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 16px;
+                        padding: 20px;
+                        flex-wrap: wrap;
+                        overflow: auto;
+                        scrollbar-width: thin;
+                        scrollbar-color:$Black;
+                        height: 210px;
+                        &::-webkit-scrollbar {
+                          width: 4px;
+                          height: 4px;
+                          border-radius: 6px;
+                        }
+                      
+                        &::-webkit-scrollbar-track {
+                          background:$Accent;
+                          border-radius: 5px;
+                        }
+                      
+                        &::-webkit-scrollbar-thumb {
+                          background-color:$Black;
+                          border-radius: 6px;
+                          border: 0px solid $White;
+                        }
+                        > div {
+                            border-radius: 16px;
+                            border: 1px solid $Black;
+                            background: transparent;
+                            cursor: pointer;
+                            font-size: 14px;
+                            line-height: 125%;
+                            @include font-weight(400);
+                            transition: all .3s ease-in-out;
+                            padding: 7px 15px;
+                            color: $Black !important;
+                            display:inline-block;
+                            width: auto;
+                            background-size: 300% 100%;
+                            // @media screen and (max-width:$screen-1199) {
+                            //     padding: 8px 20px;
+                            // }
+                            &:hover {
+                                background-image: linear-gradient(90deg, $Btn_thame1, $Btn_thame2);
+                                background-image: linear-gradient(90deg, $Btn_thame2, $Btn_thame1, $Btn_thame1, $Btn_thame2);
+                                color: $White !important;
+                                background-position: 100% 10px;
+                                border: 1px solid $Btn_thame1;
+                            }
+                        }
+                    }
+                }
+                
+            }
+            .frm-wrap {
+                display: block;
+                width: 100%;
+                position: relative;
+            }
+            .error-msg {
+                position: absolute;
+                right: 14px;
+                bottom: 20px;
+                z-index: 9;
+                display: none;
+                left: 0;
+                @media screen and (max-width: $screen-lg-max) {
+                    bottom: 29px;
+                }
+
+                @media (max-width: $screen-xs-max) {
+                    bottom: 5px;
+                    right: 0px;
+                }
+            }
+        }
+    }
+}
