@@ -174,6 +174,14 @@ const Header = () => {
                     Terms & Conditions
                   </div>
                 </li>
+                <li>
+                  <div
+                    className="menu-link"
+                    onClick={()=> navigate('/user-form')}
+                  >
+                    User Form
+                  </div>
+                </li>
                 {/* <li>
                 <div className="menu-link"
                    onClick={() => handleRoutes(ROUTES.PRIVATE_POLICY)} >

@@ -43,6 +43,7 @@ import FAQ from "../pages/FAQ";
 import TeamsConditions from "../pages/terms&conditions";
 import About from "../pages/aboutpage";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import UserForm from "../pages/form/form";
 
 
 
@@ -57,6 +58,7 @@ const AppRouting = () => {
         <Route path="/aboutus" element={<About />} />
         <Route path="/terms&conditions" element={<TeamsConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path='/user-form' element={<UserForm />} />
         <Route path="/" element={<Navigate to="/home" />} />
       </Route>
 
