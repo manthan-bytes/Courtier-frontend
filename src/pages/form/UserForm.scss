@@ -1,3 +1,5 @@
+@import "../../styles/Variable.scss";
+
 // UserForm.module.scss
 
 $primaryColor: #3498db;
@@ -96,4 +98,62 @@ $primaryColor: #3498db;
     }
   }
 
+}
+.contactform-sec {
+  .form-step-contect {
+    .form-group-main {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1100px;
+      @media (max-width: $screen-xs-max) {
+        gap: 0px;
+    }
+        .form-group {
+            width: 100%;
+            max-width: calc(50% - 20px);
+            margin: 0 auto;
+            padding-bottom: 32px;
+            position: relative;
+            @media (max-width: $screen-xs-max) {
+              max-width:calc(100%);
+          }
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            @media screen and (max-width: $screen-lg-max) {
+                padding-bottom: 22px;
+            }
+
+            .error-msg {
+                position: absolute;
+                right: 14px;
+                bottom: 39px;
+                z-index: 9;
+
+                @media screen and (max-width: $screen-lg-max) {
+                    bottom: 29px;
+                }
+
+                @media (max-width: $screen-xs-max) {
+                    bottom: 5px;
+                    right: 0px;
+                }
+
+            }
+            &.textarea-control {
+              max-width:calc(100% - 10px);
+              padding-bottom: 17px;
+              @media (max-width: $screen-xs-max) {
+                max-width:calc(100%);
+            }
+              .form-control {
+              height: 150px;
+              }
+            }
+        }
+    }
+}
 }
