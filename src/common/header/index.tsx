@@ -7,6 +7,7 @@ import logoblack from "../../assets/images/logo-black.svg";
 import { ROUTES } from "../../core/constants/routes";
 import { ToastContainer, toast } from "react-toastify";
 import FAQ from "../../pages/FAQ";
+import { Menu } from "../../components/Menu/Menu";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -104,12 +105,14 @@ const Header = () => {
       // window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
     };
   }, []); // Empty dependency array means this effect runs once when the component mounts
-
   return (
+    
     <header
       id="header"
       className={`header-sec header-bk ${scrolling ? "onscroll" : "scroll"}`}
     >
+               
+
       <div className="container">
         <div className="custom-row">
           <div className="logo-block-left">
@@ -130,7 +133,9 @@ const Header = () => {
               />
             </Link>
           </div>
+
           <div className="menu-block-right">
+         
             <div className="home-burger-menu">
               <div
                 className={isActive ? "is-active" : ""}
@@ -197,8 +202,12 @@ const Header = () => {
                     </div>
                   </li>
                 )}
+                <li>
+                <Menu />
+                </li>
               </ul>
             </div>
+            
           </div>
         </div>
       </div>

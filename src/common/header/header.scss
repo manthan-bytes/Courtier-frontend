@@ -65,7 +65,18 @@
 
         @media screen and (max-width:$screen-sm-max) {
             width: 50%;
-            ;
+        }
+        nav {
+            select{
+                padding:5px 8px;
+                box-shadow: none;
+                border-radius: 5px;
+                text-align: left;
+                outline: none;
+                border: none;
+                font-size: 13px;
+                width: 100%;
+            }
         }
     }
 
@@ -167,7 +178,7 @@
         width: 100%;
         max-width: 170px;
         position: absolute;
-        background: linear-gradient(95deg, rgba(255, 182, 182, 0.41) 0%, rgb(248 224 224 / 52%) 100%);
+        background:linear-gradient(95deg, rgb(255 182 182 / 71%) 0%, rgb(248 224 224 / 58%) 100%);
         right: 0;
         border-radius: 5px;
         height: 0;

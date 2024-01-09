@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 // import { BrowserRouter } from 'react-router-dom';
+import './i18n';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
