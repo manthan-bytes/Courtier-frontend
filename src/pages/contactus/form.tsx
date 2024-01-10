@@ -133,7 +133,7 @@ const UserForm = () => {
                     <div className="form-group">
                       <input
                         className="form-control"
-                        type="text"
+                        type="number"
                         placeholder={t("phoneNumber")}
                         name="phoneNumber"
                         value={userData.phoneNumber}

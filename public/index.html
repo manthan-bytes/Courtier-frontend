@@ -44,11 +44,38 @@
   </body>
   <script>
 
-    if(navigator.userAgent.includes("Instagram") || navigator.userAgent.match("/FBAN|FBAV/i") || navigator.userAgent.includes("LinkedIn") || navigator.userAgent.includes("Twitter")){
-      // window.location.href = 'https://app.courtierxpert.com';
-      // window.open('https://app.courtierxpert.com', '_system');
-      window.location.href = 'googlechrome://courtierxpert.com/'
-      // window.open('https://www.courtierxpert.com/', '_blank');
-    }
+    // if(navigator.userAgent.includes("Instagram") || navigator.userAgent.match("/FBAN|FBAV/i") || navigator.userAgent.includes("LinkedIn") || navigator.userAgent.includes("Twitter")){
+    //   // window.location.href = 'https://app.courtierxpert.com';
+    //   // window.open('https://app.courtierxpert.com', '_system');
+    //   window.location.href = 'googlechrome://courtierxpert.com/'
+    //   // window.open('https://www.courtierxpert.com/', '_blank');
+    // }
+//     if (
+//   navigator.userAgent.includes('Instagram') ||
+//   navigator.userAgent.match(/FBAN|FBAV/i) ||
+//   navigator.userAgent.includes('LinkedIn') ||
+//   navigator.userAgent.includes('Twitter')
+// ) {
+//   // Open the default browser on the mobile device
+//   window.location.href = 'courtierxpert.com';
+// }
+
+if (
+  navigator.userAgent.includes('Instagram') ||
+  navigator.userAgent.match(/FBAN|FBAV/i) ||
+  navigator.userAgent.includes('LinkedIn') ||
+  navigator.userAgent.includes('Twitter')
+) {
+  // Open the default browser on the mobile device
+  // window.location.assign('http://courtierxpert.com');
+  // window.open('http://courtierxpert.com', '_system');
+  window.open('https://courtierxpert.com/', '_blank');
+    // Create an 'a' element and set its href attribute
+    var externalLink = document.createElement("a");
+    externalLink.href = 'https://www.courtierxpert.com/';
+
+    // Trigger a click on the 'a' element to open the link in the default browser
+    externalLink.click();
+}
  </script>
 </html>

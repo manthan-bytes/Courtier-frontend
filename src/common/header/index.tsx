@@ -13,6 +13,8 @@ import { useTranslation } from "react-i18next";
 const Header = () => {
   const navigate = useNavigate();
   const [deferredPrompt, setDeferredPrompt] = useState<any>();
+  const [getMenu,setMenu] = useState<any>();
+
   // Home burger menu
   const [isActive, setIsActive] = useState(false);
   const [getToken, setToken] = useState<any>();
@@ -67,7 +69,13 @@ const Header = () => {
         navigate(ROUTES.CONTACT_US);
         break;
     }
-  };
+  }
+
+  const handleLangaugeMenuClick = () => {
+    if (getMenu) {
+      setIsActive(!isActive);
+    }
+  }
 
   useEffect(() => {
     const element: any = document.getElementById("header");
@@ -209,7 +217,7 @@ const Header = () => {
                   </li>
                 )}
                 <li>
-                <Menu />
+                <Menu setMenu={setMenu} onClick={handleLangaugeMenuClick}/>
                 </li>
               </ul>
             </div>

@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { LANGUAGES } from '../../core/constants/constants';
+import { useState } from 'react';
 
 const isActive = ({ isActive }: any) => `link ${isActive ? 'active' : ''}`
 
-export const Menu = () => {
-
+export const Menu = ({getMenu, setMenu}:any) => {
     const { i18n, t } = useTranslation()
     const changeLanguage = (lng:any) => {
-        console.log("🚀 ~ file: Menu.tsx:19 ~ changeLanguage ~ lng:", lng)
+        setMenu(lng);
         i18n.changeLanguage(lng);
       };
 
