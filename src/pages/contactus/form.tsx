@@ -20,9 +20,13 @@ const UserForm = () => {
     description: "",
   });
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isEmailInValid, setIsEmialInValid] = useState(false);
+  const [isPhoneInValid, setIsPhoneInValid] = useState(false);
 
+  function isValidEmail(email: string) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
   const handleSubmitEvent = async () => {
-  
     setIsSubmitted(true);
     if (
       userData?.firstName &&
@@ -34,24 +38,41 @@ const UserForm = () => {
       userData?.email &&
       userData?.email.length > 0 &&
       userData?.description &&
-      userData?.description.length > 0     ) {
+      userData?.description.length > 0
+    ) {
+      const element: any = document.getElementById("submit");
+      if (element) {
+        element.classList.add("loader-btn");
+      }
+      const sendEmailResponse = await contactInfo(userData);
+      if (sendEmailResponse.statusCode === 200) {
+        toast.success(sendEmailResponse.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      } else {
+        toast.error(sendEmailResponse.message, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
 
-        const element: any = document.getElementById("submit");
-        if (element) {
-          element.classList.add("loader-btn");
-        }
-        const sendEmailResponse = await contactInfo(userData);
-        if (sendEmailResponse.statusCode === 200) {
-          toast.success(sendEmailResponse.message, {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        } else {
-          toast.error(sendEmailResponse.message, {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
-
-        navigate(ROUTES.HOME);
+      navigate(ROUTES.HOME);
+    }
+  };
+  const handleChange = (event: any, type: string) => {
+    console.log(type);
+    if (type == "email") {
+      if (!isValidEmail(event.target.value)) {
+        setIsEmialInValid(true);
+      } else {
+        setIsEmialInValid(false);
+      }
+    } else {
+      const isValidPhoneNumber = /^[0-9]{10}$/.test(event.target.value);
+      if (!isValidPhoneNumber) {
+        setIsPhoneInValid(true);
+      } else {
+        setIsPhoneInValid(false);
+      }
     }
   };
 
@@ -69,7 +90,7 @@ const UserForm = () => {
         <div className="container">
           <div className="custom-row">
             <div className="form-step-contect">
-              <h2 className="h2">{t('contact_us_info')}</h2>
+              <h2 className="h2">{t("contact_us_info")}</h2>
               <form>
                 <div className="form-inner-block">
                   <div className="form-group-main">
@@ -77,7 +98,7 @@ const UserForm = () => {
                       <input
                         className="form-control"
                         type="text"
-                        placeholder={t('firstName')}
+                        placeholder={t("firstName")}
                         name="firstName"
                         onChange={(e) =>
                           setUserData({
@@ -87,14 +108,16 @@ const UserForm = () => {
                         }
                       />
                       {!userData?.firstName && isSubmitted && (
-                        <span className="error-msg">{t('firstName_required')}</span>
+                        <span className="error-msg">
+                          {t("firstName_required")}
+                        </span>
                       )}
                     </div>
                     <div className="form-group">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder={t('lastName')}
+                        placeholder={t("lastName")}
                         name="lastName"
                         value={userData.lastName}
                         onChange={(e) =>
@@ -102,27 +125,35 @@ const UserForm = () => {
                         }
                       />
                       {!userData?.lastName && isSubmitted && (
-                        <span className="error-msg">{t('lastName_required')}</span>
+                        <span className="error-msg">
+                          {t("lastName_required")}
+                        </span>
                       )}
                     </div>
                     <div className="form-group">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder={t('phoneNumber')}
+                        placeholder={t("phoneNumber")}
                         name="phoneNumber"
                         value={userData.phoneNumber}
-                        onChange={(e) =>
+                        onChange={(e) => {
                           setUserData({
                             ...userData,
                             phoneNumber: e.target.value,
-                          })
-                        }
+                          });
+                          handleChange(e, "phoneNumber"); // Fix: Use semicolon here
+                        }}
                       />
 
                       {!userData?.phoneNumber && isSubmitted && (
                         <span className="error-msg">
-                          {t('phoneNumber_required')}
+                          {t("phone_required")}
+                        </span>
+                      )}
+                      {isPhoneInValid && userData?.phoneNumber && (
+                        <span className="error-msg">
+                          {t("phone_invalid")}
                         </span>
                       )}
                     </div>
@@ -130,21 +161,25 @@ const UserForm = () => {
                       <input
                         className="form-control"
                         type="email"
-                        placeholder={t('email')}
+                        placeholder={t("email")}
                         name="email"
                         value={userData.email}
-                        onChange={(e) =>
-                          setUserData({ ...userData, email: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setUserData({ ...userData, email: e.target.value });
+                          handleChange(e, "email");
+                        }}
                       />
                       {!userData?.email && isSubmitted && (
-                        <span className="error-msg">{t('email_required')}</span>
+                        <span className="error-msg">{t("email_required")}</span>
+                      )}
+                      {isEmailInValid && userData?.email && (
+                        <span className="error-msg">{t("email_invalid")}</span>
                       )}
                     </div>
                     <div className="form-group textarea-control">
                       <textarea
                         className="form-control"
-                        placeholder={t('description')}
+                        placeholder={t("description")}
                         name="description"
                         value={userData.description}
                         onChange={(e) =>
@@ -156,7 +191,7 @@ const UserForm = () => {
                       ></textarea>
                       {!userData?.description && isSubmitted && (
                         <span className="error-msg">
-                          {t('description_required')}
+                          {t("description_required")}
                         </span>
                       )}
                     </div>
@@ -168,7 +203,7 @@ const UserForm = () => {
                   className="theme_btn grdnt_btn"
                   id="submit"
                 >
-                  <span>{t('submit')}</span>
+                  <span>{t("submit")}</span>
                 </div>
               </form>
             </div>

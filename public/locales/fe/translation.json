@@ -21,6 +21,8 @@
   "lastName_required": "Le nom de famille est requis",
   "email_required": "L'e-mail est requis",
   "phone_required": "Le numéro de contact est requis",
+  "phone_invalid": "Numéro de contact invalide",
+  "email_invalid": "L'e-mail est invalide",
   "description_required": "La description est requise",
   "buy_sell_property": "Souhaitez-vous acheter ou vendre une propriété ?",
   "great": "Super",

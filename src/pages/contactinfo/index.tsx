@@ -22,6 +22,7 @@ const ContactInfo = () => {
   const [userData, setUserData] = useState<any>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [leadObj, setLeadObj] = useState<any>();
+  const [isEmailInValid, setIsEmialInValid] = useState(false);
 
   // let isSubmitted = false;
   const getUserDetail = async () => {
@@ -35,7 +36,7 @@ const ContactInfo = () => {
       element.classList.add("loader-btn");
     }
     setIsSubmitted(true);
-    if (userData?.name && userData?.phone && userData?.phone.length > 0 && userData?.isUserAgree) {
+    if (userData?.name && userData?.phone && userData?.phone.length > 0 && userData?.isUserAgree && isEmailInValid == false) {
       const user = localStorage.getItem('loginasGuest')? await createUser(userData) : await updateUser(userData.id, userData);
       if (user.statusCode === 200 || user.statusCode === 201 || user.statusCode === 400) {
         localStorage.setItem('email', userData.email)
@@ -73,6 +74,19 @@ const ContactInfo = () => {
       return false;
     }
   };
+
+  function isValidEmail(email: string) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleChange = (event: any) => {
+      if (!isValidEmail(event.target.value)) {
+        setIsEmialInValid(true);
+      } else {
+        setIsEmialInValid(false);
+      }
+  };
+
 
   const handleBackEvent = async () => {
     navigate(ROUTES.BUYSELLPROPERTY);
@@ -173,13 +187,19 @@ const ContactInfo = () => {
                         name="Email"
                         disabled={localStorage.getItem("loginasGuest") ? false : true}
                         value={userData?.email}
-                        onChange={(e) =>
-                          setUserData({ ...userData, email: e.target.value })
-                        }
+                        onChange={(e) =>{
+                          setUserData({ ...userData, email: e.target.value });
+                          handleChange(e);
+                        }}
                       />
                       {!userData?.email && isSubmitted && (
                         <span className="error-msg">
                           {t('email_required')}
+                        </span>
+                      )}
+                      {isEmailInValid && userData?.email && (
+                        <span className="error-msg">
+                          {t('email_invalid')}
                         </span>
                       )}
                     </div>
