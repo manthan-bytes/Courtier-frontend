@@ -8,59 +8,63 @@ import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const SellerRevenueProperty = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   const [getTotalNumber, setTotalNumber] = useState<any>();
 
-  const handleonChangePropertyMeant = async (e:any) => {
-    const selectedDataObj = {...getpreferences};
-    selectedDataObj['propertyMeant'] = e.target.value
+  const handleonChangePropertyMeant = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["propertyMeant"] = e.target.value;
     setpreferences(selectedDataObj);
+  };
 
-  }
-
-  const handleonChangeBuildingType = async (e:any) => {
-    const selectedDataObj = {...getpreferences};
-    selectedDataObj['buildingType'] = e.target.value
+  const handleonChangeBuildingType = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["buildingType"] = e.target.value;
     setpreferences(selectedDataObj);
+  };
 
-  }
-
-  const handleonChangeResidentialUnit = async (e:any) => {
-    const selectedDataObj = {...getpreferences};
-    selectedDataObj['residentialUnit'] = e.target.value
-    console.log("🚀 ~ file: index.tsx:35 ~ handleonChangeResidentialUnit ~ selectedDataObj:", selectedDataObj)
+  const handleonChangeResidentialUnit = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["residentialUnit"] = e.target.value;
+    console.log(
+      "🚀 ~ file: index.tsx:35 ~ handleonChangeResidentialUnit ~ selectedDataObj:",
+      selectedDataObj
+    );
     setpreferences(selectedDataObj);
+  };
 
-  }
-
-  const handleonChangeCommercialUnit = async (e:any) => {
-    const selectedDataObj = {...getpreferences};
-    selectedDataObj['commercialUnit'] = e.target.value
-    console.log("🚀 ~ file: index.tsx:43 ~ handleonChangeCommercialUnit ~ selectedDataObj:", selectedDataObj)
+  const handleonChangeCommercialUnit = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["commercialUnit"] = e.target.value;
+    console.log(
+      "🚀 ~ file: index.tsx:43 ~ handleonChangeCommercialUnit ~ selectedDataObj:",
+      selectedDataObj
+    );
     setpreferences(selectedDataObj);
+  };
 
-  }
-
-  const handleonChangeAverageRevenue = async (e:any) => {
-    const selectedDataObj = {...getpreferences};
-    selectedDataObj['averageRevenue'] = e.target.value
+  const handleonChangeAverageRevenue = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["averageRevenue"] = e.target.value;
     setpreferences(selectedDataObj);
-
-  }
+  };
 
   const calculateUnit = () => {
     if (getpreferences?.residentialUnit && getpreferences?.commercialUnit) {
-   
-    return Number(getpreferences.residentialUnit) + Number(getpreferences.commercialUnit);
+      return (
+        Number(getpreferences.residentialUnit) +
+        Number(getpreferences.commercialUnit)
+      );
     }
-  }
+  };
 
   const handleSubmitClick = async (e: any) => {
     const element: any = document.getElementById("submit");
@@ -69,22 +73,22 @@ const SellerRevenueProperty = () => {
     }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
-    leadDataObj['preferences'] = getpreferences;
-    localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
+    leadDataObj["preferences"] = getpreferences;
+    localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
     const leadUpdate = await updateLead(leadId, leadDataObj);
     if (leadUpdate.statusCode === 200) {
       toast.success(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");
-      navigate(SELLER.PROPERTY_SOLD)
+      navigate(SELLER.PROPERTY_SOLD);
     } else {
       toast.error(leadUpdate.message, {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");
     }
-  }
+  };
   useEffect(() => {
     const element: any = document.getElementById("header");
     if (element) {
@@ -97,17 +101,24 @@ const SellerRevenueProperty = () => {
       setLeadObj(leadObj);
       const preferences = leadObj.preferences;
       if (preferences) {
-        console.log("🚀 ~ file: index.tsx:97 ~ useEffect ~ preferences:", preferences)
-        setpreferences(preferences)
+        console.log(
+          "🚀 ~ file: index.tsx:97 ~ useEffect ~ preferences:",
+          preferences
+        );
+        setpreferences(preferences);
       } else {
-        setpreferences({})
+        setpreferences({});
       }
     }
   }, []);
 
   return (
     <>
-      <section className={`main-banner-sec commane-main condoproperty-sec ${ newClass ? "next-class" : "" }`}>
+      <section
+        className={`main-banner-sec commane-main condoproperty-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -121,89 +132,162 @@ const SellerRevenueProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">What are some characteristics of the Revenue property you're looking to sell? </h2>
+                  <h2 className="h2">{t("seller.revenue.title")} </h2>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                    <span>
-                      {TEXT.submit}
-                    </span>
+                    <span>{t("submit")}</span>
                   </div>
                 </div>
 
                 <form>
                   <div className="form-inner-block">
                     <div className="form-left-content">
-                      <h3 className="h3">What is your property meant for?</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangePropertyMeant(e)}>
+                      <h3 className="h3">{t("seller.revenue.Q1")}</h3>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangePropertyMeant(e)}
+                      >
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Residential" value="Residential" checked={getpreferences?.propertyMeant === "Residential"}/>
-                            <div className="checkbox-lables">Residential</div>
-                          </label>
-                        </li>
-                        <li>
-                          <label className="custom-checkbox-btn">
-                            <input type="radio" name="Commercial" value="Commercial" checked={getpreferences?.propertyMeant === "Commercial"}/>
-                            <div className="checkbox-lables">Commercial</div>
-                          </label>
-                        </li>
-                        <li>
-                          <label className="custom-checkbox-btn">
-                            <input type="radio" name="Office" value="Office" checked={getpreferences?.propertyMeant === "Office"}/>
-                            <div className="checkbox-lables">Office</div>
-                          </label>
-                        </li>
-                        <li>
-                          <label className="custom-checkbox-btn">
-                            <input type="radio" name="Warehouse" value="Warehouse" checked={getpreferences?.propertyMeant === "Warehouse"}/>
-                            <div className="checkbox-lables">Warehouse</div>
-                          </label>
-                        </li>
-                        <li>
-                          <label className="custom-checkbox-btn">
-                            <input type="radio" name="Industrial" value="Industrial" checked={getpreferences?.propertyMeant === "Industrial"}/>
-                            <div className="checkbox-lables">Industrial</div>
-                          </label>
-                        </li>
-                        <li>
-                          <label className="custom-checkbox-btn">
-                            <input type="radio" name="Warehouse & Office" value="Warehouse & Office" checked={getpreferences?.propertyMeant === "Warehouse & Office"}/>
+                            <input
+                              type="radio"
+                              name="Residential"
+                              value="Residential"
+                              checked={
+                                getpreferences?.propertyMeant === "Residential"
+                              }
+                            />
                             <div className="checkbox-lables">
-                              Warehouse & Office
+                              {t("Residential")}
                             </div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Commercial & Office" value="Commercial & Office" checked={getpreferences?.propertyMeant === "Commercial & Office"}/>
+                            <input
+                              type="radio"
+                              name="Commercial"
+                              value="Commercial"
+                              checked={
+                                getpreferences?.propertyMeant === "Commercial"
+                              }
+                            />
                             <div className="checkbox-lables">
-                              Commercial & Office
+                              {t("Commercial")}
                             </div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Commercial & Residential" value="Commercial & Residential" checked={getpreferences?.propertyMeant === "Commercial & Residential"}/>
+                            <input
+                              type="radio"
+                              name="Office"
+                              value="Office"
+                              checked={
+                                getpreferences?.propertyMeant === "Office"
+                              }
+                            />
+                            <div className="checkbox-lables">{t("Office")}</div>
+                          </label>
+                        </li>
+                        <li>
+                          <label className="custom-checkbox-btn">
+                            <input
+                              type="radio"
+                              name="Warehouse"
+                              value="Warehouse"
+                              checked={
+                                getpreferences?.propertyMeant === "Warehouse"
+                              }
+                            />
                             <div className="checkbox-lables">
-                              Commercial & Residential
+                              {t("Warehouse")}
+                            </div>
+                          </label>
+                        </li>
+                        <li>
+                          <label className="custom-checkbox-btn">
+                            <input
+                              type="radio"
+                              name="Industrial"
+                              value="Industrial"
+                              checked={
+                                getpreferences?.propertyMeant === "Industrial"
+                              }
+                            />
+                            <div className="checkbox-lables">
+                              {t("Industrial")}
+                            </div>
+                          </label>
+                        </li>
+                        <li>
+                          <label className="custom-checkbox-btn">
+                            <input
+                              type="radio"
+                              name="Warehouse & Office"
+                              value="Warehouse & Office"
+                              checked={
+                                getpreferences?.propertyMeant ===
+                                "Warehouse & Office"
+                              }
+                            />
+                            <div className="checkbox-lables">
+                              {t("Warehouse & Office")}
+                            </div>
+                          </label>
+                        </li>
+                        <li>
+                          <label className="custom-checkbox-btn">
+                            <input
+                              type="radio"
+                              name="Commercial & Office"
+                              value="Commercial & Office"
+                              checked={
+                                getpreferences?.propertyMeant ===
+                                "Commercial & Office"
+                              }
+                            />
+                            <div className="checkbox-lables">
+                              {t("Commercial & Office")}
+                            </div>
+                          </label>
+                        </li>
+                        <li>
+                          <label className="custom-checkbox-btn">
+                            <input
+                              type="radio"
+                              name="Commercial & Residential"
+                              value="Commercial & Residential"
+                              checked={
+                                getpreferences?.propertyMeant ===
+                                "Commercial & Residential"
+                              }
+                            />
+                            <div className="checkbox-lables">
+                              {t("Commercial & Residential")}
                             </div>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">What type of Building is it?</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeBuildingType(e)}>
+                      <h3 className="h3">{t("seller.revenue.Q2")}</h3>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeBuildingType(e)}
+                      >
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
                               name="Duplex"
                               value="Duplex"
-                              checked={getpreferences?.buildingType === "Duplex"}
+                              checked={
+                                getpreferences?.buildingType === "Duplex"
+                              }
                             />
-                            <div className="checkbox-lables">Duplex</div>
+                            <div className="checkbox-lables">{t("Duplex")}</div>
                           </label>
                         </li>
                         <li>
@@ -212,9 +296,11 @@ const SellerRevenueProperty = () => {
                               type="radio"
                               name="Triplex"
                               value="Triplex"
-                              checked={getpreferences?.buildingType === "Triplex"}
+                              checked={
+                                getpreferences?.buildingType === "Triplex"
+                              }
                             />
-                            <div className="checkbox-lables">Triplex</div>
+                            <div className="checkbox-lables">t{"Triplex"}</div>
                           </label>
                         </li>
                         <li>
@@ -223,9 +309,13 @@ const SellerRevenueProperty = () => {
                               type="radio"
                               name="Quadruplex"
                               value="Quadruplex"
-                              checked={getpreferences?.buildingType === "Quadruplex"}
+                              checked={
+                                getpreferences?.buildingType === "Quadruplex"
+                              }
                             />
-                            <div className="checkbox-lables">Quadruplex</div>
+                            <div className="checkbox-lables">
+                              {t("Quadruplex")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -234,9 +324,13 @@ const SellerRevenueProperty = () => {
                               type="radio"
                               name="Quintuplex"
                               value="Quintuplex"
-                              checked={getpreferences?.buildingType === "Quintuplex"}
+                              checked={
+                                getpreferences?.buildingType === "Quintuplex"
+                              }
                             />
-                            <div className="checkbox-lables">Quintuplex</div>
+                            <div className="checkbox-lables">
+                              {t("Quintuplex")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -245,9 +339,13 @@ const SellerRevenueProperty = () => {
                               type="radio"
                               name="Other Plex"
                               value="Other Plex"
-                              checked={getpreferences?.buildingType === "Other Plex"}
+                              checked={
+                                getpreferences?.buildingType === "Other Plex"
+                              }
                             />
-                            <div className="checkbox-lables">Other Plex</div>
+                            <div className="checkbox-lables">
+                              {t("Other Plex")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -258,47 +356,41 @@ const SellerRevenueProperty = () => {
                               value="Other"
                               checked={getpreferences?.buildingType === "Other"}
                             />
-                            <div className="checkbox-lables">Other</div>
+                            <div className="checkbox-lables">{t("Other")}</div>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">
-                        How many units does your revenue property have?
-                      </h3>
+                      <h3 className="h3">{t("seller.revenue.Q3")}</h3>
                       <div className="property-select">
                         <div className="form-group">
                           <input
                             className="form-control"
                             type="number"
-                            placeholder="Add for Residential"
+                            placeholder={t("Add for Residential")}
                             value={getpreferences?.residentialUnit}
-
                             onChange={(e) => handleonChangeResidentialUnit(e)}
                           />
                           <input
                             className="form-control"
                             type="number"
-                            placeholder="Add for Commercial"
+                            placeholder={t("Add for Commercial")}
                             value={getpreferences?.commercialUnit}
                             onChange={(e) => handleonChangeCommercialUnit(e)}
                           />
                         </div>
                         <div className="total-units">
                           <strong>{calculateUnit()}</strong>
-                          <h4>Total Number Of Units</h4>
+                          <h4>{t("Total Number Of Units")}</h4>
                           {/* <h4>Total Number Of Units {calculateUnit()}</h4> */}
                         </div>
                       </div>
-                      <h3 className="h3">
-                        What is the average annual gross revenue generated?
-                      </h3>
+                      <h3 className="h3">{t("seller.revenue.Q4")}</h3>
                       <div className="form-group mtbottom">
                         <input
                           className="form-control"
                           type="number"
-                          placeholder="Avg Gross Revenue"
+                          placeholder={t("Avg Gross Revenue")}
                           value={getpreferences?.averageRevenue}
-
                           onChange={(e) => handleonChangeAverageRevenue(e)}
                         />
                       </div>

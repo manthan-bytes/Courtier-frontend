@@ -6,11 +6,12 @@ import bg_main from "../../../assets/images/bg-main.jpg";
 import { BUYER } from "../../../core/constants/routes";
 import { sendEmail } from "../../../service/login.service";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const BuyerInquiryOption = () => {
   const navigate = useNavigate();
   const [leadObj, setLeadObj] = useState<any>();
-
+  const { t } = useTranslation();
   const handleSubmitEvent = () => {
     switch (leadObj.propertyType) {
       case "single_family":
@@ -81,17 +82,17 @@ const BuyerInquiryOption = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                Would you like to continue to provide information digitally to receive a <span style={{color:'red'}}>free curated list of properties </span> in 24 hours, or continue with a real-estate agent?
+                {t('inquiry_1')} <span style={{color:'red'}}>{t('inquiry_2')} </span> {t('inquiry_3')}
                 </h2>
                 <form>
                   <div onClick={callFromAgent} className="theme_btn">
-                    GET CALL FROM AGENT
+                    {t('get_call_from_agent')}
                   </div>
                   <div
                     onClick={handleSubmitEvent}
                     className="theme_btn grdnt_btn"
                   >
-                    Go With Digital Evaluation
+                    {t('go_with_digital_evalution')}
                   </div>
                 </form>
               </div>

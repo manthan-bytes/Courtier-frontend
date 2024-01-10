@@ -1,0 +1,503 @@
+{
+  "SIMPLIFIED_REAL_ESTATE": "Simplified Real Estate",
+  "HOME1": "A digital way to",
+  "HOME2": "buying and selling property",
+  "I_AM_READY": "I’m Ready",
+  "MENU": "MENU",
+  "Install App": "Install App",
+  "FAQ": "FAQ - CourtierXpert.com",
+  "About Us": "About Us",
+  "T&C": "Terms & Conditions",
+  "contact_us": "Contact Us",
+  "Logout": "Logout",
+  "contact_us_info": "Provide your information",
+  "submit": "Submit",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "phoneNumber": "Contact Number",
+  "email": "Email",
+  "description": "Description",
+  "firstName_required": "First Name is required",
+  "lastName_required": "Last Name is required",
+  "email_required": "Email is required",
+  "phone_required": "Contact Number is required",
+  "description_required": "Description is required",
+  "buy_sell_property": "Are you looking to buy or sell property?",
+  "great": "Great",
+  "i_am_buyer": "I`m a Buyer",
+  "i_am_seller": "I`m a Seller",
+  "next": "Next",
+  "back": "Back",
+  "login_to_continue": "Login to Continue",
+  "continue_with_google": "Continue with Google",
+  "continue_as_guest": "Continue as Guest",
+  "typed_animated": "You are just a few clicks away from completing your journey!",
+  "provide_contact_info": "Please provide your contact information.",
+  "contact_info_1": "Login to receive your",
+  "contact_info_2": "FREE home evaluation",
+  "contact_info_3": "24hrs after completing your journey",
+  "contact_info_4": "CURATED list of properties",
+  "type_name": "Type Your Name",
+  "name_required": "Name is required",
+  "valid_contact_number": "Please enter valid contact number",
+  "T&C_1": "By submitting your demande , you agree to our",
+  "T&C_2": "Terms and Conditions",
+  "T&C_3": "and",
+  "T&C_4": "Privacy Policy",
+  "next_question": "Next Question",
+  "TERMS_CONDITIONS": "Please accept terms and conditions!",
+  "IMAGE_SIZE_LIMIT": "Please upload image less then 10MB!",
+  "IMAGE_LIMIT": "You have reached maximum image upload limit!",
+  "LOCATION": "Please select atlist one location!",
+  "INVALID_DATA": "Invalid data !",
+  "property_location_seller": "What location is your property located in?",
+  "property_location_buyer": "In what location(s) do you prefer buying your property?",
+  "add": "+ADD",
+  "select_city": "Select a City",
+  "select_boroughs": "Select a Borrough",
+  "property_type_seller": " What type of property are you wishing to sell?",
+  "property_type_buyer": " What type of property are you looking to purchase? ",
+  "condo": "Condo",
+  "revenue_property": "Revenue Property",
+  "commercial_or_industrial": "Commercial or Industrial",
+  "land_field": "Land / Field",
+  "single_family": "Single Family",
+  "inquiry_1": "Would you like to continue to provide information digitally to receive a",
+  "inquiry_2": "free curated list of properties",
+  "inquiry_3": "in 24 hours, or continue with a real-estate agent?",
+  "inquiry_4": "free digital property evaluation",
+  "get_call_from_agent": "GET CALL FROM AGENT",
+  "go_with_digital_evalution": "Go With Digital Evaluation",
+  "agent_call": "Great! An agent will call you shortly, see you soon!",
+  "Residential": "Residential",
+  "Commercial": "Commercial",
+  "Office": "Office",
+  "Warehouse": "Warehouse",
+  "Industrial": "Industrial",
+  "Agriculture": "Agriculture",
+  "Forestry": "Forestry",
+  "Business": "Business",
+  "Commercial & Office": "Commercial & Office",
+  "Commercial & Residential": "Commercial & Residential",
+  "Commercial & Industrial": "Commercial & Industrial",
+  "Industrial & Office": "Industrial & Office",
+  "Describe the business": "Describe the business ",
+  "Surface Area": "Surface Area",
+  "any_type": "Any Type",
+  "Duplex": "Duplex",
+  "Triplex": "Triplex",
+  "Quadruplex": "Quadruplex",
+  "Quintuplex": "Quintuplex",
+  "Other": "Other",
+  "prefer_not_to_say": "Prefer not to say",
+  "0-400k": "0-400k",
+  "400k-800k": "400k-800k",
+  "800k-1.2mil": "800k-1.2mil",
+  "1.2mil+": "1.2mil+",
+  "5%": "5%",
+  "10%": "10%",
+  "15%": "15%",
+  "20%+": "20%+",
+  "Don't Care": "Don't Care",
+  "One Floor": "One Floor",
+  "Many Floors": "Many Floors",
+  "Multiple Platforms": "Multiple Platforms",
+  "One floor and a half": "One floor and a half",
+  "Mobile House": "Mobile House",
+  "detached_home": "Detached Home",
+  "Single Home": "Single Home",
+  "paired": "Paired",
+  "in_a_row": "In a row",
+  "corner_in_a_row": "Corner, in a row",
+  "yes": "Yes",
+  "no": "No",
+  "300_600": "300-600 sqft",
+  "600_900": "600-900 sqft",
+  "900_1200": "900-1200 sqft",
+  "1200_plus": "1200+ sqft",
+  "Land": "Land",
+  "Field": "Field",
+  "ASAP": "ASAP",
+  "1 - 2 Months": "1 - 2 Months",
+  "2 - 6 Months": "2 - 6 Months",
+  "6+ Months": "6+ Months",
+  "NO, THANKS": "NO, THANKS",
+  "YES I WANT TO ADD": "YES I WANT TO ADD",
+  "AGENT_T1": "You will receive your curated list of properties within 24hrs and an Agent will call you shortly!",
+  "AGENT_T2": "Would you like to add another property type to your search?",
+  "AGENT_T3": "Would you like to add another property type that you may be selling?",
+  "AGENT_T4": "You will receive your free property evaluation within 24hrs by email and an agent will call you shortly!",
+  "Take Me to Home": "Take Me to Home",
+  "I need help TO SELL a property": "I need help TO SELL a property",
+  "I need help TO BUY a property": "I need help TO BUY a property",
+  "thanks_you": "Alright, this was quick and easy, see you again soon!",
+  "0 - 2000 sq ft": "0 - 2000 sq ft.",
+  "2000 - 5000 sq ft": "2000 - 5000 sq ft.",
+  "5000 - 10000 sq ft": "5000 - 10000 sq ft.",
+  "10000+ sq ft": "10000+ sq ft.",
+  "Avg Gross Revenue": "Avg Gross Revenue",
+  "Add for Residential": "Add for Residential",
+  "Add for Commercial": "Add for Commercial",
+  "Total Number Of Units": "Total Number Of Units",
+  "We would like to know more about your Property!": "We would like to know more about your Property!",
+  "Before 1960": "Before 1960",
+  "1960-2000": "1960-2000",
+  "2000-now": "2000-now",
+  "2,500 Square Feet": "2,500 Square Feet",
+  "2,500 - 5,000": "2,500 - 5,000 Square Feet",
+  "5,000 - 8,000": "5,000 - 8,000 Square Feet",
+  "8,000+": "8,000+",
+  "title_upload_images": "The more pictures you upload, the more precise our free evaluation will be!",
+  "please_choose_file": "Please choose file",
+  "continue": "Continue",
+  "chatBot":"Hey there! 👋 got questions about Quebec real-estate or CourtierXpert? Ask away!!",
+  "buyer": {
+    "revenue": {
+      "title": "What are your preferences regarding the revenue property you're looking for?",
+      "Q1": "What type of revenue property are you looking for?",
+      "Q2": "What type of building would you prefer? Please select one.",
+      "Q3": "What is your budget for your investment - this will help refine our search for you.",
+      "Q4": "What percentage do you plan on putting as a down payment? This will help analyze Return on Investment values for you."
+    },
+    "single_family": {
+      "title": "What are your preferences regarding the Home you`re looking for?",
+      "Q1": "Ok great! What's your home-type preference?",
+      "Q2": "What is your building type preference?",
+      "Q3": "How many bedrooms do you wish for? If you need an office, please count it as a bedroom.",
+      "Q4": "How many bathrooms would you wish for?",
+      "Q5": "Do you want a garage?",
+      "Q6": "Do you want a pool?",
+      "Q7": "What is your budget for the family home - this will help refine our search for you."
+    },
+    "condo": {
+      "title": "What are your preferences regarding the condo you're looking for?",
+      "Q1": "Ok great! What's your Condo Style preference?",
+      "Q2": "How much livable space would you prefer?",
+      "Q3": "How many bedrooms do you wish for? If you need an office, please count it as a bedroom.",
+      "Q4": "How many bathrooms would you wish for?",
+      "Q5": "Do you want a parking space?",
+      "Q6": "Do you want a pool?",
+      "Q7": "What's your budget for the condo? This will help refine our search for your curated list."
+    },
+    "commercial": {
+      "title": "What are your preferences regarding the Commercial or Industrial property you're looking for?",
+      "Q1": "Ok great! Is it a commercial, industrial project or a business you're looking to purchase?",
+      "Q2": "What is the property used for?",
+      "Q3": "Describe the business or businesses in the property",
+      "Q4": "What is your budget for your purchase - this will help refine our search for you."
+    },
+    "land": {
+      "title": "What are your search preferences regarding the land or field property you're looking for?",
+      "Q1": "Are you looking for Land with city services available ready to be developed, or a field with no city services?",
+      "Q2": "What city zonage do you hope for?",
+      "Q3": "What's the surface area that you need or hope for?",
+      "Q4": "What is your budget for your purchase - this will help refine our search for you."
+    },
+    "timeline": {
+      "title": "Whats your timeline for this purchase?"
+    }
+  },
+  "seller": {
+    "land": {
+      "title": "What are some characteristics of the Land or Field property you`re looking to sell?",
+      "Q1": "Is it Land with city services available or a Field with no city services? (Electrical, Sewers, roads)",
+      "Q2": "What is the city zonage you have?",
+      "Q3": "What`s the Surface area?",
+      "Q4": "What is your budget for your purchase - this will help refine our search for you."
+    },
+    "commercial": {
+      "title": "What are some characteristics of the Commercial/Industrial property you`re looking to sell?",
+      "Q1": "Ok great! Is it a commercial, industrial project or a business you're looking to sell?",
+      "Q2": "What is the property used for?",
+      "Q3": "Describe the business or businesses in the property",
+      "Q4": "What is the average annual gross revenue generated?"
+    },
+    "condo": {
+      "title": "What are some characteristics of the Condo property you're looking to sell?",
+      "Q1": "What's the condo style",
+      "Q2": "How much space does your condo have?",
+      "Q3": "How many bedrooms do you have?",
+      "Q4": "And, how many Bathrooms?",
+      "Q5": "Do you have a dedicated Parking Space?",
+      "Q6": "Do you have a pool?"
+    },
+    "timeline": {
+      "title": "When do you hope to get this property sold?"
+    },
+    "revenue": {
+      "title": "What are some characteristics of the Revenue property you're looking to sell?",
+      "Q1": "What is your property meant for?",
+      "Q2": "What type of Building is it?",
+      "Q3": "How many units does your revenue property have?",
+      "Q4": "What is the average annual gross revenue generated?"
+    },
+    "single_family": {
+      "title": "What are some characteristics of the Home property you're looking to sell? ",
+      "Q1": "What's your homes' style?",
+      "Q2": "What's your building type preference?",
+      "Q3": "Around what year was your home built in?",
+      "Q4": "How many bedrooms do you have?",
+      "Q5": "And, how many Bathrooms ?",
+      "Q6": "Do you have a Garage?",
+      "Q7": "Do you have a pool?",
+      "Q8": "Is it an intergeneration home?",
+      "Q9": "What is the approximate land area ?"
+    }
+  },
+
+  "terms": {
+    "title":"Terms and Conditions of Use - CourtierXpert.com",
+    "general": {
+      "title": "General",
+      "content": "Welcome to CourtierXpert.com. By using our website, you agree to these Terms and Conditions. Please read them carefully. If you do not agree, kindly refrain from using the website. We prioritize your privacy and security, and encourage you to manage your personal information responsibly."
+    },
+    "websiteModifications": {
+      "title": "Website Modifications",
+      "content": "We may occasionally update or modify our website to enhance your experience. We will do our best to minimize disruptions. Please understand that occasional internet-related interruptions are beyond our control, and we're not liable for any data loss during these times."
+    },
+    "userAgeRequirement": {
+      "title": "User Age Requirement",
+      "content": "Our services are designed for adults. If you are between 13 and 18 years old, you may use our website under parental or guardian supervision. We do not permit users under 13 years of age."
+    },
+    "changesToTerms": {
+      "title": "Changes to Terms",
+      "content": "We may update these terms to reflect changes in our services or legal requirements. We will notify you of significant changes and encourage you to review the updated terms. Continued use of our website after changes indicates your acceptance of the new terms."
+    },
+    "userConduct": {
+      "title": "User Conduct",
+      "content": "We expect all users to behave responsibly and legally on our website. Please do not engage in any activities that could harm others or disrupt the website's operation."
+    },
+    "disclaimerOfWarranties": {
+      "title": "Disclaimer of Warranties",
+      "content": "We strive to provide a seamless experience, but we can't guarantee that our website will always be error-free. We appreciate your understanding that some issues are beyond our control."
+    },
+    "limitationOfLiability": {
+      "title": "Limitation of Liability",
+      "content": "Our liability is limited to the fees you have paid for our services. We are not responsible for indirect or accidental damages arising from your use of our website."
+    },
+    "resolutionOfDisputes": {
+      "title": "Resolution of Disputes",
+      "content": "If you have a dispute, we encourage mediation or arbitration as a first step. For legal disputes, arbitration is the agreed method, except for small claims court cases."
+    },
+    "salesConditions": {
+      "title": "Sales Conditions",
+      "Services":"Services",
+      "services": "We connect you with professionals based on your service request. While we cannot guarantee a perfect match every time, we do our best to connect you with suitable professionals.",
+      "Information Disclosure":"Information Disclosure",
+      "informationDisclosure": "Your information is shared with professionals only to fulfill your service request. You agree to be contacted by CourtierXpert.com or our affiliated professionals for this purpose.",
+      "Personal Use":"Personal Use",
+      "personalUse": "Our services are intended for personal, non-commercial use.",
+      "Access Suspension":"Access Suspension",
+      "accessSuspension": "We reserve the right to suspend access to our website if necessary, to maintain the integrity and security of our services.",
+      "False Information":"False Information",
+      "falseInformation": "Please provide accurate information. False information that harms CourtierXpert.com may result in legal consequences.",
+      "Professional's Selection Criteria":"Professional's Selection Criteria",
+      "professionalsSelectionCriteria": "We select professionals based on criteria like insurance coverage and compliance with the civil code. However, we advise you to do your own due diligence before entering into any agreements."
+    }
+  },  
+  "faq":[
+    {
+      "question": "What is a Multiple Listing Service (MLS)?",
+      "answer":
+        "The MLS is a comprehensive database of property listings used by real estate brokers. It helps in efficiently marketing properties and sharing information with other brokers."
+    },
+    {
+      "question": "How does an online real estate brokerage work?",
+      "answer":
+        "An online real estate brokerage allows you to list, sell, or buy properties through a digital platform. It offers services like property valuation, listing on the MLS, marketing, and negotiation, all done virtually."
+    },
+    {
+      "question": "What are the benefits of using a virtual real estate broker?",
+      "answer":
+        "Virtual real estate brokers offer convenience, reduced costs, wider property exposure, and the flexibility of managing transactions remotely."
+    },
+    {
+      "question": "How do I determine the right selling price for my property?",
+      "answer":
+        "The right selling price is determined by evaluating various factors like market trends, property location, condition, and features. An experienced real estate broker or an appraisal service can provide a more accurate estimate."
+    },
+    {
+      "question": "What should I look for when buying a property?",
+      "answer":
+        "Consider the location, neighborhood, property condition, size, amenities, and future resale value. It's also crucial to review your budget and financing options."
+    },
+    {
+      "question": "What is the role of a notary in real estate transactions?",
+      "answer":
+        "A notary plays a crucial role in real estate transactions by verifying the legal documents, ensuring all parties understand the terms, and finalizing the transfer of property ownership."
+    },
+    {
+      "question": "How can I prepare my home for sale?",
+      "answer":
+        "To prepare your home for sale, consider decluttering, making necessary repairs, improving curb appeal, and possibly staging the home to attract potential buyers."
+    },
+    {
+      "question": "What are closing costs, and who pays for them?",
+      "answer":
+        "Closing costs are the expenses and fees associated with finalizing a real estate transaction. They can include title searches, taxes, notary fees, and more. Typically, both buyers and sellers have specific costs they are responsible for."
+    },
+    {
+      "question": "Can I buy a property without a real estate agent?",
+      "answer":
+        "Yes, it's possible to buy a property without a real estate agent, but having one can provide valuable expertise and guidance through the buying process."
+    },
+    {
+      "question": "What is a buyer’s broker, and how do they get paid?",
+      "answer":
+        "A buyer's broker represents the interests of the property buyer. They are typically paid through a commission split with the seller's broker or through fees agreed upon with the buyer."
+    },
+    {
+      "question": "How does the home evaluation process work on your website?",
+      "answer":
+        "Our online home evaluation process involves submitting details and photos of your property through our website. Our team then assesses this information to provide a comprehensive valuation, delivered to your email within 24 hours."
+    },
+    {
+      "question":
+        "Can I upload pictures of my property for a more accurate evaluation?",
+      "answer":
+        "Yes, our system allows you to upload pictures of your property, enabling us to provide a more precise and detailed valuation based on its unique features and condition."
+    },
+    {
+      "question":
+        "Is it possible to list my property on the MLS through your website?",
+      "answer":
+        "Absolutely! Once we agree on the sale price, we'll list your property on the MLS, ensuring it gets maximum exposure without the need for any physical effort on your part."
+    },
+    {
+      "question":
+        "What kind of support can I expect from your team during the selling process?",
+      "answer":
+        "We provide 7/7 guidance, meaning a team member is always available to answer your questions and offer Xpert advice throughout the entire selling process."
+    },
+    {
+      "question": "How do I control the sale of my property using your platform?",
+      "answer":
+        "Our platform is designed to give you full control over the sale, from setting the price to approving marketing strategies and negotiating with buyers, all supported by our Xpert guidance."
+    },
+    {
+      "question":
+        "If I choose the traditional brokerage option, how do you select the top brokers for me?",
+      "answer":
+        "We analyze your specific needs and property type, then use our expertise and local market knowledge to recommend the top three brokers in your area who have the most relevant experience."
+    },
+    {
+      "question":
+        "Is the buyer's broker service really free? How does that work?",
+      "answer":
+        "Yes, our buyer’s broker service is completely free. The buyer's broker is typically compensated through a commission split with the seller’s broker, meaning no cost is directly passed on to you."
+    },
+    {
+      "question":
+        "How effective is the AI chatbox in answering real estate queries?",
+      "answer":
+        "Our AI chatbox is professionally trained to answer a wide range of Quebec real estate questions with accuracy and speed. For more complex queries, our expert team is readily available to provide additional support."
+    },
+    {
+      "question": "What happens if my query is too complex for the AI chatbox?",
+      "answer":
+        "If the AI chatbox cannot fully answer your question, our team is available 7 days a week to provide personalized assistance and ensure all your queries are satisfactorily addressed."
+    },
+    {
+      "question":
+        "How does your platform save me time and money in the real estate process?",
+      "answer":
+        "By providing online evaluations, virtual listing services, and AI-assisted customer support, our platform eliminates the need for physical meetings and streamlines the process, saving you both time and expenses associated with traditional real estate transactions."
+    },
+    {
+      "question":
+        "What steps do I need to follow to list my property using your online service?",
+      "answer":
+        "Listing your property is a simple process. First, complete our online valuation request with details and photos of your property. Then, after receiving your valuation, you can choose to list your property on our platform. We'll guide you through each step, ensuring a smooth experience."
+    },
+    {
+      "question":
+        "How do you ensure the accuracy of online property evaluations?",
+      "answer":
+        "Our evaluations are conducted by experienced professionals who use the latest market data and the specific details and photos you provide of your property to ensure a precise and reliable valuation."
+    },
+    {
+      "question":
+        "Can I negotiate the sale price with potential buyers through your platform?",
+      "answer":
+        "Yes, our platform facilitates communication and negotiation with potential buyers, allowing you to discuss and agree on the sale price directly, with our team available for guidance and support."
+    },
+    {
+      "question":
+        "What kind of advertising do you provide for listed properties?",
+      "answer":
+        "We offer a range of advertising services including listing your property on the MLS, digital marketing across various platforms, and targeted outreach to potential buyers, ensuring your property receives optimal exposure."
+    },
+    {
+      "question":
+        "How does your team support the selling process from listing to closing?",
+      "answer":
+        "Our team supports you throughout the entire process, from helping set the right listing price, marketing your property, arranging and managing viewings, negotiating with buyers, to assisting with the final paperwork and closing procedures."
+    },
+    {
+      "question":
+        "Are there any hidden fees or charges in using your online brokerage service?",
+      "answer":
+        "Transparency is key to our service. There are no hidden fees or charges. Any costs will be clearly outlined and discussed with you before any service is provided."
+    },
+    {
+      "question":
+        "What makes your AI chatbox different from other real estate assistance tools?",
+      "answer":
+        "Our AI chatbox is specifically trained with a focus on Quebec real estate, making it highly knowledgeable and efficient in answering region-specific queries, backed up by our team for more complex questions."
+    },
+    {
+      "question":
+        "How do I access the free buyers broker service on your website?",
+      "answer":
+        "To access this service, simply fill out a request form on our website. Our team will then connect you with a professional buyer’s broker who specializes in your area of interest at no cost to you."
+    },
+    {
+      "question":
+        "In what ways does your platform make the real estate process more client-controlled?",
+      "answer":
+        "Our platform empowers you with tools and information to make informed decisions. From valuations to listings and negotiations, you control every aspect of the process, supported by our expertise only when you need it."
+    },
+    {
+      "question":
+        "Can I use your service for different types of properties, like commercial or multi-unit residential buildings?",
+      "answer":
+        "Yes, our platform and services cater to a wide range of property types, including residential homes, condos, multi-unit buildings, and commercial properties."
+    }
+  ],
+
+  "about":{
+    "about_1": "About us",
+    "about_2": "CourtierXpert",
+    "about_3": " - Revolutionizing Your Real Estate Experience",
+    "about_4": "Welcome to CourtierXpert, where we are dedicated to simplifying and enhancing your real estate journey. Our platform is a unique blend of technology, expertise, and client-focused services, designed to facilitate the way you buy and sell properties.",
+    "about_5": "Our Mission",
+    "about_6" : "To provide a seamless, efficient, and empowering real estate experience to our clients, whether they are buying, selling, or just exploring their options in the property market.",
+    "about_7" : "Our Services",
+    "about_8": "Virtual Real Estate Brokerage:",
+    "about_9": "Experience hassle-free home evaluations within 24 hours, directly in your inbox, eliminating the need for time-consuming meetings with brokers. Our innovative system allows you to upload pictures of your property, ensuring precise and accurate valuations.",
+    "about_10": "Our virtual brokerage service revolutionizes the real estate market by offering a seamless and efficient way to list and sell properties. With our platform, you can list your property on the MLS (Multiple Listing Service), ensuring it receives maximum exposure to potential buyers. The entire process, from listing to finalizing the sale with a notary, is conducted online and over the phone, offering unparalleled convenience.",
+    "about_11": "Key Benefits",
+    "about_12": "100% Control Over the Transaction:",
+    "about_13": "You have complete autonomy in managing the sale of your property, from setting the price to choosing the notary, ensuring that your needs and preferences are always at the forefront.",
+    "about_14": "No Physical Meetings Required:",
+    "about_15": "Eliminate the need for in-person meetings, making the process more efficient and flexible for your schedule. Everything can be managed digitally and through phone communication.",
+    "about_16": "Comprehensive Listing and Marketing Services:",
+    "about_17": "Once you set your sale price, we handle everything from MLS listing to advertising, viewings, and negotiations, all without you needing to leave your home.",
+    "about_18": "Time and Cost Efficiency:",
+    "about_19": "Our virtual approach significantly reduces the time and expenses typically associated with selling a property. This streamlined process translates into faster sales and more savings for you.",
+    "about_20": "CourtierXpert Guidance:",
+    "about_21": "Even though the process is online, Xpert guidance is available at every step, ensuring a smooth and successful transaction all the way to the notary.",
+    "about_22": "Our online brokerage is designed to simplify your real estate experience, making it more accessible, efficient, and user-friendly, without compromising on professionalism or exposure.",
+    "about_23": "Client Empowerment:",
+    "about_24": "With 7/7 guidance from our dedicated team, you maintain 100% control over the sale of your property, supported by Xpert advice at every step.",
+    "about_25": "Traditional Brokerage Options:",
+    "about_26": "Unsure which broker to choose? We provide a selection of the top three brokers in your area, tailored to your specific needs, whether it's for a home, condo, plex, or commercial property.",
+    "about_27": "Free Buyers Broker Service:",
+    "about_28": "Many buyers aren’t aware that a buyer’s broker service is available at no cost. We offer this service to ensure you enjoy professional support with no obligation or expense.",
+    "about_29": "Advanced AI Chatbox:",
+    "about_30": "Our website features an AI chatbox, trained to answer Quebec real estate questions instantly. For queries beyond its scope, our team is available 7/7 to provide personalized support.",
+    "about_31": "Why Choose Us?",
+    "about_32": "Our online platform is more than just a brokerage service; it's a comprehensive real estate solution. Save time and money while enjoying control over your real estate transactions. With CourtierXpert, you have a reliable, innovative, and efficient partner in your real estate endeavors.",
+    "about_33" : "Join us at CourtierXpert and experience the future of real estate – streamlined, personalized, and entirely in your control."
+}
+}

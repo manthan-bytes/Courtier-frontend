@@ -8,9 +8,11 @@ import { BUYER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { sendEmail } from "../../../service/login.service";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const BuyerTimeLine = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getpropertyPurchaseTime, setpropertyPurchaseTime] = useState<any>();
   // banner slide animation js
@@ -24,6 +26,7 @@ const BuyerTimeLine = () => {
     if (element) {
       element.classList.add("loader-btn");
     }
+    
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
     leadDataObj['propertyPurchaseTime'] = getpropertyPurchaseTime;
@@ -111,7 +114,7 @@ const BuyerTimeLine = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                Whats your timeline for this purchase?
+                {t("buyer.timeline.title")}
                 </h2>
                 <form>
                   <ul className="property-select" onChange={(e) => handleOnChange(e)}>
@@ -119,42 +122,42 @@ const BuyerTimeLine = () => {
                       <label className="custom-checkbox-btn">
                         <input type="radio" name="layout" value="ASAP" checked={getpropertyPurchaseTime === "ASAP"}/>
 
-                        <div className="checkbox-lables">ASAP</div>
+                        <div className="checkbox-lables">{t("ASAP")}</div>
                       </label>
                     </li>
                     <li>
                       <label className="custom-checkbox-btn">
                         <input type="radio" name="layout" value="1 - 2 Months" checked={getpropertyPurchaseTime === "1 - 2 Months"}/>
 
-                        <div className="checkbox-lables">1 - 2 Months</div>
+                        <div className="checkbox-lables">{t("1 - 2 Months")}</div>
                       </label>
                     </li>
                     <li>
                       <label className="custom-checkbox-btn">
                         <input type="radio" name="layout" value="2 - 6 Months" checked={getpropertyPurchaseTime === "2 - 6 Months"}/>
 
-                        <div className="checkbox-lables">2 - 6 Months</div>
+                        <div className="checkbox-lables">{t("2 - 6 Months")}</div>
                       </label>
                     </li>
                     <li>
                       <label className="custom-checkbox-btn">
                         <input type="radio" name="layout" value="6+ Months" checked={getpropertyPurchaseTime === "6+ Months"}/>
 
-                        <div className="checkbox-lables">6+ Months</div>
+                        <div className="checkbox-lables">{t("6+ Months")}</div>
                       </label>
                     </li>
                   </ul>
                   <div onClick={handleBackClick}
                     className="theme_btn"
                   > 
-                    {TEXT.back}
+                    {t("back")}
                   </div>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
                    <span>
-                    {TEXT.next_question}
+                    {t("next_question")}
                    </span>
                   </div>
                 </form>

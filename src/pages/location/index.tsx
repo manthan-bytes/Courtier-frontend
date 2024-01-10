@@ -12,9 +12,11 @@ import { ToastContainer, toast } from "react-toastify";
 import { LOCATION } from "../../core/constants/toast-message";
 import { NEWCITIES } from "../../core/constants/listOfCities";
 import { TEXT } from "../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const Location = () => {
   const boroughs: any = [];
+  const { t } = useTranslation();
 
   const options: any = CITIES;
 
@@ -178,11 +180,11 @@ const Location = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 {leadObj && leadObj.leadType === "seller" && (
-                  <h2 className="h2">📍{TEXT.property_location_seller}</h2>
+                  <h2 className="h2">📍{t('property_location_seller')}</h2>
                 )}
 
                 {leadObj && leadObj.leadType === "buyer" && (
-                  <h2 className="h2">📍{TEXT.property_location_buyer}</h2>
+                  <h2 className="h2">📍{t('property_location_buyer')}</h2>
                 )}
 
                 <form>
@@ -193,7 +195,7 @@ const Location = () => {
                         <Select
                           className="select-main-wrap"
                           name="location"
-                          placeholder="Select a City"
+                          placeholder={t('select_city')}
                           options={options}
                           onChange={(e) => handleOnChangeLocation(e, index)}
                           onMenuOpen={handleMenuOpen}
@@ -202,7 +204,7 @@ const Location = () => {
                         <Select
                           className="select-main-wrap"
                           name="boroughs"
-                          placeholder="Select a Borrough"
+                          placeholder={t('select_boroughs')}
                           options={getBoroughs}
                           onChange={(e) => handleOnChangeBoroughs(e, index)}
                         />
@@ -212,7 +214,7 @@ const Location = () => {
                               onClick={handleAddDropdown}
                               className="addclose-icon"
                             >
-                              <span className="text-add">{TEXT.add}</span>
+                              <span className="text-add">{t('add')}</span>
                             </div>
                           )}
                         {locationOptions.length > 1 && (
@@ -243,14 +245,14 @@ const Location = () => {
                     </span>
                   </div>
                   <div onClick={handleBackClick} className="theme_btn">
-                    {TEXT.back}
+                    {t('back')}
                   </div>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                    <span>{TEXT.next_question}</span>
+                    <span>{t('next_question')}</span>
                   </div>
                 </form>
               </div>

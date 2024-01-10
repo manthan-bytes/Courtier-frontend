@@ -7,8 +7,10 @@ import { TEXT } from "../../../core/constants/headingText";
 import { toast } from "react-toastify";
 import { sendEmail } from "../../../service/login.service";
 import { SELLER } from "../../../core/constants/routes";
+import { useTranslation } from "react-i18next";
 const SellerInquiryOption = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const callFromAgent = async () => {
     const email = localStorage.getItem("email");
@@ -62,17 +64,17 @@ const SellerInquiryOption = () => {
               <div className="form-step-contect">
                 <h2 className="h2">
                   {/* {TEXT.sell_inquiry_options} */}
-                  Would you like to continue to provide information digitally to receive a <span style={{color:'red'}}>free digital property evaluation</span> in 24 hours, or continue with a real-estate agent?
+                  {t("inquiry_1")} <span style={{color:'red'}}>{t("inquiry_4")}</span> {t("inquiry_3")}
                 </h2>
                 <form>
                   <div onClick={callFromAgent} className="theme_btn">
-                    {TEXT.call_from_agent}
+                    {t("call_from_agent")}
                   </div>
                   <Link
                     to="/seller/uploadimage"
                     className="theme_btn grdnt_btn"
                   >
-                    {TEXT.digital_evaluation}
+                    {t("go_with_digital_evalution")}
                   </Link>
                 </form>
               </div>

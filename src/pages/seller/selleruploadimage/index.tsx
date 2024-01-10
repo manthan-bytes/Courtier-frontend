@@ -17,8 +17,10 @@ import {
   IMAGE_LIMIT,
   IMAGE_SIZE_LIMIT,
 } from "../../../core/constants/toast-message";
+import { useTranslation } from "react-i18next";
 const SellerUploadImage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getFiles, setFiles] = useState<any>();
   const [getImagePath, setImagePath] = useState<any>();
@@ -157,7 +159,7 @@ const SellerUploadImage = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
-                <h2 className="h2">{TEXT.sell_upload_tital}</h2>
+                <h2 className="h2">{t("title_upload_images")}</h2>
                 <form>
                   <div className="form-inner-block">
                     <div className="file-upload-wrap">
@@ -214,7 +216,7 @@ const SellerUploadImage = () => {
                         </div>
 
                         <span className="error-msg">
-                          {TEXT.please_choose_file}
+                          {t("please_choose_file")}
                         </span>
                       </label>
                     </div>
@@ -224,7 +226,7 @@ const SellerUploadImage = () => {
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                    <span> {TEXT.continue}</span>
+                    <span> {t("continue")}</span>
                   </div>
                 </form>
               </div>

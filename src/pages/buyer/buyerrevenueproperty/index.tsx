@@ -8,10 +8,11 @@ import { updateLead } from "../../../service/lead.service";
 import { BUYER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const BuyerRevenueProperty = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
   // banner slide animation js
@@ -103,14 +104,14 @@ const BuyerRevenueProperty = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">
-                  What are your preferences regarding the revenue property you're looking for?
+                  {t('buyer.revenue.title')}
                   </h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
                     <span>
-                      {TEXT.submit}
+                      {t('submit')}
                     </span>
                   </div>
                 </div>
@@ -119,51 +120,52 @@ const BuyerRevenueProperty = () => {
                   <div className="form-inner-block">
                     <div className="form-left-content">
                       <h3 className="h3">
-                      What type of revenue property are you looking for?
+                      {t('buyer.revenue.Q1')}
+
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeTenantsType(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Any Type For tenants" value="Any Type" checked={getpreferences?.tenantsType === "Any Type"}/>
-                            <div className="checkbox-lables">Any Type</div>
+                            <div className="checkbox-lables">{t('buyer.revenue.any_type')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Residential  For tenants" value="Residential" checked={getpreferences?.tenantsType === "Residential"}/>
-                            <div className="checkbox-lables">Residential</div>
+                            <div className="checkbox-lables">{t('Residential')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Commercial  For tenants" value="Commercial" checked={getpreferences?.tenantsType === "Commercial"}/>
-                            <div className="checkbox-lables">Commercial</div>
+                            <div className="checkbox-lables">{t('Commercial')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Office  For tenants" value="Office" checked={getpreferences?.tenantsType === "Office"}/>
-                            <div className="checkbox-lables">Office</div>
+                            <div className="checkbox-lables">{t('Office')}</div>
                           </label>
                         </li>
 
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Warehouse  For tenants" value="Warehouse" checked={getpreferences?.tenantsType === "Warehouse"}/>
-                            <div className="checkbox-lables">Warehouse</div>
+                            <div className="checkbox-lables">{t('Warehouse')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Industrial  For tenants" value="Industrial" checked={getpreferences?.tenantsType === "Industrial"}/>
-                            <div className="checkbox-lables">Industrial</div>
+                            <div className="checkbox-lables">{t('Industrial')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Commercial & Office" value="Commercial & Office" checked={getpreferences?.tenantsType === "Commercial & Office"}/>
                             <div className="checkbox-lables">
-                              Commercial & Office
+                              {t('Commercial & Office')}
                             </div>
                           </label>
                         </li>
@@ -171,14 +173,13 @@ const BuyerRevenueProperty = () => {
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Commercial & Residential" value="Commercial & Residential" checked={getpreferences?.tenantsType === "Commercial & Residential"}/>
                             <div className="checkbox-lables">
-                              Commercial & Residential
+                              {('Commercial & Residential')}
                             </div>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">
-                        What type of building would you prefer? Please select
-                        one.
+                      {t('buyer.revenue.Q2')}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeBuildingType(e)}>
                         
@@ -190,7 +191,7 @@ const BuyerRevenueProperty = () => {
                               value="Any Type"
                               checked={getpreferences?.buildingType === "Any Type"}
                             />
-                            <div className="checkbox-lables">Any Type</div>
+                            <div className="checkbox-lables">{t('any_type')}</div>
                           </label>
                         </li>
                         <li>
@@ -201,7 +202,7 @@ const BuyerRevenueProperty = () => {
                               value="Duplex"
                               checked={getpreferences?.buildingType === "Duplex"}
                             />
-                            <div className="checkbox-lables">Duplex</div>
+                            <div className="checkbox-lables">{t('Duplex')}</div>
                           </label>
                         </li>
                         <li>
@@ -212,7 +213,7 @@ const BuyerRevenueProperty = () => {
                               value="Triplex"
                               checked={getpreferences?.buildingType === "Triplex"}
                             />
-                            <div className="checkbox-lables">Triplex</div>
+                            <div className="checkbox-lables">{t('Triplex')}</div>
                           </label>
                         </li>
                         <li>
@@ -223,7 +224,7 @@ const BuyerRevenueProperty = () => {
                               value="Quadruplex"
                               checked={getpreferences?.buildingType === "Quadruplex"}
                             />
-                            <div className="checkbox-lables">Quadruplex</div>
+                            <div className="checkbox-lables">{t('Quadruplex')}</div>
                           </label>
                         </li>
                         <li>
@@ -234,7 +235,7 @@ const BuyerRevenueProperty = () => {
                               value="Quintuplex"
                               checked={getpreferences?.buildingType === "Quintuplex"}
                             />
-                            <div className="checkbox-lables">Quintuplex</div>
+                            <div className="checkbox-lables">{t('Quintuplex')}</div>
                           </label>
                         </li>
                         <li>
@@ -245,13 +246,12 @@ const BuyerRevenueProperty = () => {
                               value="Other"
                               checked={getpreferences?.buildingType === "Other"}
                             />
-                            <div className="checkbox-lables">Other</div>
+                            <div className="checkbox-lables">{t('Other')}</div>
                           </label>
                         </li>
                         </ul>
                         <h3 className="h3">
-                          What is your budget for your investment - this will
-                          help refine our search for you.
+                        {t('buyer.revenue.Q3')}
                         </h3>
                         <ul className="property-select" onChange={(e) => handleonChangeInvestment(e)}>
                           <li>
@@ -264,7 +264,7 @@ const BuyerRevenueProperty = () => {
                               />
                               <div className="checkbox-lables">
                                 {" "}
-                                Prefer not to say
+                                {t('prefer_not_to_say')}
                               </div>
                             </label>
                           </li>
@@ -276,7 +276,7 @@ const BuyerRevenueProperty = () => {
                                 value="0-400k"
                                 checked={getpreferences?.investment === "0-400k"}
                               />
-                              <div className="checkbox-lables">0-400k</div>
+                              <div className="checkbox-lables">{t('0-400k')}</div>
                             </label>
                           </li>
                           <li>
@@ -287,7 +287,7 @@ const BuyerRevenueProperty = () => {
                                 value="400k-800k"
                                 checked={getpreferences?.investment === "400k-800k"}
                               />
-                              <div className="checkbox-lables">400k-800k</div>
+                              <div className="checkbox-lables">{t('400k-800k')}</div>
                             </label>
                           </li>
                           <li>
@@ -298,7 +298,7 @@ const BuyerRevenueProperty = () => {
                                 value="800k-1.2mil"
                                 checked={getpreferences?.investment === "800k-1.2mil"}
                               />
-                              <div className="checkbox-lables">800k-1.2mil</div>
+                              <div className="checkbox-lables">{t('800k-1.2mil')}</div>
                             </label>
                           </li>
                           <li>
@@ -309,15 +309,13 @@ const BuyerRevenueProperty = () => {
                                 value="1.2mil+"
                                 checked={getpreferences?.investment === "1.2mil+"}
                               />
-                              <div className="checkbox-lables">1.2mil+</div>
+                              <div className="checkbox-lables">{t('1.2mil+')}</div>
                             </label>
                           </li>
                           
                         </ul>
                       <h3 className="h3">
-                        What percentage do you plan on putting as a down
-                        payment? This will help analyze Return on Investment
-                        values for you.
+                      {t('buyer.revenue.Q4')}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeDownPayment(e)}>
                         <li>
@@ -329,7 +327,7 @@ const BuyerRevenueProperty = () => {
                               checked={getpreferences?.downPayment === "Prefer not to say1"}
                             />
                             <div className="checkbox-lables">
-                              Prefer not to say
+                            {t('prefer_not_to_say')}
                             </div>
                           </label>
                         </li>
@@ -341,7 +339,7 @@ const BuyerRevenueProperty = () => {
                               value="5%"
                               checked={getpreferences?.downPayment === "5%"}
                             />
-                            <div className="checkbox-lables">5%</div>
+                            <div className="checkbox-lables">{t('5%')}</div>
                           </label>
                         </li>
                         <li>
@@ -352,7 +350,7 @@ const BuyerRevenueProperty = () => {
                               value="10%"
                               checked={getpreferences?.downPayment === "10%"}
                             />
-                            <div className="checkbox-lables">10%</div>
+                            <div className="checkbox-lables">{t('10%')}</div>
                           </label>
                         </li>
                         <li>
@@ -363,7 +361,7 @@ const BuyerRevenueProperty = () => {
                               value="15%"
                               checked={getpreferences?.downPayment === "15%"}
                             />
-                            <div className="checkbox-lables">15%</div>
+                            <div className="checkbox-lables">{t('15%')}</div>
                           </label>
                         </li>
                         <li>
@@ -374,7 +372,7 @@ const BuyerRevenueProperty = () => {
                               value="20%+"
                               checked={getpreferences?.downPayment === "20%+"}
                             />
-                            <div className="checkbox-lables">20%+</div>
+                            <div className="checkbox-lables">{t('20%+')}</div>
                           </label>
                         </li>
                       </ul>

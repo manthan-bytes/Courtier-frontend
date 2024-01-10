@@ -76,3 +76,18 @@ export async function createUser(payload:any) {
       throw e;
     }
   }
+
+  export async function contactInfo(payload:any) {
+    try {
+      const response = await axios.post(`user/contactInfo`, payload);
+      if (response && response.status === 201) {
+        return response.data;
+      } else {
+        throw response;
+      }
+    } catch (e) {
+    console.log("🚀 ~ file: login.service.tsx:89 ~ contactInfo ~ e:", e)
+    //   console.log(e?.response?.data?.error || "Something went wrong!");
+      throw e;
+    }
+  }

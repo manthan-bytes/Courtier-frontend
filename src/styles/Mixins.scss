@@ -283,6 +283,7 @@
         background-size: 300% 100%;
         transition: all .3s ease-in-out;
         position: relative;
+        flex: 0 0 24px;
         svg {
             position: absolute;
             z-index: 9;

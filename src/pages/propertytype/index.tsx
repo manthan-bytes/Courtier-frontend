@@ -16,9 +16,11 @@ import { createLead } from "../../service/lead.service";
 import { toast } from "react-toastify";
 import { INVALID_DATA } from "../../core/constants/toast-message";
 import { TEXT } from "../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const PropertyType = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getPropertyType, setPropertyType] = useState<string>();
   // banner slide animation js
@@ -193,12 +195,12 @@ const PropertyType = () => {
                 </h2>
                 {
                 leadObj && leadObj.leadType === "seller" &&
-                  <h2 className="h2">{TEXT.property_type_seller}</h2>    
+                  <h2 className="h2">{t('property_type_seller')}</h2>    
               }
 
 {
                 leadObj && leadObj.leadType === "buyer" &&
-                  <h2 className="h2">{TEXT.property_type_buyer}</h2>    
+                  <h2 className="h2">{t('property_type_buyer')}</h2>    
               }
                 <form>
                   <div className="form-inner-block">
@@ -214,7 +216,7 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Familyicon />
                         </span>
-                        Single Family
+                        {t('single_family')}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -229,7 +231,7 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Condoicon />
                         </span>
-                        {TEXT.condo}
+                        {t('condo')}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -244,7 +246,7 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Propertyicon />
                         </span>
-                        {TEXT.revenue_property}
+                        {t('revenue_property')}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -263,7 +265,7 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Industrialicon />
                         </span>
-                        {TEXT.commercial_or_industrial}
+                        {t('commercial_or_industrial')}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -277,12 +279,12 @@ const PropertyType = () => {
                         <span className="svg-icon">
                           <Landfieldicon />
                         </span>
-                        {TEXT.land_field}
+                        {t('land_field')}
                       </div>
                     </label>
                   </div>
                   <div onClick={handleBackClick} className="theme_btn">
-                    {TEXT.back}
+                    {t('back')}
                   </div>
                   <div
                     onClick={handleSubmitClick}
@@ -290,7 +292,7 @@ const PropertyType = () => {
                     id="submit"
                   >
                     <span>
-                   {TEXT.next_question}
+                   {t('next_question')}
                    </span>
                   </div>
                 </form>

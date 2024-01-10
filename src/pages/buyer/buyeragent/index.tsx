@@ -4,9 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import "./buyeragent.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { BUYER, ROUTES } from "../../../core/constants/routes";
+import { useTranslation } from "react-i18next";
 
 const BuyerAgent = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
 
   const handleSubmitClick = async () => {
@@ -52,20 +54,20 @@ const BuyerAgent = () => {
             <div className="custom-row">
               <div className="form-step-contect">
               <h2 className="h2">
-                  You will receive your curated list of properties within 24hrs and an Agent will call you shortly!                </h2>
+                  {t("AGENT_T1")}</h2>
                 <h2 className="h2">
-                Would you like to add another property type to your search?	
+                {t("AGENT_T2")}
                 </h2>
                 {/* <p className="sub-tilte">if you found this journey cool - make sure to share and talk about it with your friends!</p> */}
                 <form>
                   <div onClick={handleSubmitHomeClick} className="theme_btn">
-                    NO, THANKS
+                    {t("NO, THANKS")}
                   </div>
                   <div onClick={handleSubmitClick}
                     
                     className="theme_btn grdnt_btn"
                   >
-                    YES I WANT TO ADD
+                    {t("YES I WANT TO ADD")}
                   </div>
                 </form>
               </div>

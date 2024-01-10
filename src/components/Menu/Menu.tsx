@@ -7,17 +7,14 @@ const isActive = ({ isActive }: any) => `link ${isActive ? 'active' : ''}`
 export const Menu = () => {
 
     const { i18n, t } = useTranslation()
-
-    const onChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const lang_code = e.target.value
-        console.log(i18n)
-        i18n.changeLanguage(lang_code)
-
-    }
+    const changeLanguage = (lng:any) => {
+        console.log("🚀 ~ file: Menu.tsx:19 ~ changeLanguage ~ lng:", lng)
+        i18n.changeLanguage(lng);
+      };
 
     return (
         <nav>
-            <select defaultValue={i18n.language} onChange={onChangeLang}  >
+            <select defaultValue={i18n.language} onChange={(e) => changeLanguage(e.target.value)}  >
                 {
                     LANGUAGES.map(({ code, label }) => (
                         <option

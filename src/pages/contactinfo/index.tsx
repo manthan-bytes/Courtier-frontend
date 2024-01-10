@@ -9,10 +9,14 @@ import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
 import { ToastContainer, toast } from "react-toastify";
 import { INVALID_DATA, TERMS_CONDITIONS } from "../../core/constants/toast-message";
 import { TEXT } from "../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
+import { RightIcon } from "../../core/icons";
 
 const ContactInfo = () => {
   const navigate = useNavigate();
   // banner slide animation js
+  const { t } = useTranslation();
+
   const [newClass, setNewClass] = useState(false);
   const email = localStorage.getItem("email");
   const [userData, setUserData] = useState<any>();
@@ -55,13 +59,13 @@ const ContactInfo = () => {
       }
     }
     else if(!userData?.isUserAgree){
-      toast.error(TERMS_CONDITIONS, {
+      toast.error( t('TERMS_CONDITIONS'), {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");
     }
      else {
-      toast.error(INVALID_DATA, {
+      toast.error(t('INVALID_DATA'), {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");
@@ -104,18 +108,18 @@ const ContactInfo = () => {
         <div className="container">
           <div className="custom-row">
             <div className="form-step-contect">
-              <h2 className="h2">{TEXT.provide_contact_info}</h2>
+              <h2 className="h2">{t('provide_contact_info')}</h2>
               {leadObj && leadObj.leadType === "seller" && (
                 <p className="sub-tilte">
-                  Login to receive your <span>FREE home evaluation </span>
-                  24hrs after completing your journey
+                  {t('contact_info_1')} <span>{t('contact_info_2')} </span>
+                  {t('contact_info_3')}
                 </p>
               )}
 
               {leadObj && leadObj.leadType === "buyer" && (
                 <p className="sub-tilte">
-                  Login to receive your <span>CURATED list of properties </span>
-                  24hrs after completing your journey
+                  {t('contact_info_1')} <span>{t('contact_info_4')} </span>
+                  {t('contact_info_3')}
                 </p>
               )}
 
@@ -126,7 +130,7 @@ const ContactInfo = () => {
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Type Your Name"
+                        placeholder={t('type_name')}
                         name="Your Name"
                         value={userData?.name}
                         onChange={(e) =>
@@ -134,14 +138,14 @@ const ContactInfo = () => {
                         }
                       />
                       {!userData?.name && isSubmitted && (
-                        <span className="error-msg">Name is required</span>
+                        <span className="error-msg">{t('name_required')}</span>
                       )}
                     </div>
                     <div className="form-group">
                       <input
                         className="form-control"
                         type="number"
-                        placeholder="Enter Your Contact Number"
+                        placeholder={t('phoneNumber')}
                         name="Contact No"
                         value={userData?.phone}
                         onChange={(e) =>
@@ -150,14 +154,14 @@ const ContactInfo = () => {
                       />
                       {!userData?.phone && isSubmitted && (
                         <span className="error-msg">
-                          Contact Number is required
+                          {t('phone_required')}
                         </span>
                       )}
                       {userData?.phone &&
                         userData?.phone?.length != 10 &&
                         isSubmitted && (
                           <span className="error-msg">
-                            Please enter valid contact number
+                            {t('valid_contact_number')}
                           </span>
                         )}
                     </div>
@@ -165,7 +169,7 @@ const ContactInfo = () => {
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Enter Your Email"
+                        placeholder={t('email')}
                         name="Email"
                         disabled={localStorage.getItem("loginasGuest") ? false : true}
                         value={userData?.email}
@@ -175,12 +179,31 @@ const ContactInfo = () => {
                       />
                       {!userData?.email && isSubmitted && (
                         <span className="error-msg">
-                          Email is required
+                          {t('email_required')}
                         </span>
                       )}
                     </div>
                     <div style={{ display: "flex" }} className="form-group">
-                      <input
+
+                    <label className="custom-checkbox">
+                            <input
+                              type="checkbox"
+                              name="Terms and Conditions"
+                        value={userData?.isUserAgree}
+                        onChange={(e) =>
+                          setUserData({ ...userData, isUserAgree: e.target.checked })
+                        }
+                            />
+                            <div className="checkbox-lable">
+                              <RightIcon />
+                            </div>
+                            <span>
+                      {t('T&C_1')}
+                      <Link to={{ pathname: ROUTES.TERMS_CONDITIONS}}> {t('T&C_2')} </Link>
+                       {t('T&C_3')}
+                      <Link to={{ pathname: ROUTES.PRIVATE_POLICY}}> {t('T&C_4')}</Link>
+                      </span>                          </label>
+                      {/* <input
                         className="form-control-checkbox"
                         type="checkbox"
                         name="Terms and Conditions"
@@ -188,25 +211,20 @@ const ContactInfo = () => {
                         onChange={(e) =>
                           setUserData({ ...userData, isUserAgree: e.target.checked })
                         }
-                      />
-                      <span>
-                      By submitting your demande , you agree to our
-                      <Link to={{ pathname: ROUTES.TERMS_CONDITIONS}}> Terms and Conditions </Link>
-                       and
-                      <Link to={{ pathname: ROUTES.PRIVATE_POLICY}}> Privacy Policy</Link>
-                      </span>
+                      /> */}
+                     
                     </div>
                   </div>
                 </div>
                 <div onClick={handleBackEvent} className="theme_btn">
-                  {TEXT.back}
+                  {t('back')}
                 </div>
                 <div
                   onClick={handleSubmitEvent}
                   className="theme_btn grdnt_btn"
                   id="submit"
                 >
-                  <span>{TEXT.next_question}</span>
+                  <span>{t('next_question')}</span>
                 </div>
               </form>
             </div>

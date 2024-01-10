@@ -8,9 +8,11 @@ import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
 import { sendEmail } from "../../../service/login.service";
+import { useTranslation } from "react-i18next";
 
 const SellerPropertySold = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getpropertySaleTime, setpropertySaleTime] = useState<any>();
   // banner slide animation js
@@ -119,7 +121,7 @@ const SellerPropertySold = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  When do you hope to get this property sold?
+                  {t("seller.timeline.title")}
                 </h2>
                 <form>
                   <ul
@@ -135,7 +137,7 @@ const SellerPropertySold = () => {
                           checked={getpropertySaleTime === "ASAP"}
                         />
 
-                        <div className="checkbox-lables">ASAP</div>
+                        <div className="checkbox-lables">{t("ASAP")}</div>
                       </label>
                     </li>
                     <li>
@@ -147,7 +149,7 @@ const SellerPropertySold = () => {
                           checked={getpropertySaleTime === "1 - 2 Months"}
                         />
 
-                        <div className="checkbox-lables">1 - 2 Months</div>
+                        <div className="checkbox-lables">{t("1 - 2 Months")}</div>
                       </label>
                     </li>
                     <li>
@@ -159,7 +161,7 @@ const SellerPropertySold = () => {
                           checked={getpropertySaleTime === "2 - 6 Months"}
                         />
 
-                        <div className="checkbox-lables">2 - 6 Months</div>
+                        <div className="checkbox-lables">{t("2 - 6 Months")}</div>
                       </label>
                     </li>
                     <li>
@@ -171,19 +173,19 @@ const SellerPropertySold = () => {
                           checked={getpropertySaleTime === "6+ Months"}
                         />
 
-                        <div className="checkbox-lables">6+ Months</div>
+                        <div className="checkbox-lables">{t("6+ Months")}</div>
                       </label>
                     </li>
                   </ul>
                   <div onClick={handleBackClick} className="theme_btn">
-                    {TEXT.back}
+                    {t("back")}
                   </div>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                    <span>{TEXT.next_question}</span>
+                    <span>{t("next_question")}</span>
                   </div>
                 </form>
               </div>

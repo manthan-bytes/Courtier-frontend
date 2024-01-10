@@ -43,7 +43,7 @@ import FAQ from "../pages/FAQ";
 import TeamsConditions from "../pages/terms&conditions";
 import About from "../pages/aboutpage";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
-import UserForm from "../pages/form/form";
+import UserForm from "../pages/contactus/form";
 
 
 

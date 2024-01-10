@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Chats.scss";
 import { chatbot } from "../../service/login.service";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   userResponse: string;
@@ -27,6 +28,7 @@ const Chats: React.FC<Props> = (props) => {
 
   const dummyRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   const onLoad = async () => {
     console.log("messages", messages.length);
@@ -35,8 +37,7 @@ const Chats: React.FC<Props> = (props) => {
       setMessages([
         {
           purpose: "introduction",
-          message:
-            "Hey there! 👋 got questions about Quebec real-estate or CourtierXpert? Ask away!! ",
+          message: t("chatBot"),
           sender: "bot",
         },
       ]);

@@ -5,12 +5,12 @@ import "./sellerpropertyconformation.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import greaticon from "../../../assets/images/greaticon.svg";
 import { SELLER } from "../../../core/constants/routes";
+import { useTranslation } from "react-i18next";
 
 const SellerPropertyConformation = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
-
-
   const handleSubmitClick = async (e: any) => {
     const leadDataObj = leadObj;
     const newLeadObj = {
@@ -57,21 +57,19 @@ const SellerPropertyConformation = () => {
                   height="181"
                 />
                 <h2 className="h2">
-                  You will receive your free property evaluation within 24hrs by
-                  email and an agent will call you shortly!
+                {t("AGENT_T4")}
                 </h2>
                 <h3 className="h2">
-                  Would you like to add another property type that you may be
-                  selling?
+                  {t("AGENT_T3")}
                 </h3>
                 <form>
                   <Link to="/seller/propertythankyou" className="theme_btn">
-                    NO, THANKS
+                    {t("NO, THANKS")}
                   </Link>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
-                    YES I WANT TO ADD
+                    {t("YES I WANT TO ADD")}
                   </div>
                 </form>
               </div>

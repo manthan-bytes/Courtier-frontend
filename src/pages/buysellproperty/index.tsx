@@ -8,9 +8,11 @@ import { BUYER, ROUTES, SELLER } from "../../core/constants/routes";
 import { toast } from "react-toastify";
 import { INVALID_DATA } from "../../core/constants/toast-message";
 import { TEXT } from "../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const BuySellProperty = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getType, setType] = useState<string>();
   // banner slide animation js
@@ -87,9 +89,9 @@ const BuySellProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  {TEXT.great} 💫
+                  {t('great')} 💫
                   <br />
-                  {TEXT.buy_sell_property}
+                  {t('buy_sell_property')}
                 </h2>
                 <form>
                   <div className="form-inner-block">
@@ -105,7 +107,7 @@ const BuySellProperty = () => {
                         <span className="svg-icon">
                           <Buyericon />
                         </span>
-                        {TEXT.i_am_buyer}
+                        {t('i_am_buyer')}
                       </div>
                     </label>
                     <label className="custom-select">
@@ -119,7 +121,7 @@ const BuySellProperty = () => {
                         <span className="svg-icon">
                           <Sellericon />
                         </span>
-                        {TEXT.i_am_seller}
+                        {t('i_am_seller')}
                       </div>
                     </label>
                   </div>
@@ -128,7 +130,7 @@ const BuySellProperty = () => {
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                    <span>{TEXT.next}</span>
+                    <span>{t('next')}</span>
                   </div>
                 </form>
               </div>

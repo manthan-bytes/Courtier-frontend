@@ -8,9 +8,11 @@ import { updateLead } from "../../../service/lead.service";
 import { BUYER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const BuyerCommercialIndustrial = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
@@ -100,7 +102,7 @@ const BuyerCommercialIndustrial = () => {
               <div className="form-step-contect">
                 <div className="heading-top">
                   <h2 className="h2">
-                  What are your preferences regarding the Commercial or Industrial property you're looking for?
+                  {t("buyer.commercial.title")}
                   </h2>
                   <div
                     onClick={handleSubmitClick}
@@ -108,7 +110,7 @@ const BuyerCommercialIndustrial = () => {
                     id="submit"
                   >
                     <span>
-                      {TEXT.submit}
+                      {t('submit')}
                     </span>
                   </div>
                 </div>
@@ -117,30 +119,29 @@ const BuyerCommercialIndustrial = () => {
                   <div className="form-inner-block">
                     <div className="form-left-content">
                       <h3 className="h3">
-                        Ok great! Is it a commercial, industrial project or a
-                        business you're looking to purchase?
+                      {t("buyer.commercial.Q1")}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeProjectType(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Commercial business" value="Commercial" checked={getpreferences?.projectType === "Commercial"}/>
-                            <div className="checkbox-lables">Commercial</div>
+                            <div className="checkbox-lables">{t('Commercial')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Industrial business" value="Industrial" checked={getpreferences?.projectType === "Industrial"}/>
-                            <div className="checkbox-lables">Industrial</div>
+                            <div className="checkbox-lables">{t('Industrial')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Business business" value="Business" checked={getpreferences?.projectType === "Business"}/>
-                            <div className="checkbox-lables">Business</div>
+                            <div className="checkbox-lables">{t('Business')}</div>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">What is the property used for?</h3>
+                      <h3 className="h3">{t("buyer.commercial.Q2")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangePropertyUsed(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
@@ -150,7 +151,7 @@ const BuyerCommercialIndustrial = () => {
                               value="Commercial"
                               checked={getpreferences?.propertyUsed === "Commercial"}
                             />
-                            <div className="checkbox-lables">Commercial</div>
+                            <div className="checkbox-lables">{t('Commercial')}</div>
                           </label>
                         </li>
                         <li>
@@ -161,7 +162,7 @@ const BuyerCommercialIndustrial = () => {
                               value="Office"
                               checked={getpreferences?.propertyUsed === "Office"}
                             />
-                            <div className="checkbox-lables">Office</div>
+                            <div className="checkbox-lables">{t('Office')}</div>
                           </label>
                         </li>
                         <li>
@@ -172,7 +173,7 @@ const BuyerCommercialIndustrial = () => {
                               value="Industrial"
                               checked={getpreferences?.propertyUsed === "Industrial"}
                             />
-                            <div className="checkbox-lables">Industrial</div>
+                            <div className="checkbox-lables">{t('Industrial')}</div>
                           </label>
                         </li>
                         <li>
@@ -183,7 +184,7 @@ const BuyerCommercialIndustrial = () => {
                               value="Commercial & Office"
                               checked={getpreferences?.propertyUsed === "Commercial & Office"}
                             />
-                            <div className="checkbox-lables">Commercial & Office</div>
+                            <div className="checkbox-lables">{t('Commercial & Office')}</div>
                           </label>
                         </li>
                         <li>
@@ -194,7 +195,7 @@ const BuyerCommercialIndustrial = () => {
                               value="Commercial & Industrial"
                               checked={getpreferences?.propertyUsed === "Commercial & Industrial"}
                             />
-                            <div className="checkbox-lables">Commercial & Industrial</div>
+                            <div className="checkbox-lables">{t("Commercial & Industrial")}</div>
                           </label>
                         </li>
                         <li>
@@ -205,24 +206,23 @@ const BuyerCommercialIndustrial = () => {
                               value="Industrial & Office"
                               checked={getpreferences?.propertyUsed === "Industrial & Office"}
                             />
-                            <div className="checkbox-lables">Industrial & Office</div>
+                            <div className="checkbox-lables">{t('Industrial & Office')}</div>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">
-                        Describe the business or businesses in the property
+                      {t("buyer.commercial.Q3")}
                       </h3>
                       <div className="form-group">
                         <textarea
                           className="form-control"
-                          placeholder="Describe the business "
+                          placeholder={t("Describe the business")}
                           value={getpreferences?.describeBusiness}
                           onChange={(e) => handleonChangeDescribeBusiness(e)}
                         ></textarea>
                       </div>
                       <h3 className="h3">
-                        What is your budget for your purchase - this will help
-                        refine our search for you.
+                      {t("buyer.commercial.Q4")}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeBudget(e)}>
                         <li>
@@ -235,7 +235,7 @@ const BuyerCommercialIndustrial = () => {
                             />
                             <div className="checkbox-lables">
                               {" "}
-                              Prefer not to say
+                              {t("prefer_not_to_say")}
                             </div>
                           </label>
                         </li>
@@ -247,7 +247,7 @@ const BuyerCommercialIndustrial = () => {
                               value="0-400k"
                               checked={getpreferences?.budget === "0-400k"}
                             />
-                            <div className="checkbox-lables">0-400k</div>
+                            <div className="checkbox-lables">{t('0-400k')}</div>
                           </label>
                         </li>
                         <li>
@@ -258,7 +258,7 @@ const BuyerCommercialIndustrial = () => {
                               value="400k-800k"
                               checked={getpreferences?.budget === "400k-800k"}
                             />
-                            <div className="checkbox-lables">400k-800k</div>
+                            <div className="checkbox-lables">{t('400k-800k')}</div>
                           </label>
                         </li>
                         <li>
@@ -269,7 +269,7 @@ const BuyerCommercialIndustrial = () => {
                               value="800k-1.2mil"
                               checked={getpreferences?.budget === "800k-1.2mil"}
                             />
-                            <div className="checkbox-lables">800k-1.2mil</div>
+                            <div className="checkbox-lables">{t('800k-1.2mil')}</div>
                           </label>
                         </li>
                         <li>
@@ -280,7 +280,7 @@ const BuyerCommercialIndustrial = () => {
                               value="1.2mil+"
                               checked={getpreferences?.budget === "1.2mil+"}
                             />
-                            <div className="checkbox-lables">1.2mil+</div>
+                            <div className="checkbox-lables">{t('1.2mil+')}</div>
                           </label>
                         </li>
                       </ul>

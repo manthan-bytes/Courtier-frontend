@@ -1,7 +1,9 @@
 import React from "react";
 import "../../styles/FAQPage.scss";
+import { useTranslation } from "react-i18next";
 
 const FAQ = () => {
+  const { t } = useTranslation();
   const faqData = [
     {
       question: "What is a Multiple Listing Service (MLS)?",

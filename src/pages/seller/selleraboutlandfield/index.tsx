@@ -8,10 +8,11 @@ import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const SellerAboutLandField = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
   // banner slide animation js
@@ -96,13 +97,13 @@ const SellerAboutLandField = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">{TEXT.share_info_about_land_field}</h2>
+                  <h2 className="h2">{t("seller.land.title")}</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
                     <span>
-                    {TEXT.submit}
+                    {t("submit")}
                     </span>
                   </div>
                 </div>
@@ -111,24 +112,23 @@ const SellerAboutLandField = () => {
                   <div className="form-inner-block">
                     <div className="form-left-content">
                       <h3 className="h3">
-                        Is it Land with city services available or a Field with
-                        no city services? (Electrical, Sewers, roads)
+                      {t("seller.land.Q1")}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeIsLandField(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Land" value="Land" checked={getpreferences?.isLandField === "Land"}/>
-                            <div className="checkbox-lables">Land</div>
+                            <div className="checkbox-lables">{t("Land")}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Field" value="Field" checked={getpreferences?.isLandField === "Field"}/>
-                            <div className="checkbox-lables">Field</div>
+                            <div className="checkbox-lables">{t("Field")}</div>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">{TEXT.city_zonage}</h3>
+                      <h3 className="h3">{t("seller.land.Q2")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeCityZonage(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
@@ -138,7 +138,7 @@ const SellerAboutLandField = () => {
                               value="Residential"
                               checked={getpreferences?.cityZonage === "Residential"}
                             />
-                            <div className="checkbox-lables">Residential</div>
+                            <div className="checkbox-lables">{t("Residential")}</div>
                           </label>
                         </li>
                         <li>
@@ -149,7 +149,7 @@ const SellerAboutLandField = () => {
                               value="Commercial"
                               checked={getpreferences?.cityZonage === "Commercial"}
                             />
-                            <div className="checkbox-lables">Commercial</div>
+                            <div className="checkbox-lables">{t("Commercial")}</div>
                           </label>
                         </li>
                         <li>
@@ -160,7 +160,7 @@ const SellerAboutLandField = () => {
                               value="Industrial"
                               checked={getpreferences?.cityZonage === "Industrial"}
                             />
-                            <div className="checkbox-lables">Industrial</div>
+                            <div className="checkbox-lables">{t("Industrial")}</div>
                           </label>
                         </li>
                         <li>
@@ -171,7 +171,7 @@ const SellerAboutLandField = () => {
                               value="Agriculture"
                               checked={getpreferences?.cityZonage === "Agriculture"}
                             />
-                            <div className="checkbox-lables">Agriculture</div>
+                            <div className="checkbox-lables">{t("Agriculture")}</div>
                           </label>
                         </li>
                         <li>
@@ -182,7 +182,7 @@ const SellerAboutLandField = () => {
                               value="Forestry"
                               checked={getpreferences?.cityZonage === "Forestry"}
                             />
-                            <div className="checkbox-lables">Forestry</div>
+                            <div className="checkbox-lables">{t("Forestry")}</div>
                           </label>
                         </li>
                         <li>
@@ -193,12 +193,12 @@ const SellerAboutLandField = () => {
                               value="Other"
                               checked={getpreferences?.cityZonage === "Other"}
                             />
-                            <div className="checkbox-lables">Other</div>
+                            <div className="checkbox-lables">{t("Other")}</div>
                           </label>
                         </li>
                       </ul>
 
-                      <h3 className="h3">{TEXT.surface_area}</h3>
+                      <h3 className="h3">{t("seller.land.Q3")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeSurfaceArea(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
@@ -209,7 +209,7 @@ const SellerAboutLandField = () => {
                               checked={getpreferences?.surfaceArea === "0 - 2000 sq ft."}
                             />
                             <div className="checkbox-lables">
-                              0 - 2000 sq ft.
+                              {t("0 - 2000 sq ft")}
                             </div>
                           </label>
                         </li>
@@ -222,7 +222,7 @@ const SellerAboutLandField = () => {
                               checked={getpreferences?.surfaceArea === "2000 - 5000 sq ft."}
                             />
                             <div className="checkbox-lables">
-                              2000 - 5000 sq ft.
+                              {t("2000 - 5000 sq ft")}
                             </div>
                           </label>
                         </li>
@@ -235,7 +235,7 @@ const SellerAboutLandField = () => {
                               checked={getpreferences?.surfaceArea === "5000 - 10000 sq ft."}
                             />
                             <div className="checkbox-lables">
-                              5000 - 10000 sq ft.
+                              {t("5000 - 10000 sq ft")}
                             </div>
                           </label>
                         </li>
@@ -248,7 +248,7 @@ const SellerAboutLandField = () => {
                               checked={getpreferences?.surfaceArea === "10000+ sq ft."}
                             />
                             <div className="checkbox-lables">
-                              10000+ sq ft.{" "}
+                              {t("10000+ sq ft")}{" "}
                             </div>
                           </label>
                         </li>

@@ -5,32 +5,31 @@ import "../sellersinglefamily/sellersinglefamily.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { SELLER } from "../../../core/constants/routes";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const SellerSingleFamily = () => {
   const navigate = useNavigate();
   const [leadObj, setLeadObj] = useState<any>();
-
+  const { t } = useTranslation();
   const handleSubmitEvent = () => {
-
-    switch(leadObj.propertyType) {
-      case 'single_family':
-        navigate(SELLER.SINGLE_FAMILY_HOME_STYLE)
-        break
-      case 'condo':
-        navigate(SELLER.CONDO_PROPERTY)
+    switch (leadObj.propertyType) {
+      case "single_family":
+        navigate(SELLER.SINGLE_FAMILY_HOME_STYLE);
         break;
-      case 'revenue_property':
-        navigate(SELLER.REVENUE_PROPERTY)
+      case "condo":
+        navigate(SELLER.CONDO_PROPERTY);
         break;
-      case 'commercial_or_industry':
-        navigate(SELLER.COMMERCIAL_INDUSTRIAL)
+      case "revenue_property":
+        navigate(SELLER.REVENUE_PROPERTY);
         break;
-      case 'land':
-        navigate(SELLER.ABOUT_LAND_FIELD)
+      case "commercial_or_industry":
+        navigate(SELLER.COMMERCIAL_INDUSTRIAL);
+        break;
+      case "land":
+        navigate(SELLER.ABOUT_LAND_FIELD);
         break;
     }
-
-  }
+  };
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
@@ -45,11 +44,14 @@ const SellerSingleFamily = () => {
       setLeadObj(leadObj);
     }
   }, []);
-      
 
   return (
     <>
-      <section className={`main-banner-sec singlefamily-sec ${ newClass ? "next-class" : "" }`}>
+      <section
+        className={`main-banner-sec singlefamily-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -63,15 +65,16 @@ const SellerSingleFamily = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  Great 💫
+                  {t("Great")} 💫
                   <br />
-                  We would like to know more about your Property!
+                  {t("We would like to know more about your Property!")}
                 </h2>
                 <form>
-                  <div onClick={handleSubmitEvent}
+                  <div
+                    onClick={handleSubmitEvent}
                     className="theme_btn grdnt_btn"
                   >
-                   {TEXT.lets_continue}
+                    {t("lets_continue")}
                   </div>
                 </form>
               </div>

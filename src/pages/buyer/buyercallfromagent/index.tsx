@@ -5,9 +5,10 @@ import "./buyercallfromagent.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import greaticon from "../../../assets/images/greaticon.svg";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const BuyerCallFromAgent = () => {
-
+  const { t } = useTranslation();
     // banner slide animation js
     const [newClass, setNewClass] = useState(false);
     useEffect(() => {
@@ -31,7 +32,7 @@ const BuyerCallFromAgent = () => {
               <div className="form-step-contect">
                 <img className="greaticon" src={greaticon} alt="greaticon" width="181" height="181" />
                 <h2 className="h2">
-                  {TEXT.agent_call}🙋‍♂️
+                  {t('agent_call')}🙋‍♂️
                 </h2>
               </div>
             </div>

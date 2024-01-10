@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import "./buyerpropertythankyou.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { ROUTES, SELLER } from "../../../core/constants/routes";
+import { useTranslation } from "react-i18next";
 
 const BuyerPropertyThankyou = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const handleTakeMeHome = async (e: any) => {
     const newLeadObj = {
      
@@ -45,17 +46,17 @@ const BuyerPropertyThankyou = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  Alright, this was quick and easy, see you again soon!
+                  {t("thanks_you")}
                 </h2>
                 <form>
                   <div onClick={handleTakeMeHome} className="theme_btn">
-                    Take Me to Home
+                    {t("Take Me to Home")}
                   </div>
                   <div
                     onClick={handleSellProperty}
                     className="theme_btn grdnt_btn"
                   >
-                    I need help TO SELL a property
+                    {t("I need help TO SELL a property")}
                   </div>
                 </form>
               </div>

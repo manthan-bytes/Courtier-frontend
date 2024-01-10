@@ -9,9 +9,11 @@ import { updateLead } from "../../../service/lead.service";
 import { BUYER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const BuyerCondoProperty = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
@@ -120,13 +122,13 @@ const BuyerCondoProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">What are your preferences regarding the condo you're looking for?</h2>
+                  <h2 className="h2">{t('buyer.condo.title')}</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
                     <span>
-                      {TEXT.submit}
+                      {t('submit')}
                     </span>
                   </div>
                 </div>
@@ -135,32 +137,32 @@ const BuyerCondoProperty = () => {
                   <div className="form-inner-block">
                     <div className="form-left-content">
                       <h3 className="h3">
-                        Ok great! What's your Condo Style preference?
+                      {t('buyer.condo.Q1')}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeCondoStyle(e)}>
                       <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Don't Care" value="Don't Care" checked={getpreferences?.condoStyle === "Don't Care"}/>
-                            <div className="checkbox-lables">Don't Care</div>
+                            <div className="checkbox-lables">{t("Don't Care")}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn" >
                             <input type="radio" name="One Floor" value="One Floor" checked={getpreferences?.condoStyle === "One Floor"}/>
-                            <div className="checkbox-lables">One Floor</div>
+                            <div className="checkbox-lables">{t('One Floor')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Many Floors" value="Many Floors" checked={getpreferences?.condoStyle === "Many Floors"}/>
-                            <div className="checkbox-lables">Many Floors</div>
+                            <div className="checkbox-lables">{t("Many Floors")}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Multiple Platforms" value="Multiple Platforms" checked={getpreferences?.condoStyle === "Multiple Platforms"} />
                             <div className="checkbox-lables">
-                              Multiple Platforms
+                              {t("Multiple Platforms")}
                             </div>
                           </label>
                         </li>
@@ -168,7 +170,7 @@ const BuyerCondoProperty = () => {
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="One floor and a half" value="One floor and a half" checked={getpreferences?.condoStyle === "One floor and a half"}/>
                             <div className="checkbox-lables">
-                              One floor and a half
+                              {t("One floor and a half")}
                             </div>
                           </label>
                         </li>
@@ -180,7 +182,7 @@ const BuyerCondoProperty = () => {
                         </li> */}
                       </ul>
                       <h3 className="h3">
-                        How much livable space would you prefer?
+                      {t('buyer.condo.Q2')}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeCondoSpace(e)}>
                       <li>
@@ -191,7 +193,7 @@ const BuyerCondoProperty = () => {
                               value="300-600 sqft"
                               checked={getpreferences?.condoSpace === "300-600 sqft"}
                             />
-                            <div className="checkbox-lables">300-600 sqft</div>
+                            <div className="checkbox-lables">{t('300_600')}</div>
                           </label>
                         </li>
                         <li>
@@ -202,7 +204,7 @@ const BuyerCondoProperty = () => {
                               value="600-900 sqft"
                               checked={getpreferences?.condoSpace === "600-900 sqft"}
                             />
-                            <div className="checkbox-lables">600-900 sqft</div>
+                            <div className="checkbox-lables">{t('600_900')}</div>
                           </label>
                         </li>
                         <li>
@@ -213,7 +215,7 @@ const BuyerCondoProperty = () => {
                               value="900-1200 sqft"
                               checked={getpreferences?.condoSpace === "900-1200 sqft"}
                             />
-                            <div className="checkbox-lables">900-1200 sqft</div>
+                            <div className="checkbox-lables">{t('900_1200')}</div>
                           </label>
                         </li>
                         <li>
@@ -224,14 +226,13 @@ const BuyerCondoProperty = () => {
                               value="1200+ sqft"
                               checked={getpreferences?.condoSpace === "1200+ sqft"}
                             />
-                            <div className="checkbox-lables">1200+ sqft</div>
+                            <div className="checkbox-lables">{t('1200_plus')}</div>
                           </label>
                         </li>
                       </ul>
 
                       <h3 className="h3">
-                        How many bedrooms do you wish for? If you need an
-                        office, please count it as a bedroom.
+                      {t('buyer.condo.Q3')}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeBedrooms(e)}>
                       <li>
@@ -296,7 +297,7 @@ const BuyerCondoProperty = () => {
                         </li>
                       </ul>
                       <h3 className="h3">
-                        How many bathrooms would you wish for?
+                      {t('buyer.condo.Q4')}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeBathrooms(e)}>
                       <li>
@@ -360,7 +361,7 @@ const BuyerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">Do you want a parking space?</h3>
+                      <h3 className="h3">{t('buyer.condo.Q5')}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeGarage(e)}>
                       <li>
                           <label className="custom-checkbox">
@@ -368,7 +369,7 @@ const BuyerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>Yes</span>
+                            <span>{t('yes')}</span>
                           </label>
                         </li>
                         <li>
@@ -377,11 +378,11 @@ const BuyerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>No</span>
+                            <span>{t('no')}</span>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">Do you want a pool?</h3>
+                      <h3 className="h3">{t('buyer.condo.Q6')}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangePool(e)}>
                       <li>
                           <label className="custom-checkbox">
@@ -389,7 +390,7 @@ const BuyerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>Yes</span>
+                            <span>{t('yes')}</span>
                           </label>
                         </li>
                         <li>
@@ -398,12 +399,12 @@ const BuyerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>No</span>
+                            <span>{t('no')}</span>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">
-                      What's your budget for the condo? This will help refine our search for your curated list.
+                      {t('buyer.condo.Q7')}
                       </h3>
 
                       <ul className="property-select" onChange={(e) => handleonChangeBudget(e)}>
@@ -417,7 +418,7 @@ const BuyerCondoProperty = () => {
                             />
                             <div className="checkbox-lables">
                               {" "}
-                              Prefer not to say
+                              {t('prefer_not_to_say')}
                             </div>
                           </label>
                         </li>
@@ -429,7 +430,7 @@ const BuyerCondoProperty = () => {
                               value="0-400k"
                               checked={getpreferences?.budget === "0-400k"}
                             />
-                            <div className="checkbox-lables">0-400k</div>
+                            <div className="checkbox-lables">{t('0-400k')}</div>
                           </label>
                         </li>
                         <li>
@@ -440,7 +441,7 @@ const BuyerCondoProperty = () => {
                               value="400k-800k"
                               checked={getpreferences?.budget === "400k-800k"}
                             />
-                            <div className="checkbox-lables">400k-800k</div>
+                            <div className="checkbox-lables">{t('400k-800k')}</div>
                           </label>
                         </li>
                         <li>
@@ -451,7 +452,7 @@ const BuyerCondoProperty = () => {
                               value="800k-1.2mil"
                               checked={getpreferences?.budget === "800k-1.2mil"}
                             />
-                            <div className="checkbox-lables">800k-1.2mil</div>
+                            <div className="checkbox-lables">{t('800k-1.2mil')}</div>
                           </label>
                         </li>
                         <li>
@@ -462,7 +463,7 @@ const BuyerCondoProperty = () => {
                               value="1.2mil+"
                               checked={getpreferences?.budget === "1.2mil+"}
                             />
-                            <div className="checkbox-lables">1.2mil+</div>
+                            <div className="checkbox-lables">{t('1.2mil+')}</div>
                           </label>
                         </li>
                       </ul>

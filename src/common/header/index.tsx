@@ -8,6 +8,7 @@ import { ROUTES } from "../../core/constants/routes";
 import { ToastContainer, toast } from "react-toastify";
 import FAQ from "../../pages/FAQ";
 import { Menu } from "../../components/Menu/Menu";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Header = () => {
     setIsActive(!isActive);
   };
   const [scrolling, setScrolling] = useState(false);
-
+  const { t } = useTranslation();
   const handleLogoutClick = async () => {
     localStorage.removeItem("leadObj");
     localStorage.removeItem("token");
@@ -62,12 +63,17 @@ const Header = () => {
       case ROUTES.PRIVATE_POLICY:
         navigate(ROUTES.PRIVATE_POLICY);
         break;
+      case ROUTES.CONTACT_US:
+        navigate(ROUTES.CONTACT_US);
+        break;
     }
   };
 
   useEffect(() => {
-    console.log("tesm");
-    const handleBeforeInstallPrompt = (e: any) => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }    const handleBeforeInstallPrompt = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
     };
@@ -141,7 +147,7 @@ const Header = () => {
                 className={isActive ? "is-active" : ""}
                 onClick={toggleClass}
               >
-                <span className="homeburger-title">MENU</span>
+                <span className="homeburger-title">{t('MENU')}</span>
                 <div className="homeburger-line">
                   <span className="line"></span>
                   <span className="line"></span>
@@ -152,7 +158,7 @@ const Header = () => {
               <ul>
                 <li>
                   <div className="menu-link" onClick={handleInstallClick}>
-                    Install App
+                    {t('Install App')}
                   </div>
                 </li>
                 <li>
@@ -160,7 +166,7 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.FAQ)}
                   >
-                    FAQ - CourtierXpert.com
+                    {t('FAQ')}
                   </div>
                 </li>
                 <li>
@@ -168,7 +174,7 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.ABOUTUS)}
                   >
-                    About Us
+                    {t('About Us')}
                   </div>
                 </li>
                 <li>
@@ -176,15 +182,15 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.TERMS_CONDITIONS)}
                   >
-                    Terms & Conditions
+                    {t('T&C')}
                   </div>
                 </li>
                 <li>
                   <div
                     className="menu-link"
-                    onClick={()=> navigate('/user-form')}
+                    onClick={() => handleRoutes(ROUTES.CONTACT_US)}
                   >
-                    User Form
+                    {t('contact_us')}
                   </div>
                 </li>
                 {/* <li>
@@ -198,7 +204,7 @@ const Header = () => {
                     <hr></hr>
 
                     <div className="menu-link" onClick={handleLogoutClick}>
-                      Logout
+                      {t('Logout')}
                     </div>
                   </li>
                 )}

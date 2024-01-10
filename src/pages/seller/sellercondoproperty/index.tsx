@@ -9,10 +9,11 @@ import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const SellerCondoProperty = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
   // banner slide animation js
@@ -119,13 +120,13 @@ const SellerCondoProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">What are some characteristics of the Condo property you're looking to sell? </h2>
+                  <h2 className="h2">{t("buyer.condo.title")} </h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
                     <span>
-                      {TEXT.submit}
+                      {t("submit")}
                     </span>
                   </div>
                 </div>
@@ -133,25 +134,25 @@ const SellerCondoProperty = () => {
                 <form>
                   <div className="form-inner-block">
                     <div className="form-left-content">
-                      <h3 className="h3">What's the condo style</h3>
+                      <h3 className="h3">{t("buyer.condo.Q1")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeCondoStyle(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="homes" value="One Floor" checked={getpreferences?.condoStyle === "One Floor"}/>
-                            <div className="checkbox-lables">One Floor</div>
+                            <div className="checkbox-lables">{t("One Floor")}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="homes" value="Many Floors" checked={getpreferences?.condoStyle === "Many Floors"}/>
-                            <div className="checkbox-lables">Many Floors</div>
+                            <div className="checkbox-lables">{t("Many Floors")}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="homes" value="Multiple Platforms" checked={getpreferences?.condoStyle === "Multiple Platforms"}/>
                             <div className="checkbox-lables">
-                              Multiple Platforms
+                              {t("Multiple Platforms")}
                             </div>
                           </label>
                         </li>
@@ -159,13 +160,13 @@ const SellerCondoProperty = () => {
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="homes" value="One floor and a half" checked={getpreferences?.condoStyle === "One floor and a half"}/>
                             <div className="checkbox-lables">
-                              One floor and a half
+                              {t("One floor and a half")}
                             </div>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">
-                        How much space does your condo have?
+                      {t("buyer.condo.Q2")}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeCondoSpace(e)}>
                         <li>
@@ -176,7 +177,7 @@ const SellerCondoProperty = () => {
                               value="300-600 sqft"
                               checked={getpreferences?.condoSpace === "300-600 sqft"}
                             />
-                            <div className="checkbox-lables">300-600 sqft</div>
+                            <div className="checkbox-lables">{t("300_600")}</div>
                           </label>
                         </li>
                         <li>
@@ -187,7 +188,7 @@ const SellerCondoProperty = () => {
                               value="600-900 sqft"
                               checked={getpreferences?.condoSpace === "600-900 sqft"}
                             />
-                            <div className="checkbox-lables">600-900 sqft</div>
+                            <div className="checkbox-lables">{t("600_900")}</div>
                           </label>
                         </li>
                         <li>
@@ -198,7 +199,7 @@ const SellerCondoProperty = () => {
                               value="900-1200 sqft"
                               checked={getpreferences?.condoSpace === "900-1200 sqft"}
                             />
-                            <div className="checkbox-lables">900-1200 sqft</div>
+                            <div className="checkbox-lables">{t("900_1200")}</div>
                           </label>
                         </li>
                         <li>
@@ -209,12 +210,12 @@ const SellerCondoProperty = () => {
                               value="1200+ sqft"
                               checked={getpreferences?.condoSpace === "1200+ sqft"}
                             />
-                            <div className="checkbox-lables">1200+ sqft</div>
+                            <div className="checkbox-lables">{t("1200_plus")}</div>
                           </label>
                         </li>
                       </ul>
 
-                      <h3 className="h3">How many bedrooms do you have?</h3>
+                      <h3 className="h3">{t("buyer.condo.Q3")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeBedrooms(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
@@ -277,7 +278,7 @@ const SellerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">And, how many Bathrooms ?</h3>
+                      <h3 className="h3">{t("buyer.condo.Q4")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeBathrooms(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
@@ -340,7 +341,7 @@ const SellerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">Do you have a dedicated Parking Space?</h3>
+                      <h3 className="h3">{t("buyer.condo.Q5")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeGarage(e)}>
                         <li>
                           <label className="custom-checkbox">
@@ -348,7 +349,7 @@ const SellerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>Yes</span>
+                            <span>{t("yes")}</span>
                           </label>
                         </li>
                         <li>
@@ -357,11 +358,11 @@ const SellerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>No</span>
+                            <span>{t("no")}</span>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">Do you have a pool?</h3>
+                      <h3 className="h3">{t("buyer.condo.Q6")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangePool(e)}>
                         <li>
                           <label className="custom-checkbox">
@@ -369,7 +370,7 @@ const SellerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>Yes</span>
+                            <span>{t("yes")}</span>
                           </label>
                         </li>
                         <li>
@@ -378,7 +379,7 @@ const SellerCondoProperty = () => {
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
-                            <span>No</span>
+                            <span>{t("no")}</span>
                           </label>
                         </li>
                       </ul>

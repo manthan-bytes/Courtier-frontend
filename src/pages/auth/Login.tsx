@@ -14,9 +14,11 @@ import axios from "axios";
 import { createUser } from "../../service/login.service";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from "react-i18next";
 const Login = () => {
   // state for email and password
   const [profile, setProfile] = useState([]);
+  const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -153,18 +155,18 @@ const Login = () => {
         <div className="container">
           <div className="custom-row">
             <div className="login-block">
-              <h2 className="h2">{TEXT.login_to_continue}</h2>
+              <h2 className="h2">{t('login_to_continue')}</h2>
               <form>
               <label className="custom-select">
                 <div onClick={submitHandler} className="theme_btn">
                   <Googleicon />
-                  {TEXT.continue_with_google}
+                  {t('continue_with_google')}
                 </div>
                 {/* <ButtonSubmit title="Login" disabled={false} /> */}
               </label>
               <label className="custom-select">
                 <div onClick={()=>loginAsGuest()} className="theme_btn">
-                  {TEXT.continue_as_guest}
+                  {t('continue_as_guest')}
                 </div>
                 {/* <ButtonSubmit title="Login" disabled={false} /> */}
               </label>
@@ -199,7 +201,7 @@ const Login = () => {
             <div className="banner-typed-content">
               <div className="ml6 animated-typed">
                 <span className="letters h1">
-                  {TEXT.typed_animated.split("").map(function (char, index) {
+                  {t('typed_animated').split("").map(function (char, index) {
                     return (
                       <span className="letter" aria-hidden="true" key={index}>
                         {char}

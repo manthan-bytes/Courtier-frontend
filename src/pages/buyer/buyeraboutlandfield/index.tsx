@@ -8,9 +8,11 @@ import { BUYER } from "../../../core/constants/routes";
 import { updateLead } from "../../../service/lead.service";
 import { toast } from "react-toastify";
 import { TEXT } from "../../../core/constants/headingText";
+import { useTranslation } from "react-i18next";
 
 const BuyerAboutLandField = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
@@ -97,13 +99,13 @@ const BuyerAboutLandField = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">What are your search preferences regarding the land or field property you're looking for? </h2>
+                  <h2 className="h2"> {t("buyer.land.title")}</h2>
                   <div onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
                     <span>
-                      {TEXT.submit}
+                      {t('submit')}
                     </span>
                   </div>
                 </div>
@@ -112,24 +114,23 @@ const BuyerAboutLandField = () => {
                   <div className="form-inner-block">
                     <div className="form-left-content">
                       <h3 className="h3">
-                        Are you looking for Land with city services available
-                        ready to be developed, or a field with no city services?
+                      {t("buyer.land.Q1")}
                       </h3>
                       <ul className="property-select" onChange={(e) => handleonChangeIsLandField(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Land" value="Land" checked={getpreferences?.isLandField === "Land"}/>
-                            <div className="checkbox-lables">Land</div>
+                            <div className="checkbox-lables">{t('Land')}</div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Field" value="Field" checked={getpreferences?.isLandField === "Field"}/>
-                            <div className="checkbox-lables">Field</div>
+                            <div className="checkbox-lables">{t('Field')}</div>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">What city zonage do you hope for?</h3>
+                      <h3 className="h3">{t("buyer.land.Q2")}</h3>
                       <ul className="property-select" onChange={(e) => handleonChangeCityZonage(e)}>
                         <li>
                           <label className="custom-checkbox-btn">
@@ -139,7 +140,7 @@ const BuyerAboutLandField = () => {
                               value="Residential"
                               checked={getpreferences?.cityZonage === "Residential"}
                             />
-                            <div className="checkbox-lables">Residential</div>
+                            <div className="checkbox-lables">{t("Residential")}</div>
                           </label>
                         </li>
                         <li>
@@ -150,7 +151,7 @@ const BuyerAboutLandField = () => {
                               value="Commercial"
                               checked={getpreferences?.cityZonage === "Commercial"}
                             />
-                            <div className="checkbox-lables">Commercial</div>
+                            <div className="checkbox-lables">{t("Commercial")}</div>
                           </label>
                         </li>
                         <li>
@@ -161,7 +162,7 @@ const BuyerAboutLandField = () => {
                               value="Industrial"
                               checked={getpreferences?.cityZonage === "Industrial"}
                             />
-                            <div className="checkbox-lables">Industrial</div>
+                            <div className="checkbox-lables">{t("Industrial")}</div>
                           </label>
                         </li>
                         <li>
@@ -172,7 +173,7 @@ const BuyerAboutLandField = () => {
                               value="Agriculture"
                               checked={getpreferences?.cityZonage === "Agriculture"}
                             />
-                            <div className="checkbox-lables">Agriculture</div>
+                            <div className="checkbox-lables">{t("Agriculture")}</div>
                           </label>
                         </li>
                         <li>
@@ -183,7 +184,7 @@ const BuyerAboutLandField = () => {
                               value="Forestry"
                               checked={getpreferences?.cityZonage === "Forestry"}
                             />
-                            <div className="checkbox-lables">Forestry</div>
+                            <div className="checkbox-lables">{t("Forestry")}</div>
                           </label>
                         </li>
                         <li>
@@ -194,18 +195,18 @@ const BuyerAboutLandField = () => {
                               value="Other"
                               checked={getpreferences?.cityZonage === "Other"}
                             />
-                            <div className="checkbox-lables">Other</div>
+                            <div className="checkbox-lables">{t("Other")}</div>
                           </label>
                         </li>
                       </ul>
 
-                      <h3 className="h3">What's the surface area that you need or hope for?</h3>
+                      <h3 className="h3">{t("buyer.land.Q3")}</h3>
                      
                       <div className="form-group mtbottom property-select">
                         <input
                           className={`form-control placeholder-pink`}
                           type="text"
-                          placeholder="Surface Area"
+                          placeholder={t("Surface Area")}
                           value={getpreferences?.surfaceArea}
                           onChange={(e) => handleonChangeSurfaceArea(e)}
                           style={{
@@ -216,8 +217,7 @@ const BuyerAboutLandField = () => {
                         />
                       </div>
                       <h3 className="h3">
-                        What is your budget for your purchase - this will help
-                        refine our search for you.
+                        {t("buyer.land.Q4")}
                       </h3>
 
                       <ul className="property-select" onChange={(e) => handleonChangeBudget(e)}>
@@ -231,7 +231,7 @@ const BuyerAboutLandField = () => {
                             />
                             <div className="checkbox-lables">
                               {" "}
-                              Prefer not to say
+                              {t("prefer_not_to_say")}
                             </div>
                           </label>
                         </li>
@@ -243,7 +243,7 @@ const BuyerAboutLandField = () => {
                               value="0-400k"
                               checked={getpreferences?.budget === "0-400k"}
                             />
-                            <div className="checkbox-lables">0-400k</div>
+                            <div className="checkbox-lables">{t("0-400k")}</div>
                           </label>
                         </li>
                         <li>
@@ -254,7 +254,7 @@ const BuyerAboutLandField = () => {
                               value="400k-800k"
                               checked={getpreferences?.budget === "400k-800k"}
                             />
-                            <div className="checkbox-lables">400k-800k</div>
+                            <div className="checkbox-lables">{t("400k-800k")}</div>
                           </label>
                         </li>
                         <li>
@@ -265,7 +265,7 @@ const BuyerAboutLandField = () => {
                               value="800k-1.2mil"
                               checked={getpreferences?.budget === "800k-1.2mil"}
                             />
-                            <div className="checkbox-lables">800k-1.2mil</div>
+                            <div className="checkbox-lables">{t("800k-1.2mil")}</div>
                           </label>
                         </li>
                         <li>
@@ -276,7 +276,7 @@ const BuyerAboutLandField = () => {
                               value="1.2mil+"
                               checked={getpreferences?.budget === "1.2mil+"}
                             />
-                            <div className="checkbox-lables">1.2mil+</div>
+                            <div className="checkbox-lables">{t("1.2mil+")}</div>
                           </label>
                         </li>
                       </ul>

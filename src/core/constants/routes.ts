@@ -7,7 +7,8 @@ export const ROUTES = {
   FAQ:"/FAQ",
   ABOUTUS:"/aboutus",
   TERMS_CONDITIONS:"/terms&conditions",
-  PRIVATE_POLICY:"/privacy-policy"
+  PRIVATE_POLICY:"/privacy-policy",
+  CONTACT_US:"/user-form"
 };
 
 export const SELLER = {
