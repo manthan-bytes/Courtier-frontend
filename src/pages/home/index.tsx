@@ -31,7 +31,7 @@ const Home = () => {
       <div className="homepage-banner-video-overlay"></div>
       <video
         className="connect-bg"
-        src="https://media.giphy.com/media/klIaoXlnH9TMY/giphy.mp4"
+        src="https://s3.amazonaws.com/courtierxpert.com/NewBackGroundVideo.mp4"
         muted
         autoPlay
         loop
