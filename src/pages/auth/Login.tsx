@@ -18,8 +18,8 @@ import { useTranslation } from "react-i18next";
 const Login = () => {
   // state for email and password
   const [profile, setProfile] = useState([]);
-  const { t } = useTranslation();
-
+  const { t,i18n } = useTranslation();
+  const [french, setFrench] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -104,8 +104,16 @@ const Login = () => {
   const [showDiv, setShowDiv] = useState(true);
   useEffect(() => {
     const timeoutId = setTimeout(() => {
+
+      if (i18n.language === 'fe') {
+        setFrench(true);
+      } else {
+        setFrench(false);
+      }
+      // const { i18n } = useTranslation('home');
+      // console.log('ravi',i18n.language);
       // Hide the div after 5000 milliseconds (5 seconds)
-      setShowDiv(false);
+      // setShowDiv(false); 
     }, 5000);
     return () => clearTimeout(timeoutId);
   }, []);
@@ -199,7 +207,9 @@ const Login = () => {
           />
           <div className="container">
             <div className="banner-typed-content">
-              <div className="ml6 animated-typed">
+              <div className={`ml6 animated-typed ${
+        french === true ? "isFrench" : ""
+      }`}>
                 <span className="letters h1">
                   {t('typed_animated').split("").map(function (char, index) {
                     return (

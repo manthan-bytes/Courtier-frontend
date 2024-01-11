@@ -127,7 +127,7 @@ const BuyerRevenueProperty = () => {
                         <li>
                           <label className="custom-checkbox-btn">
                             <input type="radio" name="Any Type For tenants" value="Any Type" checked={getpreferences?.tenantsType === "Any Type"}/>
-                            <div className="checkbox-lables">{t('buyer.revenue.any_type')}</div>
+                            <div className="checkbox-lables">{t('any_type')}</div>
                           </label>
                         </li>
                         <li>
