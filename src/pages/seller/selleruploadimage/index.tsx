@@ -196,7 +196,7 @@ const SellerUploadImage = () => {
 
                           <p className="label">
                             {/* Drag & Drop your files here or{" "} */}
-                            <span> {TEXT.choose_file}</span>
+                            <span> {t("please_choose_file")}</span>
                             <input
                               id="file"
                               type="file"

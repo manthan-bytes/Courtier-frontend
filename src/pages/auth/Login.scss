@@ -84,7 +84,11 @@
             }
 
             &.isFrench {
-                max-width: 302px;
+                
+                @media (max-width: $screen-xs-max) {
+                    max-width: 302px;
+    
+                }
             }
 
             .animated-typed {

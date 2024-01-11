@@ -5,10 +5,11 @@ import { useState } from 'react';
 
 const isActive = ({ isActive }: any) => `link ${isActive ? 'active' : ''}`
 
-export const Menu = ({getMenu, setMenu}:any) => {
+export const Menu = ({setIsActive, setMenu}:any) => {
     const { i18n, t } = useTranslation()
     const changeLanguage = (lng:any) => {
         setMenu(lng);
+        setIsActive(false)
         i18n.changeLanguage(lng);
       };
 

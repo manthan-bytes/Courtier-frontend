@@ -5,6 +5,7 @@ import "./buyeragent.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { BUYER, ROUTES } from "../../../core/constants/routes";
 import { useTranslation } from "react-i18next";
+import greaticon from "../../../assets/images/greaticon.svg";
 
 const BuyerAgent = () => {
   const navigate = useNavigate();
@@ -14,19 +15,19 @@ const BuyerAgent = () => {
   const handleSubmitClick = async () => {
     const leadDataObj = leadObj;
     const newLeadObj = {
-      leadType : leadDataObj.leadType,
-    }
-    localStorage.setItem('leadObj', JSON.stringify(newLeadObj));
-      navigate(BUYER.LOCATION)
-  }
+      leadType: leadDataObj.leadType,
+    };
+    localStorage.setItem("leadObj", JSON.stringify(newLeadObj));
+    navigate(BUYER.LOCATION);
+  };
   const handleSubmitHomeClick = async () => {
     // const leadDataObj = leadObj;
     // const newLeadObj = {
-     
+
     // }
     // localStorage.setItem('leadObj', JSON.stringify(newLeadObj));
-      navigate(BUYER.PROPERTY_THANKYOU)
-  }
+    navigate(BUYER.PROPERTY_THANKYOU);
+  };
   // banner slide animation js
   const [newClass, setNewClass] = useState(false);
   useEffect(() => {
@@ -40,7 +41,11 @@ const BuyerAgent = () => {
 
   return (
     <>
-      <section className={`main-banner-sec propertythankyou-sec ${ newClass ? "next-class" : "" }`}>
+      <section
+        className={`main-banner-sec propertythankyou-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -53,18 +58,16 @@ const BuyerAgent = () => {
           <div className="container">
             <div className="custom-row">
               <div className="form-step-contect">
-              <h2 className="h2">
-                  {t("AGENT_T1")}</h2>
-                <h2 className="h2">
-                {t("AGENT_T2")}
-                </h2>
+              <img className="greaticon" src={greaticon} alt="greaticon" width="181" height="181" />
+                <h2 className="h2">{t("AGENT_T1")}</h2>
+                <h2 className="h2">{t("AGENT_T2")}</h2>
                 {/* <p className="sub-tilte">if you found this journey cool - make sure to share and talk about it with your friends!</p> */}
                 <form>
                   <div onClick={handleSubmitHomeClick} className="theme_btn">
                     {t("NO, THANKS")}
                   </div>
-                  <div onClick={handleSubmitClick}
-                    
+                  <div
+                    onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                   >
                     {t("YES I WANT TO ADD")}

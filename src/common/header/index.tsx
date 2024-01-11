@@ -214,7 +214,7 @@ const Header = () => {
                   </li>
                 )}
                 <li>
-                  <Menu setMenu={setMenu} onClick={handleLangaugeMenuClick} />
+                  <Menu setIsActive={setIsActive} setMenu={setMenu} onClick={handleLangaugeMenuClick} />
                 </li>
               </ul>
             </div>
