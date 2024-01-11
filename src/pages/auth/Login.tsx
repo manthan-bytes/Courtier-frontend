@@ -103,17 +103,18 @@ const Login = () => {
   // Banner typed js hide
   const [showDiv, setShowDiv] = useState(true);
   useEffect(() => {
+    if (i18n.language === 'fe') {
+      setFrench(true);
+    } else {
+      setFrench(false);
+    }
     const timeoutId = setTimeout(() => {
 
-      if (i18n.language === 'fe') {
-        setFrench(true);
-      } else {
-        setFrench(false);
-      }
+     
       // const { i18n } = useTranslation('home');
       // console.log('ravi',i18n.language);
       // Hide the div after 5000 milliseconds (5 seconds)
-      // setShowDiv(false); 
+      setShowDiv(false); 
     }, 5000);
     return () => clearTimeout(timeoutId);
   }, []);
@@ -206,10 +207,10 @@ const Login = () => {
             height="1080"
           />
           <div className="container">
-            <div className="banner-typed-content">
-              <div className={`ml6 animated-typed ${
+            <div className={`banner-typed-content ${
         french === true ? "isFrench" : ""
       }`}>
+              <div className="ml6 animated-typed">
                 <span className="letters h1">
                   {t('typed_animated').split("").map(function (char, index) {
                     return (

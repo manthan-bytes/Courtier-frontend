@@ -6,9 +6,9 @@ const AboutPage = () => {
   const { t } = useTranslation();
   return (
     <div className="about-page">
-    <header>
-      <h1>{t("about.about_1")}</h1>
-    </header>
+
+      <h1 className='h1'>{t("about.about_1")}</h1>
+ 
     <section>
       <strong>{t("about.about_2")} </strong>
       <span> {t("about.about_3")}</span>

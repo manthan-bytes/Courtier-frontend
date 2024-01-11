@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 const Header = () => {
   const navigate = useNavigate();
   const [deferredPrompt, setDeferredPrompt] = useState<any>();
-  const [getMenu,setMenu] = useState<any>();
+  const [getMenu, setMenu] = useState<any>();
 
   // Home burger menu
   const [isActive, setIsActive] = useState(false);
@@ -69,19 +69,20 @@ const Header = () => {
         navigate(ROUTES.CONTACT_US);
         break;
     }
-  }
+  };
 
   const handleLangaugeMenuClick = () => {
     if (getMenu) {
       setIsActive(!isActive);
     }
-  }
+  };
 
   useEffect(() => {
     const element: any = document.getElementById("header");
     if (element) {
       element.classList.add("header-bk");
-    }    const handleBeforeInstallPrompt = (e: any) => {
+    }
+    const handleBeforeInstallPrompt = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
     };
@@ -120,13 +121,10 @@ const Header = () => {
     };
   }, []); // Empty dependency array means this effect runs once when the component mounts
   return (
-    
     <header
       id="header"
       className={`header-sec header-bk ${scrolling ? "onscroll" : "scroll"}`}
     >
-               
-
       <div className="container">
         <div className="custom-row">
           <div className="logo-block-left">
@@ -149,13 +147,12 @@ const Header = () => {
           </div>
 
           <div className="menu-block-right">
-         
             <div className="home-burger-menu">
               <div
                 className={isActive ? "is-active" : ""}
                 onClick={toggleClass}
               >
-                <span className="homeburger-title">{t('MENU')}</span>
+                <span className="homeburger-title">{t("MENU")}</span>
                 <div className="homeburger-line">
                   <span className="line"></span>
                   <span className="line"></span>
@@ -166,7 +163,7 @@ const Header = () => {
               <ul>
                 <li>
                   <div className="menu-link" onClick={handleInstallClick}>
-                    {t('Install App')}
+                    {t("Install App")}
                   </div>
                 </li>
                 <li>
@@ -174,7 +171,7 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.FAQ)}
                   >
-                    {t('FAQ')}
+                    {t("FAQ")}
                   </div>
                 </li>
                 <li>
@@ -182,7 +179,7 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.ABOUTUS)}
                   >
-                    {t('About Us')}
+                    {t("About Us")}
                   </div>
                 </li>
                 <li>
@@ -190,7 +187,7 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.TERMS_CONDITIONS)}
                   >
-                    {t('T&C')}
+                    {t("T&C")}
                   </div>
                 </li>
                 <li>
@@ -198,7 +195,7 @@ const Header = () => {
                     className="menu-link"
                     onClick={() => handleRoutes(ROUTES.CONTACT_US)}
                   >
-                    {t('contact_us')}
+                    {t("contact_us")}
                   </div>
                 </li>
                 {/* <li>
@@ -212,16 +209,15 @@ const Header = () => {
                     <hr></hr>
 
                     <div className="menu-link" onClick={handleLogoutClick}>
-                      {t('Logout')}
+                      {t("Logout")}
                     </div>
                   </li>
                 )}
                 <li>
-                <Menu setMenu={setMenu} onClick={handleLangaugeMenuClick}/>
+                  <Menu setMenu={setMenu} onClick={handleLangaugeMenuClick} />
                 </li>
               </ul>
             </div>
-            
           </div>
         </div>
       </div>

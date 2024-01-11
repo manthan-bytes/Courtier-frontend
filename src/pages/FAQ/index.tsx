@@ -176,8 +176,8 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
-      <h1>FAQ - CourtierXpert.com</h1>
-
+      <div className="container">
+      <h1 className="h1">FAQ - CourtierXpert.com</h1>
       {faqData.map((faq, index) => (
         <div key={index} className="faq-item">
           <div className="faq-number">{index + 1}.</div>
@@ -187,6 +187,7 @@ const FAQ = () => {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };

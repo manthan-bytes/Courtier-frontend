@@ -34,10 +34,12 @@
             justify-content: center;
             gap: 16px;
             border-color: $Border_light;
+
             @media (max-width: $screen-xxs-max) {
                 padding: 12px 10px;
 
             }
+
             &:hover {
                 border-color: $White;
             }
@@ -78,6 +80,11 @@
 
             @media (max-width: $screen-xs-max) {
                 max-width: 268px;
+
+            }
+
+            &.isFrench {
+                max-width: 302px;
             }
 
             .animated-typed {
@@ -87,7 +94,8 @@
 
                     @media (max-width: $screen-991) {
                         font-size: 30px;
-                        .letter{
+
+                        .letter {
                             min-width: 18px;
                         }
                     }
@@ -95,7 +103,8 @@
                     @media (max-width: $screen-xs-max) {
                         font-size: 26px;
                         letter-spacing: 0.2px;
-                        .letter{
+
+                        .letter {
                             min-width: 14px;
                         }
                     }
