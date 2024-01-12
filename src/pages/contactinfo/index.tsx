@@ -163,9 +163,14 @@ const ContactInfo = () => {
                         name="Contact No"
                         value={userData?.phone}
                         maxLength={10}
-                        onChange={(e) =>
-                          setUserData({ ...userData, phone: e.target.value })
-                        }
+                        onChange={(e) => {
+                          if (e.target.value.length <= 10) {
+                            setUserData({
+                              ...userData,
+                              phone: e.target.value,
+                            });
+                          }
+                        }}
                       />
                       {!userData?.phone && isSubmitted && (
                         <span className="error-msg">
