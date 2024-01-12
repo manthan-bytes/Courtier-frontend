@@ -84,7 +84,11 @@
             }
 
             &.isFrench {
-                
+                max-width: 822px;
+                // max-width: 820px !important;
+                @media (max-width: $screen-991) {
+                    max-width: 540px;
+                }
                 @media (max-width: $screen-xs-max) {
                     max-width: 302px;
     
