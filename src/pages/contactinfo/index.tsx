@@ -40,7 +40,7 @@ const ContactInfo = () => {
       const user = localStorage.getItem('loginasGuest')? await createUser(userData) : await updateUser(userData.id, userData);
       if (user.statusCode === 200 || user.statusCode === 201 || user.statusCode === 400) {
         localStorage.setItem('email', userData.email)
-        toast.success(user.message, {
+        toast.success(t("USER_CREATED_SUCCESS"), {
           position: toast.POSITION.TOP_RIGHT,
         });
         element.classList.remove("loader-btn");
@@ -60,7 +60,7 @@ const ContactInfo = () => {
       }
     }
     else if(!userData?.isUserAgree){
-      toast.error( t('TERMS_CONDITIONS'), {
+      toast.error(t('TERMS_CONDITIONS'), {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");
@@ -172,18 +172,12 @@ const ContactInfo = () => {
                           {t('phone_required')}
                         </span>
                       )}
-                       {userData?.phone.length < 10 && isSubmitted && (
+                       {userData?.phone?.length < 10 && isSubmitted && (
                         <span className="error-msg">
                           {t('phone_valid')}
                         </span>
                       )}
-                      {userData?.phone &&
-                        userData?.phone?.length != 10 &&
-                        isSubmitted && (
-                          <span className="error-msg">
-                            {t('valid_contact_number')}
-                          </span>
-                        )}
+                      
                     </div>
                     <div className="form-group">
                       <input

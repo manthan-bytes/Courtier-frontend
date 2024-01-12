@@ -52,14 +52,14 @@ const SellerUploadImage = () => {
     let selectedImagePath: any = [];
 
     if (e.target?.files[0]?.size >= 10485760) {
-      toast.info(IMAGE_SIZE_LIMIT, {
+      toast.info(t("IMAGE_SIZE_LIMIT"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       return;
     }
 
     if (getFiles && getFiles.length === 5) {
-      toast.info(IMAGE_LIMIT, {
+      toast.info(t("IMAGE_LIMIT"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       return;
@@ -97,13 +97,13 @@ const SellerUploadImage = () => {
       }
       const leadUpdate = await updateImage(leadId, formData);
       if (leadUpdate.statusCode === 200) {
-        toast.success(leadUpdate.message, {
+        toast.success(t("LEAD_UPDATED_SUCCESS"), {
           position: toast.POSITION.TOP_RIGHT,
         });
         element.classList.remove("loader-btn");
         navigate(SELLER.SINGLE_FAMILY);
       } else {
-        toast.error(leadUpdate.message, {
+        toast.error(t("SOMETHING_WENT_WRONG"), {
           position: toast.POSITION.TOP_RIGHT,
         });
         element.classList.remove("loader-btn");

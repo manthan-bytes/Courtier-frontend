@@ -92,13 +92,13 @@ const SellerSingleFamilyHomestyle = () => {
       localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
       const leadUpdate = await updateLead(leadId, leadDataObj);
       if (leadUpdate.statusCode === 200) {
-        toast.success(leadUpdate.message, {
+        toast.success(t("LEAD_UPDATED_SUCCESS"), {
           position: toast.POSITION.TOP_RIGHT,
         });
         element.classList.remove("loader-btn");
         navigate(SELLER.PROPERTY_SOLD)
       } else {
-        toast.error(leadUpdate.message, {
+        toast.error(t("SOMETHING_WENT_WRONG"), {
           position: toast.POSITION.TOP_RIGHT,
         });
         element.classList.remove("loader-btn");

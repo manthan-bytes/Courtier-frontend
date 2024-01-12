@@ -1,10 +1,9 @@
 // create dashboard page component
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../sellersinglefamily/sellersinglefamily.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import { SELLER } from "../../../core/constants/routes";
-import { TEXT } from "../../../core/constants/headingText";
 import { useTranslation } from "react-i18next";
 
 const SellerSingleFamily = () => {
@@ -65,7 +64,7 @@ const SellerSingleFamily = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <h2 className="h2">
-                  {t("Great")} 💫
+                  {t("great")} 💫
                   <br />
                   {t("We would like to know more about your Property!")}
                 </h2>

@@ -33,7 +33,7 @@ const BuyerTimeLine = () => {
     localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
     const leadUpdate = await updateLead(leadId, leadDataObj);
     if (leadUpdate.statusCode === 200) {
-      toast.success(leadUpdate.message, {
+      toast.success(t("LEAD_UPDATED_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       const email = localStorage.getItem('email');
@@ -45,19 +45,19 @@ const BuyerTimeLine = () => {
           }
         const sendEmailResponse = await sendEmail(emailObj);
         if (sendEmailResponse.statusCode === 200) {
-          toast.success(sendEmailResponse.message, {
+          toast.success(t("EMAIL_SENT_SUCCESS"), {
             position: toast.POSITION.TOP_RIGHT,
           });
           element.classList.remove("loader-btn");
         } else {
-          toast.error(sendEmailResponse.message, {
+          toast.error(t("SOMETHING_WENT_WRONG_IN_EMAIL"), {
             position: toast.POSITION.TOP_RIGHT,
           });
           element.classList.remove("loader-btn");
         }
       navigate(BUYER.AGENT)
     } else {
-      toast.error(leadUpdate.message, {
+      toast.error(t("SOMETHING_WENT_WRONG"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");

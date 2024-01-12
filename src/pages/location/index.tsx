@@ -63,7 +63,7 @@ const Location = () => {
     if (locationOptions.length > 0) {
       if (locationOptions.length === 1) {
         if (!locationOptions[0].city && !locationOptions[0].boroughs) {
-          toast.error(LOCATION, {
+          toast.error(t("LOCATION"), {
             position: toast.POSITION.TOP_RIGHT,
           });
           element.classList.remove("loader-btn");
@@ -88,7 +88,7 @@ const Location = () => {
         navigate(BUYER.PROPERTY_TYPE);
       }
     } else {
-      toast.error(LOCATION, {
+      toast.error(t("LOCATION"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");

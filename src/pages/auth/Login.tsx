@@ -5,10 +5,9 @@ import { useAppDispatch } from "../../store/store";
 import "./Login.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 import banner1 from "../../assets/images/banner1.jpg";
-import { TEXT } from "../../core/constants/headingText";
 import anime from "animejs/lib/anime.es.js";
 
-import { VolumeMute, VolumeOn, Googleicon } from "../../core/icons";
+import { Googleicon } from "../../core/icons";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { createUser } from "../../service/login.service";
@@ -53,31 +52,59 @@ const Login = () => {
   };
 
   const saveUser = async (userObj:any, token: string) => {
-    const user = await createUser(userObj);
+   await createUser(userObj).then((user:any) => {
 
-    if (user.statusCode === 400) {
-      toast.info(user.message, {
+    if (user.statusCode === 201) {
+      toast.success(t("LOGIN_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       localStorage.setItem('token', token)
-      localStorage.setItem('email', userObj.email)
+      localStorage.setItem('email', user.email)
       setTimeout(() => {
         navigate("/buysellproperty");
-
       },500)
-    }
-    else if (user.statusCode === 201) {
-      toast.success(user.message, {
+    } else if (user.statusCode === 400) {
+      toast.success(t("LOGIN_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       localStorage.setItem('token', token)
-      localStorage.setItem('email', userObj.email)
+      localStorage.setItem('email', user.email)
       setTimeout(() => {
         navigate("/buysellproperty");
       },500)
     } else {
-
+      toast.success(t("SOMETHING_WENT_WRONG"), {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
+    }) .catch((err) => {
+      console.log("🚀 ~ file: Login.tsx:75 ~ awaitcreateUser ~ err:", err)
+      
+    })
+
+    // if (user.statusCode === 400) {
+    //   toast.info(t("LOGIN_SUCCESS"), {
+    //     position: toast.POSITION.TOP_RIGHT,
+    //   });
+    //   localStorage.setItem('token', token)
+    //   localStorage.setItem('email', userObj.email)
+    //   setTimeout(() => {
+    //     navigate("/buysellproperty");
+
+    //   },500)
+    // }
+    // else if (user.statusCode === 201) {
+    //   toast.success(user.message, {
+    //     position: toast.POSITION.TOP_RIGHT,
+    //   });
+    //   localStorage.setItem('token', token)
+    //   localStorage.setItem('email', userObj.email)
+    //   setTimeout(() => {
+    //     navigate("/buysellproperty");
+    //   },500)
+    // } else {
+
+    // }
  
    
     // navigate("/buysellproperty");

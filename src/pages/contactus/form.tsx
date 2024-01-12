@@ -46,11 +46,11 @@ const UserForm = () => {
       }
       const sendEmailResponse = await contactInfo(userData);
       if (sendEmailResponse.statusCode === 200) {
-        toast.success(sendEmailResponse.message, {
+        toast.success(t("EMAIL_SENT_SUCCESS"), {
           position: toast.POSITION.TOP_RIGHT,
         });
       } else {
-        toast.error(sendEmailResponse.message, {
+        toast.error(t("SOMETHING_WENT_WRONG_IN_EMAIL"), {
           position: toast.POSITION.TOP_RIGHT,
         });
       }

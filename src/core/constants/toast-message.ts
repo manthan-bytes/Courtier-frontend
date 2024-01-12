@@ -3,4 +3,6 @@ export const LOCATION = 'Please select atlist one location!';
 export const IMAGE_LIMIT = 'You have reached maximum image upload limit!';
 export const IMAGE_SIZE_LIMIT = 'Please upload image less then 10MB!';
 export const TERMS_CONDITIONS = 'Please accept terms and conditions!';
+export const INVALID_CREDENTIALS =  "Invalid credentials.";
+export const LOGIN_SUCCESS= "Login successfully.";
 

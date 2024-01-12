@@ -154,6 +154,15 @@
   "please_choose_file": "Please choose files",
   "continue": "Continue",
   "chatBot": "Hey there! 👋 got questions about Quebec real-estate or CourtierXpert? Ask away!!",
+  "lets_continue": "LET`S CONTINUE",
+  "INVALID_CREDENTIALS":"Invalid credentials.",
+  "LOGIN_SUCCESS":"Login successfully.",
+  "SOMETHING_WENT_WRONG":"Something went wrong...",
+  "USER_CREATED_SUCCESS": "User created successfully.",
+  "LEAD_CREATED_SUCCESS": "Lead created successfully.",
+  "LEAD_UPDATED_SUCCESS": "Lead updated successfully.",
+  "EMAIL_SENT_SUCCESS": "Email sent successfully.",
+  "SOMETHING_WENT_WRONG_IN_EMAIL":"Something went wrong with email delivery...",
   "buyer": {
     "revenue": {
       "title": "What are your preferences regarding the revenue property you're looking for?",

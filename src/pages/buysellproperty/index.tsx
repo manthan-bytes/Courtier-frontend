@@ -36,7 +36,7 @@ const BuySellProperty = () => {
         navigate(BUYER.CONTACT_INFO);
       }
     } else {
-      toast.error(INVALID_DATA, {
+      toast.error(t("INVALID_DATA"), {
         position: toast.POSITION.TOP_RIGHT,
       });
       element.classList.remove("loader-btn");

@@ -22,6 +22,7 @@
   "email_required": "L'e-mail est requis",
   "phone_required": "Le numéro de contact est requis",
   "phone_invalid": "Numéro de contact invalide",
+  "phone_valid": "Veuillez entrer un numéro de contact valide",
   "email_invalid": "L'e-mail est invalide",
   "description_required": "La description est requise",
   "buy_sell_property": "Souhaitez-vous acheter ou vendre une propriété ?",
@@ -153,6 +154,15 @@
   "please_choose_file": "Veuillez choisir un fichier",
   "continue": "Continuer",
   "chatBot": "Salut ! 👋 Vous avez des questions sur l'immobilier au Québec ou sur CourtierXpert ? Posez-les !!",
+  "lets_continue": "CONTINUONS",
+  "INVALID_CREDENTIALS": "Identifiants invalides.",
+  "LOGIN_SUCCESS": "Connexion réussie.",
+  "SOMETHING_WENT_WRONG": "Quelque chose s'est mal passé...",
+  "USER_CREATED_SUCCESS": "Utilisateur créé avec succès.",
+  "LEAD_CREATED_SUCCESS": "Lead créé avec succès.",
+  "LEAD_UPDATED_SUCCESS": "Lead mis à jour avec succès.",
+  "EMAIL_SENT_SUCCESS": "E-mail envoyé avec succès.",
+  "SOMETHING_WENT_WRONG_IN_EMAIL": "Quelque chose s'est mal passé lors de la livraison de l'e-mail...",
   "buyer": {
     "revenue": {
       "title": "Quelles sont vos préférences concernant la propriété de revenus que vous recherchez ?",
