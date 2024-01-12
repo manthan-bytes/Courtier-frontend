@@ -59,18 +59,21 @@ const PropertyType = () => {
             localStorage.setItem("leadObj", leadObjData);
             toast.success(t("LEAD_CREATED_SUCCESS"), {
               position: toast.POSITION.TOP_RIGHT,
+              autoClose: 1200,
             });
             element.classList.remove("loader-btn");
             navigate(SELLER.INQUIRY_OPTION);
           } else {
             toast.error(t("SOMETHING_WENT_WRONG"), {
               position: toast.POSITION.TOP_RIGHT,
+              autoClose: 1200,
             });
             element.classList.remove("loader-btn");
           }
         } else {
           toast.error(t("INVALID_DATA"), {
             position: toast.POSITION.TOP_RIGHT,
+            autoClose: 1200,
           });
           element.classList.remove("loader-btn");
         }
@@ -91,18 +94,21 @@ const PropertyType = () => {
             localStorage.setItem("leadObj", leadObjData);
             toast.success(t("LEAD_CREATED_SUCCESS"), {
               position: toast.POSITION.TOP_RIGHT,
+              autoClose: 1200,
             });
             element.classList.remove("loader-btn");
             navigate(BUYER.INQUIRY_OPTION);
           } else {
             toast.error(t("SOMETHING_WENT_WRONG"), {
               position: toast.POSITION.TOP_RIGHT,
+              autoClose: 1200,
             });
             element.classList.remove("loader-btn");
           }
         } else {
           toast.error(t("INVALID_DATA"), {
             position: toast.POSITION.TOP_RIGHT,
+            autoClose: 1200,
           });
           element.classList.remove("loader-btn");
         }
@@ -110,6 +116,7 @@ const PropertyType = () => {
     } else {
       toast.error(t("INVALID_DATA"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
     }

@@ -57,6 +57,7 @@ const Login = () => {
     if (user.statusCode === 201) {
       toast.success(t("LOGIN_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       localStorage.setItem('token', token)
       localStorage.setItem('email', user.email)
@@ -66,6 +67,7 @@ const Login = () => {
     } else if (user.statusCode === 400) {
       toast.success(t("LOGIN_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       localStorage.setItem('token', token)
       localStorage.setItem('email', user.email)
@@ -75,6 +77,7 @@ const Login = () => {
     } else {
       toast.success(t("SOMETHING_WENT_WRONG"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
     }
     }) .catch((err) => {

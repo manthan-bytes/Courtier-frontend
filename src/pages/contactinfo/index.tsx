@@ -42,6 +42,7 @@ const ContactInfo = () => {
         localStorage.setItem('email', userData.email)
         toast.success(t("USER_CREATED_SUCCESS"), {
           position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
         });
         element.classList.remove("loader-btn");
         if (leadObj.leadType === "seller") {
@@ -54,6 +55,7 @@ const ContactInfo = () => {
       } else {
         toast.error(user.message, {
           position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
         });
         element.classList.remove("loader-btn");
         //TODO
@@ -62,12 +64,14 @@ const ContactInfo = () => {
     else if(!userData?.isUserAgree){
       toast.error(t('TERMS_CONDITIONS'), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
     }
      else {
       toast.error(t('INVALID_DATA'), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
 

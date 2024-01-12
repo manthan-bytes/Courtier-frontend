@@ -59,12 +59,14 @@ const BuyerCommercialIndustrial = () => {
     if (leadUpdate.statusCode === 200) {
       toast.success(t("LEAD_UPDATED_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
       navigate(BUYER.TIME_LINE)
     } else {
       toast.error(t("SOMETHING_WENT_WRONG"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
     }

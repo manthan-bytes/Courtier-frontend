@@ -35,6 +35,7 @@ const BuyerTimeLine = () => {
     if (leadUpdate.statusCode === 200) {
       toast.success(t("LEAD_UPDATED_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       const email = localStorage.getItem('email');
         const emailObj = 
@@ -47,11 +48,13 @@ const BuyerTimeLine = () => {
         if (sendEmailResponse.statusCode === 200) {
           toast.success(t("EMAIL_SENT_SUCCESS"), {
             position: toast.POSITION.TOP_RIGHT,
+            autoClose: 1200,
           });
           element.classList.remove("loader-btn");
         } else {
           toast.error(t("SOMETHING_WENT_WRONG_IN_EMAIL"), {
             position: toast.POSITION.TOP_RIGHT,
+            autoClose: 1200,
           });
           element.classList.remove("loader-btn");
         }
@@ -59,6 +62,7 @@ const BuyerTimeLine = () => {
     } else {
       toast.error(t("SOMETHING_WENT_WRONG"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
     }
