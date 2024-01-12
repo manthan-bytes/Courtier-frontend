@@ -106,11 +106,10 @@ const Chats: React.FC<Props> = (props) => {
         <div key={chat.message}>
           <div className={`message ${chat.sender}`}>
             {chat.message === "Please login to continue" ? (
-              <div
-                style={{ color: "blue", cursor: "pointer" }}
+              <div className="chat-login"
                 onClick={() => navigate(ROUTES.LOGIN)}
               >
-                {chat.message}
+                {'Unlock exclusive access - Click here to sign in'}
               </div>
             ) : (
               <p>{chat.message}</p>
