@@ -36,7 +36,7 @@ const ContactInfo = () => {
       element.classList.add("loader-btn");
     }
     setIsSubmitted(true);
-    if (userData?.name && userData?.phone && userData?.phone.length > 0 && userData?.isUserAgree && isEmailInValid == false) {
+    if (userData?.name && userData?.phone && userData?.phone.length === 10 && userData?.isUserAgree && isEmailInValid == false) {
       const user = localStorage.getItem('loginasGuest')? await createUser(userData) : await updateUser(userData.id, userData);
       if (user.statusCode === 200 || user.statusCode === 201 || user.statusCode === 400) {
         localStorage.setItem('email', userData.email)
@@ -162,6 +162,7 @@ const ContactInfo = () => {
                         placeholder={t('phoneNumber')}
                         name="Contact No"
                         value={userData?.phone}
+                        maxLength={10}
                         onChange={(e) =>
                           setUserData({ ...userData, phone: e.target.value })
                         }
@@ -169,6 +170,11 @@ const ContactInfo = () => {
                       {!userData?.phone && isSubmitted && (
                         <span className="error-msg">
                           {t('phone_required')}
+                        </span>
+                      )}
+                       {userData?.phone.length < 10 && isSubmitted && (
+                        <span className="error-msg">
+                          {t('phone_valid')}
                         </span>
                       )}
                       {userData?.phone &&
