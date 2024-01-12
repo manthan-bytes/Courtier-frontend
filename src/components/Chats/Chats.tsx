@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Chats.scss";
 import { chatbot } from "../../service/login.service";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../core/constants/routes";
 
 interface Props {
   userResponse: string;
@@ -23,6 +25,7 @@ interface MessagesInfo {
 }
 
 const Chats: React.FC<Props> = (props) => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState<MessagesInfo[]>([]);
   const [botResponse, setBotResponse] = useState<boolean>();
 
@@ -32,7 +35,7 @@ const Chats: React.FC<Props> = (props) => {
 
   const onLoad = async () => {
     console.log("messages", messages.length);
-    
+
     if (messages.length === 0) {
       setMessages([
         {
@@ -41,7 +44,7 @@ const Chats: React.FC<Props> = (props) => {
           sender: "bot",
         },
       ]);
-    } else if(messages.length < 2 || localStorage.getItem("token")) {
+    } else if (messages.length < 2 || localStorage.getItem("token")) {
       let tempArray = [...messages];
       tempArray.push({ message: props.sendUserResponse, sender: "user" });
       setMessages(tempArray);
@@ -66,8 +69,7 @@ const Chats: React.FC<Props> = (props) => {
         });
         setMessages(temp2);
       }, 1000);
-    }
-    else{
+    } else {
       let tempArray = [...messages];
       tempArray.push({ message: props.sendUserResponse, sender: "user" });
       setMessages(tempArray);
@@ -78,6 +80,7 @@ const Chats: React.FC<Props> = (props) => {
           sender: "bot",
         });
         setMessages(temp2);
+        console.log(messages);
       }, 500);
     }
   };
@@ -102,8 +105,18 @@ const Chats: React.FC<Props> = (props) => {
       {messages.map((chat) => (
         <div key={chat.message}>
           <div className={`message ${chat.sender}`}>
-            <p>{chat.message}</p>
+            {chat.message === "Please login to continue" ? (
+              <div
+                style={{ color: "blue", cursor: "pointer" }}
+                onClick={() => navigate(ROUTES.LOGIN)}
+              >
+                {chat.message}
+              </div>
+            ) : (
+              <p>{chat.message}</p>
+            )}
           </div>
+
           {chat.options ? (
             <div className="options">
               <div>

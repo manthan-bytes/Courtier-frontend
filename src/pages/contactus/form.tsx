@@ -59,7 +59,6 @@ const UserForm = () => {
     }
   };
   const handleChange = (event: any, type: string) => {
-    console.log(type);
     if (type == "email") {
       if (!isValidEmail(event.target.value)) {
         setIsEmialInValid(true);
@@ -138,23 +137,22 @@ const UserForm = () => {
                         name="phoneNumber"
                         value={userData.phoneNumber}
                         onChange={(e) => {
-                          setUserData({
-                            ...userData,
-                            phoneNumber: e.target.value,
-                          });
-                          handleChange(e, "phoneNumber"); // Fix: Use semicolon here
+                          // Check if the input length is less than or equal to 10
+                          if (e.target.value.length <= 10) {
+                            setUserData({
+                              ...userData,
+                              phoneNumber: e.target.value,
+                            });
+                            handleChange(e, "phoneNumber"); // Fix: Use semicolon here
+                          }
                         }}
                       />
 
                       {!userData?.phoneNumber && isSubmitted && (
-                        <span className="error-msg">
-                          {t("phone_required")}
-                        </span>
+                        <span className="error-msg">{t("phone_required")}</span>
                       )}
                       {isPhoneInValid && userData?.phoneNumber && (
-                        <span className="error-msg">
-                          {t("phone_invalid")}
-                        </span>
+                        <span className="error-msg">{t("phone_invalid")}</span>
                       )}
                     </div>
                     <div className="form-group">
