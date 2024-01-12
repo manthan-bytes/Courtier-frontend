@@ -43,10 +43,12 @@ const BuyerInquiryOption = () => {
     if (sendEmailResponse.statusCode === 200) {
       toast.success(t("EMAIL_SENT_SUCCESS"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
     } else {
       toast.error(t("SOMETHING_WENT_WRONG_IN_EMAIL"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
     }
     navigate(BUYER.CALL_AGENT)

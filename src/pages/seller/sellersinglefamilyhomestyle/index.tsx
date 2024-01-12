@@ -94,12 +94,14 @@ const SellerSingleFamilyHomestyle = () => {
       if (leadUpdate.statusCode === 200) {
         toast.success(t("LEAD_UPDATED_SUCCESS"), {
           position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
         });
         element.classList.remove("loader-btn");
         navigate(SELLER.PROPERTY_SOLD)
       } else {
         toast.error(t("SOMETHING_WENT_WRONG"), {
           position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
         });
         element.classList.remove("loader-btn");
       }

@@ -38,6 +38,7 @@ const BuySellProperty = () => {
     } else {
       toast.error(t("INVALID_DATA"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
     }

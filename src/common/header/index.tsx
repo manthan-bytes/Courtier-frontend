@@ -47,6 +47,7 @@ const Header = () => {
     } else {
       toast.warn("Application is already installed", {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
     }
   };

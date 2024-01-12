@@ -65,6 +65,7 @@ const Location = () => {
         if (!locationOptions[0].city && !locationOptions[0].boroughs) {
           toast.error(t("LOCATION"), {
             position: toast.POSITION.TOP_RIGHT,
+            autoClose: 1200,
           });
           element.classList.remove("loader-btn");
           return;
@@ -90,6 +91,7 @@ const Location = () => {
     } else {
       toast.error(t("LOCATION"), {
         position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
       });
       element.classList.remove("loader-btn");
     }
