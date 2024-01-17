@@ -45,7 +45,10 @@ const SellerAboutLandField = () => {
     }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
-    leadDataObj['preferences'] = getpreferences;
+
+    const lengthOfObj = Object.keys(getpreferences).length;
+    if (getpreferences && lengthOfObj === 3) {
+      leadDataObj['preferences'] = getpreferences;
     localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
     const leadUpdate = await updateLead(leadId, leadDataObj);
     if (leadUpdate.statusCode === 200) {
@@ -62,6 +65,15 @@ const SellerAboutLandField = () => {
       });
       element.classList.remove("loader-btn");
     }
+    } else {
+      toast.error(t("PLEASE_SELECT_PREFERENCE"), {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
+      });
+      element.classList.remove("loader-btn");
+    }
+
+    
   }
   useEffect(() => {
     const element: any = document.getElementById("header");

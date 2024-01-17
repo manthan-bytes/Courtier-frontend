@@ -185,9 +185,9 @@ img {
     @include scrollbar;
     width: 100%;
 
-    @media screen and (max-width: $screen-991) {
-      height: 100%;
-    }
+    // @media screen and (max-width: $screen-991) {
+    //   height: 100%;
+    // }
   }
 }
 

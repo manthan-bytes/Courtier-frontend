@@ -1,13 +1,12 @@
 // create dashboard page component
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../sellerrevenueproperty/sellerrevenueproperty.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import revenueproperty from "../../../assets/images/revenueproperty.jpg";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
-import { TEXT } from "../../../core/constants/headingText";
 import { useTranslation } from "react-i18next";
 
 const SellerRevenueProperty = () => {
@@ -34,20 +33,12 @@ const SellerRevenueProperty = () => {
   const handleonChangeResidentialUnit = async (e: any) => {
     const selectedDataObj = { ...getpreferences };
     selectedDataObj["residentialUnit"] = e.target.value;
-    console.log(
-      "🚀 ~ file: index.tsx:35 ~ handleonChangeResidentialUnit ~ selectedDataObj:",
-      selectedDataObj
-    );
     setpreferences(selectedDataObj);
   };
 
   const handleonChangeCommercialUnit = async (e: any) => {
     const selectedDataObj = { ...getpreferences };
     selectedDataObj["commercialUnit"] = e.target.value;
-    console.log(
-      "🚀 ~ file: index.tsx:43 ~ handleonChangeCommercialUnit ~ selectedDataObj:",
-      selectedDataObj
-    );
     setpreferences(selectedDataObj);
   };
 
@@ -73,18 +64,27 @@ const SellerRevenueProperty = () => {
     }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
-    leadDataObj["preferences"] = getpreferences;
-    localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
-    const leadUpdate = await updateLead(leadId, leadDataObj);
-    if (leadUpdate.statusCode === 200) {
-      toast.success(t("LEAD_UPDATED_SUCCESS"), {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1200,
-      });
-      element.classList.remove("loader-btn");
-      navigate(SELLER.PROPERTY_SOLD)
+    const lengthOfObj = Object.keys(getpreferences).length;
+    if (getpreferences && lengthOfObj === 5) {
+      leadDataObj["preferences"] = getpreferences;
+      localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
+      const leadUpdate = await updateLead(leadId, leadDataObj);
+      if (leadUpdate.statusCode === 200) {
+        toast.success(t("LEAD_UPDATED_SUCCESS"), {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
+        });
+        element.classList.remove("loader-btn");
+        navigate(SELLER.PROPERTY_SOLD);
+      } else {
+        toast.error(t("SOMETHING_WENT_WRONG"), {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
+        });
+        element.classList.remove("loader-btn");
+      }
     } else {
-      toast.error(t("SOMETHING_WENT_WRONG"), {
+      toast.error(t("PLEASE_SELECT_PREFERENCE"), {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1200,
       });

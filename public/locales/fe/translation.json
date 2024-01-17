@@ -1,7 +1,7 @@
 {
-  "SIMPLIFIED_REAL_ESTATE": "Immobilier Simplifié",
-  "HOME1": "Une façon digitale de",
-  "HOME2": "acheter et vendre des propriétés",
+  "SIMPLIFIED_REAL_ESTATE": "L'IMMOBILIER EN TOUTE SIMPLICITÉ",
+  "HOME1": "Une méthode virtuelle pour",
+  "HOME2": "acheter et vendre des biens immobiliers",
   "I_AM_READY": "Je suis prêt(e)",
   "MENU": "MENU",
   "Install App": "Installer l'application",
@@ -54,23 +54,24 @@
   "LOCATION": "Veuillez sélectionner au moins une localisation !",
   "INVALID_DATA": "Données invalides !",
   "property_location_seller": "Dans quelle localisation se trouve votre propriété ?",
-  "property_location_buyer": "Dans quelle(s) localisation(s) préférez-vous acheter votre propriété ?",
+  "property_location_buyer": "Dans quelle(s) ville(s) préférez-vous acheter votre propriété ?",
   "add": "+AJOUTER",
   "select_city": "Sélectionnez une ville",
   "select_boroughs": "Sélectionnez un arrondissement",
   "property_type_seller": "Quel type de propriété souhaitez-vous vendre ?",
   "property_type_buyer": "Quel type de propriété recherchez-vous à acheter ?",
   "condo": "Condo",
-  "revenue_property": "Propriété de revenus",
+  "revenue_property": "Immeuble à revenus",
   "commercial_or_industrial": "Commercial ou Industriel",
   "land_field": "Terrain / Champ",
   "single_family": "Maison unifamiliale",
-  "inquiry_1": "Souhaitez-vous continuer à fournir des informations numériquement pour recevoir une",
-  "inquiry_2": "liste gratuite de propriétés sélectionnées",
+  "inquiry_1": "Souhaitez-vous continuer à fournir des informations sur notre site web pour recevoir",
+  "inquiry_2": "une liste gratuite de propriétés sélectionnées",
   "inquiry_3": "dans les 24 heures, ou préférez-vous continuer avec un agent immobilier ?",
-  "inquiry_4": "évaluation gratuite de propriété numérique",
+  "inquiry_4": "une évaluation gratuite de votre propriété",
   "get_call_from_agent": "RECEVOIR UN APPEL D'AGENT",
-  "go_with_digital_evalution": "Continuer avec l'évaluation numérique",
+  "go_with_digital_evalution": "CONTINUER AVEC L'ÉVALUATION VIRTUELLE",
+  "BTN_TEXT":"Optimiser le temps et économiser de l'argent",
   "agent_call": "Super ! Un agent vous appellera bientôt, à bientôt !",
   "Residential": "Résidentiel",
   "Commercial": "Commercial",
@@ -104,7 +105,7 @@
   "Don't Care": "Peu importe",
   "One Floor": "Un étage",
   "Many Floors": "Plusieurs étages",
-  "Multiple Platforms": "Plusieurs plates-formes",
+  "Multiple Platforms": "À palier multiples ",
   "One floor and a half": "Un étage et demi",
   "Mobile House": "Maison mobile",
   "detached_home": "Maison individuelle",
@@ -163,6 +164,7 @@
   "LEAD_UPDATED_SUCCESS": "Lead mis à jour avec succès.",
   "EMAIL_SENT_SUCCESS": "E-mail envoyé avec succès.",
   "SOMETHING_WENT_WRONG_IN_EMAIL": "Quelque chose s'est mal passé lors de la livraison de l'e-mail...",
+  "PLEASE_SELECT_PREFERENCE":"S'il vous plaît sélectionner toutes les préférences",
   "buyer": {
     "revenue": {
       "title": "Quelles sont vos préférences concernant la propriété de revenus que vous recherchez ?",
@@ -173,13 +175,13 @@
     },
     "single_family": {
       "title": "Quelles sont vos préférences concernant la maison que vous recherchez ?",
-      "Q1": "D'accord super ! Quelle est votre préférence en matière de type de maison ?",
+      "Q1": "Quel type de maison préférez-vous? ",
       "Q2": "Quel est votre préférence en matière de type de construction ?",
       "Q3": "Combien de chambres souhaitez-vous ? Si vous avez besoin d'un bureau, veuillez le compter comme une chambre.",
       "Q4": "Combien de salles de bains souhaiteriez-vous ?",
       "Q5": "Voulez-vous un garage ?",
       "Q6": "Voulez-vous une piscine ?",
-      "Q7": "Quel est votre budget pour la maison familiale - cela nous aidera à affiner notre recherche pour vous."
+      "Q7": "Quel est votre budget pour la maison familiale - cela nous aidera à préciser notre recherche pour vous."
     },
     "condo": {
       "title": "Quelles sont vos préférences concernant le condo que vous recherchez ?",
@@ -206,7 +208,7 @@
       "Q4": "Quel est votre budget pour votre achat - cela nous aidera à affiner notre recherche pour vous."
     },
     "timeline": {
-      "title": "Quel est votre calendrier pour cet achat ?"
+      "title": "Quel est le délai prévu pour cet achat ?"
     }
   },
   "seller": {

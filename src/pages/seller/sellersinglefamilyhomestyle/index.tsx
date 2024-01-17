@@ -1,6 +1,6 @@
 // create dashboard page component
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../sellersinglefamilyhomestyle/sellersinglefamilyhomestyle.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import singlefamily from "../../../assets/images/single-family.jpg";
@@ -8,7 +8,6 @@ import { RightIcon } from "../../../core/icons";
 import { updateLead } from "../../../service/lead.service";
 import { SELLER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
-import { TEXT } from "../../../core/constants/headingText";
 import { useTranslation } from "react-i18next";
 
 const SellerSingleFamilyHomestyle = () => {
@@ -16,80 +15,70 @@ const SellerSingleFamilyHomestyle = () => {
   const { t } = useTranslation();
   const [leadObj, setLeadObj] = useState<any>();
   const [getpreferences, setpreferences] = useState<any>();
-    // banner slide animation js
-    const [newClass, setNewClass] = useState(false);
+  // banner slide animation js
+  const [newClass, setNewClass] = useState(false);
 
-    const handleonChangeHomeStyle = async (e:any) => {
-      
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['homeStyle'] = e.target.value
-      console.log("🚀 ~ file: index.tsx:22 ~ handleonChangeHomeStyle ~ selectedDataObj:", selectedDataObj)
-      setpreferences(selectedDataObj);
+  const handleonChangeHomeStyle = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["homeStyle"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+  const handleonChangeBuildingType = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["buildingType"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+  const handleonChangeBuiltInYear = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["builtInYear"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
 
+  const handleonChangeBedrooms = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["bedrooms"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+
+  const handleonChangeBathrooms = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["bathrooms"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+
+  const handleonChangeGarage = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["isGarage"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+  const handleonChangePool = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["isPool"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+  const handleonChangeIntegration = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["isIntegration"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+
+  const handleonChangeLandArea = async (e: any) => {
+    const selectedDataObj = { ...getpreferences };
+    selectedDataObj["landArea"] = e.target.value;
+    setpreferences(selectedDataObj);
+  };
+
+  const handleSubmitClick = async (e: any) => {
+    const element: any = document.getElementById("submit");
+    if (element) {
+      element.classList.add("loader-btn");
     }
-    const handleonChangeBuildingType = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['buildingType'] = e.target.value
-      setpreferences(selectedDataObj);
-
-    }
-    const handleonChangeBuiltInYear = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['builtInYear'] = e.target.value
-      setpreferences(selectedDataObj);
-
-    }
-
-    const handleonChangeBedrooms = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['bedrooms'] = e.target.value
-      setpreferences(selectedDataObj);
-
-    }
-
-    const handleonChangeBathrooms = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['bathrooms'] = e.target.value
-      setpreferences(selectedDataObj);
-
-    }
-
-    const handleonChangeGarage = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['isGarage'] = e.target.value
-      setpreferences(selectedDataObj);
-
-    }
-    const handleonChangePool = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['isPool'] = e.target.value
-      setpreferences(selectedDataObj);
-
-    }
-    const handleonChangeIntegration = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['isIntegration'] = e.target.value
-      setpreferences(selectedDataObj);
-
-    }
-
-    const handleonChangeLandArea = async (e:any) => {
-      const selectedDataObj = {...getpreferences};
-      selectedDataObj['landArea'] = e.target.value
-      console.log("🚀 ~ file: index.tsx:72 ~ handleonChangeLandArea ~ selectedDataObj:", selectedDataObj)
-      setpreferences(selectedDataObj);
-
-    }
-
-    const handleSubmitClick = async (e: any) => {
-      const element: any = document.getElementById("submit");
-      if (element) {
-        element.classList.add("loader-btn");
-      }
-      const leadDataObj = leadObj;
-      const leadId = leadDataObj.id;
-      leadDataObj['preferences'] = getpreferences;
-      localStorage.setItem('leadObj', JSON.stringify(leadDataObj));
+    const leadDataObj = leadObj;
+    const leadId = leadDataObj.id;
+    const lengthOfObj = Object.keys(getpreferences).length;
+    if (getpreferences && lengthOfObj === 9) {
+      leadDataObj["preferences"] = getpreferences;
+      localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
       const leadUpdate = await updateLead(leadId, leadDataObj);
       if (leadUpdate.statusCode === 200) {
         toast.success(t("LEAD_UPDATED_SUCCESS"), {
@@ -97,7 +86,7 @@ const SellerSingleFamilyHomestyle = () => {
           autoClose: 1200,
         });
         element.classList.remove("loader-btn");
-        navigate(SELLER.PROPERTY_SOLD)
+        navigate(SELLER.PROPERTY_SOLD);
       } else {
         toast.error(t("SOMETHING_WENT_WRONG"), {
           position: toast.POSITION.TOP_RIGHT,
@@ -105,30 +94,44 @@ const SellerSingleFamilyHomestyle = () => {
         });
         element.classList.remove("loader-btn");
       }
+    } else {
+      toast.error(t("PLEASE_SELECT_PREFERENCE"), {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 1200,
+      });
+      element.classList.remove("loader-btn");
     }
-    useEffect(() => {
-      const element: any = document.getElementById("header");
-      if (element) {
-        element.classList.add("header-bk");
+  };
+  useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
+    setNewClass(true);
+    const getLeadObj = localStorage.getItem("leadObj");
+    if (getLeadObj) {
+      const leadObj = JSON.parse(getLeadObj);
+      setLeadObj(leadObj);
+      const preferences = leadObj.preferences;
+      if (preferences) {
+        console.log(
+          "🚀 ~ file: index.tsx:97 ~ useEffect ~ preferences:",
+          preferences
+        );
+        setpreferences(preferences);
+      } else {
+        setpreferences({});
       }
-      setNewClass(true);
-      const getLeadObj = localStorage.getItem("leadObj");
-      if (getLeadObj) {
-        const leadObj = JSON.parse(getLeadObj);
-        setLeadObj(leadObj);
-        const preferences = leadObj.preferences;
-        if (preferences) {
-          console.log("🚀 ~ file: index.tsx:97 ~ useEffect ~ preferences:", preferences)
-          setpreferences(preferences)
-        } else {
-          setpreferences({})
-        }
-      }
-    }, []);
+    }
+  }, []);
 
-      return (
+  return (
     <>
-      <section className={`main-banner-sec commane-main singlefamilyhomestyle-sec ${ newClass ? "next-class" : "" }`}>
+      <section
+        className={`main-banner-sec commane-main singlefamilyhomestyle-sec ${
+          newClass ? "next-class" : ""
+        }`}
+      >
         <div className="banner-overlay"></div>
         <img
           className="banner-bg"
@@ -142,17 +145,13 @@ const SellerSingleFamilyHomestyle = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">
-                  {t("seller.single_family.title")}
-                  </h2>
+                  <h2 className="h2">{t("seller.single_family.title")}</h2>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
                     id="submit"
                   >
-                   <span>
-                    {t("submit")}
-                   </span>
+                    <span>{t("submit")}</span>
                   </div>
                 </div>
 
@@ -160,22 +159,51 @@ const SellerSingleFamilyHomestyle = () => {
                   <div className="form-inner-block">
                     <div className="form-left-content">
                       <h3 className="h3">{t("seller.single_family.Q1")}</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeHomeStyle(e)}>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeHomeStyle(e)}
+                      >
                         <li>
-                          <label className="custom-checkbox-btn" >
-                            <input type="radio" name="One Floor" value="One Floor" checked={getpreferences?.homeStyle === "One Floor"}/>
-                            <div className="checkbox-lables">{t("One Floor")}</div>
+                          <label className="custom-checkbox-btn">
+                            <input
+                              type="radio"
+                              name="One Floor"
+                              value="One Floor"
+                              checked={
+                                getpreferences?.homeStyle === "One Floor"
+                              }
+                            />
+                            <div className="checkbox-lables">
+                              {t("One Floor")}
+                            </div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Many Floors" value="Many Floors" checked={getpreferences?.homeStyle === "Many Floors"}/>
-                            <div className="checkbox-lables">{t("Many Floors")}</div>
+                            <input
+                              type="radio"
+                              name="Many Floors"
+                              value="Many Floors"
+                              checked={
+                                getpreferences?.homeStyle === "Many Floors"
+                              }
+                            />
+                            <div className="checkbox-lables">
+                              {t("Many Floors")}
+                            </div>
                           </label>
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Multiple Platforms" value="Multiple Platforms" checked={getpreferences?.homeStyle === "Multiple Platforms"} />
+                            <input
+                              type="radio"
+                              name="Multiple Platforms"
+                              value="Multiple Platforms"
+                              checked={
+                                getpreferences?.homeStyle ===
+                                "Multiple Platforms"
+                              }
+                            />
                             <div className="checkbox-lables">
                               {t("Multiple Platforms")}
                             </div>
@@ -183,7 +211,15 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="One floor and a half" value="One floor and a half" checked={getpreferences?.homeStyle === "One floor and a half"}/>
+                            <input
+                              type="radio"
+                              name="One floor and a half"
+                              value="One floor and a half"
+                              checked={
+                                getpreferences?.homeStyle ===
+                                "One floor and a half"
+                              }
+                            />
                             <div className="checkbox-lables">
                               {t("One floor and a half")}
                             </div>
@@ -191,24 +227,38 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox-btn">
-                            <input type="radio" name="Mobile House" value="Mobile House" checked={getpreferences?.homeStyle === "Mobile House"}/>
-                            <div className="checkbox-lables">{t("Mobile House")}</div>
+                            <input
+                              type="radio"
+                              name="Mobile House"
+                              value="Mobile House"
+                              checked={
+                                getpreferences?.homeStyle === "Mobile House"
+                              }
+                            />
+                            <div className="checkbox-lables">
+                              {t("Mobile House")}
+                            </div>
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">
-                      {t("seller.single_family.Q2")}
-                      </h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeBuildingType(e)}>
+                      <h3 className="h3">{t("seller.single_family.Q2")}</h3>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeBuildingType(e)}
+                      >
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
                               name="Single Home"
                               value="Single Home"
-                              checked={getpreferences?.buildingType === "Single Home"}
+                              checked={
+                                getpreferences?.buildingType === "Single Home"
+                              }
                             />
-                            <div className="checkbox-lables">{t("Single Home")}</div>
+                            <div className="checkbox-lables">
+                              {t("Single Home")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -217,7 +267,9 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="Paired"
                               value="Paired"
-                              checked={getpreferences?.buildingType === "Paired"}
+                              checked={
+                                getpreferences?.buildingType === "Paired"
+                              }
                             />
                             <div className="checkbox-lables">{t("paired")}</div>
                           </label>
@@ -228,10 +280,13 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="In a row"
                               value="In a row"
-                              checked={getpreferences?.buildingType === "In a row"}
-
+                              checked={
+                                getpreferences?.buildingType === "In a row"
+                              }
                             />
-                            <div className="checkbox-lables">{t("in_a_row")}</div>
+                            <div className="checkbox-lables">
+                              {t("in_a_row")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -240,8 +295,10 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="Corner, in a row"
                               value="Corner, in a row"
-                              checked={getpreferences?.buildingType === "Corner, in a row"}
-
+                              checked={
+                                getpreferences?.buildingType ===
+                                "Corner, in a row"
+                              }
                             />
                             <div className="checkbox-lables">
                               {t("corner_in_a_row")}
@@ -249,20 +306,24 @@ const SellerSingleFamilyHomestyle = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">
-                      {t("seller.single_family.Q3")}
-                      </h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeBuiltInYear(e)}>
+                      <h3 className="h3">{t("seller.single_family.Q3")}</h3>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeBuiltInYear(e)}
+                      >
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
                               name="Before 1960"
                               value="Before 1960"
-                              checked={getpreferences?.builtInYear === "Before 1960"}
-
+                              checked={
+                                getpreferences?.builtInYear === "Before 1960"
+                              }
                             />
-                            <div className="checkbox-lables">{t("Before 1960")}</div>
+                            <div className="checkbox-lables">
+                              {t("Before 1960")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -271,10 +332,13 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="1960-2000"
                               value="1960-2000"
-                              checked={getpreferences?.builtInYear === "1960-2000"}
-
+                              checked={
+                                getpreferences?.builtInYear === "1960-2000"
+                              }
                             />
-                            <div className="checkbox-lables">{t("1960-2000")}</div>
+                            <div className="checkbox-lables">
+                              {t("1960-2000")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -283,15 +347,21 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="2000-now"
                               value="2000-now"
-                              checked={getpreferences?.builtInYear === "2000-now"}
-
+                              checked={
+                                getpreferences?.builtInYear === "2000-now"
+                              }
                             />
-                            <div className="checkbox-lables">{t("2000-now")}</div>
+                            <div className="checkbox-lables">
+                              {t("2000-now")}
+                            </div>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">{t("seller.single_family.Q4")}</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeBedrooms(e)}>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeBedrooms(e)}
+                      >
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
@@ -299,7 +369,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bedrooms"
                               value="1"
                               checked={getpreferences?.bedrooms === "1"}
-
                             />
                             <div className="checkbox-lables">1</div>
                           </label>
@@ -311,7 +380,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bedrooms"
                               value="2"
                               checked={getpreferences?.bedrooms === "2"}
-
                             />
                             <div className="checkbox-lables">2</div>
                           </label>
@@ -323,7 +391,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bedrooms"
                               value="3"
                               checked={getpreferences?.bedrooms === "3"}
-
                             />
                             <div className="checkbox-lables">3</div>
                           </label>
@@ -335,7 +402,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bedrooms"
                               value="4"
                               checked={getpreferences?.bedrooms === "4"}
-
                             />
                             <div className="checkbox-lables">4</div>
                           </label>
@@ -347,14 +413,16 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bedrooms"
                               value="5+"
                               checked={getpreferences?.bedrooms === "5+"}
-
                             />
                             <div className="checkbox-lables">5+</div>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">{t("seller.single_family.Q5")}</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeBathrooms(e)}>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeBathrooms(e)}
+                      >
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
@@ -362,7 +430,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bathrooms"
                               value="1"
                               checked={getpreferences?.bathrooms === "1"}
-
                             />
                             <div className="checkbox-lables">1</div>
                           </label>
@@ -374,7 +441,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bathrooms"
                               value="2"
                               checked={getpreferences?.bathrooms === "2"}
-
                             />
                             <div className="checkbox-lables">2</div>
                           </label>
@@ -386,7 +452,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bathrooms"
                               value="3"
                               checked={getpreferences?.bathrooms === "3"}
-
                             />
                             <div className="checkbox-lables">3</div>
                           </label>
@@ -398,7 +463,6 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bathrooms"
                               value="4"
                               checked={getpreferences?.bathrooms === "4"}
-
                             />
                             <div className="checkbox-lables">4</div>
                           </label>
@@ -410,17 +474,24 @@ const SellerSingleFamilyHomestyle = () => {
                               name="bathrooms"
                               value="5+"
                               checked={getpreferences?.bathrooms === "5+"}
-
                             />
                             <div className="checkbox-lables">5+</div>
                           </label>
                         </li>
                       </ul>
                       <h3 className="h3">{t("seller.single_family.Q6")}</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeGarage(e)}>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeGarage(e)}
+                      >
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="garage" value="yes" checked={getpreferences?.isGarage === "yes"} />
+                            <input
+                              type="radio"
+                              name="garage"
+                              value="yes"
+                              checked={getpreferences?.isGarage === "yes"}
+                            />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -429,7 +500,12 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="garage" value="no" checked={getpreferences?.isGarage === "no"}/>
+                            <input
+                              type="radio"
+                              name="garage"
+                              value="no"
+                              checked={getpreferences?.isGarage === "no"}
+                            />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -438,10 +514,18 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                       </ul>
                       <h3 className="h3">{t("seller.single_family.Q7")}</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangePool(e)}>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangePool(e)}
+                      >
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="pool" value="yes" checked={getpreferences?.isPool === "yes"}/>
+                            <input
+                              type="radio"
+                              name="pool"
+                              value="yes"
+                              checked={getpreferences?.isPool === "yes"}
+                            />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -450,7 +534,12 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="pool" value="no" checked={getpreferences?.isPool === "no"}/>
+                            <input
+                              type="radio"
+                              name="pool"
+                              value="no"
+                              checked={getpreferences?.isPool === "no"}
+                            />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -459,10 +548,18 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                       </ul>
                       <h3 className="h3">{t("seller.single_family.Q8")}</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeIntegration(e)}>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeIntegration(e)}
+                      >
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="inthome" value="yes" checked={getpreferences?.isIntegration === "yes"}/>
+                            <input
+                              type="radio"
+                              name="inthome"
+                              value="yes"
+                              checked={getpreferences?.isIntegration === "yes"}
+                            />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -471,7 +568,12 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                         <li>
                           <label className="custom-checkbox">
-                            <input type="radio" name="inthome" value="no" checked={getpreferences?.isIntegration === "no"}/>
+                            <input
+                              type="radio"
+                              name="inthome"
+                              value="no"
+                              checked={getpreferences?.isIntegration === "no"}
+                            />
                             <div className="checkbox-lable">
                               <RightIcon />
                             </div>
@@ -480,16 +582,25 @@ const SellerSingleFamilyHomestyle = () => {
                         </li>
                       </ul>
                       <h3 className="h3">{t("seller.single_family.Q9")}</h3>
-                      <ul className="property-select" onChange={(e) => handleonChangeLandArea(e)}>
+                      <ul
+                        className="property-select"
+                        onChange={(e) => handleonChangeLandArea(e)}
+                      >
                         <li>
                           <label className="custom-checkbox-btn">
                             <input
                               type="radio"
                               name="homeyear"
                               value="> 2,500 Square Feet"
-                              checked={getpreferences?.landArea === "> 2,500 Square Feet"}
+                              checked={
+                                getpreferences?.landArea ===
+                                "> 2,500 Square Feet"
+                              }
                             />
-                            <div className="checkbox-lables"> {t("2,500 Square Feet")}</div>
+                            <div className="checkbox-lables">
+                              {" "}
+                              {t("2,500 Square Feet")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -498,9 +609,14 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="homeyear"
                               value="2,500 - 5,000 Square Feet"
-                              checked={getpreferences?.landArea === "2,500 - 5,000 Square Feet"}
+                              checked={
+                                getpreferences?.landArea ===
+                                "2,500 - 5,000 Square Feet"
+                              }
                             />
-                            <div className="checkbox-lables">{t("2,500 - 5,000")}</div>
+                            <div className="checkbox-lables">
+                              {t("2,500 - 5,000")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -509,9 +625,14 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="homeyear"
                               value="5,000 - 8,000 Square Feet"
-                              checked={getpreferences?.landArea === "5,000 - 8,000 Square Feet"}
+                              checked={
+                                getpreferences?.landArea ===
+                                "5,000 - 8,000 Square Feet"
+                              }
                             />
-                            <div className="checkbox-lables">{t("5,000 - 8,000")}</div>
+                            <div className="checkbox-lables">
+                              {t("5,000 - 8,000")}
+                            </div>
                           </label>
                         </li>
                         <li>
@@ -520,7 +641,10 @@ const SellerSingleFamilyHomestyle = () => {
                               type="radio"
                               name="homeyear"
                               value="8,000+ Square Feet"
-                              checked={getpreferences?.landArea === "8,000+ Square Feet"}
+                              checked={
+                                getpreferences?.landArea ===
+                                "8,000+ Square Feet"
+                              }
                             />
                             <div className="checkbox-lables">{t("8,000+")}</div>
                           </label>

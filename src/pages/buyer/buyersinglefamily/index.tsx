@@ -1,14 +1,13 @@
 // create dashboard page component
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./buyersinglefamily.scss";
 import bg_main from "../../../assets/images/bg-main.jpg";
 import singlefamily from "../../../assets/images/single-family.jpg";
 import { RightIcon } from "../../../core/icons";
 import { updateLead } from "../../../service/lead.service";
-import { BUYER, SELLER } from "../../../core/constants/routes";
+import { BUYER } from "../../../core/constants/routes";
 import { toast } from "react-toastify";
-import { TEXT } from "../../../core/constants/headingText";
 import { useTranslation } from "react-i18next";
 
 const BuyerSingleFamily = () => {
@@ -70,22 +69,32 @@ const BuyerSingleFamily = () => {
     }
     const leadDataObj = leadObj;
     const leadId = leadDataObj.id;
-    leadDataObj["preferences"] = getpreferences;
-    localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
-    const leadUpdate = await updateLead(leadId, leadDataObj);
-    if (leadUpdate.statusCode === 200) {
-      toast.success(t("LEAD_UPDATED_SUCCESS"), {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1200,
-      });
-      element.classList.remove("loader-btn");
-      navigate(BUYER.TIME_LINE)
+    const lengthOfObj = Object.keys(getpreferences).length;
+    if (getpreferences && lengthOfObj === 7) {
+      leadDataObj["preferences"] = getpreferences;
+      localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
+      const leadUpdate = await updateLead(leadId, leadDataObj);
+      if (leadUpdate.statusCode === 200) {
+        toast.success(t("LEAD_UPDATED_SUCCESS"), {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
+        });
+        element.classList.remove("loader-btn");
+        navigate(BUYER.TIME_LINE);
+      } else {
+        toast.error(t("SOMETHING_WENT_WRONG"), {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
+        });
+        element.classList.remove("loader-btn");
+      }
     } else {
-      toast.error(t("SOMETHING_WENT_WRONG"), {
+      toast.error(t("PLEASE_SELECT_PREFERENCE"), {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 1200,
       });
       element.classList.remove("loader-btn");
+
     }
   };
   useEffect(() => {

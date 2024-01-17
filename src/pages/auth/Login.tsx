@@ -60,7 +60,7 @@ const Login = () => {
         autoClose: 1200,
       });
       localStorage.setItem('token', token)
-      localStorage.setItem('email', user.email)
+      localStorage.setItem('email', userObj.email)
       setTimeout(() => {
         navigate("/buysellproperty");
       },500)
@@ -70,7 +70,7 @@ const Login = () => {
         autoClose: 1200,
       });
       localStorage.setItem('token', token)
-      localStorage.setItem('email', user.email)
+      localStorage.setItem('email', userObj.email)
       setTimeout(() => {
         navigate("/buysellproperty");
       },500)
@@ -144,7 +144,7 @@ const Login = () => {
       // const { i18n } = useTranslation('home');
       // console.log('ravi',i18n.language);
       // Hide the div after 5000 milliseconds (5 seconds)
-      // setShowDiv(false); 
+      setShowDiv(false);
     }, 5000);
     return () => clearTimeout(timeoutId);
   }, []);
