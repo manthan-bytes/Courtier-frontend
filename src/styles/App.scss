@@ -52,6 +52,18 @@ img {
   max-width: 100%;
   height: auto;
 }
+.footer {
+  position: fixed;
+  width: 100%;
+  background: #ffb6b6;
+  bottom: 0;
+  text-align: center;
+  padding: 3px 16px;
+  box-shadow: 0 0 10px 1px #e5e5e5;
+  a {
+    padding-right: 15px;
+  }
+}
 
 .container {
   width: 100%;
@@ -60,7 +72,7 @@ img {
   clear: both;
   max-width: 1784px;
   padding: 0 30px;
-
+ 
   @media screen and (max-width:$screen-xs-max) {
     padding: 0px 15px;
   }

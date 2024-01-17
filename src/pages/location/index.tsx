@@ -1,17 +1,14 @@
 // create dashboard page component
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../location/location.scss";
 import bg_main from "../../assets/images/bg-main.jpg";
 import Select from "react-select";
 import { CloseIconv1 } from "../../core/icons";
 import { BUYER, SELLER } from "../../core/constants/routes";
-import { BOROUGHS } from "../../core/constants/boroughs";
 import { CITIES } from "../../core/constants/cities";
-import { ToastContainer, toast } from "react-toastify";
-import { LOCATION } from "../../core/constants/toast-message";
+import { toast } from "react-toastify";
 import { NEWCITIES } from "../../core/constants/listOfCities";
-import { TEXT } from "../../core/constants/headingText";
 import { useTranslation } from "react-i18next";
 
 const Location = () => {

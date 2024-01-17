@@ -1,7 +1,8 @@
 import React from "react";
 import "../../styles/FAQPage.scss";
 import { useTranslation } from "react-i18next";
-
+import "../FAQ/faq.scss";
+import Footer from "../../common/footer";
 const FAQ = () => {
   const { t } = useTranslation();
   const faqData = [
@@ -176,18 +177,19 @@ const FAQ = () => {
 
   return (
     <div className="faq-container">
-      <div className="container">
-      <h1 className="h1">FAQ - CourtierXpert.com</h1>
-      {faqData.map((faq, index) => (
-        <div key={index} className="faq-item">
-          <div className="faq-number">{index + 1}.</div>
-          <div className="faq-content">
-            <div className="faq-question">{faq.question}</div>
-            <div className="faq-answer">{faq.answer}</div>
+      <div className="container faq-width">
+        <h1 className="h1">FAQ - CourtierXpert.com</h1>
+        {faqData.map((faq, index) => (
+          <div key={index} className="faq-item">
+            <div className="faq-number">{index + 1}.</div>
+            <div className="faq-content">
+              <div className="faq-question">{faq.question}</div>
+              <div className="faq-answer">{faq.answer}</div>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    <Footer></Footer>
     </div>
   );
 };
