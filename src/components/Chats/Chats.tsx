@@ -90,6 +90,34 @@ const Chats: React.FC<Props> = (props) => {
     onLoad();
   }, [props.sendUserResponse]);
 
+  useEffect(() => {
+    const storedData = localStorage.getItem("chatBotData");
+    console.log("Stored data from local storage:", storedData);
+  
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+        if (Array.isArray(parsedData) && parsedData.length > 0) {
+        setMessages(parsedData);
+      } else {
+        setMessages([
+          {
+            purpose: "introduction",
+            message: t("chatBot"),
+            sender: "bot",
+          }
+        ]);
+      }
+    }
+  }, []);
+  
+
+  useEffect(() => {
+    if (messages.length > 2) {
+      localStorage.setItem("chatBotData", JSON.stringify([...messages]));
+    }
+  }, [messages]);
+  
+
   // enable autoscroll after each message
   useEffect(() => {
     if (dummyRef && dummyRef.current && bodyRef && bodyRef.current) {
