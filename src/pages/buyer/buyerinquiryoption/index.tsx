@@ -95,7 +95,11 @@ const BuyerInquiryOption = () => {
                     className="theme_btn grdnt_btn"
                   >
                     {t('go_with_digital_evalution')}
+                    <div className="btn_text">
+                        {t("BTN_TEXT")}
+                    </div>
                   </div>
+                  
                 </form>
               </div>
             </div>

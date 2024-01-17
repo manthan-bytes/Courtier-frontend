@@ -164,6 +164,7 @@
   "EMAIL_SENT_SUCCESS": "Email sent successfully.",
   "SOMETHING_WENT_WRONG_IN_EMAIL":"Something went wrong with email delivery...",
   "PLEASE_SELECT_PREFERENCE":"Please select all preferences",
+  "BTN_TEXT":"Optimize time and save money",
   "buyer": {
     "revenue": {
       "title": "What are your preferences regarding the revenue property you're looking for?",
