@@ -55,6 +55,12 @@ const Home = () => {
                 </Link>
               </div>
               <div className="volume-btn" onClick={handleChatBotButton}>
+              <img
+                  src={btnloader}
+                  alt="btn-animation.svg"
+                  width="196"
+                  height="196"
+                />
                 <div className="volume">
                   <ChatbotIcon />
                 </div>

@@ -49,11 +49,23 @@ const BuyerRevenueProperty = () => {
     const leadId = leadDataObj.id;
     const lengthOfObj = Object.keys(getpreferences).length;
     if (getpreferences && lengthOfObj === 4) {
-      toast.error(t("PLEASE_SELECT_PREFERENCE"), {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1200,
-      });
-      element.classList.remove("loader-btn");
+      leadDataObj["preferences"] = getpreferences;
+      localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
+      const leadUpdate = await updateLead(leadId, leadDataObj);
+      if (leadUpdate.statusCode === 200) {
+        toast.success(t("LEAD_UPDATED_SUCCESS"), {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
+        });
+        element.classList.remove("loader-btn");
+        navigate(BUYER.TIME_LINE);
+      } else {
+        toast.error(t("SOMETHING_WENT_WRONG"), {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1200,
+        });
+        element.classList.remove("loader-btn");
+      }
     } else {
       toast.error(t("PLEASE_SELECT_PREFERENCE"), {
         position: toast.POSITION.TOP_RIGHT,
@@ -61,23 +73,7 @@ const BuyerRevenueProperty = () => {
       });
       element.classList.remove("loader-btn");
     }
-    leadDataObj["preferences"] = getpreferences;
-    localStorage.setItem("leadObj", JSON.stringify(leadDataObj));
-    const leadUpdate = await updateLead(leadId, leadDataObj);
-    if (leadUpdate.statusCode === 200) {
-      toast.success(t("LEAD_UPDATED_SUCCESS"), {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1200,
-      });
-      element.classList.remove("loader-btn");
-      navigate(BUYER.TIME_LINE);
-    } else {
-      toast.error(t("SOMETHING_WENT_WRONG"), {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1200,
-      });
-      element.classList.remove("loader-btn");
-    }
+    
   };
   useEffect(() => {
     setNewClass(true);

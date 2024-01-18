@@ -66,7 +66,7 @@ const SellerInquiryOption = () => {
               <div className="form-step-contect">
                 <h2 className="h2">
                   {/* {TEXT.sell_inquiry_options} */}
-                  {t("inquiry_1")} <span style={{color:'red'}}>{t("inquiry_4")}</span> {t("inquiry_3")}
+                  {t("inquiry_1.1")} <span style={{color:'red'}}>{t("inquiry_2.1")}</span> {t("inquiry_3.1")}
                 </h2>
                 <form>
                   <div onClick={callFromAgent} className="theme_btn">
