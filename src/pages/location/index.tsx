@@ -128,14 +128,16 @@ const Location = () => {
     // Using setTimeout to ensure the state is updated before checking the condition
     setTimeout(() => {
       if (isSelectOpen && selectedValue.value === data[index].city) {
-        data[index].city = "";
+        // data[index].city = "";
         setLocationOption([...data]); // Force update to trigger re-render
       }
     }, 0);
   };
 
   const handleOnChangeBoroughs = async (selectedValue: any, index: number) => {
+    console.log("🚀 ~ handleOnChangeBoroughs ~ locationOptions:", locationOptions)
     const data = [...locationOptions];
+    
     data[index].boroughs = selectedValue.value;
     setLocationOption(data);
   };

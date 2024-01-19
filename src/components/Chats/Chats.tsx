@@ -44,7 +44,7 @@ const Chats: React.FC<Props> = (props) => {
           sender: "bot",
         },
       ]);
-    } else if (messages.length < 2 || localStorage.getItem("token")) {
+    } else if (messages.length < 10 || localStorage.getItem("token")) {
       let tempArray = [...messages];
       tempArray.push({ message: props.sendUserResponse, sender: "user" });
       setMessages(tempArray);
@@ -91,7 +91,7 @@ const Chats: React.FC<Props> = (props) => {
   }, [props.sendUserResponse]);
 
   useEffect(() => {
-    const storedData = localStorage.getItem("chatBotData");
+    const storedData = sessionStorage.getItem("chatBotData");
     console.log("Stored data from local storage:", storedData);
   
     if (storedData) {
@@ -113,7 +113,7 @@ const Chats: React.FC<Props> = (props) => {
 
   useEffect(() => {
     if (messages.length > 2) {
-      localStorage.setItem("chatBotData", JSON.stringify([...messages]));
+      sessionStorage.setItem("chatBotData", JSON.stringify([...messages]));
     }
   }, [messages]);
   
