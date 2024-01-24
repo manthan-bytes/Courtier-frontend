@@ -53,7 +53,7 @@
   "IMAGE_LIMIT": "Vous avez atteint la limite maximale de téléchargement d'images !",
   "LOCATION": "Veuillez sélectionner au moins une localisation !",
   "INVALID_DATA": "Données invalides !",
-  "property_location_seller": "Dans quelle localisation se trouve votre propriété ?",
+  "property_location_seller": "Dans quelle secteur se trouve votre propriété ?",
   "property_location_buyer": "Dans quelle(s) ville(s) préférez-vous acheter votre propriété ?",
   "add": "+AJOUTER",
   "select_city": "Sélectionnez une ville",
