@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../styles/AboutPage.scss';
 import { useTranslation } from 'react-i18next';
 import Footer from '../../common/footer';
 
 const AboutPage = () => {
   const { t } = useTranslation();
+  useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
+  })
   return (
     <><div className="about-page">
 

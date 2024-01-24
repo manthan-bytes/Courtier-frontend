@@ -7,4 +7,16 @@
            margin: 0 auto;
         }
     }
+    .btn_text {
+        font-size: 14px; /* Adjust font size as needed */
+        color: $Black; /* or your desired color */
+        text-align: center;
+        margin-top: 10px; /* Adjust margin as needed */
+        position: absolute;
+        font-weight: normal;
+        left: 0;
+        text-transform: none;
+        right: 0;
+        bottom: -35px;
+      }
 }

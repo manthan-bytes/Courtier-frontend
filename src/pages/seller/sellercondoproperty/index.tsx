@@ -131,7 +131,7 @@ const SellerCondoProperty = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">{t("buyer.condo.title")} </h2>
+                  <h2 className="h2">{t("seller.condo.title")} </h2>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
@@ -144,7 +144,7 @@ const SellerCondoProperty = () => {
                 <form>
                   <div className="form-inner-block">
                     <div className="form-left-content">
-                      <h3 className="h3">{t("buyer.condo.Q1")}</h3>
+                      <h3 className="h3">{t("seller.condo.Q1")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangeCondoStyle(e)}
@@ -212,7 +212,7 @@ const SellerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">{t("buyer.condo.Q2")}</h3>
+                      <h3 className="h3">{t("seller.condo.Q2")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangeCondoSpace(e)}
@@ -279,7 +279,7 @@ const SellerCondoProperty = () => {
                         </li>
                       </ul>
 
-                      <h3 className="h3">{t("buyer.condo.Q3")}</h3>
+                      <h3 className="h3">{t("seller.condo.Q3")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangeBedrooms(e)}
@@ -340,7 +340,7 @@ const SellerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">{t("buyer.condo.Q4")}</h3>
+                      <h3 className="h3">{t("seller.condo.Q4")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangeBathrooms(e)}
@@ -401,7 +401,7 @@ const SellerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">{t("buyer.condo.Q5")}</h3>
+                      <h3 className="h3">{t("seller.condo.Q5")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangeGarage(e)}
@@ -435,7 +435,7 @@ const SellerCondoProperty = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">{t("buyer.condo.Q6")}</h3>
+                      <h3 className="h3">{t("seller.condo.Q6")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangePool(e)}

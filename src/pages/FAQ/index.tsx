@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/FAQPage.scss";
 import { useTranslation } from "react-i18next";
 import "../FAQ/faq.scss";
@@ -174,6 +174,13 @@ const FAQ = () => {
         "Yes, our platform and services cater to a wide range of property types, including residential homes, condos, multi-unit buildings, and commercial properties.",
     },
   ];
+
+  useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
+  })
 
   return (
     <div className="faq-container">

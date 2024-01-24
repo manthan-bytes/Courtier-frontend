@@ -27,6 +27,7 @@ const Header = () => {
     localStorage.removeItem("leadObj");
     localStorage.removeItem("token");
     localStorage.removeItem("email");
+    sessionStorage.clear();
     setIsActive(!isActive);
     navigate(ROUTES.HOME);
   };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./UserForm.scss";
 import { TEXT } from "../../core/constants/headingText";
 import bg_main from "../../assets/images/bg-main.jpg";
@@ -76,7 +76,12 @@ const UserForm = () => {
       }
     }
   };
-
+  useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
+  })
   return (
     <section className={`main-banner-sec contactform-sec`}>
       <div className="banner-overlay"></div>

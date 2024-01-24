@@ -118,7 +118,7 @@ const SellerCommercialIndustrial = () => {
             <div className="custom-row">
               <div className="form-step-contect">
                 <div className="heading-top">
-                  <h2 className="h2">{t("buyer.commercial.title")}</h2>
+                  <h2 className="h2">{t("seller.commercial.title")}</h2>
                   <div
                     onClick={handleSubmitClick}
                     className="theme_btn grdnt_btn"
@@ -131,7 +131,7 @@ const SellerCommercialIndustrial = () => {
                 <form>
                   <div className="form-inner-block">
                     <div className="form-left-content">
-                      <h3 className="h3">{t("buyer.commercial.Q1")}</h3>
+                      <h3 className="h3">{t("seller.commercial.Q1")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangeProjectType(e)}
@@ -182,7 +182,7 @@ const SellerCommercialIndustrial = () => {
                           </label>
                         </li>
                       </ul>
-                      <h3 className="h3">{t("buyer.commercial.Q2")}</h3>
+                      <h3 className="h3">{t("seller.commercial.Q2")}</h3>
                       <ul
                         className="property-select"
                         onChange={(e) => handleonChangePropertyUsed(e)}

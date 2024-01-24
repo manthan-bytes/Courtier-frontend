@@ -1,12 +1,17 @@
 // TermsAndConditions.js
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../styles/TermsAndConditions.scss';
 import { useTranslation } from 'react-i18next';
 const TeamsConditions = () => {
   const { t } = useTranslation();
 
-
+  useEffect(() => {
+    const element: any = document.getElementById("header");
+    if (element) {
+      element.classList.add("header-bk");
+    }
+  })
   return (
     <div className="terms-container">
       <h1>{t("terms.title")}</h1>

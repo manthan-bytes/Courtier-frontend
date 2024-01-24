@@ -65,7 +65,7 @@ const Chatbot = ({ chatbotClass, setChatbotClass }: any) => {
   return (
     <div className="chat-container">
       <div className="header-top">
-      XpertAI
+      XpertBot
         <div className="closeicon" onClick={handleCloseChatbotEvent}>
           <Closeicon />
         </div>
