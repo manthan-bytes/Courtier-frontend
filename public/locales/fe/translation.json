@@ -230,7 +230,7 @@
     },
     "condo": {
       "title": "Quelles sont certaines caractéristiques de la propriété de condo que vous souhaitez vendre ?",
-      "Q1": "Quel est le style du condo",
+      "Q1": "Quel est le style du condo?",
       "Q2": "Quelle est la superficie de votre condo ?",
       "Q3": "Combien de chambres avez-vous ?",
       "Q4": "Et, combien de salles de bains ?",

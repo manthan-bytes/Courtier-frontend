@@ -183,9 +183,10 @@
 
     .munu-block {
         width: 100%;
-        max-width: 170px;
+        max-width: 260px;
+        min-width: 260px;
         position: absolute;
-        background: linear-gradient(95deg, rgb(255 182 182 / 91%) 0%, rgb(248 224 224 / 90%) 100%);
+        background: linear-gradient(95deg,#ffd3d3f7,#f9edf1);
         right: 0;
         border-radius: 5px;
         height: 0;
@@ -195,19 +196,24 @@
         transition: all 0.5s;
 
         ul {
-            padding: 10px 20px;
+            padding: 20px 20px 23px;
 
             li {
                 +li {
                     margin-top: 6px;
+                }
+                &:last-child {
+                    margin-top: 16px;
                 }
 
                 display:block;
 
                 .menu-link {
                     color: $Font_Primary;
-                    transition: all 0.5s;
                     cursor: pointer;
+                    transition: all .5s;
+                    line-height: 1.6;
+                    font-size: 21px;
 
                     &:hover {
                         color: $Btn_thame1;
@@ -221,6 +227,16 @@
             opacity: 1;
             height: auto;
             transform: translateY(0px);
+        }
+        @media screen and (max-width:$screen-xs-max) {
+            min-width: 220px;
+            ul {
+                li {
+                    .menu-link {
+                        font-size: 16px;
+                    }
+                }
+            }
         }
     }
 
