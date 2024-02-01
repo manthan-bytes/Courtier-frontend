@@ -1,0 +1,22 @@
+@import "../../../styles/Variable.scss";
+
+.main-banner-sec {
+    &.propertythankyou-sec {
+        .form-step-contect {
+            max-width: 1430px;
+            width: 100%;
+            margin: 0 auto;
+            .greaticon {
+                width: 100%;
+                max-width: 181px;
+                height: 181px;
+                margin-bottom: 24px;
+
+                @media (max-width: $screen-xs-max) {
+                    max-width: 120px;
+                    height: 120px;
+                }
+            }
+        }
+    }
+}

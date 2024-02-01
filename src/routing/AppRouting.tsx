@@ -7,8 +7,46 @@ import PublicLayout from "./layout/PublicLayout";
 import Login from "../pages/auth/Login";
 import Home from "../pages/home";
 import BuySellProperty from "../pages/buysellproperty";
-import ContactInfo from "../pages/seller/contactinfo";
-import { ROUTES, SELLER } from "../core/constants/routes";
+import { ROUTES, SELLER, BUYER } from "../core/constants/routes";
+import SellerContactInfo from "../pages/seller/sellercontactinfo";
+import SellerLocation from "../pages/seller/sellerlocation";
+import SellerPropertyType from "../pages/seller/sellerpropertytype";
+import SellerInquiryOption from "../pages/seller/sellerinquiryoption";
+import SellerUploadImage from "../pages/seller/selleruploadimage";
+import SellerCallFromAgent from "../pages/seller/sellercallfromagent";
+import SellerSingleFamily from "../pages/seller/sellersinglefamily";
+import SellerPropertySold from "../pages/seller/sellerpropertysold";
+import SellerPropertyConformation from "../pages/seller/sellerpropertyconformation";
+import SellerPropertyThankyou from "../pages/seller/sellerpropertythankyou";
+import SellerSingleFamilyHomestyle from "../pages/seller/sellersinglefamilyhomestyle";
+import SellerCondoProperty from "../pages/seller/sellercondoproperty";
+import SellerAboutLandField from "../pages/seller/selleraboutlandfield";
+import SellerRevenueProperty from "../pages/seller/sellerrevenueproperty";
+import SellerCommercialIndustrial from "../pages/seller/sellercommercialindustrial";
+
+import BuyerInquiryOption from "../pages/buyer/buyerinquiryoption";
+import BuyerSingleFamily from "../pages/buyer/buyersinglefamily";
+import BuyerCondoProperty from "../pages/buyer/buyercondoproperty";
+import BuyerAboutLandField from "../pages/buyer/buyeraboutlandfield";
+import BuyerRevenueProperty from "../pages/buyer/buyerrevenueproperty";
+import BuyerCommercialIndustrial from "../pages/buyer/buyercommercialindustrial";
+import BuyerSearchProperty from "../pages/buyer/buyersearchproperty";
+import BuyerTimeLine from "../pages/buyer/buyertimeline";
+import BuyerAgent from "../pages/buyer/buyeragent";
+import BuyerContactInfo from "../pages/buyer/buyercontactinfo";
+import BuyerLocation from "../pages/buyer/buyerlocation";
+import BuyerPropertyType from "../pages/buyer/buyerpropertytype";
+import CallFromAgent from "../pages/callfromagent";
+import BuyerCallFromAgent from "../pages/buyer/buyercallfromagent";
+import BuyerPropertyThankyou from "../pages/buyer/buyerpropertythankyou";
+import FAQ from "../pages/FAQ";
+import TeamsConditions from "../pages/terms&conditions";
+import About from "../pages/aboutpage";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import UserForm from "../pages/contactus/form";
+
+
+
 
 const AppRouting = () => {
   return (
@@ -16,7 +54,11 @@ const AppRouting = () => {
       {/* Private route start */}
       <Route path="/">
         <Route path={ROUTES.HOME} index element={<Home />} />
-
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/aboutus" element={<About />} />
+        <Route path="/terms&conditions" element={<TeamsConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path='/user-form' element={<UserForm />} />
         <Route path="/" element={<Navigate to="/home" />} />
       </Route>
 
@@ -26,9 +68,43 @@ const AppRouting = () => {
 
       <Route path="/" element={<PrivateLayout />}>
         <Route path={ROUTES.BUYSELLPROPERTY} index element={<BuySellProperty />} />
+
         <Route path={ROUTES.SELLER}>
-          <Route path={SELLER.CONTACT_INFO} index element={<ContactInfo />} />
+          <Route path={SELLER.CONTACT_INFO} index element={<SellerContactInfo />} />
+          <Route path={SELLER.LOCATION} index element={<SellerLocation />} />
+          <Route path={SELLER.PROPERTY_TYPE} index element={<SellerPropertyType />} />
+          <Route path={SELLER.INQUIRY_OPTION} index element={<SellerInquiryOption />} />
+          <Route path={SELLER.CALL_AGENT} index element={<SellerCallFromAgent />} />
+          <Route path={SELLER.UPLOAD_IMAGE} index element={<SellerUploadImage />} />
+          <Route path={SELLER.SINGLE_FAMILY} index element={<SellerSingleFamily />} />
+          <Route path={SELLER.PROPERTY_SOLD} index element={<SellerPropertySold/>} />
+          <Route path={SELLER.PROPERTY_CONFORMATION} index element={<SellerPropertyConformation />} />
+          <Route path={SELLER.PROPERTY_THANKYOU} index element={<SellerPropertyThankyou />} />
+          <Route path={SELLER.SINGLE_FAMILY_HOME_STYLE} index element={<SellerSingleFamilyHomestyle />} />
+          <Route path={SELLER.CONDO_PROPERTY} index element={<SellerCondoProperty />} />
+          <Route path={SELLER.ABOUT_LAND_FIELD} index element={<SellerAboutLandField />} />
+          <Route path={SELLER.REVENUE_PROPERTY} index element={<SellerRevenueProperty/>} />
+          <Route path={SELLER.COMMERCIAL_INDUSTRIAL} index element={<SellerCommercialIndustrial/>} />
         </Route>
+
+        <Route path={ROUTES.BUYER}>
+          <Route path={BUYER.CONTACT_INFO} index element={<BuyerContactInfo />} />
+          <Route path={BUYER.LOCATION} index element={<BuyerLocation />} />
+          <Route path={BUYER.PROPERTY_TYPE} index element={<BuyerPropertyType />} />
+          <Route path={BUYER.INQUIRY_OPTION} index element={<BuyerInquiryOption />} />
+          <Route path={BUYER.SINGLE_FAMILY} index element={<BuyerSingleFamily />} />
+          <Route path={BUYER.CONDO_PROPERTY} index element={<BuyerCondoProperty />} />
+          <Route path={BUYER.ABOUT_LAND_FIELD} index element={<BuyerAboutLandField />} />
+          <Route path={BUYER.REVENUE_PROPERTY} index element={<BuyerRevenueProperty/>} />
+          <Route path={BUYER.COMMERCIAL_INDUSTRIAL} index element={<BuyerCommercialIndustrial/>} />
+          <Route path={BUYER.SEARCH_PROPERTY} index element={<BuyerSearchProperty />} />
+          <Route path={BUYER.TIME_LINE} index element={<BuyerTimeLine/>} />
+          <Route path={BUYER.AGENT} index element={<BuyerAgent/>} />
+          <Route path={BUYER.CALL_AGENT} index element={<BuyerCallFromAgent />} />
+          <Route path={BUYER.PROPERTY_THANKYOU} index element={<BuyerPropertyThankyou />} />
+
+        </Route>
+        
       </Route>
       {/* <Route path="/home"> */}
       {/* </Route> */}

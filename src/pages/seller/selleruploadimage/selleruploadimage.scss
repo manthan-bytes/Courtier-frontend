@@ -1,0 +1,114 @@
+@import "../../../styles/Variable.scss";
+
+.main-banner-sec {
+    &.uploadimage-sec {
+        .form-step-contect {
+            .h2 {
+                width: 46.6146vw;
+                margin: 0 auto;
+                margin-bottom: 24px;
+
+                @media (max-width: $screen-991) {
+                    width: 100%;
+                    max-width: 700px;
+                }
+            }
+
+            .form-inner-block {
+
+                .file-upload-wrap {
+                    padding: 40px 20px;
+                    border: 2px dashed $Border;
+                    background: $White;
+                    max-width: 1282px;
+                    width: 100%;
+                    border-radius: 2px;
+                    text-align: center;
+                    position: relative;
+
+                    @media (max-width:$screen-sm-max) {
+                        padding: 20px 15px;
+                    }
+                    svg{
+                        margin-bottom: 20px;
+                        width: 100%;
+                        max-width: 90px;
+                        object-fit: contain;
+                        @media (max-width:$screen-xs-max) {
+                            max-width: 60px;
+                            height: auto;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .label {
+                        font-size: 18px;
+                        font-weight: 600;
+                        line-height: 150%;
+                        letter-spacing: 1.08px;
+                        margin-bottom: 24px;
+                        width: 100%;
+                        @media (max-width:$screen-xs-max) {
+                            font-size: 16px;
+                            margin-bottom: 10px;
+                        }
+                        span {
+                            background: linear-gradient(90deg, $Btn_thame1 0%, $Btn_thame2 100%);
+                            background-clip: text;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                        }
+                    }
+                    .file-upload-img {
+                        display: flex;
+                        gap: 8px;
+                        align-items: flex-start;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        .close_icon_main {
+                            position: relative;
+                            .close_icon {
+                                position: absolute;
+                                right: -4px;
+                                top: -8px;
+                                background: $White;
+                                border-radius: 50%;
+                                display: flex;
+                                svg {
+                                    margin: 0px;
+                                    path {
+                                        fill: $Blue_Primary;
+                                    }
+                                }
+                            
+                            }
+                        }
+                    
+                    }
+
+                    .label-note {
+                        font-size: 16px;
+                        line-height: 150%;
+                    }
+                    input {
+                        display: none;
+                    }
+                    .error-msg {
+                        position: absolute;
+                        font-size: 14px;
+                        bottom: 15px;
+                        left: 0;
+                        right: 0;
+                        display: none;
+                    }
+                }
+            }
+
+            .theme_btn {
+                @media (max-width:$screen-sm-max) {
+                    margin-top: 5px;
+                }
+
+            }
+        }
+    }
+}

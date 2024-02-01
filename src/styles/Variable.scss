@@ -1,50 +1,50 @@
+@import"Mixins.scss";
+
 // Color Variables
-$black: #000000;
-$white: #ffffff;
-$Accent: #8a6fab;
-$Font_Primary: #181f2a;
-$Secondary_Text: #616773;
-$gray_extra_light: #f4f4f4;
-$Border: #e2e4e8;
-$Error: #e22a34;
+$Black: #000000;
+$White: #ffffff;
+$Font_Primary: #141414;
+$Placeholder_Text: #141414;
 $Blue_Primary: #e45017;
-$Placeholder_Text: #8b93a1;
-$Light_Accent: #fef6f3;
-$Light_Text_BG: #f8f9fa;
-$Dark_BG: #4D4E4E;
-$In_progress: #ED8A00;
-$Secondary_light: #FBF9FF;
-$Light_Progress: #FFFAE5;
-$Light_Success: #E9FDF2;
-$Light_Blue: #DFE0DF;
-$Light_Error: #FDEEEF;
-$Pending: #FBA320;
-$Approved:#2AAD6C;
-$Rejected: #E43131;
-$white_light: #FAFAFA;
-$Blue_dark: #714FF6;
-$Blue_light: #F3EFFB;
-$Type_20percentage:rgb(24 31 42 / 20%);
+$Accent: #D9D9D9;
+$Btn_thame1: #FF512F;
+$Btn_thame2: #DD2476;
+$Border_black: #000000;
+$Border: #141414;
+$Border_light: #BFBFBF;
+$Border_light_focus: #8C8C8C;
+$Menu-borader:rgba(255, 255, 255, 0.66);
+$Menu-bg0:rgba(255, 182, 182, 0.41);
+$Menu-bg1:rgba(228, 216, 216, 0.22);
+$Error: #F03D50;
+$Black4:#F0F0F0;
+$success:#00A300;
+
+// Font stacks
+$font_family_jost: 'Jost', sans-serif;
+$font_size_base: 22px;
 
 // Custom Scrollbar Mixins
-@mixin scrollbar($thumb, $track) {
+@mixin scrollbar {
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: $thumb $track;
+  scrollbar-color:$Btn_thame2;
 
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
     height: 4px;
+    border-radius: 6px;
   }
 
   &::-webkit-scrollbar-track {
-    background: $track;
+    background:$Accent;
+    border-radius: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $Light_Blue;
+    background-color:$Error;
     border-radius: 6px;
-    border: 0px solid $track;
+    border: 0px solid $White;
   }
 }
 

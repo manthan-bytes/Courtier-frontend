@@ -1,0 +1,13 @@
+@import "../../styles/Variable.scss";
+
+.main-banner-sec {
+    &.buysellproperty-sec {
+        .form-step-contect {
+            .grdnt_btn {
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+}

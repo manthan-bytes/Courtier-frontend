@@ -1,0 +1,200 @@
+@import "../../styles/Variable.scss";
+$standard-padding: 0.5em;
+$bubble-border-radius: 17px;
+
+@mixin bot {
+  background: #f5f5f5;
+  color: #000000;
+  align-self: flex-start;
+}
+
+@mixin user {
+  background: #e5dfdf;
+  color: #393e46;
+  align-self: flex-end;
+}
+
+// Custom Scrollbar Mixins
+@mixin scrollbar($thumb, $track) {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $thumb $track;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dfe0df;
+    border-radius: 6px;
+    border: 0px solid $track;
+  }
+}
+
+.message-container {
+  margin-bottom: 16px;
+  height: 100%;
+  @include scrollbar(#8b93a1, #f4f4f4);
+  overflow-y: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+
+  >div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message {
+    max-width: 400px;
+    padding: $standard-padding;
+    border-radius: $bubble-border-radius;
+    overflow-wrap: break-word;
+  }
+
+  .user {
+    @include user;
+    background-image: linear-gradient(90deg, $Btn_thame1, $Btn_thame2);
+    color: $White;
+    padding: 2px 10px;
+    border-radius: 5px;
+  }
+    .chat-login {
+      background: linear-gradient(90deg, $Btn_thame1 0%, $Btn_thame2 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+    }
+
+  .bot {
+    @include bot;
+  }
+
+  .options {
+    background: white;
+    display: flex;
+    align-items: center;
+
+    >div:first-child {
+      font-size: 1.3em;
+      margin: 0.7em 0.7em 0.9em 0.3em;
+      transform: rotate(90deg);
+
+      i {
+        color: #393e46;
+        animation: arrow-move 1.2s infinite;
+
+        @keyframes arrow-move {
+          0% {
+            transform: translateY(4px);
+          }
+
+          50% {
+            transform: translateY(0);
+          }
+
+          100% {
+            transform: translateY(4px);
+          }
+        }
+      }
+    }
+
+    p {
+      padding: $standard-padding;
+      margin-right: 0.8em;
+      @include bot;
+      border-radius: $bubble-border-radius;
+
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .dummy-div {
+    padding: 0.5em 0;
+  }
+}
+
+
+.dot-falling {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #FF512F;
+  color: #FF512F;
+  box-shadow: 9999px 0 0 0 #FF512F;
+  animation: dot-falling 1s infinite linear;
+  animation-delay: 0.1s;
+ 
+}
+.stage {
+  margin-left: 16px;
+}
+.dot-falling::before, .dot-falling::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot-falling::before {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #FF512F;
+  color: #FF512F;
+  animation: dot-falling-before 1s infinite linear;
+  animation-delay: 0s;
+}
+.dot-falling::after {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #FF512F;
+  color: #FF512F;
+  animation: dot-falling-after 1s infinite linear;
+  animation-delay: 0.2s;
+}
+
+@keyframes dot-falling {
+  0% {
+    box-shadow: 9999px -15px 0 0 rgba(152, 128, 255, 0);
+  }
+  25%, 50%, 75% {
+    box-shadow: 9999px 0 0 0 #FF512F;
+  }
+  100% {
+    box-shadow: 9999px 15px 0 0 rgba(152, 128, 255, 0);
+  }
+}
+@keyframes dot-falling-before {
+  0% {
+    box-shadow: 9984px -15px 0 0 rgba(152, 128, 255, 0);
+  }
+  25%, 50%, 75% {
+    box-shadow: 9984px 0 0 0 #FF512F;
+  }
+  100% {
+    box-shadow: 9984px 15px 0 0 rgba(152, 128, 255, 0);
+  }
+}
+@keyframes dot-falling-after {
+  0% {
+    box-shadow: 10014px -15px 0 0 rgba(152, 128, 255, 0);
+  }
+  25%, 50%, 75% {
+    box-shadow: 10014px 0 0 0 #FF512F;
+  }
+  100% {
+    box-shadow: 10014px 15px 0 0 rgba(152, 128, 255, 0);
+  }
+}
